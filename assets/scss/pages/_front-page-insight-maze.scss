@@ -1,0 +1,215 @@
+@use "../abstracts/mixins";
+
+.insight-maze {
+  width: 100%;
+  height: #{mixins.vw(760px)};
+  margin-top: #{mixins.vw(72px)};
+  position: relative;
+}
+
+.insight-maze__image {
+  position: absolute;
+  top: #{mixins.vw(96px)};
+  left: 50%;
+  width: #{mixins.vw(575px)};
+  height: #{mixins.vw(575px)};
+  transform: translateX(-50%);
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/minos_result.webp") center/cover no-repeat;
+}
+
+.insight-maze__connector {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+}
+
+.insight-maze__line {
+  display: block;
+  height: 1px;
+  background: #fff;
+  opacity: 0.7;
+}
+
+.insight-maze__node {
+  width: #{mixins.vw(32px)};
+  height: #{mixins.vw(32px)};
+  border-radius: #{mixins.vw(32px)};
+  backdrop-filter: blur(#{mixins.vw(8.5714283px)});
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insight-maze__node-core {
+  width: #{mixins.vw(9.143px)};
+  height: #{mixins.vw(9.143px)};
+  border-radius: #{mixins.vw(9.143px)};
+  background: #fff;
+}
+
+.insight-maze__connector--top-left {
+  top: #{mixins.vw(128px)};
+  left: #{mixins.vw(470px)};
+}
+
+.insight-maze__connector--top-left .insight-maze__line {
+  width: #{mixins.vw(158.5px)};
+}
+
+.insight-maze__connector--top-right {
+  top: #{mixins.vw(168px)};
+  right: #{mixins.vw(466px)};
+  transform: rotate(-90deg);
+}
+
+.insight-maze__connector--top-right .insight-maze__line {
+  width: #{mixins.vw(180.5px)};
+}
+
+.insight-maze__connector--bottom-left {
+  bottom: #{mixins.vw(170px)};
+  left: #{mixins.vw(518px)};
+}
+
+.insight-maze__connector--bottom-left .insight-maze__line {
+  width: #{mixins.vw(106.5px)};
+}
+
+.insight-maze__connector--bottom-right {
+  bottom: #{mixins.vw(170px)};
+  right: #{mixins.vw(468px)};
+  flex-direction: row-reverse;
+}
+
+.insight-maze__connector--bottom-right .insight-maze__line {
+  width: #{mixins.vw(158.5px)};
+}
+
+.insight-card {
+  position: absolute;
+  width: #{mixins.vw(440px)};
+  height: #{mixins.vw(240px)};
+  backdrop-filter: blur(#{mixins.vw(20px)});
+  background: rgba(255, 255, 255, 0.04);
+  padding: #{mixins.vw(8px)};
+}
+
+.insight-card__inner {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(#{mixins.vw(15px)});
+  padding: #{mixins.vw(24px)};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.insight-card__icon {
+  width: #{mixins.vw(32px)};
+  height: #{mixins.vw(32px)};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.insight-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.insight-card__text {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.insight-card__text--342 {
+  width: #{mixins.vw(342px)};
+}
+
+.insight-card__text--349 {
+  width: #{mixins.vw(349px)};
+}
+
+.insight-card__text--381 {
+  width: #{mixins.vw(381px)};
+}
+
+.insight-card__text--383 {
+  width: #{mixins.vw(383px)};
+}
+
+.insight-card--top-left {
+  top: 0;
+  left: #{mixins.vw(20px)};
+}
+
+.insight-card--top-right {
+  top: 0;
+  right: #{mixins.vw(20px)};
+}
+
+.insight-card--bottom-left {
+  bottom: 0;
+  left: #{mixins.vw(20px)};
+}
+
+.insight-card--bottom-right {
+  bottom: 0;
+  right: #{mixins.vw(20px)};
+}
+
+@include mixins.mobile {
+  .insight-maze {
+    margin-top: #{mixins.mvw(48px)};
+    height: auto;
+    display: grid;
+    gap: #{mixins.mvw(20px)};
+  }
+
+  .insight-maze__image {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    height: #{mixins.mvw(300px)};
+  }
+
+  .insight-maze__connector {
+    display: none;
+  }
+
+  .insight-card {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: #{mixins.mvw(8px)};
+  }
+
+  .insight-card__inner {
+    padding: #{mixins.mvw(20px)};
+    gap: #{mixins.mvw(24px)};
+  }
+
+  .insight-card__icon {
+    width: #{mixins.mvw(32px)};
+    height: #{mixins.mvw(32px)};
+  }
+
+  .insight-card__text,
+  .insight-card__text--342,
+  .insight-card__text--349,
+  .insight-card__text--381,
+  .insight-card__text--383 {
+    width: 100%;
+    font-size: #{mixins.mvw(16px)};
+  }
+}

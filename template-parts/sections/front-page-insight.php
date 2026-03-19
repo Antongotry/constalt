@@ -24,4 +24,6 @@
         Повна картина з’являється тоді, коли ці елементи зведені разом.
         <strong>Саме на їх перетині виникають ситуації, що потребують участі власника:</strong>
     </p>
+
+    <?php get_template_part('template-parts/sections/front-page-insight', 'maze'); ?>
 </section>
