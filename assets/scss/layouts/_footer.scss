@@ -45,6 +45,11 @@
   max-width: #{mixins.vw(260px)};
 }
 
+.site-footer__column--nav,
+.site-footer__column--directions {
+  min-height: #{mixins.vw(258px)};
+}
+
 .site-footer__contact-block {
   display: inline-flex;
   flex-direction: column;
@@ -53,11 +58,7 @@
 }
 
 .site-footer__contact-block--secondary {
-  margin-top: #{mixins.vw(66px)};
-}
-
-.site-footer__contact-block--address.site-footer__contact-block--secondary {
-  margin-top: #{mixins.vw(34px)};
+  margin-top: auto;
 }
 
 .site-footer__label {
@@ -230,11 +231,12 @@
     width: 100%;
   }
 
-  .site-footer__contact-block--secondary {
-    margin-top: #{mixins.mvw(24px)};
+  .site-footer__column--nav,
+  .site-footer__column--directions {
+    min-height: auto;
   }
 
-  .site-footer__contact-block--address.site-footer__contact-block--secondary {
+  .site-footer__contact-block--secondary {
     margin-top: #{mixins.mvw(24px)};
   }
 
