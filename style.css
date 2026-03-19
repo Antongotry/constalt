@@ -1,0 +1,16 @@
+/*
+Theme Name: Constalt
+Theme URI: https://github.com/Antongotry/constalt
+Author: Constalt Team
+Description: Starter theme for the Constalt website.
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.6
+Requires PHP: 8.1
+Text Domain: constalt
+*/
+
+html,
+body {
+  background: #ffffff;
+}

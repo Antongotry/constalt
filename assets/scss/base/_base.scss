@@ -1,0 +1,26 @@
+@use "../abstracts/variables";
+
+:root {
+  --color-background: #{variables.$color-background};
+  --color-text: #{variables.$color-text};
+  --container-width: #{variables.$container-width};
+  --space-1: #{variables.$space-1};
+  --space-2: #{variables.$space-2};
+  --space-3: #{variables.$space-3};
+  --space-4: #{variables.$space-4};
+  --space-5: #{variables.$space-5};
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: "Manrope", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+}

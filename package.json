@@ -1,0 +1,13 @@
+{
+  "name": "constalt-theme",
+  "private": true,
+  "version": "0.1.0",
+  "description": "WordPress theme workflow for Constalt",
+  "scripts": {
+    "dev": "sass --watch assets/scss/main.scss:assets/css/main.css --style=expanded",
+    "build": "sass assets/scss/main.scss:assets/css/main.css --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.93.0"
+  }
+}
