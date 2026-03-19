@@ -179,9 +179,25 @@
 
 .site-footer__bottom {
   padding-top: #{mixins.vw(24px)};
-  display: flex;
+  display: grid;
+  grid-template-columns: #{mixins.vw(221px)} #{mixins.vw(221px)} #{mixins.vw(221px)} #{mixins.vw(221px)} #{mixins.vw(324px)};
   align-items: center;
   justify-content: space-between;
+}
+
+.site-footer__meta-link--privacy {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.site-footer__meta-link--offer {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.site-footer__meta-link--credit {
+  grid-column: 5;
+  justify-self: end;
 }
 
 @include mixins.mobile {
@@ -272,6 +288,7 @@
 
   .site-footer__bottom {
     padding-top: #{mixins.mvw(20px)};
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: #{mixins.mvw(12px)};
