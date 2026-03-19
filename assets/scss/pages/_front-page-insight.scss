@@ -1,0 +1,119 @@
+@use "../abstracts/mixins";
+
+.insight-section {
+  width: #{mixins.vw(1360px)};
+  margin: #{mixins.vw(150px)} auto 0;
+}
+
+.insight-section__line-top {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.insight-section__marker {
+  margin-top: #{mixins.vw(56px)};
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.insight-section__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  aspect-ratio: 1 / 1;
+  background: var(--22222, linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%)), #ffdf9f;
+  transform: rotate(-90deg);
+}
+
+.insight-section__marker-text {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  text-align: center;
+}
+
+.insight-section__title {
+  width: #{mixins.vw(883px)};
+  margin: #{mixins.vw(52px)} auto 0;
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(42px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 98%;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.insight-section__title strong {
+  font-weight: 700;
+}
+
+.insight-section__line-vertical {
+  width: 1px;
+  height: #{mixins.vw(60px)};
+  margin: #{mixins.vw(48px)} auto 0;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.insight-section__summary {
+  width: #{mixins.vw(473px)};
+  margin: #{mixins.vw(36px)} auto 0;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  text-align: center;
+}
+
+.insight-section__summary strong {
+  font-weight: 700;
+}
+
+@include mixins.mobile {
+  .insight-section {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+    margin-top: #{mixins.mvw(80px)};
+  }
+
+  .insight-section__marker {
+    margin-top: #{mixins.mvw(32px)};
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .insight-section__marker-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .insight-section__marker-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .insight-section__title {
+    width: 100%;
+    margin-top: #{mixins.mvw(28px)};
+    font-size: #{mixins.mvw(36px)};
+  }
+
+  .insight-section__line-vertical {
+    height: #{mixins.mvw(60px)};
+    margin-top: #{mixins.mvw(32px)};
+  }
+
+  .insight-section__summary {
+    width: 100%;
+    margin-top: #{mixins.mvw(24px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+}
