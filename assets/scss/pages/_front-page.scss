@@ -11,7 +11,7 @@
   height: 100svh;
   padding-top: #{mixins.vw(10px)};
   background: var(--color-background);
-  background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp");
+  background-image: var(--hero-bg-image, url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp"));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
