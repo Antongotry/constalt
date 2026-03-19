@@ -1,14 +1,26 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 :root {
   --color-background: #{variables.$color-background};
   --color-text: #{variables.$color-text};
-  --container-width: #{variables.$container-width};
-  --space-1: #{variables.$space-1};
-  --space-2: #{variables.$space-2};
-  --space-3: #{variables.$space-3};
-  --space-4: #{variables.$space-4};
-  --space-5: #{variables.$space-5};
+  --container-width: #{mixins.vw(variables.$container-width)};
+  --space-1: #{mixins.vw(variables.$space-1)};
+  --space-2: #{mixins.vw(variables.$space-2)};
+  --space-3: #{mixins.vw(variables.$space-3)};
+  --space-4: #{mixins.vw(variables.$space-4)};
+  --space-5: #{mixins.vw(variables.$space-5)};
+}
+
+@include mixins.mobile {
+  :root {
+    --container-width: 100%;
+    --space-1: #{mixins.mvw(variables.$space-1)};
+    --space-2: #{mixins.mvw(variables.$space-2)};
+    --space-3: #{mixins.mvw(variables.$space-3)};
+    --space-4: #{mixins.mvw(variables.$space-4)};
+    --space-5: #{mixins.mvw(variables.$space-5)};
+  }
 }
 
 html,
@@ -22,5 +34,10 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   font-family: "Manrope", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
   line-height: 1.5;
+
+  @include mixins.mobile {
+    font-size: #{mixins.mvw(16px)};
+  }
 }

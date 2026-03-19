@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "sass:math";
 @use "variables";
 
 $breakpoints: (
@@ -8,7 +10,7 @@ $breakpoints: (
 );
 
 @mixin respond($breakpoint) {
-  $size: map-get($breakpoints, $breakpoint);
+  $size: map.get($breakpoints, $breakpoint);
 
   @if $size {
     @media (min-width: $size) {
@@ -17,7 +19,25 @@ $breakpoints: (
   }
 }
 
+@function vw($value, $base: variables.$design-width-desktop) {
+  @return math.div($value, $base) * 100vw;
+}
+
+@function mvw($value, $base: variables.$design-width-mobile) {
+  @return math.div($value, $base) * 100vw;
+}
+
+@mixin mobile {
+  @media (max-width: variables.$breakpoint-mobile-max) {
+    @content;
+  }
+}
+
 @mixin container {
-  width: min(100% - (#{variables.$space-4} * 2), variables.$container-width);
+  width: min(100% - #{vw(48px)}, #{vw(variables.$container-width)});
   margin-inline: auto;
+
+  @include mobile {
+    width: min(100% - #{mvw(32px)}, 100%);
+  }
 }
