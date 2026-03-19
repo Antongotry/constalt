@@ -42,7 +42,7 @@
   margin: #{mixins.vw(40px)} auto 0;
   color: #e9e9e9;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(56px)};
+  font-size: #{mixins.vw(42px)};
   font-weight: 300;
   line-height: 98%;
   text-align: center;
@@ -171,14 +171,26 @@
 
 .collaboration-card__result {
   margin-top: auto;
+  position: relative;
   background: var(--result-bg);
-  border: 1px solid var(--result-border);
-  min-height: #{mixins.vw(130px)};
+  height: #{mixins.vw(130px)};
   padding: #{mixins.vw(16px)};
+  display: flex;
+  flex-direction: column;
+}
+
+.collaboration-card__result::before {
+  content: "";
+  position: absolute;
+  inset: #{mixins.vw(8px)};
+  border: 1px solid var(--result-border);
+  pointer-events: none;
 }
 
 .collaboration-card__result-label {
   margin: 0;
+  position: relative;
+  z-index: 1;
   color: var(--result-muted);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
@@ -188,6 +200,8 @@
 
 .collaboration-card__result-text {
   margin: #{mixins.vw(12px)} 0 0;
+  position: relative;
+  z-index: 1;
   color: var(--result-text);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
@@ -318,12 +332,24 @@
   width: #{mixins.vw(342px)};
 }
 
+.collaboration-card--expert .collaboration-card__result-text {
+  width: #{mixins.vw(281px)};
+}
+
 .collaboration-card--project .collaboration-card__subtitle {
   width: #{mixins.vw(342px)};
 }
 
+.collaboration-card--project .collaboration-card__result-text {
+  width: #{mixins.vw(322px)};
+}
+
 .collaboration-card--strategic .collaboration-card__subtitle {
   width: #{mixins.vw(360px)};
+}
+
+.collaboration-card--strategic .collaboration-card__result-text {
+  width: #{mixins.vw(310px)};
 }
 
 @include mixins.mobile {
@@ -391,14 +417,22 @@
   .collaboration-card__subtitle,
   .collaboration-card--expert .collaboration-card__subtitle,
   .collaboration-card--project .collaboration-card__subtitle,
-  .collaboration-card--strategic .collaboration-card__subtitle {
+  .collaboration-card--strategic .collaboration-card__subtitle,
+  .collaboration-card--expert .collaboration-card__result-text,
+  .collaboration-card--project .collaboration-card__result-text,
+  .collaboration-card--strategic .collaboration-card__result-text {
     width: 100%;
   }
 
   .collaboration-card__result {
     margin-top: #{mixins.mvw(28px)};
     min-height: auto;
+    height: auto;
     padding: #{mixins.mvw(16px)};
+  }
+
+  .collaboration-card__result::before {
+    inset: #{mixins.mvw(8px)};
   }
 
   .collaboration-card__link {
