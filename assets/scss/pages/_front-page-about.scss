@@ -83,7 +83,7 @@
 }
 
 .about-card__glass {
-  flex: 1;
+  height: #{mixins.vw(366px)};
   padding: #{mixins.vw(24px)};
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(#{mixins.vw(35px)});
@@ -117,7 +117,7 @@
 }
 
 .about-card__plain {
-  min-height: #{mixins.vw(320px)};
+  height: #{mixins.vw(366px)};
   padding: #{mixins.vw(24px)};
   background: #fff;
   display: flex;
