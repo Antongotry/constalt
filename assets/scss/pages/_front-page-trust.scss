@@ -2,10 +2,21 @@
 
 .trust-section {
   position: relative;
-  background: #051120 url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp")
-    center bottom / cover no-repeat;
+  background: #051120;
   padding: #{mixins.vw(40px)} 0 #{mixins.vw(110px)};
   overflow: hidden;
+}
+
+.trust-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: #{mixins.vw(820px)};
+  height: #{mixins.vw(760px)};
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp")
+    left bottom / cover no-repeat;
+  pointer-events: none;
 }
 
 .trust-section::after {
@@ -163,6 +174,13 @@
 
   .trust-section::after {
     height: #{mixins.mvw(120px)};
+  }
+
+  .trust-section::before {
+    width: 100%;
+    height: #{mixins.mvw(360px)};
+    background-position: left bottom;
+    background-size: cover;
   }
 
   .trust-section__container {
