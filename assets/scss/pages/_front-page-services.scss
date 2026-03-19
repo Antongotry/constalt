@@ -103,14 +103,8 @@
 .service-detail__media-inner {
   width: 100%;
   height: 100%;
-  background: linear-gradient(145deg, #edf1f7 10%, #d7e0ed 45%, #b2c3db 100%);
-  color: rgba(5, 17, 32, 0.4);
-  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(16px)};
-  font-weight: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-ima_result.webp")
+    center / cover no-repeat;
 }
 
 .service-detail__content {
@@ -217,12 +211,28 @@
 
 .service-detail__action {
   width: #{mixins.vw(300px)};
+  justify-content: space-between;
+  gap: 0;
+  padding: #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(20px)};
+}
+
+.service-detail__action .hero-pill__label {
+  flex: 1;
+  text-align: left;
 }
 
 .hero-pill--outline-dark {
   border: 1px solid rgba(5, 17, 32, 0.16);
   background: transparent;
   color: #192432;
+}
+
+.service-detail__action.hero-pill--light .hero-pill__icon {
+  padding: #{mixins.vw(11.674px)} #{mixins.vw(11.348px)} #{mixins.vw(11.675px)} #{mixins.vw(12px)};
+}
+
+.service-detail__action.hero-pill--outline-dark .hero-pill__icon {
+  padding: #{mixins.vw(12px)} #{mixins.vw(11.348px)} #{mixins.vw(11.348px)} #{mixins.vw(12px)};
 }
 
 .hero-pill--outline-dark .hero-pill__icon {

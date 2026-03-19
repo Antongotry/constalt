@@ -27,7 +27,7 @@
 
         <div class="service-detail">
             <div class="service-detail__media" aria-hidden="true">
-                <div class="service-detail__media-inner">IMAGE PLACEHOLDER</div>
+                <div class="service-detail__media-inner"></div>
             </div>
 
             <div class="service-detail__content">
