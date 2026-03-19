@@ -5,8 +5,9 @@
  * @package constalt
  */
 ?>
-<section class="services-section">
-    <div class="services-section__container">
+<section class="services-section" data-services-scroll>
+    <div class="services-section__pin" data-services-pin>
+        <div class="services-section__container">
         <div class="services-section__marker">
             <span class="services-section__marker-dot" aria-hidden="true"></span>
             <p class="services-section__marker-text">Напрямки роботи з бізнесом</p>
@@ -25,7 +26,9 @@
             <button class="services-tabs__item" type="button" role="tab" aria-selected="false" aria-controls="service-panel-4" id="service-tab-4" data-service-tab="4">Юридична архітектура<br>та захист активів</button>
         </div>
 
-        <div class="service-detail service-detail--finance is-active" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1" data-service-panel="1">
+        <div class="services-section__viewport" data-services-viewport>
+            <div class="services-section__rail" data-services-rail>
+                <div class="service-detail service-detail--finance is-active" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1" data-service-panel="1">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -77,9 +80,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
 
-        <div class="service-detail service-detail--corporate" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" data-service-panel="2" hidden>
+                <div class="service-detail service-detail--corporate" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" data-service-panel="2">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -128,9 +131,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
 
-        <div class="service-detail service-detail--due-diligence" id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3" data-service-panel="3" hidden>
+                <div class="service-detail service-detail--due-diligence" id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3" data-service-panel="3">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -179,9 +182,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
 
-        <div class="service-detail service-detail--legal" id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4" data-service-panel="4" hidden>
+                <div class="service-detail service-detail--legal" id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4" data-service-panel="4">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -230,6 +233,9 @@
                     </div>
                 </div>
             </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </section>
