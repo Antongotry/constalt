@@ -47,7 +47,7 @@
 
 .site-footer__column--nav,
 .site-footer__column--directions {
-  min-height: #{mixins.vw(258px)};
+  height: #{mixins.vw(340px)};
 }
 
 .site-footer__contact-block {
@@ -114,6 +114,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: #{mixins.vw(416px)};
+  height: #{mixins.vw(340px)};
   gap: #{mixins.vw(32px)};
 }
 
@@ -160,6 +161,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: #{mixins.vw(8px)};
+  margin-top: auto;
 }
 
 .site-footer__social {
@@ -233,7 +235,11 @@
 
   .site-footer__column--nav,
   .site-footer__column--directions {
-    min-height: auto;
+    height: auto;
+  }
+
+  .site-footer__aside {
+    height: auto;
   }
 
   .site-footer__contact-block--secondary {
