@@ -108,6 +108,7 @@ function constalt_enqueue_assets(): void
 {
     $runtime_buster = constalt_runtime_buster();
     $lenis_version = 'latest-' . $runtime_buster;
+    $swiper_version = '11.2.6-' . $runtime_buster;
 
     wp_enqueue_style(
         'constalt-fonts',
@@ -130,6 +131,13 @@ function constalt_enqueue_assets(): void
         constalt_asset_version('/assets/css/main.css') . '-' . $runtime_buster
     );
 
+    wp_enqueue_style(
+        'constalt-swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        ['constalt-main'],
+        $swiper_version
+    );
+
     wp_enqueue_script(
         'constalt-lenis',
         'https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js',
@@ -139,9 +147,17 @@ function constalt_enqueue_assets(): void
     );
 
     wp_enqueue_script(
+        'constalt-swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        [],
+        $swiper_version,
+        true
+    );
+
+    wp_enqueue_script(
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['constalt-lenis'],
+        ['constalt-lenis', 'constalt-swiper'],
         constalt_asset_version('/assets/js/main.js') . '-' . $runtime_buster,
         true
     );

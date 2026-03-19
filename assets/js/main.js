@@ -29,6 +29,8 @@
 
     var tabs = section.querySelectorAll('[data-service-tab]');
     var panels = section.querySelectorAll('[data-service-panel]');
+    var swiperRoot = section.querySelector('[data-services-swiper]');
+    var swiperInstance = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -44,13 +46,41 @@
       panels.forEach(function (panel) {
         var isActive = panel.getAttribute('data-service-panel') === id;
         panel.classList.toggle('is-active', isActive);
-        panel.hidden = !isActive;
+        panel.hidden = swiperInstance ? false : !isActive;
+      });
+    }
+
+    if (swiperRoot && typeof window.Swiper === 'function') {
+      panels.forEach(function (panel) {
+        panel.hidden = false;
+      });
+
+      section.classList.add('services-section--swiper-ready');
+
+      swiperInstance = new window.Swiper(swiperRoot, {
+        slidesPerView: 1,
+        speed: 700,
+        allowTouchMove: true,
+        resistanceRatio: 0.72,
+        spaceBetween: 0,
+        autoHeight: false
+      });
+
+      swiperInstance.on('slideChange', function () {
+        activateTab(String(swiperInstance.activeIndex + 1));
       });
     }
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        activateTab(tab.getAttribute('data-service-tab'));
+        var id = tab.getAttribute('data-service-tab');
+        var index = Number(id) - 1;
+
+        if (swiperInstance) {
+          swiperInstance.slideTo(index);
+        }
+
+        activateTab(id);
       });
     });
   }

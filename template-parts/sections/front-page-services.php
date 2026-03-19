@@ -24,8 +24,10 @@
             <button class="services-tabs__item" type="button" role="tab" aria-selected="false" aria-controls="service-panel-3" id="service-tab-3" data-service-tab="3">Due Diligence та<br>інвестиційний супровід</button>
             <button class="services-tabs__item" type="button" role="tab" aria-selected="false" aria-controls="service-panel-4" id="service-tab-4" data-service-tab="4">Юридична архітектура<br>та захист активів</button>
         </div>
-
-        <div class="service-detail service-detail--finance is-active" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1" data-service-panel="1">
+        <div class="services-swiper swiper" data-services-swiper>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="service-detail service-detail--finance is-active" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1" data-service-panel="1">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -78,8 +80,10 @@
                 </div>
             </div>
         </div>
+                </div>
 
-        <div class="service-detail service-detail--corporate" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" data-service-panel="2" hidden>
+                <div class="swiper-slide">
+                    <div class="service-detail service-detail--corporate" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" data-service-panel="2">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -129,8 +133,10 @@
                 </div>
             </div>
         </div>
+                </div>
 
-        <div class="service-detail service-detail--due-diligence" id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3" data-service-panel="3" hidden>
+                <div class="swiper-slide">
+                    <div class="service-detail service-detail--due-diligence" id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3" data-service-panel="3">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -180,8 +186,10 @@
                 </div>
             </div>
         </div>
+                </div>
 
-        <div class="service-detail service-detail--legal" id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4" data-service-panel="4" hidden>
+                <div class="swiper-slide">
+                    <div class="service-detail service-detail--legal" id="service-panel-4" role="tabpanel" aria-labelledby="service-tab-4" data-service-panel="4">
             <div class="service-detail__media" aria-hidden="true">
                 <div class="service-detail__media-inner"></div>
             </div>
@@ -227,6 +235,9 @@
                                 </svg>
                             </span>
                         </a>
+                    </div>
+                </div>
+            </div>
                     </div>
                 </div>
             </div>
