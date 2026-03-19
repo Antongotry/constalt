@@ -11,6 +11,23 @@ if (! defined('CONSTALT_THEME_VERSION')) {
     define('CONSTALT_THEME_VERSION', '0.1.0');
 }
 
+// Request full-page cache bypass in common WordPress cache plugins.
+if (! defined('DONOTCACHEPAGE')) {
+    define('DONOTCACHEPAGE', true);
+}
+
+if (! defined('DONOTCACHEOBJECT')) {
+    define('DONOTCACHEOBJECT', true);
+}
+
+if (! defined('DONOTCACHEDB')) {
+    define('DONOTCACHEDB', true);
+}
+
+if (! defined('DONOTMINIFY')) {
+    define('DONOTMINIFY', true);
+}
+
 /**
  * Configure theme features.
  */
@@ -56,6 +73,14 @@ function constalt_asset_version(string $relative_path): string
 }
 
 /**
+ * Runtime cache buster used for deployment/debug sessions.
+ */
+function constalt_runtime_buster(): string
+{
+    return (string) time();
+}
+
+/**
  * Prevent browser caching for frontend pages.
  */
 function constalt_disable_frontend_cache(): void
@@ -66,8 +91,13 @@ function constalt_disable_frontend_cache(): void
 
     nocache_headers();
     header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Cache-Control: post-check=0, pre-check=0', false);
     header('Pragma: no-cache');
     header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
+    header('Surrogate-Control: no-store');
+    header('X-Accel-Expires: 0');
+    header('X-LiteSpeed-Cache-Control: no-cache');
+    header('Vary: *');
 }
 add_action('send_headers', 'constalt_disable_frontend_cache');
 
@@ -76,32 +106,34 @@ add_action('send_headers', 'constalt_disable_frontend_cache');
  */
 function constalt_enqueue_assets(): void
 {
+    $runtime_buster = constalt_runtime_buster();
+
     wp_enqueue_style(
         'constalt-fonts',
         'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
         [],
-        null
+        $runtime_buster
     );
 
     wp_enqueue_style(
         'constalt-style',
         get_stylesheet_uri(),
         [],
-        constalt_asset_version('/style.css')
+        constalt_asset_version('/style.css') . '-' . $runtime_buster
     );
 
     wp_enqueue_style(
         'constalt-main',
         get_template_directory_uri() . '/assets/css/main.css',
         ['constalt-style', 'constalt-fonts'],
-        constalt_asset_version('/assets/css/main.css')
+        constalt_asset_version('/assets/css/main.css') . '-' . $runtime_buster
     );
 
     wp_enqueue_script(
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
-        constalt_asset_version('/assets/js/main.js'),
+        constalt_asset_version('/assets/js/main.js') . '-' . $runtime_buster,
         true
     );
 }
