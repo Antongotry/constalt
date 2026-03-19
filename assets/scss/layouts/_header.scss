@@ -2,6 +2,9 @@
 
 .site-header {
   width: 100%;
+  position: sticky;
+  top: #{mixins.vw(10px)};
+  z-index: 20;
 }
 
 .site-header__inner,
@@ -18,6 +21,7 @@
 
 .site-header__logo-link {
   display: inline-flex;
+  height: 100%;
   align-items: center;
 }
 
@@ -33,6 +37,10 @@
 }
 
 @include mixins.mobile {
+  .site-header {
+    top: #{mixins.mvw(10px)};
+  }
+
   .site-header__inner {
     height: #{mixins.mvw(54px)};
   }
