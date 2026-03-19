@@ -13,15 +13,15 @@
         </div>
 
         <h2 class="collaboration-section__title">
-            <strong>Формат співпраці залежить</strong><br>
-            від задачі, масштабу змін і рівня рішень,<br>
-            які потрібно прийняти
+            <strong>Формат співпраці залежить</strong> від задачі, масштабу змін і рівня рішень, які потрібно прийняти
         </h2>
 
         <div class="collaboration-cards">
             <article class="collaboration-card collaboration-card--dark collaboration-card--expert">
                 <div class="collaboration-card__badge collaboration-card__badge--light" aria-hidden="true">
-                    <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question"></span>
+                    <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-1.svg" alt="">
+                    </span>
                 </div>
 
                 <div class="collaboration-card__content">
