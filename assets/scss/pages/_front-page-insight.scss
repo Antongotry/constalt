@@ -3,6 +3,7 @@
 .insight-section {
   width: #{mixins.vw(1360px)};
   margin: #{mixins.vw(150px)} auto 0;
+  padding-bottom: #{mixins.vw(40px)};
 }
 
 .insight-section__line-top {
@@ -84,6 +85,7 @@
   .insight-section {
     width: min(100% - #{mixins.mvw(32px)}, 100%);
     margin-top: #{mixins.mvw(80px)};
+    padding-bottom: #{mixins.mvw(24px)};
   }
 
   .insight-section__marker {

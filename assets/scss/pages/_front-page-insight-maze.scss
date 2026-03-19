@@ -14,77 +14,7 @@
   width: #{mixins.vw(575px)};
   height: #{mixins.vw(575px)};
   transform: translateX(-50%);
-  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/minos_result.webp") center/cover no-repeat;
-}
-
-.insight-maze__connector {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: #{mixins.vw(8px)};
-}
-
-.insight-maze__line {
-  display: block;
-  height: 1px;
-  background: #fff;
-  opacity: 0.7;
-}
-
-.insight-maze__node {
-  width: #{mixins.vw(32px)};
-  height: #{mixins.vw(32px)};
-  border-radius: #{mixins.vw(32px)};
-  backdrop-filter: blur(#{mixins.vw(8.5714283px)});
-  background: rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.insight-maze__node-core {
-  width: #{mixins.vw(9.143px)};
-  height: #{mixins.vw(9.143px)};
-  border-radius: #{mixins.vw(9.143px)};
-  background: #fff;
-}
-
-.insight-maze__connector--top-left {
-  top: #{mixins.vw(128px)};
-  left: #{mixins.vw(470px)};
-}
-
-.insight-maze__connector--top-left .insight-maze__line {
-  width: #{mixins.vw(158.5px)};
-}
-
-.insight-maze__connector--top-right {
-  top: #{mixins.vw(168px)};
-  right: #{mixins.vw(466px)};
-  transform: rotate(-90deg);
-}
-
-.insight-maze__connector--top-right .insight-maze__line {
-  width: #{mixins.vw(180.5px)};
-}
-
-.insight-maze__connector--bottom-left {
-  bottom: #{mixins.vw(170px)};
-  left: #{mixins.vw(518px)};
-}
-
-.insight-maze__connector--bottom-left .insight-maze__line {
-  width: #{mixins.vw(106.5px)};
-}
-
-.insight-maze__connector--bottom-right {
-  bottom: #{mixins.vw(170px)};
-  right: #{mixins.vw(468px)};
-  flex-direction: row-reverse;
-}
-
-.insight-maze__connector--bottom-right .insight-maze__line {
-  width: #{mixins.vw(158.5px)};
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/minos-2_result.webp") center/cover no-repeat;
 }
 
 .insight-card {
@@ -115,7 +45,8 @@
   justify-content: center;
 }
 
-.insight-card__icon svg {
+.insight-card__icon svg,
+.insight-card__icon img {
   width: 100%;
   height: 100%;
 }
@@ -181,10 +112,6 @@
     transform: none;
     width: 100%;
     height: #{mixins.mvw(300px)};
-  }
-
-  .insight-maze__connector {
-    display: none;
   }
 
   .insight-card {

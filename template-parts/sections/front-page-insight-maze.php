@@ -8,26 +8,6 @@
 <div class="insight-maze">
     <div class="insight-maze__image" aria-hidden="true"></div>
 
-    <div class="insight-maze__connector insight-maze__connector--top-left" aria-hidden="true">
-        <span class="insight-maze__line"></span>
-        <span class="insight-maze__node"><span class="insight-maze__node-core"></span></span>
-    </div>
-
-    <div class="insight-maze__connector insight-maze__connector--top-right" aria-hidden="true">
-        <span class="insight-maze__line"></span>
-        <span class="insight-maze__node"><span class="insight-maze__node-core"></span></span>
-    </div>
-
-    <div class="insight-maze__connector insight-maze__connector--bottom-left" aria-hidden="true">
-        <span class="insight-maze__line"></span>
-        <span class="insight-maze__node"><span class="insight-maze__node-core"></span></span>
-    </div>
-
-    <div class="insight-maze__connector insight-maze__connector--bottom-right" aria-hidden="true">
-        <span class="insight-maze__line"></span>
-        <span class="insight-maze__node"><span class="insight-maze__node-core"></span></span>
-    </div>
-
     <article class="insight-card insight-card--top-left">
         <div class="insight-card__inner">
             <div class="insight-card__icon" aria-hidden="true">
