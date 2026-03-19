@@ -2,9 +2,10 @@
 
 .site-header {
   width: 100%;
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: #{mixins.vw(10px)};
-  z-index: 20;
+  z-index: 200;
 }
 
 .site-header__inner,

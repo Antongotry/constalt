@@ -13,7 +13,6 @@ $asset_buster = (string) time();
     class="hero hero--front-page"
     style="--hero-bg-image: url('https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp?v=<?php echo esc_attr($asset_buster); ?>');"
 >
-    <?php get_template_part('template-parts/layout/site', 'header'); ?>
     <div class="hero__bottom">
         <div class="hero__bottom-line" aria-hidden="true"></div>
         <div class="hero__bottom-content">
