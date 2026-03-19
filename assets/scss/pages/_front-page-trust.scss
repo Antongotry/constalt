@@ -2,9 +2,8 @@
 
 .trust-section {
   position: relative;
-  background:
-    radial-gradient(80% 55% at 20% 62%, rgba(89, 128, 173, 0.38) 0%, rgba(89, 128, 173, 0) 70%),
-    #051120;
+  background: #051120 url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp")
+    center bottom / cover no-repeat;
   padding: #{mixins.vw(40px)} 0 #{mixins.vw(110px)};
   overflow: hidden;
 }
