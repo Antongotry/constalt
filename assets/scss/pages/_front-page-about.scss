@@ -2,8 +2,9 @@
 
 .about-section {
   position: relative;
-  background: #e9e9e9;
+  background: #051120;
   padding: #{mixins.vw(90px)} 0 #{mixins.vw(100px)};
+  isolation: isolate;
 }
 
 .about-section::before {
@@ -16,9 +17,24 @@
   background: #e9e9e9;
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
   pointer-events: none;
+  z-index: 0;
+}
+
+.about-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: #{mixins.vw(90px)};
+  bottom: 0;
+  background: #e9e9e9;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about-section__container {
+  position: relative;
+  z-index: 1;
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
 }
@@ -216,6 +232,10 @@
 
   .about-section::before {
     height: #{mixins.mvw(56px)};
+  }
+
+  .about-section::after {
+    top: #{mixins.mvw(56px)};
   }
 
   .about-section__container {
