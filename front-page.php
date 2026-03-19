@@ -14,6 +14,7 @@ get_header();
     <?php get_template_part('template-parts/sections/front-page', 'services'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'collaboration'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'trust'); ?>
+    <?php get_template_part('template-parts/sections/front-page', 'about'); ?>
 </main>
 <?php
 get_footer();

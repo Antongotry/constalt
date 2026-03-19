@@ -1,0 +1,296 @@
+@use "../abstracts/mixins";
+
+.about-section {
+  position: relative;
+  background: #e9e9e9;
+  padding: #{mixins.vw(90px)} 0 #{mixins.vw(100px)};
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: #{mixins.vw(-90px)};
+  height: #{mixins.vw(90px)};
+  background: #e9e9e9;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.about-section__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+}
+
+.about-section__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-section__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  background: var(--22222, linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%)), #ffdf9f;
+  transform: rotate(-90deg);
+}
+
+.about-section__marker-text {
+  margin: 0;
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.about-section__title {
+  width: #{mixins.vw(625px)};
+  margin: #{mixins.vw(40px)} auto 0;
+  color: #051120;
+  text-align: center;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(42px)};
+  font-weight: 300;
+  line-height: 108%;
+}
+
+.about-section__title strong {
+  font-weight: 600;
+}
+
+.about-stage {
+  margin-top: #{mixins.vw(60px)};
+  width: 100%;
+  height: #{mixins.vw(780px)};
+  position: relative;
+  overflow: hidden;
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/phonje_result-scaled.webp")
+    center / cover no-repeat;
+}
+
+.about-card--left {
+  position: absolute;
+  left: #{mixins.vw(24px)};
+  top: #{mixins.vw(24px)};
+  width: #{mixins.vw(398px)};
+  height: #{mixins.vw(732px)};
+  display: flex;
+  flex-direction: column;
+}
+
+.about-card__glass {
+  flex: 1;
+  padding: #{mixins.vw(24px)};
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(#{mixins.vw(35px)});
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-card__lead {
+  margin: 0;
+  width: #{mixins.vw(350px)};
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 300;
+  line-height: 124%;
+}
+
+.about-card__lead strong {
+  font-weight: 600;
+}
+
+.about-card__sub {
+  margin: 0;
+  width: #{mixins.vw(350px)};
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.about-card__plain {
+  min-height: #{mixins.vw(320px)};
+  padding: #{mixins.vw(24px)};
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-card__plain-title {
+  margin: 0;
+  width: #{mixins.vw(350px)};
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(42px)};
+  font-weight: 600;
+  line-height: 108%;
+}
+
+.about-card__plain-text {
+  margin: 0;
+  width: #{mixins.vw(316px)};
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.about-card--year {
+  position: absolute;
+  right: #{mixins.vw(24px)};
+  bottom: #{mixins.vw(24px)};
+  width: #{mixins.vw(398px)};
+  height: #{mixins.vw(366px)};
+  background: #192432;
+  padding: #{mixins.vw(8px)};
+}
+
+.about-card__year-inner {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: #{mixins.vw(24px)};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-card__year-head {
+  display: flex;
+  align-items: baseline;
+  gap: #{mixins.vw(8px)};
+}
+
+.about-card__year-pre {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(36.46px)};
+  font-weight: 250;
+  line-height: 140%;
+}
+
+.about-card__year-number {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(112.695px)};
+  font-weight: 600;
+  letter-spacing: #{mixins.vw(-4.508px)};
+  line-height: 98%;
+}
+
+.about-card__year-post {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.about-card__year-text {
+  margin: 0;
+  width: #{mixins.vw(341px)};
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+@include mixins.mobile {
+  .about-section {
+    padding: #{mixins.mvw(60px)} 0 #{mixins.mvw(64px)};
+  }
+
+  .about-section::before {
+    top: #{mixins.mvw(-56px)};
+    height: #{mixins.mvw(56px)};
+  }
+
+  .about-section__container {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+  }
+
+  .about-section__marker {
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .about-section__marker-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .about-section__marker-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .about-section__title {
+    width: 100%;
+    margin-top: #{mixins.mvw(24px)};
+    font-size: #{mixins.mvw(42px)};
+  }
+
+  .about-stage {
+    margin-top: #{mixins.mvw(40px)};
+    height: auto;
+    min-height: #{mixins.mvw(680px)};
+    padding: #{mixins.mvw(16px)};
+    display: grid;
+    gap: #{mixins.mvw(16px)};
+  }
+
+  .about-card--left,
+  .about-card--year {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .about-card__glass,
+  .about-card__plain,
+  .about-card__year-inner {
+    padding: #{mixins.mvw(20px)};
+  }
+
+  .about-card__plain {
+    min-height: #{mixins.mvw(240px)};
+  }
+
+  .about-card__lead,
+  .about-card__sub,
+  .about-card__plain-title,
+  .about-card__plain-text,
+  .about-card__year-text {
+    width: 100%;
+  }
+
+  .about-card__lead,
+  .about-card__plain-title {
+    font-size: #{mixins.mvw(24px)};
+  }
+
+  .about-card__sub,
+  .about-card__plain-text,
+  .about-card__year-post,
+  .about-card__year-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .about-card__year-pre {
+    font-size: #{mixins.mvw(28px)};
+  }
+
+  .about-card__year-number {
+    font-size: #{mixins.mvw(86px)};
+    letter-spacing: #{mixins.mvw(-3px)};
+  }
+}
