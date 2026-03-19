@@ -21,7 +21,9 @@
         <div class="collaboration-cards">
             <article class="collaboration-card collaboration-card--dark collaboration-card--expert">
                 <div class="collaboration-card__badge collaboration-card__badge--light" aria-hidden="true">
-                    <span class="collaboration-card__badge-text">?</span>
+                    <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-1.svg" alt="">
+                    </span>
                 </div>
 
                 <div class="collaboration-card__content">
@@ -58,11 +60,7 @@
             <article class="collaboration-card collaboration-card--light collaboration-card--project">
                 <div class="collaboration-card__badge collaboration-card__badge--dark" aria-hidden="true">
                     <span class="collaboration-card__badge-icon collaboration-card__badge-icon--layers">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 4L19 8L12 12L5 8L12 4Z" stroke="currentColor" stroke-width="1.6"/>
-                            <path d="M5 12L12 16L19 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                            <path d="M5 16L12 20L19 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                        </svg>
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-2.svg" alt="">
                     </span>
                 </div>
 
@@ -100,10 +98,7 @@
             <article class="collaboration-card collaboration-card--gradient collaboration-card--strategic">
                 <div class="collaboration-card__badge collaboration-card__badge--dark" aria-hidden="true">
                     <span class="collaboration-card__badge-icon collaboration-card__badge-icon--key">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8.5" cy="15.5" r="3" stroke="currentColor" stroke-width="1.8"/>
-                            <path d="M11 13L19 5M16 8H19V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-3.svg" alt="">
                     </span>
                 </div>
 

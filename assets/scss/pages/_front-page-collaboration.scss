@@ -230,30 +230,43 @@
 
 .collaboration-card__badge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: #{mixins.vw(9px)};
+  right: #{mixins.vw(8px)};
   width: #{mixins.vw(64px)};
-  height: #{mixins.vw(84px)};
+  height: #{mixins.vw(70px)};
   background: var(--badge-bg);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collaboration-card__badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: #{mixins.vw(56px)};
+  height: #{mixins.vw(66px)};
   border-left: 1px solid var(--badge-border);
   border-right: 1px solid var(--badge-border);
   border-bottom: 1px solid var(--badge-border);
-  z-index: 2;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: #{mixins.vw(16px)};
 }
 
 .collaboration-card__badge-text {
+  position: relative;
+  z-index: 1;
   color: var(--badge-icon);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(32px)};
+  font-size: #{mixins.vw(44px)};
   font-weight: 400;
   line-height: 1;
 }
 
 .collaboration-card__badge-icon {
+  position: relative;
+  z-index: 1;
   width: #{mixins.vw(24px)};
   height: #{mixins.vw(24px)};
   color: var(--badge-icon);
@@ -262,9 +275,15 @@
   justify-content: center;
 }
 
+.collaboration-card__badge-icon img,
 .collaboration-card__badge-icon svg {
   width: 100%;
   height: 100%;
+}
+
+.collaboration-card__badge-icon--question img {
+  width: #{mixins.vw(9.76px)};
+  height: #{mixins.vw(15.906px)};
 }
 
 .collaboration-card--dark {
@@ -387,17 +406,28 @@
   }
 
   .collaboration-card__badge {
+    top: #{mixins.mvw(8px)};
+    right: #{mixins.mvw(8px)};
     width: #{mixins.mvw(64px)};
-    height: #{mixins.mvw(84px)};
-    padding-top: #{mixins.mvw(16px)};
+    height: #{mixins.mvw(70px)};
+  }
+
+  .collaboration-card__badge::before {
+    width: #{mixins.mvw(56px)};
+    height: #{mixins.mvw(66px)};
   }
 
   .collaboration-card__badge-text {
-    font-size: #{mixins.mvw(32px)};
+    font-size: #{mixins.mvw(44px)};
   }
 
   .collaboration-card__badge-icon {
     width: #{mixins.mvw(24px)};
     height: #{mixins.mvw(24px)};
+  }
+
+  .collaboration-card__badge-icon--question img {
+    width: #{mixins.mvw(9.76px)};
+    height: #{mixins.mvw(15.906px)};
   }
 }
