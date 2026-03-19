@@ -286,6 +286,11 @@
   height: #{mixins.vw(15.906px)};
 }
 
+.collaboration-card__badge-icon--question {
+  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-1.svg")
+    center / #{mixins.vw(9.76px)} #{mixins.vw(15.906px)} no-repeat;
+}
+
 .collaboration-card--dark {
   --card-bg: #192432;
   --card-text: #fff;
@@ -429,5 +434,9 @@
   .collaboration-card__badge-icon--question img {
     width: #{mixins.mvw(9.76px)};
     height: #{mixins.mvw(15.906px)};
+  }
+
+  .collaboration-card__badge-icon--question {
+    background-size: #{mixins.mvw(9.76px)} #{mixins.mvw(15.906px)};
   }
 }

@@ -21,9 +21,7 @@
         <div class="collaboration-cards">
             <article class="collaboration-card collaboration-card--dark collaboration-card--expert">
                 <div class="collaboration-card__badge collaboration-card__badge--light" aria-hidden="true">
-                    <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-1.svg" alt="">
-                    </span>
+                    <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question"></span>
                 </div>
 
                 <div class="collaboration-card__content">
