@@ -45,13 +45,58 @@
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(56px)};
   font-style: normal;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 98%;
   text-transform: none;
 }
 
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--light {
+  font-weight: 300;
+}
+
+.hero__title-line--strong {
+  font-weight: 700;
+}
+
+.hero__title-line--medium {
+  font-weight: 600;
+}
+
+.hero__left {
+  width: #{mixins.vw(610px)};
+}
+
 .hero__right {
   width: #{mixins.vw(325px)};
+}
+
+.hero__preview-target {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+  margin-bottom: #{mixins.vw(24px)};
+}
+
+.hero__preview-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  aspect-ratio: 1 / 1;
+  transform: rotate(-90deg);
+  background: var(--22222, linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%)), #ffdf9f;
+}
+
+.hero__preview-text {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  text-align: center;
 }
 
 .hero__description {
@@ -60,8 +105,12 @@
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
   font-style: normal;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 140%;
+}
+
+.hero__description strong {
+  font-weight: 700;
 }
 
 .hero__actions {
@@ -135,6 +184,25 @@
   .hero__title {
     width: 100%;
     font-size: #{mixins.mvw(42px)};
+  }
+
+  .hero__left {
+    width: 100%;
+  }
+
+  .hero__preview-target {
+    gap: #{mixins.mvw(8px)};
+    margin-bottom: #{mixins.mvw(20px)};
+  }
+
+  .hero__preview-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .hero__preview-text {
+    font-size: #{mixins.mvw(14px)};
+    text-align: left;
   }
 
   .hero__right {

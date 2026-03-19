@@ -17,10 +17,21 @@ $asset_buster = (string) time();
     <div class="hero__bottom">
         <div class="hero__bottom-line" aria-hidden="true"></div>
         <div class="hero__bottom-content">
-            <h1 class="hero__title">Консалтинг для управлінських рішень у бізнесі</h1>
+            <div class="hero__left">
+                <div class="hero__preview-target">
+                    <span class="hero__preview-dot" aria-hidden="true"></span>
+                    <span class="hero__preview-text">Повна картина фінансів, управління та ризиків — без сліпих зон у бізнесі</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line hero__title-line--light">Консалтинг для</span>
+                    <span class="hero__title-line hero__title-line--strong">управлінських рішень</span>
+                    <span class="hero__title-line hero__title-line--medium">у бізнесі</span>
+                </h1>
+            </div>
             <div class="hero__right">
                 <p class="hero__description">
-                    Допомагаємо власникам систематизувати фінанси, знизити ризики та вибудувати структуру бізнесу, готову до масштабування або залучення інвестицій
+                    Допомагаємо власникам систематизувати фінанси, знизити ризики та вибудувати структуру бізнесу,
+                    <strong>готову до масштабування або залучення інвестицій</strong>
                 </p>
                 <div class="hero__actions">
                     <a class="hero-pill hero-pill--light" href="#contact">
