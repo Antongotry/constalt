@@ -20,6 +20,9 @@ declare(strict_types=1);
                 decoding="async"
             >
         </a>
+        <a class="site-header__cta" href="#contact">
+            Отримати консультацію
+        </a>
     </div>
     <div class="site-header__line" aria-hidden="true"></div>
 </header>
