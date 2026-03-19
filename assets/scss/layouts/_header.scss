@@ -32,6 +32,29 @@
   height: auto;
 }
 
+.site-header__actions {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(24px)};
+  margin-right: #{mixins.vw(185px)};
+}
+
+.site-header__nav-link {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(14px)};
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .site-header__line {
   height: 1px;
   background: rgba(255, 255, 255, 0.24);
@@ -66,6 +89,15 @@
 
   .site-header__logo {
     width: #{mixins.mvw(221px)};
+  }
+
+  .site-header__nav {
+    gap: #{mixins.mvw(24px)};
+    margin-right: #{mixins.mvw(24px)};
+  }
+
+  .site-header__nav-link {
+    font-size: #{mixins.mvw(14px)};
   }
 
   .site-header__cta {

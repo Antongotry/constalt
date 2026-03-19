@@ -22,9 +22,17 @@ $asset_buster = (string) time();
                 decoding="async"
             >
         </a>
-        <a class="site-header__cta" href="#contact">
-            Отримати консультацію
-        </a>
+        <div class="site-header__actions">
+            <nav class="site-header__nav" aria-label="<?php esc_attr_e('Primary', 'constalt'); ?>">
+                <a class="site-header__nav-link" href="#home">Головна</a>
+                <a class="site-header__nav-link" href="#services">Послуги</a>
+                <a class="site-header__nav-link" href="#about">Про нас</a>
+                <a class="site-header__nav-link" href="#contacts">Контакти</a>
+            </nav>
+            <a class="site-header__cta" href="#contact">
+                Отримати консультацію
+            </a>
+        </div>
     </div>
     <div class="site-header__line" aria-hidden="true"></div>
 </header>
