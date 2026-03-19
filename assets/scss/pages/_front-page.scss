@@ -9,7 +9,7 @@
 .hero--front-page {
   min-height: 100svh;
   height: 100svh;
-  padding-top: #{mixins.vw(24px)};
+  padding-top: #{mixins.vw(10px)};
   background: var(--color-background);
   background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp");
   background-repeat: no-repeat;
@@ -17,6 +17,6 @@
   background-size: cover;
 
   @include mixins.mobile {
-    padding-top: #{mixins.mvw(24px)};
+    padding-top: #{mixins.mvw(10px)};
   }
 }

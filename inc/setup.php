@@ -40,6 +40,38 @@ function constalt_theme_setup(): void
 add_action('after_setup_theme', 'constalt_theme_setup');
 
 /**
+ * Get asset version based on file modification time.
+ */
+function constalt_asset_version(string $relative_path): string
+{
+    $file_path = get_template_directory() . $relative_path;
+
+    if (! file_exists($file_path)) {
+        return CONSTALT_THEME_VERSION;
+    }
+
+    $modified_time = filemtime($file_path);
+
+    return $modified_time ? (string) $modified_time : CONSTALT_THEME_VERSION;
+}
+
+/**
+ * Prevent browser caching for frontend pages.
+ */
+function constalt_disable_frontend_cache(): void
+{
+    if (is_admin()) {
+        return;
+    }
+
+    nocache_headers();
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
+}
+add_action('send_headers', 'constalt_disable_frontend_cache');
+
+/**
  * Load theme assets.
  */
 function constalt_enqueue_assets(): void
@@ -55,21 +87,21 @@ function constalt_enqueue_assets(): void
         'constalt-style',
         get_stylesheet_uri(),
         [],
-        CONSTALT_THEME_VERSION
+        constalt_asset_version('/style.css')
     );
 
     wp_enqueue_style(
         'constalt-main',
         get_template_directory_uri() . '/assets/css/main.css',
         ['constalt-style', 'constalt-fonts'],
-        CONSTALT_THEME_VERSION
+        constalt_asset_version('/assets/css/main.css')
     );
 
     wp_enqueue_script(
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
-        CONSTALT_THEME_VERSION,
+        constalt_asset_version('/assets/js/main.js'),
         true
     );
 }

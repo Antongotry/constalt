@@ -18,6 +18,11 @@ Base structure for a custom WordPress theme.
 - Global font: `Inter Tight` (loaded in all weights via Google Fonts).
 - Front-page hero placeholder uses `height: 100svh`.
 
+## Cache behavior
+
+- Theme assets use `filemtime` in enqueue version query strings.
+- Frontend pages send no-cache headers to reduce stale browser cache after deploy.
+
 ## Optional SCSS workflow
 
 Use Dart Sass to compile `assets/scss/main.scss` to `assets/css/main.css`.
