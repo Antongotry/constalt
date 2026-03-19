@@ -31,6 +31,7 @@
     var panels = section.querySelectorAll('[data-service-panel]');
     var swiperRoot = section.querySelector('[data-services-swiper]');
     var swiperInstance = null;
+    var wheelLockedUntil = 0;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -69,6 +70,56 @@
       swiperInstance.on('slideChange', function () {
         activateTab(String(swiperInstance.activeIndex + 1));
       });
+
+      function shouldLockWheel() {
+        if (window.innerWidth < 768) {
+          return false;
+        }
+
+        var rect = section.getBoundingClientRect();
+        var viewportHeight = window.innerHeight;
+        var sectionInFocus = rect.top <= viewportHeight * 0.2 && rect.bottom >= viewportHeight * 0.8;
+
+        return sectionInFocus;
+      }
+
+      function onWheel(event) {
+        if (!shouldLockWheel() || !swiperInstance) {
+          return;
+        }
+
+        var now = Date.now();
+        if (now < wheelLockedUntil) {
+          event.preventDefault();
+          return;
+        }
+
+        var deltaY = event.deltaY;
+        var isForward = deltaY > 0;
+        var isBackward = deltaY < 0;
+        var atEnd = swiperInstance.activeIndex >= (panels.length - 1);
+        var atStart = swiperInstance.activeIndex <= 0;
+
+        if ((isForward && atEnd) || (isBackward && atStart)) {
+          return;
+        }
+
+        if (Math.abs(deltaY) < 6) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (isForward) {
+          swiperInstance.slideNext();
+        } else if (isBackward) {
+          swiperInstance.slidePrev();
+        }
+
+        wheelLockedUntil = now + 560;
+      }
+
+      window.addEventListener('wheel', onWheel, { passive: false });
     }
 
     tabs.forEach(function (tab) {

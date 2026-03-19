@@ -56,6 +56,10 @@
   margin-top: #{mixins.vw(66px)};
 }
 
+.site-footer__contact-block--address.site-footer__contact-block--secondary {
+  margin-top: #{mixins.vw(34px)};
+}
+
 .site-footer__label {
   margin: 0;
   color: rgba(255, 255, 255, 0.64);
@@ -227,6 +231,10 @@
   }
 
   .site-footer__contact-block--secondary {
+    margin-top: #{mixins.mvw(24px)};
+  }
+
+  .site-footer__contact-block--address.site-footer__contact-block--secondary {
     margin-top: #{mixins.mvw(24px)};
   }
 
