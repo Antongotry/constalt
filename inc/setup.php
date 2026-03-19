@@ -107,6 +107,7 @@ add_action('send_headers', 'constalt_disable_frontend_cache');
 function constalt_enqueue_assets(): void
 {
     $runtime_buster = constalt_runtime_buster();
+    $lenis_version = 'latest-' . $runtime_buster;
 
     wp_enqueue_style(
         'constalt-fonts',
@@ -130,9 +131,17 @@ function constalt_enqueue_assets(): void
     );
 
     wp_enqueue_script(
+        'constalt-lenis',
+        'https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js',
+        [],
+        $lenis_version,
+        true
+    );
+
+    wp_enqueue_script(
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        [],
+        ['constalt-lenis'],
         constalt_asset_version('/assets/js/main.js') . '-' . $runtime_buster,
         true
     );
