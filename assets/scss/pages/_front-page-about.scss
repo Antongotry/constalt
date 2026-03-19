@@ -167,16 +167,16 @@
 
 .about-card__year-head {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: #{mixins.vw(8px)};
 }
 
 .about-card__year-pre {
   color: #fff;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(36.46px)};
-  font-weight: 250;
-  line-height: 140%;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 300;
+  line-height: 124%;
 }
 
 .about-card__year-number {
@@ -191,9 +191,10 @@
 .about-card__year-post {
   color: #fff;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(16px)};
+  font-size: #{mixins.vw(24px)};
   font-weight: 300;
-  line-height: 140%;
+  line-height: 124%;
+  margin-top: #{mixins.vw(10px)};
 }
 
 .about-card__year-text {
@@ -280,13 +281,17 @@
 
   .about-card__sub,
   .about-card__plain-text,
-  .about-card__year-post,
   .about-card__year-text {
     font-size: #{mixins.mvw(16px)};
   }
 
   .about-card__year-pre {
-    font-size: #{mixins.mvw(28px)};
+    font-size: #{mixins.mvw(24px)};
+  }
+
+  .about-card__year-post {
+    font-size: #{mixins.mvw(24px)};
+    margin-top: #{mixins.mvw(10px)};
   }
 
   .about-card__year-number {
