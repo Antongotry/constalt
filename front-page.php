@@ -13,6 +13,7 @@ get_header();
     <?php get_template_part('template-parts/sections/front-page', 'insight'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'services'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'collaboration'); ?>
+    <?php get_template_part('template-parts/sections/front-page', 'trust'); ?>
 </main>
 <?php
 get_footer();
