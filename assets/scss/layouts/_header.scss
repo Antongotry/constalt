@@ -35,13 +35,13 @@
 .site-header__actions {
   display: inline-flex;
   align-items: center;
+  gap: #{mixins.vw(185px)};
 }
 
 .site-header__nav {
   display: inline-flex;
   align-items: center;
   gap: #{mixins.vw(24px)};
-  margin-right: #{mixins.vw(185px)};
 }
 
 .site-header__nav-link {
@@ -93,7 +93,10 @@
 
   .site-header__nav {
     gap: #{mixins.mvw(24px)};
-    margin-right: #{mixins.mvw(24px)};
+  }
+
+  .site-header__actions {
+    gap: #{mixins.mvw(24px)};
   }
 
   .site-header__nav-link {
