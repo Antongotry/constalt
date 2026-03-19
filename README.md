@@ -14,6 +14,8 @@ Base structure for a custom WordPress theme.
 
 - Use `vw` for layout spacing and typography (desktop base width `1440`, mobile base width `390`).
 - Keep technical pixel values in `px` (for example `border: 1px solid ...`).
+- Global font: `Inter Tight` (loaded in all weights via Google Fonts).
+- Front-page hero placeholder uses `height: 100svh`.
 
 ## Optional SCSS workflow
 

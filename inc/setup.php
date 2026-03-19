@@ -45,6 +45,13 @@ add_action('after_setup_theme', 'constalt_theme_setup');
 function constalt_enqueue_assets(): void
 {
     wp_enqueue_style(
+        'constalt-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
+        [],
+        null
+    );
+
+    wp_enqueue_style(
         'constalt-style',
         get_stylesheet_uri(),
         [],
@@ -54,7 +61,7 @@ function constalt_enqueue_assets(): void
     wp_enqueue_style(
         'constalt-main',
         get_template_directory_uri() . '/assets/css/main.css',
-        ['constalt-style'],
+        ['constalt-style', 'constalt-fonts'],
         CONSTALT_THEME_VERSION
     );
 
