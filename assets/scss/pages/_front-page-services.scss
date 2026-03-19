@@ -131,6 +131,13 @@
   width: #{mixins.vw(620px)};
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-detail__top,
+.service-detail__bottom {
+  display: flex;
+  flex-direction: column;
 }
 
 .service-detail__title {
@@ -216,7 +223,7 @@
 }
 
 .service-detail__label {
-  margin: auto 0 0;
+  margin: 0;
   color: rgba(5, 17, 32, 0.56);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
@@ -399,7 +406,7 @@
   }
 
   .service-detail__label {
-    margin-top: #{mixins.mvw(20px)};
+    margin-top: 0;
   }
 
   .service-detail__actions {

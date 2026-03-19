@@ -31,46 +31,50 @@
             </div>
 
             <div class="service-detail__content">
-                <h3 class="service-detail__title">
-                    <strong>Фінансовий консалтинг</strong><br>
-                    та управління прибутковістю
-                </h3>
+                <div class="service-detail__top">
+                    <h3 class="service-detail__title">
+                        <strong>Фінансовий консалтинг</strong><br>
+                        та управління прибутковістю
+                    </h3>
 
-                <p class="service-detail__subtitle">Для власників, які прагнуть повного контролю над фінансами компанії.</p>
+                    <p class="service-detail__subtitle">Для власників, які прагнуть повного контролю над фінансами компанії.</p>
 
-                <div class="service-detail__box service-detail__box--problem">
-                    <p class="service-detail__box-label">Проблема</p>
-                    <p class="service-detail__box-text">Відсутність повної картини, касові розриви та рішення, що приймаються інтуїтивно, а не на основі цифр.</p>
+                    <div class="service-detail__box service-detail__box--problem">
+                        <p class="service-detail__box-label">Проблема</p>
+                        <p class="service-detail__box-text">Відсутність повної картини, касові розриви та рішення, що приймаються інтуїтивно, а не на основі цифр.</p>
+                    </div>
                 </div>
 
-                <p class="service-detail__label">Що ми робимо:</p>
-                <p class="service-detail__doing">Впроваджуємо систему <strong>управлінської звітності (P&amp;L, Cash Flow, Balance) та будуємо фінансові моделі для прогнозування.</strong></p>
+                <div class="service-detail__bottom">
+                    <p class="service-detail__label">Що ми робимо:</p>
+                    <p class="service-detail__doing">Впроваджуємо систему <strong>управлінської звітності (P&amp;L, Cash Flow, Balance) та будуємо фінансові моделі для прогнозування.</strong></p>
 
-                <div class="service-detail__box service-detail__box--result">
-                    <p class="service-detail__box-label">Результат</p>
-                    <p class="service-detail__box-text">Ви бачите реальну прибутковість кожного напрямку та приймаєте впевнені рішення на основі точних даних.</p>
-                </div>
+                    <div class="service-detail__box service-detail__box--result">
+                        <p class="service-detail__box-label">Результат</p>
+                        <p class="service-detail__box-text">Ви бачите реальну прибутковість кожного напрямку та приймаєте впевнені рішення на основі точних даних.</p>
+                    </div>
 
-                <div class="service-detail__actions">
-                    <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
-                        <span class="hero-pill__label">Обговорити задачу</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <div class="service-detail__actions">
+                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                            <span class="hero-pill__label">Обговорити задачу</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
 
-                    <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
-                        <span class="hero-pill__label">Детальніше</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                            <span class="hero-pill__label">Детальніше</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,43 +85,47 @@
             </div>
 
             <div class="service-detail__content">
-                <h3 class="service-detail__title"><strong>Корпоративне</strong> управління</h3>
+                <div class="service-detail__top">
+                    <h3 class="service-detail__title"><strong>Корпоративне</strong> управління</h3>
 
-                <p class="service-detail__subtitle">Для тих, хто переріс ручний контроль і прагне побудувати автономну систему.</p>
+                    <p class="service-detail__subtitle">Для тих, хто переріс ручний контроль і прагне побудувати автономну систему.</p>
 
-                <div class="service-detail__box service-detail__box--problem">
-                    <p class="service-detail__box-label">Проблема</p>
-                    <p class="service-detail__box-text">Всі ключові процеси замкнені на власнику, відповідальність команди розмита, а система не встигає за масштабом бізнесу.</p>
+                    <div class="service-detail__box service-detail__box--problem">
+                        <p class="service-detail__box-label">Проблема</p>
+                        <p class="service-detail__box-text">Всі ключові процеси замкнені на власнику, відповідальність команди розмита, а система не встигає за масштабом бізнесу.</p>
+                    </div>
                 </div>
 
-                <p class="service-detail__label">Що ми робимо:</p>
-                <p class="service-detail__doing">Розподіляємо ролі між власником, партнерами та менеджментом, <strong>впроваджуємо чіткі правила прийняття рішень та систему контролю.</strong></p>
+                <div class="service-detail__bottom">
+                    <p class="service-detail__label">Що ми робимо:</p>
+                    <p class="service-detail__doing">Розподіляємо ролі між власником, партнерами та менеджментом, <strong>впроваджуємо чіткі правила прийняття рішень та систему контролю.</strong></p>
 
-                <div class="service-detail__box service-detail__box--result">
-                    <p class="service-detail__box-label">Результат</p>
-                    <p class="service-detail__box-text">Налагоджена структура, де кожен знає свою зону відповідальності, а бізнес працює стабільно без вашої постійної мікроучасті.</p>
-                </div>
+                    <div class="service-detail__box service-detail__box--result">
+                        <p class="service-detail__box-label">Результат</p>
+                        <p class="service-detail__box-text">Налагоджена структура, де кожен знає свою зону відповідальності, а бізнес працює стабільно без вашої постійної мікроучасті.</p>
+                    </div>
 
-                <div class="service-detail__actions">
-                    <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
-                        <span class="hero-pill__label">Обговорити задачу</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <div class="service-detail__actions">
+                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                            <span class="hero-pill__label">Обговорити задачу</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
 
-                    <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
-                        <span class="hero-pill__label">Детальніше</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                            <span class="hero-pill__label">Детальніше</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,43 +136,47 @@
             </div>
 
             <div class="service-detail__content">
-                <h3 class="service-detail__title">Due Diligence та<br><strong>інвестиційний супровід</strong></h3>
+                <div class="service-detail__top">
+                    <h3 class="service-detail__title">Due Diligence та<br><strong>інвестиційний супровід</strong></h3>
 
-                <p class="service-detail__subtitle">Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.</p>
+                    <p class="service-detail__subtitle">Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.</p>
 
-                <div class="service-detail__box service-detail__box--problem">
-                    <p class="service-detail__box-label">Проблема</p>
-                    <p class="service-detail__box-text">Ризики, які можуть проявитися після угоди, та слабка позиція в переговорах через недостатню підготовку.</p>
+                    <div class="service-detail__box service-detail__box--problem">
+                        <p class="service-detail__box-label">Проблема</p>
+                        <p class="service-detail__box-text">Ризики, які можуть проявитися після угоди, та слабка позиція в переговорах через недостатню підготовку.</p>
+                    </div>
                 </div>
 
-                <p class="service-detail__label">Що ми робимо:</p>
-                <p class="service-detail__doing"><strong>Проводимо глибокий фінансовий та юридичний аналіз (Due Diligence),</strong> виявляємо «підводні камені» та готуємо компанію до перевірки інвестором.</p>
+                <div class="service-detail__bottom">
+                    <p class="service-detail__label">Що ми робимо:</p>
+                    <p class="service-detail__doing"><strong>Проводимо глибокий фінансовий та юридичний аналіз (Due Diligence),</strong> виявляємо «підводні камені» та готуємо компанію до перевірки інвестором.</p>
 
-                <div class="service-detail__box service-detail__box--result">
-                    <p class="service-detail__box-label">Результат</p>
-                    <p class="service-detail__box-text">Укладання угоди на вигідних умовах із повним розумінням реального стану справ та захищеною позицією.</p>
-                </div>
+                    <div class="service-detail__box service-detail__box--result">
+                        <p class="service-detail__box-label">Результат</p>
+                        <p class="service-detail__box-text">Укладання угоди на вигідних умовах із повним розумінням реального стану справ та захищеною позицією.</p>
+                    </div>
 
-                <div class="service-detail__actions">
-                    <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
-                        <span class="hero-pill__label">Обговорити задачу</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <div class="service-detail__actions">
+                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                            <span class="hero-pill__label">Обговорити задачу</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
 
-                    <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
-                        <span class="hero-pill__label">Детальніше</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                            <span class="hero-pill__label">Детальніше</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -175,43 +187,47 @@
             </div>
 
             <div class="service-detail__content">
-                <h3 class="service-detail__title"><strong>Юридична архітектура</strong><br>та захист активів</h3>
+                <div class="service-detail__top">
+                    <h3 class="service-detail__title"><strong>Юридична архітектура</strong><br>та захист активів</h3>
 
-                <p class="service-detail__subtitle">Створення надійного фундаменту та оперативний захист інтересів власника.</p>
+                    <p class="service-detail__subtitle">Створення надійного фундаменту та оперативний захист інтересів власника.</p>
 
-                <div class="service-detail__box service-detail__box--problem service-detail__box--problem-tall">
-                    <p class="service-detail__box-label">Проблема</p>
-                    <p class="service-detail__box-text">Вразливість перед перевірками, рейдерськими атаками чи недобросовісними партнерами, а також ризики через помилки у документах минулих років.</p>
+                    <div class="service-detail__box service-detail__box--problem service-detail__box--problem-tall">
+                        <p class="service-detail__box-label">Проблема</p>
+                        <p class="service-detail__box-text">Вразливість перед перевірками, рейдерськими атаками чи недобросовісними партнерами, а також ризики через помилки у документах минулих років.</p>
+                    </div>
                 </div>
 
-                <p class="service-detail__label">Що ми робимо:</p>
-                <p class="service-detail__doing"><strong>Проводимо глибокий фінансовий та юридичний аналіз (Due Diligence),</strong> виявляємо «підводні камені» та готуємо компанію до перевірки інвестором.</p>
+                <div class="service-detail__bottom">
+                    <p class="service-detail__label">Що ми робимо:</p>
+                    <p class="service-detail__doing"><strong>Проводимо глибокий фінансовий та юридичний аналіз (Due Diligence),</strong> виявляємо «підводні камені» та готуємо компанію до перевірки інвестором.</p>
 
-                <div class="service-detail__box service-detail__box--result">
-                    <p class="service-detail__box-label">Результат</p>
-                    <p class="service-detail__box-text">Юридично захищена модель бізнесу, готова як до масштабування, так і до активного захисту прав у суді.</p>
-                </div>
+                    <div class="service-detail__box service-detail__box--result">
+                        <p class="service-detail__box-label">Результат</p>
+                        <p class="service-detail__box-text">Юридично захищена модель бізнесу, готова як до масштабування, так і до активного захисту прав у суді.</p>
+                    </div>
 
-                <div class="service-detail__actions">
-                    <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
-                        <span class="hero-pill__label">Обговорити задачу</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <div class="service-detail__actions">
+                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                            <span class="hero-pill__label">Обговорити задачу</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
 
-                    <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
-                        <span class="hero-pill__label">Детальніше</span>
-                        <span class="hero-pill__icon" aria-hidden="true">
-                            <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </a>
+                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                            <span class="hero-pill__label">Детальніше</span>
+                            <span class="hero-pill__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.163 12.489L12.489 4.163" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
