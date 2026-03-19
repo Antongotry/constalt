@@ -51,7 +51,7 @@
 }
 
 .services-section__title {
-  width: 100%;
+  width: #{mixins.vw(980px)};
   margin: #{mixins.vw(40px)} auto 0;
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
