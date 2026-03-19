@@ -21,6 +21,11 @@
                 <a class="site-footer__link" href="#about">Про нас</a>
                 <a class="site-footer__link" href="#contact">Контакти</a>
                 <a class="site-footer__link" href="#news">Новини</a>
+
+                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--address">
+                    <p class="site-footer__label">Адреса</p>
+                    <p class="site-footer__text">назва Вулиці, 123, Київ</p>
+                </div>
             </nav>
 
             <div class="site-footer__column site-footer__column--directions">
@@ -29,25 +34,8 @@
                 <a class="site-footer__link" href="#services">Корпоративне управління</a>
                 <a class="site-footer__link" href="#services">Due Diligence та інвестиційний супровід</a>
                 <a class="site-footer__link" href="#services">Юридична архітектура та захист активів</a>
-            </div>
 
-            <div class="site-footer__column site-footer__column--contacts">
-                <div class="site-footer__contact-block site-footer__contact-block--phone">
-                    <p class="site-footer__label">Телефон</p>
-                    <a class="site-footer__contact-value site-footer__contact-value--phone" href="tel:+380999999999">+38 (099) 999 99 99</a>
-                </div>
-
-                <div class="site-footer__contact-block">
-                    <p class="site-footer__label">Пошта</p>
-                    <a class="site-footer__contact-value site-footer__contact-value--mail" href="mailto:info@gmail.com">info@gmail.com</a>
-                </div>
-
-                <div class="site-footer__contact-block site-footer__contact-block--address">
-                    <p class="site-footer__label">Адреса</p>
-                    <p class="site-footer__text">назва Вулиці, 123, Київ</p>
-                </div>
-
-                <div class="site-footer__contact-block site-footer__contact-block--schedule">
+                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--schedule">
                     <p class="site-footer__label">Графік роботи</p>
                     <p class="site-footer__text">Пн-Пт з 9.00 до 18.00</p>
                 </div>
@@ -63,6 +51,16 @@
                         </svg>
                     </span>
                 </a>
+
+                <div class="site-footer__contact-block site-footer__contact-block--phone">
+                    <p class="site-footer__label">Телефон</p>
+                    <a class="site-footer__contact-value site-footer__contact-value--phone" href="tel:+380999999999">+38 (099) 999 99 99</a>
+                </div>
+
+                <div class="site-footer__contact-block">
+                    <p class="site-footer__label">Пошта</p>
+                    <a class="site-footer__contact-value site-footer__contact-value--mail" href="mailto:info@gmail.com">info@gmail.com</a>
+                </div>
 
                 <div class="site-footer__socials" aria-label="<?php esc_attr_e('Соціальні мережі', 'constalt'); ?>">
                     <a class="site-footer__social" href="#" aria-label="Telegram">
