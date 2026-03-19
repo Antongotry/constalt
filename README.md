@@ -12,7 +12,8 @@ Base structure for a custom WordPress theme.
 
 ## Sizing convention
 
-- Use `vw` for layout spacing and typography (desktop base width `1440`, mobile base width `390`).
+- Core rule: convert design `px` to `vw` with desktop formula `px / 1440 * 100vw`.
+- Mobile rule: use `px / 390 * 100vw` only for explicit mobile values.
 - Keep technical pixel values in `px` (for example `border: 1px solid ...`).
 - Global font: `Inter Tight` (loaded in all weights via Google Fonts).
 - Front-page hero placeholder uses `height: 100svh`.
