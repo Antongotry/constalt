@@ -72,6 +72,7 @@
   font-weight: 300;
   line-height: 140%;
   text-align: center;
+  cursor: pointer;
 }
 
 .services-tabs__item:last-child {
@@ -88,9 +89,13 @@
   width: 100%;
   background: #fff;
   min-height: #{mixins.vw(694px)};
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding: #{mixins.vw(19px)} #{mixins.vw(10px)} #{mixins.vw(18px)};
+}
+
+.service-detail.is-active {
+  display: flex;
 }
 
 .service-detail__media {
@@ -103,8 +108,7 @@
 .service-detail__media-inner {
   width: 100%;
   height: 100%;
-  background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-ima_result.webp")
-    center / cover no-repeat;
+  background: center / cover no-repeat;
 }
 
 .service-detail__content {
@@ -115,13 +119,21 @@
   margin: 0;
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(56px)};
+  font-size: #{mixins.vw(42px)};
   font-weight: 300;
   line-height: 108%;
 }
 
 .service-detail__title strong {
   font-weight: 600;
+}
+
+.service-detail--due-diligence .service-detail__title {
+  width: #{mixins.vw(579px)};
+}
+
+.service-detail--legal .service-detail__title {
+  width: #{mixins.vw(498px)};
 }
 
 .service-detail__subtitle {
@@ -137,6 +149,10 @@
   margin-top: #{mixins.vw(28px)};
   width: 100%;
   padding: #{mixins.vw(16px)};
+}
+
+.service-detail__box--problem-tall {
+  min-height: #{mixins.vw(152px)};
 }
 
 .service-detail__box--problem {
@@ -239,6 +255,50 @@
   background: #192432;
 }
 
+.service-detail--finance .service-detail__media-inner {
+  background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-ima_result.webp");
+}
+
+.service-detail--corporate .service-detail__media {
+  background: #f4f4f4;
+  padding: #{mixins.vw(46px)} #{mixins.vw(18px)} #{mixins.vw(8px)};
+}
+
+.service-detail--corporate .service-detail__media-inner {
+  width: #{mixins.vw(608px)};
+  height: #{mixins.vw(608px)};
+  margin-inline: auto;
+  background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-image-2_result.webp");
+}
+
+.service-detail--due-diligence .service-detail__media {
+  background: #f8f7f8;
+  padding: 0 #{mixins.vw(33px)};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.service-detail--due-diligence .service-detail__media-inner {
+  width: #{mixins.vw(577.932px)};
+  height: #{mixins.vw(687px)};
+  background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-image-3_result.webp");
+  background-position: center;
+}
+
+.service-detail--legal .service-detail__media {
+  background: #f7f6f8;
+  padding: #{mixins.vw(21px)} #{mixins.vw(11px)} #{mixins.vw(20px)} #{mixins.vw(12px)};
+}
+
+.service-detail--legal .service-detail__media-inner {
+  width: #{mixins.vw(621px)};
+  height: #{mixins.vw(621px)};
+  margin-inline: auto;
+  background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/b3-image-4_result.webp");
+}
+
 @include mixins.mobile {
   .services-section {
     padding: #{mixins.mvw(60px)} 0;
@@ -328,5 +388,22 @@
 
   .service-detail__action {
     width: 100%;
+  }
+
+  .service-detail__box--problem-tall {
+    min-height: auto;
+  }
+
+  .service-detail--corporate .service-detail__media,
+  .service-detail--due-diligence .service-detail__media,
+  .service-detail--legal .service-detail__media {
+    padding: #{mixins.mvw(8px)};
+  }
+
+  .service-detail--corporate .service-detail__media-inner,
+  .service-detail--due-diligence .service-detail__media-inner,
+  .service-detail--legal .service-detail__media-inner {
+    width: 100%;
+    height: 100%;
   }
 }
