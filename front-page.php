@@ -7,8 +7,6 @@
 
 get_header();
 ?>
-<main id="primary" class="site-main site-main--front-page">
-    <?php get_template_part('template-parts/sections/front-page', 'canvas'); ?>
-</main>
+<main id="primary" class="site-main site-main--front-page"></main>
 <?php
 get_footer();
