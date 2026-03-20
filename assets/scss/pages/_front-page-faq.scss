@@ -1,0 +1,285 @@
+@use "../abstracts/mixins";
+
+.faq-section {
+  position: relative;
+  background: #051120;
+  padding: #{mixins.vw(112px)} 0 #{mixins.vw(96px)};
+  overflow: visible;
+}
+
+.faq-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: #{mixins.vw(-120px)};
+  height: #{mixins.vw(120px)};
+  background: #051120;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.faq-section__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-section__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.faq-section__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  background: var(--22222, linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%)), #ffdf9f;
+  transform: rotate(-90deg);
+}
+
+.faq-section__marker-text {
+  margin: 0;
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.faq-section__title {
+  margin: #{mixins.vw(42px)} auto 0;
+  width: #{mixins.vw(412px)};
+  color: #e9e9e9;
+  text-align: center;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(42px)};
+  font-weight: 300;
+  line-height: 98%;
+}
+
+.faq-section__title strong {
+  font-weight: 700;
+}
+
+.faq-grid {
+  margin-top: #{mixins.vw(64px)};
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: #{mixins.vw(20px)};
+}
+
+.faq-item {
+  width: 100%;
+  height: #{mixins.vw(68px)};
+  padding: 0 #{mixins.vw(24px)};
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-item__text {
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.faq-item__chevron {
+  width: #{mixins.vw(12px)};
+  height: #{mixins.vw(12px)};
+  border-right: 1px solid rgba(255, 255, 255, 0.64);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.64);
+  transform: rotate(45deg) translateY(#{mixins.vw(-2px)});
+  flex-shrink: 0;
+}
+
+.faq-cta {
+  margin-top: #{mixins.vw(24px)};
+  width: 100%;
+  height: #{mixins.vw(120px)};
+  background: #fff;
+  padding: #{mixins.vw(8px)};
+}
+
+.faq-cta__inner {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(5, 17, 32, 0.16);
+  padding: #{mixins.vw(24px)} #{mixins.vw(24px)} #{mixins.vw(24px)} #{mixins.vw(32px)};
+}
+
+.faq-cta__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: #{mixins.vw(24px)};
+}
+
+.faq-cta__copy {
+  width: #{mixins.vw(657px)};
+}
+
+.faq-cta__title {
+  margin: 0;
+  color: #192432;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 600;
+  line-height: 124%;
+}
+
+.faq-cta__text {
+  margin: #{mixins.vw(4px)} 0 0;
+  color: #192432;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.faq-cta__button {
+  width: #{mixins.vw(614px)};
+  height: #{mixins.vw(56px)};
+  padding: #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(24px)};
+  border-radius: #{mixins.vw(1000px)};
+  background: linear-gradient(180deg, #c7c7c7 0%, #f1f1f1 100%);
+  color: #192432;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.faq-cta__button-icon {
+  width: #{mixins.vw(40px)};
+  height: #{mixins.vw(40px)};
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-cta__button-icon svg {
+  width: #{mixins.vw(17px)};
+  height: #{mixins.vw(17px)};
+}
+
+@include mixins.mobile {
+  .faq-section {
+    padding: #{mixins.mvw(68px)} 0 #{mixins.mvw(64px)};
+  }
+
+  .faq-section::before {
+    top: #{mixins.mvw(-70px)};
+    height: #{mixins.mvw(70px)};
+  }
+
+  .faq-section__container {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+  }
+
+  .faq-section__marker {
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .faq-section__marker-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .faq-section__marker-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .faq-section__title {
+    margin-top: #{mixins.mvw(28px)};
+    width: 100%;
+    font-size: #{mixins.mvw(42px)};
+  }
+
+  .faq-grid {
+    margin-top: #{mixins.mvw(32px)};
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(12px)};
+  }
+
+  .faq-item {
+    height: #{mixins.mvw(68px)};
+    padding: 0 #{mixins.mvw(18px)};
+  }
+
+  .faq-item__text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .faq-item__chevron {
+    width: #{mixins.mvw(12px)};
+    height: #{mixins.mvw(12px)};
+    transform: rotate(45deg) translateY(#{mixins.mvw(-2px)});
+  }
+
+  .faq-cta {
+    margin-top: #{mixins.mvw(16px)};
+    height: auto;
+    padding: #{mixins.mvw(8px)};
+  }
+
+  .faq-cta__inner {
+    padding: #{mixins.mvw(20px)};
+  }
+
+  .faq-cta__content {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: #{mixins.mvw(16px)};
+  }
+
+  .faq-cta__copy,
+  .faq-cta__button {
+    width: 100%;
+  }
+
+  .faq-cta__title {
+    font-size: #{mixins.mvw(24px)};
+  }
+
+  .faq-cta__text {
+    margin-top: #{mixins.mvw(6px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .faq-cta__button {
+    height: #{mixins.mvw(56px)};
+    padding: #{mixins.mvw(8px)} #{mixins.mvw(8px)} #{mixins.mvw(8px)} #{mixins.mvw(20px)};
+    border-radius: #{mixins.mvw(1000px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .faq-cta__button-icon {
+    width: #{mixins.mvw(40px)};
+    height: #{mixins.mvw(40px)};
+  }
+
+  .faq-cta__button-icon svg {
+    width: #{mixins.mvw(17px)};
+    height: #{mixins.mvw(17px)};
+  }
+}
