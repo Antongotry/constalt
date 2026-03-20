@@ -16,36 +16,78 @@
             Нас часто <strong>запитують</strong>
         </h2>
 
-        <div class="faq-grid">
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">З чого починається співпраця?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+        <div class="faq-grid" data-faq-grid>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-1" id="faq-trigger-1" data-faq-trigger>
+                    <span class="faq-item__text">З чого починається співпраця?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-1" role="region" aria-labelledby="faq-trigger-1" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Первинна зустріч допомагає окреслити контекст запиту, ключові обмеження та бажаний результат. Далі формуємо формат роботи, етапи і пріоритети дій.
+                    </div>
+                </div>
+            </article>
 
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">Чи працюєте ви конфіденційно?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2" data-faq-trigger>
+                    <span class="faq-item__text">Чи працюєте ви конфіденційно?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-2" role="region" aria-labelledby="faq-trigger-2" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Так, конфіденційність є базовим принципом взаємодії. Робота ведеться у захищеному контурі з фіксацією правил доступу до даних і комунікації.
+                    </div>
+                </div>
+            </article>
 
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">Чи супроводжуєте ви впровадження, чи лише надаєте рекомендації?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3" data-faq-trigger>
+                    <span class="faq-item__text">Чи супроводжуєте ви впровадження, чи лише надаєте рекомендації?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-3" role="region" aria-labelledby="faq-trigger-3" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Формат гнучкий: від експертного висновку до повного супроводу впровадження. У фокусі не тільки рішення, а й фактичний результат у бізнес-процесах.
+                    </div>
+                </div>
+            </article>
 
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">Коли варто звертатися — під час кризи чи до неї?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-trigger-4" data-faq-trigger>
+                    <span class="faq-item__text">Коли варто звертатися — під час кризи чи до неї?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-4" role="region" aria-labelledby="faq-trigger-4" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Оптимально звертатися на ранніх сигналах змін, але й у кризовій фазі можна швидко стабілізувати ситуацію. Підхід залежить від масштабу ризиків та часу на рішення.
+                    </div>
+                </div>
+            </article>
 
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">Чи можна залучити вас для разового запиту?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-trigger-5" data-faq-trigger>
+                    <span class="faq-item__text">Чи можна залучити вас для разового запиту?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-5" role="region" aria-labelledby="faq-trigger-5" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Так, можливий точковий формат для конкретного управлінського питання. За потреби його можна масштабувати у довший проєктний або стратегічний супровід.
+                    </div>
+                </div>
+            </article>
 
-            <button class="faq-item" type="button" aria-expanded="false">
-                <span class="faq-item__text">З чого почати, якщо ситуація виглядає заплутаною?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-            </button>
+            <article class="faq-item" data-faq-item>
+                <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-trigger-6" data-faq-trigger>
+                    <span class="faq-item__text">З чого почати, якщо ситуація виглядає заплутаною?</span>
+                    <span class="faq-item__chevron" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" id="faq-answer-6" role="region" aria-labelledby="faq-trigger-6" aria-hidden="true" data-faq-content>
+                    <div class="faq-item__content-inner">
+                        Почніть із короткого опису симптомів та ключових рішень, що вас турбують. На першому етапі структуруємо проблему і визначаємо, де саме потрібне втручання.
+                    </div>
+                </div>
+            </article>
         </div>
 
         <div class="faq-cta">

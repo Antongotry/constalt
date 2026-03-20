@@ -194,7 +194,111 @@
     window.addEventListener('resize', updateTimeline);
   }
 
+  function initFaqAccordion() {
+    var faqSection = document.querySelector('[data-faq-grid]');
+
+    if (!faqSection) {
+      return;
+    }
+
+    var items = faqSection.querySelectorAll('[data-faq-item]');
+
+    if (!items.length) {
+      return;
+    }
+
+    function openItem(item) {
+      var trigger = item.querySelector('[data-faq-trigger]');
+      var content = item.querySelector('[data-faq-content]');
+
+      if (!trigger || !content) {
+        return;
+      }
+
+      item.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      content.setAttribute('aria-hidden', 'false');
+
+      content.style.height = content.scrollHeight + 'px';
+    }
+
+    function closeItem(item) {
+      var trigger = item.querySelector('[data-faq-trigger]');
+      var content = item.querySelector('[data-faq-content]');
+
+      if (!trigger || !content) {
+        return;
+      }
+
+      if (item.classList.contains('is-open')) {
+        content.style.height = content.scrollHeight + 'px';
+      }
+
+      item.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      content.setAttribute('aria-hidden', 'true');
+
+      window.requestAnimationFrame(function () {
+        content.style.height = '0px';
+      });
+    }
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('[data-faq-trigger]');
+      var content = item.querySelector('[data-faq-content]');
+
+      if (!trigger || !content) {
+        return;
+      }
+
+      content.style.height = '0px';
+
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        items.forEach(function (otherItem) {
+          if (otherItem !== item) {
+            closeItem(otherItem);
+          }
+        });
+
+        if (isOpen) {
+          closeItem(item);
+        } else {
+          openItem(item);
+        }
+      });
+
+      content.addEventListener('transitionend', function (event) {
+        if (event.propertyName !== 'height') {
+          return;
+        }
+
+        if (item.classList.contains('is-open')) {
+          content.style.height = 'auto';
+        }
+      });
+    });
+
+    window.addEventListener('resize', function () {
+      items.forEach(function (item) {
+        if (!item.classList.contains('is-open')) {
+          return;
+        }
+
+        var content = item.querySelector('[data-faq-content]');
+
+        if (!content) {
+          return;
+        }
+
+        content.style.height = 'auto';
+      });
+    });
+  }
+
   initLenis();
   initServicesTabs();
   initTrustTimeline();
+  initFaqAccordion();
 })();

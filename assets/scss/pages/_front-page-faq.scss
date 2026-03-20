@@ -75,9 +75,17 @@
 
 .faq-item {
   width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #e9e9e9;
+  overflow: hidden;
+}
+
+.faq-item__trigger {
+  width: 100%;
   height: #{mixins.vw(68px)};
   padding: 0 #{mixins.vw(24px)};
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 0;
   background: transparent;
   color: #e9e9e9;
   display: flex;
@@ -101,7 +109,32 @@
   border-right: 1px solid rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid rgba(255, 255, 255, 0.64);
   transform: rotate(45deg) translateY(#{mixins.vw(-2px)});
+  transition: transform 0.32s ease;
   flex-shrink: 0;
+}
+
+.faq-item__content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.32s ease, opacity 0.24s ease;
+}
+
+.faq-item__content-inner {
+  padding: 0 #{mixins.vw(24px)} #{mixins.vw(20px)};
+  color: rgba(233, 233, 233, 0.8);
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.faq-item.is-open .faq-item__content {
+  opacity: 1;
+}
+
+.faq-item.is-open .faq-item__chevron {
+  transform: rotate(-135deg) translateY(#{mixins.vw(2px)});
 }
 
 .faq-cta {
@@ -223,6 +256,10 @@
   }
 
   .faq-item {
+    min-height: #{mixins.mvw(68px)};
+  }
+
+  .faq-item__trigger {
     height: #{mixins.mvw(68px)};
     padding: 0 #{mixins.mvw(18px)};
   }
@@ -235,6 +272,15 @@
     width: #{mixins.mvw(12px)};
     height: #{mixins.mvw(12px)};
     transform: rotate(45deg) translateY(#{mixins.mvw(-2px)});
+  }
+
+  .faq-item__content-inner {
+    padding: 0 #{mixins.mvw(18px)} #{mixins.mvw(18px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .faq-item.is-open .faq-item__chevron {
+    transform: rotate(-135deg) translateY(#{mixins.mvw(2px)});
   }
 
   .faq-cta {
