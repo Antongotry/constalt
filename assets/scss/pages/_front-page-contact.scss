@@ -1,7 +1,7 @@
 @use "../abstracts/mixins";
 
 .contact-section {
-  background: #f5f5f5;
+  background: #fff;
   padding: 0;
 }
 
@@ -216,14 +216,17 @@
 
 .contact-panel__media {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: #{mixins.vw(670px)};
-  height: 100%;
+  right: #{mixins.vw(8px)};
+  top: #{mixins.vw(8px)};
+  width: #{mixins.vw(662px)};
+  height: calc(100% - #{mixins.vw(16px)});
   overflow: hidden;
 }
 
 .contact-panel__media-image {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: #{mixins.vw(769px)};
   height: #{mixins.vw(769px)};
   background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325608_result.webp")
@@ -352,11 +355,15 @@
     width: 100%;
     height: #{mixins.mvw(320px)};
     margin-top: #{mixins.mvw(24px)};
+    overflow: hidden;
   }
 
   .contact-panel__media-image {
+    position: absolute;
+    left: auto;
+    top: 0;
+    right: 0;
     width: #{mixins.mvw(420px)};
     height: #{mixins.mvw(420px)};
-    margin-left: auto;
   }
 }
