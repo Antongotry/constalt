@@ -2,7 +2,7 @@
 
 .about-section {
   position: relative;
-  background: #051120;
+  background: #fff;
   padding: #{mixins.vw(90px)} 0 #{mixins.vw(40px)};
   isolation: isolate;
 }
@@ -14,7 +14,7 @@
   right: 0;
   top: 0;
   height: #{mixins.vw(90px)};
-  background: #e9e9e9;
+  background: #fff;
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
   pointer-events: none;
   z-index: 0;
@@ -27,7 +27,7 @@
   right: 0;
   top: calc(#{mixins.vw(90px)} - 1px);
   bottom: 0;
-  background: #e9e9e9;
+  background: #fff;
   pointer-events: none;
   z-index: 0;
 }
