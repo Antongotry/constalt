@@ -1,0 +1,126 @@
+@use "../abstracts/mixins";
+
+.partners-section {
+  background: #f5f5f5;
+  padding: #{mixins.vw(62px)} 0 #{mixins.vw(96px)};
+}
+
+.partners-section__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+}
+
+.partners-section__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(10px)};
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.partners-section__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  background: rgba(5, 17, 32, 0.16);
+}
+
+.partners-section__marker-text {
+  margin: 0;
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.partners-grid {
+  margin-top: #{mixins.vw(64px)};
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: #{mixins.vw(20px)};
+}
+
+.partners-card {
+  height: #{mixins.vw(166px)};
+  border: 1px solid rgba(5, 17, 32, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: #{mixins.vw(16px)};
+}
+
+.partners-card__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.partners-card__logo--paku {
+  width: #{mixins.vw(285px)};
+}
+
+.partners-card__logo--tg {
+  width: #{mixins.vw(240px)};
+}
+
+.partners-card__logo--hbpi {
+  width: #{mixins.vw(170px)};
+}
+
+.partners-card__logo--auditservice {
+  width: #{mixins.vw(283px)};
+}
+
+@include mixins.mobile {
+  .partners-section {
+    padding: #{mixins.mvw(44px)} 0 #{mixins.mvw(64px)};
+  }
+
+  .partners-section__container {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+  }
+
+  .partners-section__marker {
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .partners-section__marker-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .partners-section__marker-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .partners-grid {
+    margin-top: #{mixins.mvw(28px)};
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(12px)};
+  }
+
+  .partners-card {
+    height: #{mixins.mvw(120px)};
+    padding: #{mixins.mvw(14px)};
+  }
+
+  .partners-card__logo--paku {
+    width: #{mixins.mvw(225px)};
+  }
+
+  .partners-card__logo--tg {
+    width: #{mixins.mvw(185px)};
+  }
+
+  .partners-card__logo--hbpi {
+    width: #{mixins.mvw(130px)};
+  }
+
+  .partners-card__logo--auditservice {
+    width: #{mixins.mvw(216px)};
+  }
+}
