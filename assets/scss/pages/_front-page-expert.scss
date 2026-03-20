@@ -1,0 +1,447 @@
+@use "../abstracts/mixins";
+
+.expert-section {
+  background: #f5f5f5;
+  padding: #{mixins.vw(72px)} 0 #{mixins.vw(96px)};
+}
+
+.expert-section__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+}
+
+.expert-section__layout {
+  display: grid;
+  grid-template-columns: #{mixins.vw(744px)} #{mixins.vw(498px)};
+  justify-content: space-between;
+  align-items: start;
+  column-gap: #{mixins.vw(40px)};
+}
+
+.expert-section__left {
+  color: #051120;
+}
+
+.expert-section__quote {
+  display: flex;
+  align-items: flex-start;
+  gap: #{mixins.vw(26px)};
+}
+
+.expert-section__quote-icon {
+  flex-shrink: 0;
+  width: #{mixins.vw(74px)};
+  height: #{mixins.vw(65px)};
+  margin-top: #{mixins.vw(2px)};
+}
+
+.expert-section__quote-text {
+  margin: 0;
+  width: #{mixins.vw(535px)};
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 300;
+  line-height: 124%;
+}
+
+.expert-section__quote-text strong {
+  font-weight: 700;
+}
+
+.expert-section__intro {
+  margin: #{mixins.vw(40px)} 0 0;
+  width: #{mixins.vw(467px)};
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-section__divider {
+  margin-top: #{mixins.vw(30px)};
+  width: #{mixins.vw(513px)};
+  height: 1px;
+  background: rgba(5, 17, 32, 0.16);
+}
+
+.expert-section__name {
+  margin: #{mixins.vw(32px)} 0 0;
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-style: normal;
+  font-weight: 300;
+  line-height: 124%;
+}
+
+.expert-section__role {
+  margin: #{mixins.vw(8px)} 0 0;
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-style: italic;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-section__details {
+  margin-top: #{mixins.vw(64px)};
+  width: #{mixins.vw(600px)};
+  padding-left: #{mixins.vw(18px)};
+  border-left: 1px solid rgba(5, 17, 32, 0.16);
+}
+
+.expert-section__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: #{mixins.vw(24px)};
+}
+
+.expert-section__item {
+  position: relative;
+  padding-left: #{mixins.vw(42px)};
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-section__item strong {
+  font-weight: 600;
+}
+
+.expert-section__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: #{mixins.vw(7px)};
+  width: #{mixins.vw(12px)};
+  height: #{mixins.vw(12px)};
+  border: 1px solid #192432;
+}
+
+.expert-section__item::after {
+  content: "";
+  position: absolute;
+  left: #{mixins.vw(3px)};
+  top: #{mixins.vw(10px)};
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  background: #192432;
+}
+
+.expert-section__link {
+  margin-top: #{mixins.vw(48px)};
+  width: #{mixins.vw(513px)};
+  padding-bottom: #{mixins.vw(8px)};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #051120;
+  text-decoration: none;
+  border-bottom: 1px solid #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-section__link-arrow {
+  width: #{mixins.vw(18px)};
+  height: #{mixins.vw(18px)};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-section__link-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.expert-section__right {
+  position: relative;
+}
+
+.expert-section__photo-frame {
+  width: #{mixins.vw(498px)};
+  height: #{mixins.vw(746px)};
+  background: #ebeff5;
+  position: relative;
+  overflow: hidden;
+}
+
+.expert-section__photo {
+  position: absolute;
+  left: #{mixins.vw(14px)};
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background:
+    linear-gradient(180deg, rgba(235, 239, 245, 0.68) 0%, rgba(235, 239, 245, 0) 48%),
+    url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/phot2_result.webp") center bottom / cover
+      no-repeat;
+}
+
+.expert-stat-card {
+  position: absolute;
+  left: #{mixins.vw(-282px)};
+  bottom: #{mixins.vw(85px)};
+  width: #{mixins.vw(308px)};
+  height: #{mixins.vw(360px)};
+  background: #192432;
+  padding: #{mixins.vw(8px)};
+}
+
+.expert-stat-card__inner {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: #{mixins.vw(24px)};
+  display: flex;
+  flex-direction: column;
+}
+
+.expert-stat-card__label {
+  margin: 0;
+  width: #{mixins.vw(186px)};
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-stat-card__value-wrap {
+  margin-top: auto;
+  position: relative;
+  height: #{mixins.vw(133px)};
+}
+
+.expert-stat-card__value {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(136px)};
+  font-weight: 600;
+  letter-spacing: #{mixins.vw(-4px)};
+  line-height: 98%;
+}
+
+.expert-stat-card__plus {
+  position: absolute;
+  left: #{mixins.vw(148px)};
+  top: #{mixins.vw(8px)};
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(44px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-stat-card__years {
+  position: absolute;
+  left: #{mixins.vw(165px)};
+  bottom: #{mixins.vw(20px)};
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.expert-stat-card__badge {
+  position: absolute;
+  right: #{mixins.vw(20px)};
+  top: #{mixins.vw(-16px)};
+  width: #{mixins.vw(64px)};
+  height: #{mixins.vw(84px)};
+  background: #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-stat-card__badge-inner {
+  width: #{mixins.vw(56px)};
+  height: #{mixins.vw(80px)};
+  border: 1px solid rgba(5, 17, 32, 0.16);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: #{mixins.vw(16px)};
+}
+
+.expert-stat-card__badge-inner img {
+  width: #{mixins.vw(24px)};
+  height: #{mixins.vw(24px)};
+}
+
+@include mixins.mobile {
+  .expert-section {
+    padding: #{mixins.mvw(56px)} 0 #{mixins.mvw(64px)};
+  }
+
+  .expert-section__container {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+  }
+
+  .expert-section__layout {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: #{mixins.mvw(24px)};
+  }
+
+  .expert-section__quote {
+    gap: #{mixins.mvw(16px)};
+  }
+
+  .expert-section__quote-icon {
+    width: #{mixins.mvw(42px)};
+    height: #{mixins.mvw(36px)};
+    margin-top: #{mixins.mvw(4px)};
+  }
+
+  .expert-section__quote-text {
+    width: 100%;
+    font-size: #{mixins.mvw(24px)};
+    line-height: 124%;
+  }
+
+  .expert-section__intro,
+  .expert-section__role {
+    width: 100%;
+    margin-top: #{mixins.mvw(24px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .expert-section__divider,
+  .expert-section__link {
+    width: 100%;
+  }
+
+  .expert-section__divider {
+    margin-top: #{mixins.mvw(24px)};
+  }
+
+  .expert-section__name {
+    margin-top: #{mixins.mvw(24px)};
+    font-size: #{mixins.mvw(24px)};
+    line-height: 124%;
+  }
+
+  .expert-section__role {
+    margin-top: #{mixins.mvw(8px)};
+  }
+
+  .expert-section__details {
+    width: 100%;
+    margin-top: #{mixins.mvw(32px)};
+    padding-left: #{mixins.mvw(14px)};
+  }
+
+  .expert-section__list {
+    gap: #{mixins.mvw(18px)};
+  }
+
+  .expert-section__item {
+    padding-left: #{mixins.mvw(26px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .expert-section__item::before {
+    top: #{mixins.mvw(5px)};
+    width: #{mixins.mvw(12px)};
+    height: #{mixins.mvw(12px)};
+  }
+
+  .expert-section__item::after {
+    left: #{mixins.mvw(3px)};
+    top: #{mixins.mvw(8px)};
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .expert-section__link {
+    margin-top: #{mixins.mvw(28px)};
+    padding-bottom: #{mixins.mvw(6px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .expert-section__link-arrow {
+    width: #{mixins.mvw(18px)};
+    height: #{mixins.mvw(18px)};
+  }
+
+  .expert-section__photo-frame {
+    width: 100%;
+    height: #{mixins.mvw(520px)};
+  }
+
+  .expert-section__photo {
+    left: #{mixins.mvw(12px)};
+  }
+
+  .expert-stat-card {
+    position: static;
+    width: 100%;
+    height: #{mixins.mvw(300px)};
+    margin-top: #{mixins.mvw(16px)};
+    padding: #{mixins.mvw(8px)};
+  }
+
+  .expert-stat-card__inner {
+    padding: #{mixins.mvw(20px)};
+  }
+
+  .expert-stat-card__label {
+    width: #{mixins.mvw(170px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .expert-stat-card__value-wrap {
+    height: #{mixins.mvw(120px)};
+  }
+
+  .expert-stat-card__value {
+    font-size: #{mixins.mvw(108px)};
+    letter-spacing: #{mixins.mvw(-3px)};
+  }
+
+  .expert-stat-card__plus {
+    left: #{mixins.mvw(118px)};
+    top: #{mixins.mvw(8px)};
+    font-size: #{mixins.mvw(36px)};
+  }
+
+  .expert-stat-card__years {
+    left: #{mixins.mvw(132px)};
+    bottom: #{mixins.mvw(19px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .expert-stat-card__badge {
+    right: #{mixins.mvw(20px)};
+    top: #{mixins.mvw(-16px)};
+    width: #{mixins.mvw(64px)};
+    height: #{mixins.mvw(84px)};
+  }
+
+  .expert-stat-card__badge-inner {
+    width: #{mixins.mvw(56px)};
+    height: #{mixins.mvw(80px)};
+    padding-bottom: #{mixins.mvw(16px)};
+  }
+
+  .expert-stat-card__badge-inner img {
+    width: #{mixins.mvw(24px)};
+    height: #{mixins.mvw(24px)};
+  }
+}
