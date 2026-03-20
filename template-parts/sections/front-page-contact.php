@@ -8,6 +8,15 @@
 <section class="contact-section" id="contact">
     <div class="contact-section__container">
         <div class="contact-panel">
+            <div class="contact-panel__key-badge" aria-hidden="true">
+                <img
+                    src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Key_fill.svg"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                >
+            </div>
+
             <div class="contact-panel__left">
                 <h2 class="contact-panel__title">
                     У бізнесі важливо бачити<br><strong>повну картину</strong>
