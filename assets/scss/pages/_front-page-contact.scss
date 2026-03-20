@@ -152,8 +152,8 @@
 }
 
 .contact-form__consent-box {
-  width: #{mixins.vw(15px)};
-  height: #{mixins.vw(15px)};
+  width: #{mixins.vw(12px)};
+  height: #{mixins.vw(12px)};
   border: 1px solid #192432;
   position: relative;
   flex-shrink: 0;
@@ -162,10 +162,10 @@
 .contact-form__consent-box::before {
   content: "";
   position: absolute;
-  left: #{mixins.vw(3px)};
-  top: #{mixins.vw(3px)};
-  width: #{mixins.vw(9px)};
-  height: #{mixins.vw(9px)};
+  left: #{mixins.vw(2px)};
+  top: #{mixins.vw(2px)};
+  width: #{mixins.vw(7px)};
+  height: #{mixins.vw(7px)};
   background: #192432;
 }
 
@@ -318,15 +318,15 @@
   }
 
   .contact-form__consent-box {
-    width: #{mixins.mvw(15px)};
-    height: #{mixins.mvw(15px)};
+    width: #{mixins.mvw(12px)};
+    height: #{mixins.mvw(12px)};
   }
 
   .contact-form__consent-box::before {
-    left: #{mixins.mvw(3px)};
-    top: #{mixins.mvw(3px)};
-    width: #{mixins.mvw(9px)};
-    height: #{mixins.mvw(9px)};
+    left: #{mixins.mvw(2px)};
+    top: #{mixins.mvw(2px)};
+    width: #{mixins.mvw(7px)};
+    height: #{mixins.mvw(7px)};
   }
 
   .contact-form__consent-label {
