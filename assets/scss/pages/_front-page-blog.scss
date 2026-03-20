@@ -1,0 +1,274 @@
+@use "../abstracts/mixins";
+
+.blog-section {
+  background: #051120;
+  padding: #{mixins.vw(96px)} 0 #{mixins.vw(112px)};
+}
+
+.blog-section__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+}
+
+.blog-section__head {
+  display: grid;
+  grid-template-columns: #{mixins.vw(670px)} #{mixins.vw(670px)};
+  gap: #{mixins.vw(20px)};
+  align-items: start;
+}
+
+.blog-section__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+}
+
+.blog-section__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  background: linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%);
+  transform: rotate(-90deg);
+}
+
+.blog-section__marker-text {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.blog-section__title {
+  margin: 0;
+  width: #{mixins.vw(565px)};
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(42px)};
+  font-weight: 300;
+  line-height: 98%;
+  text-transform: none;
+}
+
+.blog-section__title strong {
+  font-weight: 700;
+}
+
+.blog-layout {
+  margin-top: #{mixins.vw(62px)};
+  display: grid;
+  grid-template-columns: #{mixins.vw(670px)} #{mixins.vw(670px)};
+  gap: #{mixins.vw(20px)};
+}
+
+.blog-post {
+  color: #fff;
+}
+
+.blog-post__content {
+  min-width: 0;
+}
+
+.blog-post__date {
+  display: block;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(14px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.blog-post__title {
+  margin: #{mixins.vw(12px)} 0 0;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.blog-post__title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.blog-post__categories {
+  margin-top: #{mixins.vw(20px)};
+  display: flex;
+  align-items: center;
+  gap: #{mixins.vw(12px)};
+  flex-wrap: wrap;
+}
+
+.blog-post__category {
+  height: #{mixins.vw(36px)};
+  padding: #{mixins.vw(8px)} #{mixins.vw(23px)};
+  border-radius: #{mixins.vw(100px)};
+  background: #192432;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(14px)};
+  font-weight: 300;
+  line-height: 140%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.blog-post__media {
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.blog-post__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-post__image-fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2d3f5a 0%, #102238 100%);
+  display: block;
+}
+
+.blog-post--featured {
+  min-height: #{mixins.vw(490px)};
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  padding: #{mixins.vw(22px)} 0 #{mixins.vw(16px)};
+  display: grid;
+  grid-template-columns: #{mixins.vw(325px)} #{mixins.vw(325px)};
+  gap: #{mixins.vw(20px)};
+  align-items: start;
+}
+
+.blog-post__media--featured {
+  width: #{mixins.vw(325px)};
+  height: #{mixins.vw(458px)};
+}
+
+.blog-layout__side {
+  min-height: #{mixins.vw(490px)};
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-post--compact {
+  min-height: #{mixins.vw(245px)};
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  padding: #{mixins.vw(22px)} 0 #{mixins.vw(20px)};
+  display: grid;
+  grid-template-columns: #{mixins.vw(487px)} #{mixins.vw(150px)};
+  gap: #{mixins.vw(20px)};
+  align-items: start;
+}
+
+.blog-post--compact:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.blog-post__media--compact {
+  width: #{mixins.vw(150px)};
+  height: #{mixins.vw(212px)};
+}
+
+.blog-section__empty {
+  margin: #{mixins.vw(62px)} 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(18px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+@include mixins.mobile {
+  .blog-section {
+    padding: #{mixins.mvw(64px)} 0 #{mixins.mvw(64px)};
+  }
+
+  .blog-section__container {
+    width: min(100% - #{mixins.mvw(32px)}, 100%);
+  }
+
+  .blog-section__head {
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(20px)};
+  }
+
+  .blog-section__marker {
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .blog-section__marker-dot {
+    width: #{mixins.mvw(6px)};
+    height: #{mixins.mvw(6px)};
+  }
+
+  .blog-section__marker-text {
+    font-size: #{mixins.mvw(16px)};
+  }
+
+  .blog-section__title {
+    width: 100%;
+    font-size: #{mixins.mvw(42px)};
+  }
+
+  .blog-layout {
+    margin-top: #{mixins.mvw(36px)};
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(18px)};
+  }
+
+  .blog-post--featured {
+    min-height: auto;
+    padding: #{mixins.mvw(16px)} 0;
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(16px)};
+  }
+
+  .blog-post__media--featured {
+    width: 100%;
+    height: #{mixins.mvw(260px)};
+  }
+
+  .blog-layout__side {
+    min-height: auto;
+  }
+
+  .blog-post--compact {
+    min-height: auto;
+    padding: #{mixins.mvw(16px)} 0;
+    grid-template-columns: 1fr;
+    gap: #{mixins.mvw(14px)};
+  }
+
+  .blog-post__media--compact {
+    width: 100%;
+    height: #{mixins.mvw(220px)};
+  }
+
+  .blog-post__date {
+    font-size: #{mixins.mvw(14px)};
+  }
+
+  .blog-post__categories {
+    margin-top: #{mixins.mvw(16px)};
+    gap: #{mixins.mvw(8px)};
+  }
+
+  .blog-post__category {
+    height: #{mixins.mvw(34px)};
+    padding: #{mixins.mvw(8px)} #{mixins.mvw(18px)};
+    border-radius: #{mixins.mvw(100px)};
+    font-size: #{mixins.mvw(14px)};
+  }
+
+  .blog-section__empty {
+    margin-top: #{mixins.mvw(30px)};
+    font-size: #{mixins.mvw(16px)};
+  }
+}

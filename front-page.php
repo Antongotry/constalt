@@ -19,6 +19,7 @@ get_header();
     <?php get_template_part('template-parts/sections/front-page', 'partners'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'contact'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'faq'); ?>
+    <?php get_template_part('template-parts/sections/front-page', 'blog'); ?>
 </main>
 <?php
 get_footer();
