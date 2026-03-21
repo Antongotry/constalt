@@ -106,7 +106,7 @@
     margin-top: #{mixins.vw(28px, 375px)};
     grid-template-columns: repeat(2, #{mixins.vw(175px, 375px)});
     column-gap: #{mixins.vw(5px, 375px)};
-    row-gap: #{mixins.vw(12px, 375px)};
+    row-gap: #{mixins.vw(5px, 375px)};
   }
 
   .partners-card {
