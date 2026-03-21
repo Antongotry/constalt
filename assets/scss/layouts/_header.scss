@@ -79,35 +79,176 @@
   white-space: nowrap;
 }
 
-@include mixins.mobile {
+.site-header__burger,
+.site-header__mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1024px) {
   .site-header {
-    top: #{mixins.mvw(10px)};
+    top: #{mixins.vw(10px, 375px)};
+  }
+
+  .site-header__inner,
+  .site-header__line {
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .site-header__inner {
-    height: #{mixins.mvw(54px)};
+    height: #{mixins.vw(48px, 375px)};
   }
 
   .site-header__logo {
-    width: #{mixins.mvw(221px)};
-  }
-
-  .site-header__nav {
-    gap: #{mixins.mvw(24px)};
+    width: #{mixins.vw(148px, 375px)};
   }
 
   .site-header__actions {
-    gap: #{mixins.mvw(24px)};
+    display: none;
   }
 
-  .site-header__nav-link {
-    font-size: #{mixins.mvw(14px)};
+  .site-header__burger {
+    width: #{mixins.vw(26px, 375px)};
+    height: #{mixins.vw(16px, 375px)};
+    border: 0;
+    background: transparent;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    z-index: 230;
   }
 
-  .site-header__cta {
-    gap: #{mixins.mvw(10px)};
-    padding: #{mixins.mvw(12px)} #{mixins.mvw(24px)};
-    border-radius: #{mixins.mvw(100px)};
-    font-size: #{mixins.mvw(14px)};
+  .site-header__burger-line {
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.34s ease, opacity 0.24s ease;
+  }
+
+  .site-header--menu-open .site-header__burger-line:nth-child(1) {
+    transform: translateY(#{mixins.vw(7px, 375px)}) rotate(45deg);
+  }
+
+  .site-header--menu-open .site-header__burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header--menu-open .site-header__burger-line:nth-child(3) {
+    transform: translateY(#{mixins.vw(-7px, 375px)}) rotate(-45deg);
+  }
+
+  .site-header__mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 220;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+
+  .site-header--menu-open .site-header__mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-header__mobile-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(5, 17, 32, 0.72);
+    backdrop-filter: blur(#{mixins.vw(10px, 375px)});
+    cursor: pointer;
+  }
+
+  .site-header__mobile-panel {
+    position: absolute;
+    top: #{mixins.vw(72px, 375px)};
+    left: 50%;
+    width: #{mixins.vw(355px, 375px)};
+    transform: translate(-50%, #{mixins.vw(-18px, 375px)});
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(25, 36, 50, 0.92) 0%, rgba(5, 17, 32, 0.96) 100%);
+    padding: #{mixins.vw(22px, 375px)} #{mixins.vw(18px, 375px)} #{mixins.vw(20px, 375px)};
+    display: grid;
+    gap: #{mixins.vw(18px, 375px)};
+    opacity: 0;
+    transition: transform 0.34s ease, opacity 0.34s ease;
+  }
+
+  .site-header--menu-open .site-header__mobile-panel {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  .site-header__mobile-nav {
+    display: grid;
+    gap: #{mixins.vw(12px, 375px)};
+  }
+
+  .site-header__mobile-link {
+    color: #f1f5ff;
+    text-decoration: none;
+    font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: #{mixins.vw(24px, 375px)};
+    font-weight: 300;
+    line-height: 108%;
+  }
+
+  .site-header__mobile-contacts {
+    display: grid;
+    gap: #{mixins.vw(8px, 375px)};
+    padding-top: #{mixins.vw(6px, 375px)};
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .site-header__mobile-phone,
+  .site-header__mobile-mail {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: #{mixins.vw(16px, 375px)};
+    font-weight: 300;
+    line-height: 140%;
+  }
+
+  .site-header__mobile-cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: #{mixins.vw(46px, 375px)};
+    border-radius: #{mixins.vw(999px, 375px)};
+    text-decoration: none;
+    color: #051120;
+    font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: #{mixins.vw(15px, 375px)};
+    font-weight: 400;
+    line-height: 140%;
+    background: linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%);
+  }
+
+  .site-header__mobile-socials {
+    display: flex;
+    align-items: center;
+    gap: #{mixins.vw(8px, 375px)};
+  }
+
+  .site-header__mobile-social {
+    width: #{mixins.vw(44px, 375px)};
+    height: #{mixins.vw(44px, 375px)};
+    border-radius: 50%;
+    background: #192432;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header__mobile-social img {
+    width: #{mixins.vw(20px, 375px)};
+    height: #{mixins.vw(20px, 375px)};
   }
 }
