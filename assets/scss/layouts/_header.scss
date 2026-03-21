@@ -225,13 +225,19 @@
   }
 
   .site-header__mobile-phone,
-  .site-header__mobile-mail {
+  .site-header__mobile-mail,
+  .site-header__mobile-address {
     color: #fff;
     text-decoration: none;
     font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: #{mixins.vw(16px, 375px)};
     font-weight: 300;
     line-height: 140%;
+  }
+
+  .site-header__mobile-address {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.64);
   }
 
   .site-header__mobile-cta {

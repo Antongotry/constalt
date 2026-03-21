@@ -24,7 +24,7 @@
 
                 <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--address site-footer__contact-block--desktop-only">
                     <p class="site-footer__label">Адреса</p>
-                    <p class="site-footer__text">назва Вулиці, 123, Київ</p>
+                    <p class="site-footer__text">м. Київ, вул. Шота Руставелі, буд. 24, оф. 18</p>
                 </div>
             </nav>
 
@@ -54,7 +54,7 @@
 
                 <div class="site-footer__contact-block site-footer__contact-block--phone">
                     <p class="site-footer__label">Телефон</p>
-                    <a class="site-footer__contact-value site-footer__contact-value--phone" href="tel:+380999999999">+38 (099) 999 99 99</a>
+                    <a class="site-footer__contact-value site-footer__contact-value--phone" href="tel:+380751955002">+38 075 195 50 02</a>
                 </div>
 
                 <div class="site-footer__contact-block">
@@ -81,7 +81,7 @@
             <div class="site-footer__mobile-meta-row">
                 <div class="site-footer__contact-block site-footer__contact-block--address">
                     <p class="site-footer__label">Адреса</p>
-                    <p class="site-footer__text">назва Вулиці, 123, Київ</p>
+                    <p class="site-footer__text">м. Київ, вул. Шота Руставелі, буд. 24, оф. 18</p>
                 </div>
 
                 <div class="site-footer__contact-block site-footer__contact-block--schedule">
