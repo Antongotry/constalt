@@ -114,7 +114,7 @@
 
         servicesScrollTrigger = window.ScrollTrigger.create({
           trigger: section,
-          start: 'top top',
+          start: 'bottom bottom',
           end: function () {
             return '+=' + (window.innerHeight * maxIndex);
           },
