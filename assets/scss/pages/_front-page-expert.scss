@@ -23,16 +23,7 @@
 }
 
 .expert-section__quote {
-  position: relative;
   display: block;
-  width: #{mixins.vw(460px)};
-}
-
-.expert-section__quote::before {
-  content: "";
-  float: left;
-  width: #{mixins.vw(44px)};
-  height: #{mixins.vw(92px)};
 }
 
 .expert-section__quote::after {
@@ -42,17 +33,15 @@
 }
 
 .expert-section__quote-icon {
-  position: absolute;
-  left: 0;
-  top: #{mixins.vw(2px)};
+  float: left;
   width: #{mixins.vw(74px)};
   height: #{mixins.vw(65px)};
-  margin: 0;
+  margin: #{mixins.vw(2px)} #{mixins.vw(26px)} #{mixins.vw(10px)} 0;
 }
 
 .expert-section__quote-text {
   margin: 0;
-  width: #{mixins.vw(460px)};
+  width: auto;
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(24px)};
@@ -319,18 +308,11 @@
     width: 100%;
   }
 
-  .expert-section__quote::before {
-    width: #{mixins.mvw(24px)};
-    height: #{mixins.mvw(72px)};
-  }
-
   .expert-section__quote-icon {
-    position: absolute;
-    left: 0;
-    top: #{mixins.mvw(4px)};
+    float: left;
     width: #{mixins.mvw(42px)};
     height: #{mixins.mvw(36px)};
-    margin: 0;
+    margin: #{mixins.mvw(4px)} #{mixins.mvw(16px)} #{mixins.mvw(8px)} 0;
   }
 
   .expert-section__quote-text {
