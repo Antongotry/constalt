@@ -462,9 +462,9 @@
 
   .expert-stat-card__badge {
     right: #{mixins.vw(12px, 375px)};
-    top: #{mixins.vw(-5px, 375px)};
-    width: #{mixins.vw(40px, 375px)};
-    height: #{mixins.vw(40px, 375px)};
+    top: 0;
+    width: min(#{mixins.vw(40px, 375px)}, 40px);
+    height: min(#{mixins.vw(44px, 375px)}, 44px);
     background: #e9e9e9;
     overflow: hidden;
     display: block;
@@ -472,21 +472,22 @@
 
   .expert-stat-card__badge-inner {
     position: absolute;
-    left: #{mixins.vw(3px, 375px)};
-    top: #{mixins.vw(-9px, 375px)};
-    width: #{mixins.vw(35px, 375px)};
-    height: #{mixins.vw(50px, 375px)};
+    left: min(#{mixins.vw(3px, 375px)}, 3px);
+    top: 0;
+    width: min(#{mixins.vw(35px, 375px)}, 35px);
+    height: min(#{mixins.vw(41px, 375px)}, 41px);
     border-style: solid;
     border-color: rgba(5, 17, 32, 0.16);
     border-width: 0 1px 1px 1px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 0 0 #{mixins.vw(10px, 375px)} 0;
+    display: block;
+    padding: 0;
   }
 
   .expert-stat-card__badge-inner img {
-    width: #{mixins.vw(15px, 375px)};
-    height: #{mixins.vw(15px, 375px)};
+    position: absolute;
+    left: min(#{mixins.vw(13px, 375px)}, 13px);
+    top: min(#{mixins.vw(16px, 375px)}, 16px);
+    width: min(#{mixins.vw(15px, 375px)}, 15px);
+    height: min(#{mixins.vw(15px, 375px)}, 15px);
   }
 }
