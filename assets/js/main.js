@@ -748,10 +748,6 @@
     });
 
     document.addEventListener('submit', function (event) {
-      if (event.defaultPrevented) {
-        return;
-      }
-
       var submittedForm = event.target.closest('.services-popup__form, .contact-form');
 
       if (!submittedForm) {
@@ -773,9 +769,9 @@
 
   initLenis();
   initHeroVideo();
+  initGlobalThanksPopup();
   initServicesTabs();
   initTrustTimeline();
   initFaqAccordion();
   initHeaderMenu();
-  initGlobalThanksPopup();
 })();

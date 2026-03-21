@@ -23,7 +23,7 @@
             Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.
         </p>
 
-        <form class="services-popup__form" action="#" method="post">
+        <form class="services-popup__form" action="" method="post">
             <input type="hidden" name="service" value="" data-services-popup-service>
 
             <div class="services-popup__row">

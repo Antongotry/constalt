@@ -27,7 +27,7 @@
                     <strong>обговоримо ситуацію та можливі рішення.</strong>
                 </p>
 
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" action="" method="post">
                     <div class="contact-form__row">
                         <label class="contact-form__field">
                             <span class="screen-reader-text">Ваше імʼя</span>
