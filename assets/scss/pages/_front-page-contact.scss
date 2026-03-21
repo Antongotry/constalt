@@ -3,12 +3,13 @@
 .contact-section {
   background: #fff;
   padding: 0;
-  margin-bottom: 200px;
 }
 
 .contact-section__container {
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
+  background: #fff;
+  padding-bottom: #{mixins.vw(200px)};
 }
 
 .contact-panel {
@@ -237,7 +238,10 @@
 @include mixins.mobile {
   .contact-section {
     padding: 0;
-    margin-bottom: #{mixins.mvw(70px)};
+  }
+
+  .contact-section__container {
+    padding-bottom: #{mixins.mvw(70px)};
   }
 
   .contact-section__container {
