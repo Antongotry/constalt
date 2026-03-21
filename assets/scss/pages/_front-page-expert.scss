@@ -485,9 +485,10 @@
 
   .expert-stat-card__badge-inner img {
     position: absolute;
-    left: min(#{mixins.vw(13px, 375px)}, 13px);
-    top: min(#{mixins.vw(16px, 375px)}, 16px);
+    left: 50%;
+    top: 50%;
     width: min(#{mixins.vw(15px, 375px)}, 15px);
     height: min(#{mixins.vw(15px, 375px)}, 15px);
+    transform: translate(-50%, -50%);
   }
 }
