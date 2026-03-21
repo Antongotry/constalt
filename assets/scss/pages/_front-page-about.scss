@@ -267,9 +267,10 @@
   .about-stage {
     margin-top: #{mixins.vw(32px, 375px)};
     width: #{mixins.vw(355px, 375px)};
-    height: #{mixins.vw(537px, 375px)};
+    height: calc(#{mixins.vw(537px, 375px)} + #{mixins.vw(12px, 375px)} + #{mixins.vw(222px, 375px)});
+    overflow: visible;
     background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325717_result.webp")
-      right center / cover no-repeat;
+      right top / 100% #{mixins.vw(537px, 375px)} no-repeat;
   }
 
   .about-card--left {
@@ -323,10 +324,9 @@
   }
 
   .about-card--year {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-top: #{mixins.vw(12px, 375px)};
+    position: absolute;
+    left: 0;
+    top: calc(#{mixins.vw(537px, 375px)} + #{mixins.vw(12px, 375px)});
     width: #{mixins.vw(355px, 375px)};
     height: #{mixins.vw(222px, 375px)};
     padding: #{mixins.vw(4px, 375px)};
