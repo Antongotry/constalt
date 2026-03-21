@@ -41,7 +41,7 @@
 
 .expert-section__quote-text {
   margin: 0;
-  width: auto;
+  width: #{mixins.vw(460px)};
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(24px)};
