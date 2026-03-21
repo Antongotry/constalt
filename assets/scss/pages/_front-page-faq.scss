@@ -53,13 +53,15 @@
 
 .faq-section__title {
   margin: #{mixins.vw(42px)} auto 0;
-  width: #{mixins.vw(412px)};
+  width: max-content;
+  max-width: 100%;
   color: #e9e9e9;
   text-align: center;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(42px)};
   font-weight: 300;
   line-height: 98%;
+  white-space: nowrap;
 }
 
 .faq-section__title strong {
@@ -247,6 +249,7 @@
     margin-top: #{mixins.mvw(28px)};
     width: 100%;
     font-size: #{mixins.mvw(42px)};
+    white-space: normal;
   }
 
   .faq-grid {
