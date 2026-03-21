@@ -23,21 +23,25 @@
 }
 
 .expert-section__quote {
-  display: flex;
-  align-items: flex-start;
-  gap: #{mixins.vw(26px)};
+  display: block;
+}
+
+.expert-section__quote::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .expert-section__quote-icon {
-  flex-shrink: 0;
+  float: left;
   width: #{mixins.vw(74px)};
   height: #{mixins.vw(65px)};
-  margin-top: #{mixins.vw(2px)};
+  margin: #{mixins.vw(2px)} #{mixins.vw(26px)} #{mixins.vw(10px)} 0;
 }
 
 .expert-section__quote-text {
   margin: 0;
-  width: #{mixins.vw(535px)};
+  width: auto;
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(24px)};
@@ -300,13 +304,14 @@
   }
 
   .expert-section__quote {
-    gap: #{mixins.mvw(16px)};
+    display: block;
   }
 
   .expert-section__quote-icon {
+    float: left;
     width: #{mixins.mvw(42px)};
     height: #{mixins.mvw(36px)};
-    margin-top: #{mixins.mvw(4px)};
+    margin: #{mixins.mvw(4px)} #{mixins.mvw(16px)} #{mixins.mvw(8px)} 0;
   }
 
   .expert-section__quote-text {
