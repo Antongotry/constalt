@@ -21,5 +21,6 @@ get_header();
     <?php get_template_part('template-parts/sections/front-page', 'faq'); ?>
     <?php get_template_part('template-parts/sections/front-page', 'blog'); ?>
 </main>
+<?php get_template_part('template-parts/components/site', 'popup'); ?>
 <?php
 get_footer();

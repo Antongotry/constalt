@@ -79,8 +79,11 @@
       return normalizeText(temp.textContent || temp.innerText || '');
     }
 
+    // Fixed sizing rule: all popup dimensions are relative to a 1440px desktop base.
+    var popupViewportBase = 1440;
+
     function toViewportWidth(px) {
-      return 'calc(' + px + ' / 1440 * 100vw)';
+      return 'calc(' + px + ' / ' + popupViewportBase + ' * 100vw)';
     }
 
     var popupDefaults = {
