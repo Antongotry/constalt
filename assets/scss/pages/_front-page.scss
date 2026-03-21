@@ -195,94 +195,134 @@
   height: #{mixins.vw(16.652px)};
 }
 
-@include mixins.mobile {
+@media (max-width: 1024px) {
+  .hero--front-page {
+    min-height: #{mixins.vw(700px, 375px)};
+    height: auto;
+    padding-bottom: #{mixins.vw(24px, 375px)};
+    background-position: center #{mixins.vw(176px, 375px)};
+    background-size: #{mixins.vw(504px, 375px)} #{mixins.vw(760px, 375px)};
+    overflow: hidden;
+  }
+
   .hero--front-page::before,
   .hero--front-page::after {
-    width: #{mixins.mvw(220px)};
-    filter: blur(240px);
-    opacity: 0.5;
+    width: #{mixins.vw(375px, 375px)};
+    background: linear-gradient(180deg, rgba(5, 17, 32, 0) 0%, #051120 100%);
+    filter: none;
+    opacity: 1;
+    top: auto;
+    bottom: 0;
   }
 
   .hero--front-page::before {
-    left: #{mixins.mvw(-130px)};
+    left: 0;
+    height: #{mixins.vw(252px, 375px)};
   }
 
   .hero--front-page::after {
-    right: #{mixins.mvw(-130px)};
+    right: 0;
+    height: #{mixins.vw(121px, 375px)};
+    transform: rotate(180deg);
+    bottom: #{mixins.vw(130px, 375px)};
   }
 
   .hero__bottom {
-    width: min(100% - #{mixins.mvw(32px)}, 100%);
-    padding-bottom: #{mixins.mvw(24px)};
+    width: #{mixins.vw(355px, 375px)};
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: #{mixins.vw(80px, 375px)};
+  }
+
+  .hero__bottom-line {
+    display: none;
   }
 
   .hero__bottom-content {
-    padding-top: #{mixins.mvw(24px)};
+    padding-top: 0;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: #{mixins.mvw(24px)};
+    gap: #{mixins.vw(248px, 375px)};
   }
 
-  .hero__title {
-    width: 100%;
-    font-size: #{mixins.mvw(42px)};
-  }
-
-  .hero__left {
-    width: 100%;
-  }
-
-  .hero__preview-target {
-    gap: #{mixins.mvw(8px)};
-    margin-bottom: #{mixins.mvw(20px)};
-  }
-
-  .hero__preview-dot {
-    width: #{mixins.mvw(6px)};
-    height: #{mixins.mvw(6px)};
-  }
-
-  .hero__preview-text {
-    font-size: #{mixins.mvw(14px)};
-    text-align: left;
-  }
-
+  .hero__left,
   .hero__right {
     width: 100%;
   }
 
+  .hero__preview-target {
+    width: #{mixins.vw(327px, 375px)};
+    gap: #{mixins.vw(6px, 375px)};
+    margin-bottom: #{mixins.vw(16px, 375px)};
+    align-items: flex-start;
+  }
+
+  .hero__preview-dot {
+    width: #{mixins.vw(4px, 375px)};
+    height: #{mixins.vw(4px, 375px)};
+    margin-top: #{mixins.vw(8px, 375px)};
+    flex-shrink: 0;
+  }
+
+  .hero__preview-text {
+    text-align: left;
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .hero__title {
+    width: #{mixins.vw(337px, 375px)};
+    font-size: #{mixins.vw(62px, 375px)};
+    line-height: 98%;
+  }
+
+  .hero__title-line--light {
+    font-size: #{mixins.vw(62px, 375px)};
+    font-weight: 300;
+  }
+
+  .hero__title-line--strong,
+  .hero__title-line--medium {
+    font-size: #{mixins.vw(62px, 375px)};
+    font-weight: 700;
+  }
+
   .hero__description {
-    font-size: #{mixins.mvw(16px)};
+    width: #{mixins.vw(351px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
   }
 
   .hero__actions {
     width: 100%;
-    margin-top: #{mixins.mvw(20px)};
-    gap: #{mixins.mvw(10px)};
+    margin-top: #{mixins.vw(20px, 375px)};
+    gap: #{mixins.vw(8px, 375px)};
   }
 
   .hero-pill {
     width: 100%;
+    height: #{mixins.vw(48px, 375px)};
     justify-content: space-between;
-    padding: #{mixins.mvw(8px)} #{mixins.mvw(8px)} #{mixins.mvw(8px)} #{mixins.mvw(16px)};
-    border-radius: #{mixins.mvw(1000px)};
-    font-size: #{mixins.mvw(16px)};
+    padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
+    border-radius: #{mixins.vw(1000px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .hero-pill--light,
   .hero-pill--glass {
-    gap: #{mixins.mvw(20px)};
+    gap: #{mixins.vw(20px, 375px)};
   }
 
   .hero-pill__icon {
-    width: #{mixins.mvw(40px)};
-    height: #{mixins.mvw(40px)};
-    padding: #{mixins.mvw(11.674px)} #{mixins.mvw(11.81px)} #{mixins.mvw(11.675px)} #{mixins.mvw(11.539px)};
-    border-radius: #{mixins.mvw(100px)};
+    width: #{mixins.vw(32px, 375px)};
+    height: #{mixins.vw(32px, 375px)};
+    padding: #{mixins.vw(9px, 375px)};
+    border-radius: #{mixins.vw(80px, 375px)};
   }
 
   .hero-pill__icon svg {
-    width: #{mixins.mvw(16.652px)};
-    height: #{mixins.mvw(16.652px)};
+    width: #{mixins.vw(13px, 375px)};
+    height: #{mixins.vw(13px, 375px)};
   }
 }
