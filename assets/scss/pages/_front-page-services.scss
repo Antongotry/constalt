@@ -349,6 +349,16 @@ body.services-popup-open {
 }
 
 .services-popup {
+  --popup-title-width: #{mixins.vw(620px)};
+  --popup-subtitle-width: #{mixins.vw(620px)};
+  --popup-title-size: #{mixins.vw(42px)};
+  --popup-subtitle-size: #{mixins.vw(16px)};
+  --popup-title-weight: 600;
+  --popup-title-color: #051120;
+  --popup-subtitle-color: #051120;
+  --popup-form-width: #{mixins.vw(635px)};
+  --popup-submit-width: #{mixins.vw(635px)};
+  --popup-row-columns: #{mixins.vw(305px)} #{mixins.vw(305px)};
   position: fixed;
   inset: 0;
   z-index: 500;
@@ -405,6 +415,10 @@ body.services-popup-open {
   transform: translateY(0) scale(1);
 }
 
+.services-popup--without-wide-field [data-services-popup-wide-field] {
+  display: none;
+}
+
 .services-popup__close {
   position: absolute;
   top: #{mixins.vw(20px)};
@@ -431,11 +445,11 @@ body.services-popup-open {
 
 .services-popup__title {
   margin: 0;
-  width: #{mixins.vw(579px)};
-  color: #051120;
+  width: var(--popup-title-width);
+  color: var(--popup-title-color);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(42px)};
-  font-weight: 300;
+  font-size: var(--popup-title-size);
+  font-weight: var(--popup-title-weight);
   line-height: 108%;
   text-transform: none;
 }
@@ -446,22 +460,22 @@ body.services-popup-open {
 
 .services-popup__subtitle {
   margin: 0;
-  width: #{mixins.vw(620px)};
-  color: #051120;
+  width: var(--popup-subtitle-width);
+  color: var(--popup-subtitle-color);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(16px)};
+  font-size: var(--popup-subtitle-size);
   font-weight: 300;
   line-height: 140%;
 }
 
 .services-popup__form {
   margin-top: #{mixins.vw(32px)};
-  width: #{mixins.vw(635px)};
+  width: var(--popup-form-width);
 }
 
 .services-popup__row {
   display: grid;
-  grid-template-columns: #{mixins.vw(305px)} #{mixins.vw(305px)};
+  grid-template-columns: var(--popup-row-columns);
   gap: #{mixins.vw(20px)};
 }
 
@@ -538,7 +552,7 @@ body.services-popup-open {
 
 .services-popup__submit {
   margin-top: #{mixins.vw(32px)};
-  width: #{mixins.vw(635px)};
+  width: var(--popup-submit-width);
   height: #{mixins.vw(56px)};
   padding: #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(8px)} #{mixins.vw(20px)};
   border: 0;

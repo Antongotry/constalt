@@ -29,7 +29,7 @@ $asset_buster = (string) time();
                 <a class="site-header__nav-link" href="#about">Про нас</a>
                 <a class="site-header__nav-link" href="#contacts">Контакти</a>
             </nav>
-            <a class="site-header__cta" href="#contact">
+            <a class="site-header__cta" href="#contact" data-site-popup-open data-popup-key="consultation-general">
                 Отримати консультацію
             </a>
         </div>

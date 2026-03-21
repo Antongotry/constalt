@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-site-popup-open data-popup-key="service-finance">
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-site-popup-open data-popup-key="service-corporate">
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-site-popup-open data-popup-key="service-due-diligence">
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,7 +216,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-site-popup-open data-popup-key="service-legal">
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -245,7 +245,7 @@
     </div>
 </section>
 
-<div class="services-popup" data-services-popup hidden>
+<div class="services-popup services-popup--service" data-services-popup hidden>
     <div class="services-popup__backdrop" data-services-popup-close></div>
 
     <div class="services-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="services-popup-title">
@@ -279,9 +279,9 @@
                 </label>
             </div>
 
-            <label class="services-popup__field services-popup__field--wide">
-                <span class="screen-reader-text">Ваше запитання</span>
-                <input type="text" name="question" placeholder="Ваше запитання">
+            <label class="services-popup__field services-popup__field--wide" data-services-popup-wide-field>
+                <span class="screen-reader-text" data-services-popup-wide-label-screen>Ваша проблема</span>
+                <input type="text" name="question" placeholder="Ваша проблема" data-services-popup-wide-input>
             </label>
 
             <label class="services-popup__consent">
@@ -291,7 +291,7 @@
             </label>
 
             <button class="services-popup__submit" type="submit">
-                <span>Обговорити задачу</span>
+                <span data-services-popup-submit-label>Обговорити задачу</span>
                 <span class="services-popup__submit-icon" aria-hidden="true">
                     <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.163 12.489L12.489 4.163" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />

@@ -42,7 +42,7 @@
             </div>
 
             <div class="site-footer__aside">
-                <a class="site-footer__cta" href="#contact">
+                <a class="site-footer__cta" href="#contact" data-site-popup-open data-popup-key="consultation-general">
                     <span class="site-footer__cta-label">Отримати консультацію</span>
                     <span class="site-footer__cta-icon" aria-hidden="true">
                         <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">

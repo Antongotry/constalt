@@ -40,6 +40,10 @@
     var popupTitle = servicesPopup ? servicesPopup.querySelector('[data-services-popup-title]') : null;
     var popupSubtitle = servicesPopup ? servicesPopup.querySelector('[data-services-popup-subtitle]') : null;
     var popupServiceInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-service]') : null;
+    var popupWideField = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-field]') : null;
+    var popupWideInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-input]') : null;
+    var popupWideLabelScreen = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-label-screen]') : null;
+    var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
 
@@ -69,6 +73,174 @@
       return value.replace(/\s+/g, ' ').trim();
     }
 
+    function htmlToText(html) {
+      var temp = document.createElement('div');
+      temp.innerHTML = html;
+      return normalizeText(temp.textContent || temp.innerText || '');
+    }
+
+    function toViewportWidth(px) {
+      return 'calc(' + px + ' / 1440 * 100vw)';
+    }
+
+    var popupDefaults = {
+      titleHtml: '',
+      subtitle: '',
+      titleWidth: 620,
+      subtitleWidth: 620,
+      titleSize: 42,
+      titleWeight: 600,
+      titleColor: '#051120',
+      subtitleSize: 16,
+      subtitleColor: '#051120',
+      formWidth: 635,
+      rowColumns: 'double',
+      showWideField: true,
+      wideLabel: 'Ваша проблема',
+      submitLabel: 'Обговорити задачу',
+      serviceValue: ''
+    };
+
+    var popupConfigs = {
+      'service-finance': {
+        titleHtml: 'Фінансовий консалтинг<br>та управління прибутковістю',
+        subtitle: 'Для власників, які прагнуть повного контролю над фінансами компанії.',
+        titleWidth: 620,
+        subtitleWidth: 574,
+        wideLabel: 'Ваша проблема',
+        submitLabel: 'Обговорити задачу'
+      },
+      'service-corporate': {
+        titleHtml: 'Корпоративне управління',
+        subtitle: 'Для тих, хто переріс ручний контроль і прагне побудувати автономну систему.',
+        titleWidth: 620,
+        subtitleWidth: 616,
+        wideLabel: 'Ваша проблема',
+        submitLabel: 'Обговорити задачу'
+      },
+      'service-due-diligence': {
+        titleHtml: 'Due Diligence та<br><strong>інвестиційний супровід</strong>',
+        subtitle: 'Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.',
+        titleWidth: 579,
+        subtitleWidth: 620,
+        titleWeight: 300,
+        wideLabel: 'Ваше запитання',
+        submitLabel: 'Обговорити задачу'
+      },
+      'service-legal': {
+        titleHtml: 'Юридична архітектура та захист активів',
+        subtitle: 'Створення надійного фундаменту та оперативний захист інтересів власника.',
+        titleWidth: 498,
+        subtitleWidth: 620,
+        wideLabel: 'Ваша проблема',
+        submitLabel: 'Обговорити задачу'
+      },
+      'collaboration-expert': {
+        titleHtml: 'Експертна консультація',
+        subtitle: 'Коли власнику потрібно зрозуміти реальний стан бізнесу та визначити ключові проблеми.',
+        titleWidth: 269,
+        subtitleWidth: 536,
+        titleSize: 24,
+        rowColumns: 'single',
+        showWideField: false,
+        submitLabel: 'Залишити заявку'
+      },
+      'collaboration-project': {
+        titleHtml: 'Проєктна робота',
+        subtitle: 'Коли бізнесу потрібно не лише визначити проблему, а й впровадити рішення.',
+        titleWidth: 193,
+        subtitleWidth: 575,
+        titleSize: 24,
+        rowColumns: 'single',
+        showWideField: false,
+        submitLabel: 'Залишити заявку'
+      },
+      'collaboration-strategic': {
+        titleHtml: 'Стратегічний супровід',
+        subtitle: 'Коли власнику потрібен партнер для складних управлінських рішень і розвитку бізнесу.',
+        titleWidth: 255,
+        subtitleWidth: 518,
+        titleSize: 24,
+        rowColumns: 'single',
+        showWideField: false,
+        submitLabel: 'Залишити заявку'
+      },
+      'consultation-general': {
+        titleHtml: 'Бажаєте отримати консультацію?',
+        subtitle: 'Якщо у вас є питання щодо фінансів, структури управління чи розвитку компанії — обговоримо ситуацію та можливі рішення.',
+        titleWidth: 502,
+        subtitleWidth: 502,
+        titleWeight: 300,
+        titleColor: '#192432',
+        subtitleColor: '#192432',
+        wideLabel: 'Ваше запитання',
+        submitLabel: 'Залишити заявку'
+      }
+    };
+
+    function resolvePopupConfig(key) {
+      var source = popupConfigs[key];
+
+      if (!source) {
+        return null;
+      }
+
+      var resolved = {};
+
+      Object.keys(popupDefaults).forEach(function (prop) {
+        resolved[prop] = popupDefaults[prop];
+      });
+
+      Object.keys(source).forEach(function (prop) {
+        resolved[prop] = source[prop];
+      });
+
+      return resolved;
+    }
+
+    function applyPopupConfig(config) {
+      if (!servicesPopup || !popupTitle || !popupSubtitle) {
+        return;
+      }
+
+      popupTitle.innerHTML = config.titleHtml;
+      popupSubtitle.textContent = config.subtitle;
+
+      if (popupSubmitLabel) {
+        popupSubmitLabel.textContent = config.submitLabel;
+      }
+
+      if (popupWideInput) {
+        popupWideInput.placeholder = config.wideLabel;
+      }
+
+      if (popupWideLabelScreen) {
+        popupWideLabelScreen.textContent = config.wideLabel;
+      }
+
+      servicesPopup.classList.toggle('services-popup--without-wide-field', !config.showWideField);
+
+      servicesPopup.style.setProperty('--popup-title-width', toViewportWidth(config.titleWidth));
+      servicesPopup.style.setProperty('--popup-subtitle-width', toViewportWidth(config.subtitleWidth));
+      servicesPopup.style.setProperty('--popup-title-size', toViewportWidth(config.titleSize));
+      servicesPopup.style.setProperty('--popup-subtitle-size', toViewportWidth(config.subtitleSize));
+      servicesPopup.style.setProperty('--popup-title-weight', String(config.titleWeight));
+      servicesPopup.style.setProperty('--popup-title-color', config.titleColor);
+      servicesPopup.style.setProperty('--popup-subtitle-color', config.subtitleColor);
+      servicesPopup.style.setProperty('--popup-form-width', toViewportWidth(config.formWidth));
+      servicesPopup.style.setProperty('--popup-submit-width', toViewportWidth(config.formWidth));
+      servicesPopup.style.setProperty(
+        '--popup-row-columns',
+        config.rowColumns === 'single'
+          ? '1fr'
+          : toViewportWidth(305) + ' ' + toViewportWidth(305)
+      );
+
+      if (popupServiceInput) {
+        popupServiceInput.value = config.serviceValue || htmlToText(config.titleHtml);
+      }
+    }
+
     function closeServicesPopup() {
       if (!servicesPopup || servicesPopup.hidden) {
         return;
@@ -92,26 +264,12 @@
       }
     }
 
-    function openServicesPopup(panel, trigger) {
-      if (!servicesPopup || !panel) {
+    function openServicesPopup(config, trigger) {
+      if (!servicesPopup || !config) {
         return;
       }
 
-      var titleSource = panel.querySelector('.service-detail__title');
-      var subtitleSource = panel.querySelector('.service-detail__subtitle');
-      var serviceTitle = titleSource ? normalizeText(titleSource.textContent) : '';
-
-      if (popupTitle && titleSource) {
-        popupTitle.innerHTML = titleSource.innerHTML;
-      }
-
-      if (popupSubtitle && subtitleSource) {
-        popupSubtitle.textContent = normalizeText(subtitleSource.textContent);
-      }
-
-      if (popupServiceInput) {
-        popupServiceInput.value = serviceTitle;
-      }
+      applyPopupConfig(config);
 
       if (popupCloseTimer) {
         window.clearTimeout(popupCloseTimer);
@@ -132,17 +290,23 @@
         return;
       }
 
-      section.addEventListener('click', function (event) {
-        var openButton = event.target.closest('[data-services-popup-open]');
+      document.addEventListener('click', function (event) {
+        var openButton = event.target.closest('[data-site-popup-open]');
 
         if (!openButton) {
           return;
         }
 
+        var popupKey = openButton.getAttribute('data-popup-key');
+        var popupConfig = resolvePopupConfig(popupKey);
+
+        if (!popupConfig) {
+          return;
+        }
+
         event.preventDefault();
 
-        var panel = openButton.closest('[data-service-panel]');
-        openServicesPopup(panel, openButton);
+        openServicesPopup(popupConfig, openButton);
       });
 
       servicesPopup.addEventListener('click', function (event) {
