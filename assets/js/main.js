@@ -113,7 +113,7 @@
         var lastSyncedIndex = swiperInstance.activeIndex;
 
         servicesScrollTrigger = window.ScrollTrigger.create({
-          trigger: section,
+          trigger: swiperRoot,
           start: 'bottom bottom',
           end: function () {
             return '+=' + (window.innerHeight * maxIndex);
