@@ -269,7 +269,7 @@
     width: #{mixins.vw(355px, 375px)};
     height: #{mixins.vw(537px, 375px)};
     background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325717_result.webp")
-      center / cover no-repeat;
+      right center / cover no-repeat;
   }
 
   .about-card--left {
@@ -281,13 +281,21 @@
 
   .about-card__glass {
     height: #{mixins.vw(286px, 375px)};
-    padding: #{mixins.vw(10px, 375px)};
+    padding: #{mixins.vw(10px, 375px)} #{mixins.vw(10px, 375px)} #{mixins.vw(57px, 375px)};
     backdrop-filter: blur(#{mixins.vw(70px, 375px)});
+    display: flex;
+    flex-direction: column;
+    gap: #{mixins.vw(60px, 375px)};
+    justify-content: flex-start;
   }
 
   .about-card__plain {
     height: #{mixins.vw(251px, 375px)};
     padding: #{mixins.vw(10px, 375px)};
+    display: flex;
+    flex-direction: column;
+    gap: #{mixins.vw(60px, 375px)};
+    justify-content: flex-start;
   }
 
   .about-card__lead {
@@ -330,7 +338,7 @@
 
   .about-card__year-head {
     gap: #{mixins.vw(8px, 375px)};
-    align-items: baseline;
+    align-items: flex-end;
   }
 
   .about-card__year-pre {
@@ -345,6 +353,7 @@
   }
 
   .about-card__year-post {
+    align-self: flex-end;
     font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
   }
@@ -353,5 +362,6 @@
     width: #{mixins.vw(298px, 375px)};
     font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
+    margin: 0;
   }
 }
