@@ -132,6 +132,57 @@ function constalt_disable_frontend_cache(): void
 add_action('send_headers', 'constalt_disable_frontend_cache');
 
 /**
+ * Resource hints: preconnect to external origins so the browser
+ * starts DNS + TLS early, before it encounters the stylesheet links.
+ */
+function constalt_resource_hints(): void
+{
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    echo '<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>' . "\n";
+}
+add_action('wp_head', 'constalt_resource_hints', 1);
+
+/**
+ * Critical inline CSS rendered before any external stylesheet.
+ * Covers body, header and hero basics so the page never flashes
+ * unstyled content while external CSS files are still loading.
+ */
+function constalt_critical_css(): void
+{
+    ?>
+    <style id="constalt-critical">
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;overflow-x:hidden;background:#051120;color:#f1f5ff;font-family:"Inter Tight","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+    body{font-size:1.1111111111vw;line-height:1.5}
+    @media(max-width:767px){body{font-size:4.1025641026vw}}
+    .site{min-height:100vh}
+    .site-header{width:100%;position:fixed;left:0;top:0.6944444444vw;z-index:200}
+    .site-header__inner{width:94.4444444444vw;margin-inline:auto;height:3.75vw;display:flex;align-items:center;justify-content:space-between}
+    .site-header__line{width:94.4444444444vw;margin-inline:auto}
+    .site-header__logo-link{display:inline-flex;height:100%;align-items:center}
+    .site-header__logo{display:block;width:15.3472222222vw;height:auto}
+    .site-header__actions{display:inline-flex;align-items:center;gap:12.8472222222vw}
+    .site-header__nav{display:inline-flex;align-items:center;gap:1.6666666667vw}
+    .site-header__nav-link{color:#fff;font-family:"Inter Tight","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;font-size:0.9722222222vw;font-weight:400;line-height:140%;text-decoration:none;white-space:nowrap}
+    .site-header__cta{display:inline-flex;align-items:center;justify-content:center;gap:0.6944444444vw;padding:0.8333333333vw 1.6666666667vw;border-radius:6.9444444444vw;background:linear-gradient(339deg,#c7c7c7 11.9%,#f1f1f1 84.59%);color:#051120;font-size:0.9722222222vw;font-weight:400;line-height:140%;text-decoration:none;white-space:nowrap}
+    .site-header__burger,.site-header__mobile-menu{display:none}
+    a{color:inherit;text-decoration:none}
+    @media(max-width:1024px){
+      .site-header{top:2.6666666667vw}
+      .site-header__inner,.site-header__line{width:94.6666666667vw}
+      .site-header__inner{height:12.8vw}
+      .site-header__logo{width:39.4666666667vw}
+      .site-header__actions{display:none}
+      .site-header__burger{display:inline-flex;width:6.9333333333vw;height:4.2666666667vw;border:0;background:transparent;padding:0;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;z-index:230}
+      .site-header__burger-line{width:100%;height:1px;background:#fff;border-radius:2px}
+    }
+    </style>
+    <?php
+}
+add_action('wp_head', 'constalt_critical_css', 2);
+
+/**
  * Load theme assets.
  */
 function constalt_enqueue_assets(): void
@@ -140,13 +191,6 @@ function constalt_enqueue_assets(): void
     $lenis_version = constalt_version_with_buster('latest', $runtime_buster);
     $swiper_version = constalt_version_with_buster('11.2.6', $runtime_buster);
     $gsap_version = constalt_version_with_buster('3.13.0', $runtime_buster);
-
-    wp_enqueue_style(
-        'constalt-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
-        [],
-        constalt_version_with_buster(CONSTALT_THEME_VERSION, $runtime_buster)
-    );
 
     wp_enqueue_style(
         'constalt-style',
@@ -158,7 +202,7 @@ function constalt_enqueue_assets(): void
     wp_enqueue_style(
         'constalt-main',
         get_template_directory_uri() . '/assets/css/main.css',
-        ['constalt-style', 'constalt-fonts'],
+        ['constalt-style'],
         constalt_version_with_buster(constalt_asset_version('/assets/css/main.css'), $runtime_buster)
     );
 
@@ -167,6 +211,13 @@ function constalt_enqueue_assets(): void
         'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
         ['constalt-main'],
         $swiper_version
+    );
+
+    wp_enqueue_style(
+        'constalt-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
+        [],
+        constalt_version_with_buster(CONSTALT_THEME_VERSION, $runtime_buster)
     );
 
     wp_enqueue_script(
@@ -210,3 +261,27 @@ function constalt_enqueue_assets(): void
     );
 }
 add_action('wp_enqueue_scripts', 'constalt_enqueue_assets');
+
+/**
+ * Prevent LiteSpeed Cache from deferring critical stylesheets
+ * and mark Google Fonts for async loading.
+ */
+function constalt_optimize_style_loading(string $tag, string $handle): string
+{
+    $critical = ['constalt-style', 'constalt-main'];
+
+    if (in_array($handle, $critical, true)) {
+        $tag = str_replace(' href=', ' data-no-optimize="1" href=', $tag);
+    }
+
+    if ($handle === 'constalt-fonts') {
+        $tag = str_replace(
+            "media='all'",
+            "media='print' onload=\"this.media='all'\"",
+            $tag
+        );
+    }
+
+    return $tag;
+}
+add_filter('style_loader_tag', 'constalt_optimize_style_loading', 10, 2);
