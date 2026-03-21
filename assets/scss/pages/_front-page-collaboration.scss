@@ -346,7 +346,7 @@
   .collaboration-section {
     position: relative;
     padding: #{mixins.vw(36px, 375px)} 0 #{mixins.vw(28px, 375px)};
-    overflow: hidden;
+    overflow: visible;
   }
 
   .collaboration-section::before {
