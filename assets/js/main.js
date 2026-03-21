@@ -41,6 +41,7 @@
     var popupSubtitle = servicesPopup ? servicesPopup.querySelector('[data-services-popup-subtitle]') : null;
     var popupServiceInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-service]') : null;
     var lastPopupTrigger = null;
+    var popupCloseTimer = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -73,9 +74,18 @@
         return;
       }
 
-      servicesPopup.hidden = true;
+      if (popupCloseTimer) {
+        window.clearTimeout(popupCloseTimer);
+      }
+
+      servicesPopup.classList.remove('is-visible');
       document.body.classList.remove('services-popup-open');
       document.body.style.overflow = '';
+
+      popupCloseTimer = window.setTimeout(function () {
+        servicesPopup.hidden = true;
+        popupCloseTimer = null;
+      }, 360);
 
       if (lastPopupTrigger && typeof lastPopupTrigger.focus === 'function') {
         lastPopupTrigger.focus();
@@ -103,8 +113,16 @@
         popupServiceInput.value = serviceTitle;
       }
 
+      if (popupCloseTimer) {
+        window.clearTimeout(popupCloseTimer);
+        popupCloseTimer = null;
+      }
+
       lastPopupTrigger = trigger || null;
       servicesPopup.hidden = false;
+      window.requestAnimationFrame(function () {
+        servicesPopup.classList.add('is-visible');
+      });
       document.body.classList.add('services-popup-open');
       document.body.style.overflow = 'hidden';
     }
@@ -114,15 +132,17 @@
         return;
       }
 
-      var openButtons = section.querySelectorAll('[data-services-popup-open]');
+      section.addEventListener('click', function (event) {
+        var openButton = event.target.closest('[data-services-popup-open]');
 
-      openButtons.forEach(function (button) {
-        button.addEventListener('click', function (event) {
-          event.preventDefault();
+        if (!openButton) {
+          return;
+        }
 
-          var panel = button.closest('[data-service-panel]');
-          openServicesPopup(panel, button);
-        });
+        event.preventDefault();
+
+        var panel = openButton.closest('[data-service-panel]');
+        openServicesPopup(panel, openButton);
       });
 
       servicesPopup.addEventListener('click', function (event) {
