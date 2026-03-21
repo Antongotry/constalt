@@ -227,12 +227,15 @@
 
 @media (max-width: 1024px) {
   .about-section {
+    background: #f5f5f5;
     padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(24px, 375px)};
+    overflow: visible;
   }
 
   .about-section::before {
+    top: #{mixins.vw(-44px, 375px)};
     height: #{mixins.vw(44px, 375px)};
-    background: #051120;
+    background: #f5f5f5;
     clip-path: polygon(0 100%, 50% 0, 100% 100%);
   }
 

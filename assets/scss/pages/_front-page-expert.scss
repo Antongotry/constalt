@@ -288,166 +288,182 @@
   height: #{mixins.vw(24px)};
 }
 
-@include mixins.mobile {
+@media (max-width: 1024px) {
   .expert-section {
-    padding: #{mixins.mvw(56px)} 0 #{mixins.mvw(64px)};
+    padding: #{mixins.vw(24px, 375px)} 0 #{mixins.vw(40px, 375px)};
   }
 
   .expert-section__container {
-    width: min(100% - #{mixins.mvw(32px)}, 100%);
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .expert-section__layout {
     grid-template-columns: 1fr;
     column-gap: 0;
-    row-gap: #{mixins.mvw(24px)};
+    row-gap: #{mixins.vw(20px, 375px)};
   }
 
   .expert-section__quote {
-    display: block;
-    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: #{mixins.vw(10px, 375px)};
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .expert-section__quote-icon {
-    float: left;
-    width: #{mixins.mvw(42px)};
-    height: #{mixins.mvw(36px)};
-    margin: #{mixins.mvw(4px)} #{mixins.mvw(16px)} #{mixins.mvw(8px)} 0;
+    float: none;
+    width: #{mixins.vw(51px, 375px)};
+    height: #{mixins.vw(44px, 375px)};
+    margin: 0;
+    flex-shrink: 0;
   }
 
   .expert-section__quote-text {
-    width: 100%;
-    font-size: #{mixins.mvw(24px)};
+    width: #{mixins.vw(287px, 375px)};
+    font-size: #{mixins.vw(16px, 375px)};
     line-height: 124%;
   }
 
-  .expert-section__intro,
-  .expert-section__role {
-    width: 100%;
-    margin-top: #{mixins.mvw(24px)};
-    font-size: #{mixins.mvw(16px)};
+  .expert-section__intro {
+    width: #{mixins.vw(355px, 375px)};
+    margin-top: #{mixins.vw(24px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .expert-section__divider,
   .expert-section__link {
-    width: 100%;
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .expert-section__divider {
-    margin-top: #{mixins.mvw(24px)};
+    margin-top: #{mixins.vw(24px, 375px)};
   }
 
   .expert-section__name {
-    margin-top: #{mixins.mvw(24px)};
-    font-size: #{mixins.mvw(24px)};
+    margin-top: #{mixins.vw(24px, 375px)};
+    font-size: #{mixins.vw(16px, 375px)};
     line-height: 124%;
   }
 
   .expert-section__role {
-    margin-top: #{mixins.mvw(8px)};
+    width: #{mixins.vw(176px, 375px)};
+    margin-top: #{mixins.vw(8px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .expert-section__details {
-    width: 100%;
-    margin-top: #{mixins.mvw(32px)};
-    padding-left: #{mixins.mvw(14px)};
+    width: #{mixins.vw(355px, 375px)};
+    margin-top: #{mixins.vw(24px, 375px)};
+    padding-left: #{mixins.vw(18px, 375px)};
+    border-left: 1px solid rgba(5, 17, 32, 0.16);
   }
 
   .expert-section__list {
-    gap: #{mixins.mvw(18px)};
+    gap: #{mixins.vw(24px, 375px)};
   }
 
   .expert-section__item {
-    padding-left: #{mixins.mvw(26px)};
-    font-size: #{mixins.mvw(16px)};
+    padding-left: #{mixins.vw(40px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .expert-section__item::before {
-    top: #{mixins.mvw(5px)};
-    width: #{mixins.mvw(12px)};
-    height: #{mixins.mvw(12px)};
+    top: #{mixins.vw(4px, 375px)};
+    width: #{mixins.vw(10px, 375px)};
+    height: #{mixins.vw(10px, 375px)};
   }
 
   .expert-section__item::after {
-    left: #{mixins.mvw(3px)};
-    top: #{mixins.mvw(8px)};
-    width: #{mixins.mvw(6px)};
-    height: #{mixins.mvw(6px)};
+    left: #{mixins.vw(2px, 375px)};
+    top: #{mixins.vw(6px, 375px)};
+    width: #{mixins.vw(6px, 375px)};
+    height: #{mixins.vw(6px, 375px)};
   }
 
   .expert-section__link {
-    margin-top: #{mixins.mvw(28px)};
-    padding-bottom: #{mixins.mvw(6px)};
-    font-size: #{mixins.mvw(16px)};
+    margin-top: #{mixins.vw(24px, 375px)};
+    padding-bottom: #{mixins.vw(6px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .expert-section__link-arrow {
-    width: #{mixins.mvw(18px)};
-    height: #{mixins.mvw(18px)};
+    width: #{mixins.vw(17px, 375px)};
+    height: #{mixins.vw(17px, 375px)};
+  }
+
+  .expert-section__right {
+    width: #{mixins.vw(355px, 375px)};
+    height: #{mixins.vw(293px, 375px)};
+    margin-top: #{mixins.vw(20px, 375px)};
   }
 
   .expert-section__photo-frame {
-    width: 100%;
-    height: #{mixins.mvw(520px)};
+    width: #{mixins.vw(201px, 375px)};
+    height: #{mixins.vw(293px, 375px)};
+    margin-left: auto;
   }
 
   .expert-section__photo {
-    left: #{mixins.mvw(12px)};
+    left: #{mixins.vw(8px, 375px)};
+    right: #{mixins.vw(4px, 375px)};
+    background-position: center;
   }
 
   .expert-stat-card {
-    position: static;
-    width: 100%;
-    height: #{mixins.mvw(300px)};
-    margin-top: #{mixins.mvw(16px)};
-    padding: #{mixins.mvw(8px)};
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: #{mixins.vw(170px, 375px)};
+    height: #{mixins.vw(182px, 375px)};
+    margin-top: 0;
+    padding: #{mixins.vw(4px, 375px)};
   }
 
   .expert-stat-card__inner {
-    padding: #{mixins.mvw(20px)};
+    padding: #{mixins.vw(12px, 375px)};
   }
 
   .expert-stat-card__label {
-    width: #{mixins.mvw(170px)};
-    font-size: #{mixins.mvw(16px)};
+    width: #{mixins.vw(102px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .expert-stat-card__value-wrap {
-    height: #{mixins.mvw(120px)};
+    height: #{mixins.vw(71px, 375px)};
   }
 
   .expert-stat-card__value {
-    font-size: #{mixins.mvw(108px)};
-    letter-spacing: #{mixins.mvw(-3px)};
+    font-size: #{mixins.vw(72px, 375px)};
+    letter-spacing: 0;
   }
 
   .expert-stat-card__plus {
-    left: #{mixins.mvw(118px)};
-    top: #{mixins.mvw(8px)};
-    font-size: #{mixins.mvw(36px)};
+    left: #{mixins.vw(92px, 375px)};
+    top: #{mixins.vw(-10px, 375px)};
+    font-size: #{mixins.vw(24px, 375px)};
   }
 
   .expert-stat-card__years {
-    left: #{mixins.mvw(132px)};
-    bottom: #{mixins.mvw(19px)};
-    font-size: #{mixins.mvw(16px)};
+    left: #{mixins.vw(97px, 375px)};
+    bottom: #{mixins.vw(8px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .expert-stat-card__badge {
-    right: #{mixins.mvw(20px)};
-    top: 0;
-    width: #{mixins.mvw(64px)};
-    height: #{mixins.mvw(68px)};
+    right: #{mixins.vw(12px, 375px)};
+    top: #{mixins.vw(-9px, 375px)};
+    width: #{mixins.vw(40px, 375px)};
+    height: #{mixins.vw(53px, 375px)};
   }
 
   .expert-stat-card__badge-inner {
-    width: #{mixins.mvw(56px)};
-    height: #{mixins.mvw(64px)};
-    padding-bottom: #{mixins.mvw(16px)};
+    width: #{mixins.vw(35px, 375px)};
+    height: #{mixins.vw(50px, 375px)};
+    padding-bottom: #{mixins.vw(10px, 375px)};
   }
 
   .expert-stat-card__badge-inner img {
-    width: #{mixins.mvw(24px)};
-    height: #{mixins.mvw(24px)};
+    width: #{mixins.vw(15px, 375px)};
+    height: #{mixins.vw(15px, 375px)};
   }
 }
