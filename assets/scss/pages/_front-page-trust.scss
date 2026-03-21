@@ -172,36 +172,38 @@
   line-height: 140%;
 }
 
-@include mixins.mobile {
+@media (max-width: 1024px) {
   .trust-section {
-    padding: #{mixins.mvw(32px)} 0 #{mixins.mvw(72px)};
+    padding: #{mixins.vw(20px, 375px)} 0 #{mixins.vw(40px, 375px)};
+    overflow: hidden;
   }
 
   .trust-section::after {
-    height: #{mixins.mvw(120px)};
+    display: none;
   }
 
   .trust-section::before {
-    left: 0;
-    width: 100%;
-    height: #{mixins.mvw(360px)};
+    top: #{mixins.vw(120px, 375px)};
+    left: 50%;
+    bottom: auto;
+    width: #{mixins.vw(420px, 375px)};
+    height: #{mixins.vw(420px, 375px)};
+    transform: translateX(-50%);
     background:
-      linear-gradient(90deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
-      linear-gradient(270deg, #051120 0%, rgba(5, 17, 32, 0) 32%),
-      linear-gradient(180deg, #051120 0%, rgba(5, 17, 32, 0) 24%),
-      linear-gradient(0deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
-      url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp") left bottom /
+      linear-gradient(180deg, rgba(5, 17, 32, 0) 0%, rgba(5, 17, 32, 0.58) 76%, #051120 100%),
+      linear-gradient(90deg, #051120 0%, rgba(5, 17, 32, 0) 14%, rgba(5, 17, 32, 0) 86%, #051120 100%),
+      url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/ChatGPT-Image-17-%D0%B1%D0%B5%D1%80.-2026-%D1%80.-20_58_12-1_result.webp") center center /
         cover no-repeat;
   }
 
   .trust-section__container {
-    width: min(100% - #{mixins.mvw(32px)}, 100%);
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .trust-section__layout {
-    margin-top: #{mixins.mvw(28px)};
+    margin-top: #{mixins.vw(24px, 375px)};
     grid-template-columns: 1fr;
-    gap: #{mixins.mvw(40px)};
+    gap: #{mixins.vw(30px, 375px)};
   }
 
   .trust-section__left {
@@ -209,62 +211,70 @@
   }
 
   .trust-section__marker {
-    gap: #{mixins.mvw(8px)};
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: #{mixins.vw(6px, 375px)};
   }
 
   .trust-section__marker-dot {
-    width: #{mixins.mvw(6px)};
-    height: #{mixins.mvw(6px)};
+    width: #{mixins.vw(4px, 375px)};
+    height: #{mixins.vw(4px, 375px)};
   }
 
   .trust-section__marker-text {
-    font-size: #{mixins.mvw(16px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .trust-section__title {
-    margin-top: #{mixins.mvw(20px)};
+    margin-top: #{mixins.vw(22px, 375px)};
     width: 100%;
-    font-size: #{mixins.mvw(42px)};
+    font-size: #{mixins.vw(24px, 375px)};
     font-weight: 300;
+    text-align: center;
   }
 
   .trust-timeline {
     min-height: auto;
+    margin-top: #{mixins.vw(12px, 375px)};
   }
 
   .trust-timeline__track {
-    left: #{mixins.mvw(32px)};
+    top: #{mixins.vw(48px, 375px)};
+    left: #{mixins.vw(24px, 375px)};
+    height: calc(100% - #{mixins.vw(48px, 375px)});
   }
 
   .trust-timeline__items {
-    gap: #{mixins.mvw(32px)};
+    gap: #{mixins.vw(28px, 375px)};
   }
 
   .trust-item {
-    grid-template-columns: #{mixins.mvw(64px)} 1fr;
-    column-gap: #{mixins.mvw(20px)};
+    grid-template-columns: #{mixins.vw(48px, 375px)} 1fr;
+    column-gap: #{mixins.vw(16px, 375px)};
   }
 
   .trust-item__icon-box {
-    width: #{mixins.mvw(64px)};
-    height: #{mixins.mvw(64px)};
-    padding: #{mixins.mvw(20px)};
+    width: #{mixins.vw(48px, 375px)};
+    height: #{mixins.vw(48px, 375px)};
+    padding: #{mixins.vw(15px, 375px)};
+    backdrop-filter: blur(#{mixins.vw(28px, 375px)});
   }
 
   .trust-item__icon {
-    width: #{mixins.mvw(24px)};
-    height: #{mixins.mvw(24px)};
+    width: #{mixins.vw(18px, 375px)};
+    height: #{mixins.vw(18px, 375px)};
   }
 
   .trust-item__title {
-    margin-top: #{mixins.mvw(6px)};
-    font-size: #{mixins.mvw(24px)};
+    margin-top: #{mixins.vw(8px, 375px)};
+    font-size: #{mixins.vw(20px, 375px)};
     line-height: 124%;
   }
 
   .trust-item__text {
-    margin-top: #{mixins.mvw(12px)};
-    width: 100%;
-    font-size: #{mixins.mvw(16px)};
+    margin-top: #{mixins.vw(14px, 375px)};
+    width: #{mixins.vw(272px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 }
