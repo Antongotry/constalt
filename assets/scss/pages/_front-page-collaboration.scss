@@ -1,29 +1,13 @@
 @use "../abstracts/mixins";
 
 .collaboration-section {
-  position: relative;
   background: #051120;
-  margin-top: #{mixins.vw(120px)};
   padding: #{mixins.vw(72px)} 0 #{mixins.vw(96px)};
-}
-
-.collaboration-section::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: #{mixins.vw(-120px)};
-  height: #{mixins.vw(120px)};
-  background: #051120;
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-  pointer-events: none;
 }
 
 .collaboration-section__container {
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
-  position: relative;
-  z-index: 1;
 }
 
 .collaboration-section__marker {
@@ -360,13 +344,7 @@
 
 @include mixins.mobile {
   .collaboration-section {
-    margin-top: #{mixins.mvw(70px)};
     padding: #{mixins.mvw(52px)} 0 #{mixins.mvw(64px)};
-  }
-
-  .collaboration-section::before {
-    top: #{mixins.mvw(-70px)};
-    height: #{mixins.mvw(70px)};
   }
 
   .collaboration-section__container {
