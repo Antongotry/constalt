@@ -493,18 +493,27 @@
   }
 
   .collaboration-card__badge {
-    top: #{mixins.vw(-15px, 375px)};
+    top: 0;
     right: #{mixins.vw(20px, 375px)};
     width: #{mixins.vw(48px, 375px)};
-    height: #{mixins.vw(63px, 375px)};
+    height: #{mixins.vw(48px, 375px)};
+    overflow: hidden;
+    display: block;
   }
 
   .collaboration-card__badge::before {
+    top: #{mixins.vw(-15px, 375px)};
+    left: #{mixins.vw(3px, 375px)};
+    transform: none;
     width: #{mixins.vw(42px, 375px)};
     height: #{mixins.vw(60px, 375px)};
+    border: 1px solid var(--badge-border);
   }
 
   .collaboration-card__badge-icon {
+    position: absolute;
+    left: #{mixins.vw(15px, 375px)};
+    top: #{mixins.vw(15px, 375px)};
     width: #{mixins.vw(18px, 375px)};
     height: #{mixins.vw(18px, 375px)};
   }
