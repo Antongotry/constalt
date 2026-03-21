@@ -225,94 +225,133 @@
   line-height: 140%;
 }
 
-@include mixins.mobile {
+@media (max-width: 1024px) {
   .about-section {
-    padding: #{mixins.mvw(60px)} 0 #{mixins.mvw(64px)};
+    padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(24px, 375px)};
   }
 
   .about-section::before {
-    height: #{mixins.mvw(56px)};
+    height: #{mixins.vw(44px, 375px)};
+    background: #051120;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
   }
 
   .about-section::after {
-    top: calc(#{mixins.mvw(56px)} - 1px);
+    display: none;
   }
 
   .about-section__container {
-    width: min(100% - #{mixins.mvw(32px)}, 100%);
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .about-section__marker {
-    gap: #{mixins.mvw(8px)};
+    gap: #{mixins.vw(6px, 375px)};
   }
 
   .about-section__marker-dot {
-    width: #{mixins.mvw(6px)};
-    height: #{mixins.mvw(6px)};
+    width: #{mixins.vw(4px, 375px)};
+    height: #{mixins.vw(4px, 375px)};
   }
 
   .about-section__marker-text {
-    font-size: #{mixins.mvw(16px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .about-section__title {
     width: 100%;
-    margin-top: #{mixins.mvw(24px)};
-    font-size: #{mixins.mvw(42px)};
+    margin-top: #{mixins.vw(24px, 375px)};
+    font-size: #{mixins.vw(24px, 375px)};
+    line-height: 108%;
   }
 
   .about-stage {
-    margin-top: #{mixins.mvw(40px)};
-    height: auto;
-    min-height: #{mixins.mvw(680px)};
-    padding: #{mixins.mvw(16px)};
-    display: grid;
-    gap: #{mixins.mvw(16px)};
+    margin-top: #{mixins.vw(32px, 375px)};
+    width: #{mixins.vw(355px, 375px)};
+    height: #{mixins.vw(537px, 375px)};
+    background: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325717_result.webp")
+      center / cover no-repeat;
   }
 
-  .about-card--left,
-  .about-card--year {
-    position: static;
-    width: 100%;
-    height: auto;
+  .about-card--left {
+    left: 0;
+    top: 0;
+    width: #{mixins.vw(184px, 375px)};
+    height: #{mixins.vw(537px, 375px)};
   }
 
-  .about-card__glass,
-  .about-card__plain,
-  .about-card__year-inner {
-    padding: #{mixins.mvw(20px)};
+  .about-card__glass {
+    height: #{mixins.vw(286px, 375px)};
+    padding: #{mixins.vw(10px, 375px)};
+    backdrop-filter: blur(#{mixins.vw(70px, 375px)});
   }
 
   .about-card__plain {
-    min-height: #{mixins.mvw(240px)};
+    height: #{mixins.vw(251px, 375px)};
+    padding: #{mixins.vw(10px, 375px)};
   }
 
-  .about-card__lead,
-  .about-card__sub,
-  .about-card__plain-title,
-  .about-card__plain-text,
-  .about-card__year-text {
-    width: 100%;
+  .about-card__lead {
+    width: #{mixins.vw(153px, 375px)};
+    font-size: #{mixins.vw(16px, 375px)};
+    line-height: 124%;
   }
 
-  .about-card__lead,
+  .about-card__sub {
+    width: #{mixins.vw(163px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
   .about-card__plain-title {
-    font-size: #{mixins.mvw(24px)};
+    width: #{mixins.vw(164px, 375px)};
+    font-size: #{mixins.vw(16px, 375px)};
+    line-height: 124%;
   }
 
-  .about-card__sub,
-  .about-card__plain-text,
-  .about-card__year-post,
-  .about-card__year-text {
-    font-size: #{mixins.mvw(16px)};
+  .about-card__plain-text {
+    width: #{mixins.vw(164px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .about-card--year {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: #{mixins.vw(12px, 375px)};
+    width: #{mixins.vw(355px, 375px)};
+    height: #{mixins.vw(222px, 375px)};
+    padding: #{mixins.vw(4px, 375px)};
+  }
+
+  .about-card__year-inner {
+    padding: #{mixins.vw(12px, 375px)};
+  }
+
+  .about-card__year-head {
+    gap: #{mixins.vw(8px, 375px)};
+    align-items: baseline;
   }
 
   .about-card__year-pre {
-    font-size: #{mixins.mvw(20px)};
+    font-size: #{mixins.vw(28px, 375px)};
+    line-height: 140%;
   }
 
   .about-card__year-number {
-    font-size: #{mixins.mvw(86px)};
-    letter-spacing: #{mixins.mvw(-3px)};
+    font-size: #{mixins.vw(86.84px, 375px)};
+    letter-spacing: 0;
+    line-height: 98%;
+  }
+
+  .about-card__year-post {
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .about-card__year-text {
+    width: #{mixins.vw(298px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
   }
 }
