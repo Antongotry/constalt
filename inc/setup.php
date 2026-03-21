@@ -11,21 +11,31 @@ if (! defined('CONSTALT_THEME_VERSION')) {
     define('CONSTALT_THEME_VERSION', '0.1.0');
 }
 
-// Request full-page cache bypass in common WordPress cache plugins.
-if (! defined('DONOTCACHEPAGE')) {
-    define('DONOTCACHEPAGE', true);
+/**
+ * Returns true for debug/development mode.
+ */
+function constalt_is_dev_mode(): bool
+{
+    return defined('WP_DEBUG') && WP_DEBUG;
 }
 
-if (! defined('DONOTCACHEOBJECT')) {
-    define('DONOTCACHEOBJECT', true);
-}
+// Request cache bypass only while debugging.
+if (constalt_is_dev_mode()) {
+    if (! defined('DONOTCACHEPAGE')) {
+        define('DONOTCACHEPAGE', true);
+    }
 
-if (! defined('DONOTCACHEDB')) {
-    define('DONOTCACHEDB', true);
-}
+    if (! defined('DONOTCACHEOBJECT')) {
+        define('DONOTCACHEOBJECT', true);
+    }
 
-if (! defined('DONOTMINIFY')) {
-    define('DONOTMINIFY', true);
+    if (! defined('DONOTCACHEDB')) {
+        define('DONOTCACHEDB', true);
+    }
+
+    if (! defined('DONOTMINIFY')) {
+        define('DONOTMINIFY', true);
+    }
 }
 
 /**
@@ -77,7 +87,23 @@ function constalt_asset_version(string $relative_path): string
  */
 function constalt_runtime_buster(): string
 {
+    if (! constalt_is_dev_mode()) {
+        return '';
+    }
+
     return (string) time();
+}
+
+/**
+ * Append runtime buster suffix only in development mode.
+ */
+function constalt_version_with_buster(string $version, string $runtime_buster): string
+{
+    if ($runtime_buster === '') {
+        return $version;
+    }
+
+    return $version . '-' . $runtime_buster;
 }
 
 /**
@@ -86,6 +112,10 @@ function constalt_runtime_buster(): string
 function constalt_disable_frontend_cache(): void
 {
     if (is_admin()) {
+        return;
+    }
+
+    if (! constalt_is_dev_mode()) {
         return;
     }
 
@@ -107,29 +137,29 @@ add_action('send_headers', 'constalt_disable_frontend_cache');
 function constalt_enqueue_assets(): void
 {
     $runtime_buster = constalt_runtime_buster();
-    $lenis_version = 'latest-' . $runtime_buster;
-    $swiper_version = '11.2.6-' . $runtime_buster;
-    $gsap_version = '3.13.0-' . $runtime_buster;
+    $lenis_version = constalt_version_with_buster('latest', $runtime_buster);
+    $swiper_version = constalt_version_with_buster('11.2.6', $runtime_buster);
+    $gsap_version = constalt_version_with_buster('3.13.0', $runtime_buster);
 
     wp_enqueue_style(
         'constalt-fonts',
         'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
         [],
-        $runtime_buster
+        constalt_version_with_buster(CONSTALT_THEME_VERSION, $runtime_buster)
     );
 
     wp_enqueue_style(
         'constalt-style',
         get_stylesheet_uri(),
         [],
-        constalt_asset_version('/style.css') . '-' . $runtime_buster
+        constalt_version_with_buster(constalt_asset_version('/style.css'), $runtime_buster)
     );
 
     wp_enqueue_style(
         'constalt-main',
         get_template_directory_uri() . '/assets/css/main.css',
         ['constalt-style', 'constalt-fonts'],
-        constalt_asset_version('/assets/css/main.css') . '-' . $runtime_buster
+        constalt_version_with_buster(constalt_asset_version('/assets/css/main.css'), $runtime_buster)
     );
 
     wp_enqueue_style(
@@ -175,7 +205,7 @@ function constalt_enqueue_assets(): void
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
         ['constalt-lenis', 'constalt-swiper', 'constalt-gsap-scrolltrigger'],
-        constalt_asset_version('/assets/js/main.js') . '-' . $runtime_buster,
+        constalt_version_with_buster(constalt_asset_version('/assets/js/main.js'), $runtime_buster),
         true
     );
 }
