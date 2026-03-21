@@ -32,6 +32,8 @@
     var swiperRoot = section.querySelector('[data-services-swiper]');
     var swiperInstance = null;
     var wheelLockedUntil = 0;
+    var sectionScrollLocked = false;
+    var lockedScrollY = 0;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -71,8 +73,12 @@
         activateTab(String(swiperInstance.activeIndex + 1));
       });
 
+      function isDesktopViewport() {
+        return window.innerWidth >= 768;
+      }
+
       function shouldLockWheel() {
-        if (window.innerWidth < 768) {
+        if (!isDesktopViewport()) {
           return false;
         }
 
@@ -83,8 +89,30 @@
         return sectionInFocus;
       }
 
+      function setSectionScrollLocked(locked) {
+        if (sectionScrollLocked === locked) {
+          return;
+        }
+
+        sectionScrollLocked = locked;
+        if (locked) {
+          lockedScrollY = window.scrollY;
+        }
+        section.classList.toggle('services-section--scroll-locked', locked);
+      }
+
+      function releaseSectionLock() {
+        setSectionScrollLocked(false);
+      }
+
       function onWheel(event) {
-        if (!shouldLockWheel() || !swiperInstance) {
+        if (!swiperInstance || !isDesktopViewport()) {
+          releaseSectionLock();
+          return;
+        }
+
+        if (!shouldLockWheel()) {
+          releaseSectionLock();
           return;
         }
 
@@ -101,6 +129,7 @@
         var atStart = swiperInstance.activeIndex <= 0;
 
         if ((isForward && atEnd) || (isBackward && atStart)) {
+          releaseSectionLock();
           return;
         }
 
@@ -108,6 +137,7 @@
           return;
         }
 
+        setSectionScrollLocked(true);
         event.preventDefault();
 
         if (isForward) {
@@ -119,7 +149,23 @@
         wheelLockedUntil = now + 560;
       }
 
+      function keepLockedScrollPosition() {
+        if (!sectionScrollLocked) {
+          return;
+        }
+
+        if (Math.abs(window.scrollY - lockedScrollY) > 1) {
+          window.scrollTo(0, lockedScrollY);
+        }
+      }
+
       window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('scroll', keepLockedScrollPosition, { passive: true });
+      window.addEventListener('resize', function () {
+        if (!isDesktopViewport()) {
+          releaseSectionLock();
+        }
+      });
     }
 
     tabs.forEach(function (tab) {
