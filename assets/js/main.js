@@ -36,6 +36,11 @@
     var swiperRoot = section.querySelector('[data-services-swiper]');
     var swiperInstance = null;
     var servicesScrollTrigger = null;
+    var servicesPopup = document.querySelector('[data-services-popup]');
+    var popupTitle = servicesPopup ? servicesPopup.querySelector('[data-services-popup-title]') : null;
+    var popupSubtitle = servicesPopup ? servicesPopup.querySelector('[data-services-popup-subtitle]') : null;
+    var popupServiceInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-service]') : null;
+    var lastPopupTrigger = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -54,6 +59,88 @@
         panel.hidden = swiperInstance ? false : !isActive;
       });
     }
+
+    function normalizeText(value) {
+      if (!value) {
+        return '';
+      }
+
+      return value.replace(/\s+/g, ' ').trim();
+    }
+
+    function closeServicesPopup() {
+      if (!servicesPopup || servicesPopup.hidden) {
+        return;
+      }
+
+      servicesPopup.hidden = true;
+      document.body.classList.remove('services-popup-open');
+      document.body.style.overflow = '';
+
+      if (lastPopupTrigger && typeof lastPopupTrigger.focus === 'function') {
+        lastPopupTrigger.focus();
+      }
+    }
+
+    function openServicesPopup(panel, trigger) {
+      if (!servicesPopup || !panel) {
+        return;
+      }
+
+      var titleSource = panel.querySelector('.service-detail__title');
+      var subtitleSource = panel.querySelector('.service-detail__subtitle');
+      var serviceTitle = titleSource ? normalizeText(titleSource.textContent) : '';
+
+      if (popupTitle && titleSource) {
+        popupTitle.innerHTML = titleSource.innerHTML;
+      }
+
+      if (popupSubtitle && subtitleSource) {
+        popupSubtitle.textContent = normalizeText(subtitleSource.textContent);
+      }
+
+      if (popupServiceInput) {
+        popupServiceInput.value = serviceTitle;
+      }
+
+      lastPopupTrigger = trigger || null;
+      servicesPopup.hidden = false;
+      document.body.classList.add('services-popup-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function initServicesPopup() {
+      if (!servicesPopup) {
+        return;
+      }
+
+      var openButtons = section.querySelectorAll('[data-services-popup-open]');
+
+      openButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          var panel = button.closest('[data-service-panel]');
+          openServicesPopup(panel, button);
+        });
+      });
+
+      servicesPopup.addEventListener('click', function (event) {
+        var closeTrigger = event.target.closest('[data-services-popup-close]');
+
+        if (closeTrigger) {
+          closeServicesPopup();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !servicesPopup.hidden) {
+          closeServicesPopup();
+        }
+      });
+    }
+
+    initServicesPopup();
 
     if (swiperRoot && typeof window.Swiper === 'function') {
       panels.forEach(function (panel) {

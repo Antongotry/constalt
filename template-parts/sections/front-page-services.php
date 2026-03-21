@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
 
                         <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
                             <span class="hero-pill__label">Детальніше</span>
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
 
                         <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
                             <span class="hero-pill__label">Детальніше</span>
@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +171,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
 
                         <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
                             <span class="hero-pill__label">Детальніше</span>
@@ -216,7 +216,7 @@
                     </div>
 
                     <div class="service-detail__actions">
-                        <a class="hero-pill hero-pill--light service-detail__action" href="#contact">
+                        <button class="hero-pill hero-pill--light service-detail__action" type="button" data-services-popup-open>
                             <span class="hero-pill__label">Обговорити задачу</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -224,7 +224,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#192432" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
 
                         <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
                             <span class="hero-pill__label">Детальніше</span>
@@ -244,3 +244,61 @@
         </div>
     </div>
 </section>
+
+<div class="services-popup" data-services-popup hidden>
+    <div class="services-popup__backdrop" data-services-popup-close></div>
+
+    <div class="services-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="services-popup-title">
+        <button class="services-popup__close" type="button" aria-label="Закрити" data-services-popup-close>
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 11L37 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M37 11L11 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <span class="services-popup__badge" aria-hidden="true"></span>
+        <h3 class="services-popup__title" id="services-popup-title" data-services-popup-title>
+            Due Diligence та<br><strong>інвестиційний супровід</strong>
+        </h3>
+        <p class="services-popup__subtitle" data-services-popup-subtitle>
+            Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.
+        </p>
+
+        <form class="services-popup__form" action="#" method="post">
+            <input type="hidden" name="service" value="" data-services-popup-service>
+
+            <div class="services-popup__row">
+                <label class="services-popup__field">
+                    <span class="screen-reader-text">Ваше імʼя</span>
+                    <input type="text" name="name" placeholder="Ваше імʼя">
+                </label>
+
+                <label class="services-popup__field">
+                    <span class="screen-reader-text">Номер телефону</span>
+                    <input type="tel" name="phone" placeholder="Номер телефону">
+                </label>
+            </div>
+
+            <label class="services-popup__field services-popup__field--wide">
+                <span class="screen-reader-text">Ваше запитання</span>
+                <input type="text" name="question" placeholder="Ваше запитання">
+            </label>
+
+            <label class="services-popup__consent">
+                <input class="services-popup__consent-input" type="checkbox" name="consent" checked>
+                <span class="services-popup__consent-box" aria-hidden="true"></span>
+                <span class="services-popup__consent-label">Я погоджуюсь з політикою конфіденційності</span>
+            </label>
+
+            <button class="services-popup__submit" type="submit">
+                <span>Обговорити задачу</span>
+                <span class="services-popup__submit-icon" aria-hidden="true">
+                    <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.163 12.489L12.489 4.163" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4.857 4.163H12.489V11.795" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </button>
+        </form>
+    </div>
+</div>
