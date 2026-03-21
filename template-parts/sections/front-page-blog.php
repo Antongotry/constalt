@@ -16,6 +16,15 @@ $blog_posts = get_posts(
 
 $primary_post = $blog_posts[0] ?? null;
 $secondary_posts = array_slice($blog_posts, 1, 2);
+$blog_archive_link = get_permalink((int) get_option('page_for_posts'));
+
+if (!$blog_archive_link) {
+    $blog_archive_link = get_post_type_archive_link('post');
+}
+
+if (!$blog_archive_link) {
+    $blog_archive_link = home_url('/');
+}
 
 $get_post_categories = static function (int $post_id): array {
     $categories = get_the_terms($post_id, 'category');
@@ -116,6 +125,10 @@ $get_post_categories = static function (int $post_id): array {
                     <?php endforeach; ?>
                 </div>
             </div>
+
+            <a class="blog-section__all-link" href="<?php echo esc_url($blog_archive_link); ?>">
+                <span>Усі новини</span>
+            </a>
         <?php else : ?>
             <p class="blog-section__empty">Додайте записи блогу, щоб показати цей блок.</p>
         <?php endif; ?>
