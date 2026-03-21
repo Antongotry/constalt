@@ -220,12 +220,12 @@
 @media (max-width: 1024px) {
   .faq-section {
     margin-top: 0;
-    padding: #{mixins.vw(64px, 375px)} 0 #{mixins.vw(64px, 375px)};
+    padding: min(#{mixins.vw(64px, 375px)}, 64px) 0 min(#{mixins.vw(64px, 375px)}, 64px);
   }
 
   .faq-section::before {
-    top: #{mixins.vw(-88px, 375px)};
-    height: #{mixins.vw(88px, 375px)};
+    top: min(#{mixins.vw(-88px, 375px)}, -88px);
+    height: min(#{mixins.vw(88px, 375px)}, 88px);
     background: #051120;
   }
 
@@ -234,12 +234,12 @@
   }
 
   .faq-section__marker {
-    gap: #{mixins.vw(6px, 375px)};
+    gap: min(#{mixins.vw(6px, 375px)}, 6px);
   }
 
   .faq-section__marker-dot {
-    width: #{mixins.vw(4px, 375px)};
-    height: #{mixins.vw(4px, 375px)};
+    width: min(#{mixins.vw(4px, 375px)}, 4px);
+    height: min(#{mixins.vw(4px, 375px)}, 4px);
     background-image: linear-gradient(#ffdf9f 0%, #ffdf9f 100%), linear-gradient(180deg, #c7c7c7 0%, #f1f1f1 100%);
     background-size: 100% 100%, 100% 100%;
     background-position: 0% 0%, 0% 0%;
@@ -248,54 +248,54 @@
   }
 
   .faq-section__marker-text {
-    font-size: #{mixins.vw(12px, 375px)};
+    font-size: min(#{mixins.vw(12px, 375px)}, 12px);
   }
 
   .faq-section__title {
-    margin-top: #{mixins.vw(28px, 375px)};
+    margin-top: min(#{mixins.vw(28px, 375px)}, 28px);
     width: 100%;
-    font-size: #{mixins.vw(24px, 375px)};
+    font-size: min(#{mixins.vw(24px, 375px)}, 24px);
     white-space: nowrap;
   }
 
   .faq-grid {
-    margin-top: #{mixins.vw(32px, 375px)};
+    margin-top: min(#{mixins.vw(32px, 375px)}, 32px);
     grid-template-columns: 1fr;
-    gap: #{mixins.vw(10px, 375px)};
+    gap: min(#{mixins.vw(10px, 375px)}, 10px);
   }
 
   .faq-item {
-    min-height: #{mixins.vw(68px, 375px)};
+    min-height: min(#{mixins.vw(68px, 375px)}, 68px);
   }
 
   .faq-item__trigger {
     height: auto;
-    min-height: #{mixins.vw(68px, 375px)};
-    padding: #{mixins.vw(16px, 375px)};
+    min-height: min(#{mixins.vw(68px, 375px)}, 68px);
+    padding: min(#{mixins.vw(16px, 375px)}, 16px);
     align-items: flex-start;
-    gap: #{mixins.vw(12px, 375px)};
+    gap: min(#{mixins.vw(12px, 375px)}, 12px);
   }
 
   .faq-item__text {
-    font-size: #{mixins.vw(14px, 375px)};
+    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
   }
 
   .faq-item__chevron {
-    width: #{mixins.vw(10px, 375px)};
-    height: #{mixins.vw(10px, 375px)};
+    width: min(#{mixins.vw(10px, 375px)}, 10px);
+    height: min(#{mixins.vw(10px, 375px)}, 10px);
     border-right: 1px solid rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid rgba(255, 255, 255, 0.8);
     transform: rotate(45deg);
     position: relative;
-    margin-top: #{mixins.vw(2px, 375px)};
-    margin-right: #{mixins.vw(2px, 375px)};
+    margin-top: min(#{mixins.vw(2px, 375px)}, 2px);
+    margin-right: min(#{mixins.vw(2px, 375px)}, 2px);
     overflow: visible;
     flex-shrink: 0;
   }
 
   .faq-item__content-inner {
-    padding: 0 #{mixins.vw(16px, 375px)} #{mixins.vw(16px, 375px)};
-    font-size: #{mixins.vw(14px, 375px)};
+    padding: 0 min(#{mixins.vw(16px, 375px)}, 16px) min(#{mixins.vw(16px, 375px)}, 16px);
+    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
   }
 
   .faq-item.is-open .faq-item__chevron {
@@ -303,21 +303,21 @@
   }
 
   .faq-cta {
-    margin-top: #{mixins.vw(16px, 375px)};
+    margin-top: min(#{mixins.vw(16px, 375px)}, 16px);
     height: min(#{mixins.vw(212px, 375px)}, 212px);
-    padding: #{mixins.vw(4px, 375px)};
+    padding: min(#{mixins.vw(4px, 375px)}, 4px);
     background: #fff;
   }
 
   .faq-cta__inner {
-    padding: #{mixins.vw(20px, 375px)};
+    padding: min(#{mixins.vw(20px, 375px)}, 20px);
   }
 
   .faq-cta__content {
     height: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: #{mixins.vw(20px, 375px)};
+    gap: min(#{mixins.vw(20px, 375px)}, 20px);
   }
 
   .faq-cta__copy,
@@ -326,13 +326,13 @@
   }
 
   .faq-cta__title {
-    font-size: #{mixins.vw(20px, 375px)};
+    font-size: min(#{mixins.vw(20px, 375px)}, 20px);
     line-height: 108%;
   }
 
   .faq-cta__text {
-    margin-top: #{mixins.vw(20px, 375px)};
-    font-size: #{mixins.vw(14px, 375px)};
+    margin-top: min(#{mixins.vw(20px, 375px)}, 20px);
+    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
     line-height: 140%;
   }
 
@@ -340,8 +340,9 @@
     margin-top: auto;
     width: min(#{mixins.vw(315px, 375px)}, 315px);
     height: min(#{mixins.vw(48px, 375px)}, 48px);
-    padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
-    border-radius: #{mixins.vw(1000px, 375px)};
+    padding: min(#{mixins.vw(8px, 375px)}, 8px) min(#{mixins.vw(8px, 375px)}, 8px) min(#{mixins.vw(8px, 375px)}, 8px)
+      min(#{mixins.vw(20px, 375px)}, 20px);
+    border-radius: min(#{mixins.vw(1000px, 375px)}, 1000px);
     font-size: min(#{mixins.vw(12px, 375px)}, 12px);
   }
 
