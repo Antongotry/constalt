@@ -22,7 +22,7 @@
                 <a class="site-footer__link" href="#contact">Контакти</a>
                 <a class="site-footer__link" href="#news">Новини</a>
 
-                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--address">
+                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--address site-footer__contact-block--desktop-only">
                     <p class="site-footer__label">Адреса</p>
                     <p class="site-footer__text">назва Вулиці, 123, Київ</p>
                 </div>
@@ -35,7 +35,7 @@
                 <a class="site-footer__link" href="#services">Due Diligence та інвестиційний супровід</a>
                 <a class="site-footer__link" href="#services">Юридична архітектура та захист активів</a>
 
-                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--schedule">
+                <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--schedule site-footer__contact-block--desktop-only">
                     <p class="site-footer__label">Графік роботи</p>
                     <p class="site-footer__text">Пн-Пт з 9.00 до 18.00</p>
                 </div>
@@ -75,6 +75,18 @@
                     <a class="site-footer__social" href="#" aria-label="Viber">
                         <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="">
                     </a>
+                </div>
+            </div>
+
+            <div class="site-footer__mobile-meta-row">
+                <div class="site-footer__contact-block site-footer__contact-block--address">
+                    <p class="site-footer__label">Адреса</p>
+                    <p class="site-footer__text">назва Вулиці, 123, Київ</p>
+                </div>
+
+                <div class="site-footer__contact-block site-footer__contact-block--schedule">
+                    <p class="site-footer__label">Графік роботи</p>
+                    <p class="site-footer__text">Пн-Пт з 9.00 до 18.00</p>
                 </div>
             </div>
         </div>
