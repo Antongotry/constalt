@@ -16,7 +16,6 @@
             </svg>
         </button>
 
-        <span class="services-popup__badge" aria-hidden="true"></span>
         <h3 class="services-popup__title" id="services-popup-title" data-services-popup-title>
             Due Diligence та<br><strong>інвестиційний супровід</strong>
         </h3>
