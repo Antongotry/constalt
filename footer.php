@@ -69,11 +69,11 @@
                     <a class="site-footer__social" href="#" aria-label="Instagram">
                         <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="">
                     </a>
-                    <a class="site-footer__social" href="#" aria-label="Facebook">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="">
-                    </a>
                     <a class="site-footer__social" href="#" aria-label="Viber">
                         <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="">
+                    </a>
+                    <a class="site-footer__social" href="#" aria-label="Facebook">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="">
                     </a>
                 </div>
             </div>
