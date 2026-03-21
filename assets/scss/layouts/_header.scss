@@ -19,6 +19,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-inline: #{mixins.vw(16px)};
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: #{mixins.vw(12px)};
+  background: linear-gradient(180deg, rgba(25, 36, 50, 0.62) 0%, rgba(5, 17, 32, 0.52) 100%);
+  backdrop-filter: blur(#{mixins.vw(14px)});
+  box-shadow: 0 #{mixins.vw(6px)} #{mixins.vw(22px)} rgba(3, 12, 24, 0.28);
 }
 
 .site-header__logo-link {
@@ -57,8 +63,9 @@
 }
 
 .site-header__line {
+  margin-top: #{mixins.vw(8px)};
   height: 1px;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .site-header__cta {
@@ -96,6 +103,12 @@
 
   .site-header__inner {
     height: #{mixins.vw(48px, 375px)};
+    padding-inline: #{mixins.vw(10px, 375px)};
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: #{mixins.vw(10px, 375px)};
+    background: linear-gradient(180deg, rgba(25, 36, 50, 0.68) 0%, rgba(5, 17, 32, 0.58) 100%);
+    backdrop-filter: blur(#{mixins.vw(12px, 375px)});
+    box-shadow: 0 #{mixins.vw(4px, 375px)} #{mixins.vw(16px, 375px)} rgba(3, 12, 24, 0.3);
   }
 
   .site-header__logo {
@@ -178,6 +191,11 @@
     gap: #{mixins.vw(18px, 375px)};
     opacity: 0;
     transition: transform 0.34s ease, opacity 0.34s ease;
+  }
+
+  .site-header__line {
+    margin-top: #{mixins.vw(8px, 375px)};
+    background: rgba(255, 255, 255, 0.16);
   }
 
   .site-header--menu-open .site-header__mobile-panel {
