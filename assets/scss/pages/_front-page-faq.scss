@@ -230,7 +230,7 @@
   }
 
   .faq-section__container {
-    width: #{mixins.vw(355px, 375px)};
+    width: min(#{mixins.vw(355px, 375px)}, 355px);
   }
 
   .faq-section__marker {
@@ -304,7 +304,7 @@
 
   .faq-cta {
     margin-top: #{mixins.vw(16px, 375px)};
-    height: #{mixins.vw(212px, 375px)};
+    height: min(#{mixins.vw(212px, 375px)}, 212px);
     padding: #{mixins.vw(4px, 375px)};
     background: #fff;
   }
@@ -338,19 +338,20 @@
 
   .faq-cta__button {
     margin-top: auto;
-    height: #{mixins.vw(48px, 375px)};
+    width: min(#{mixins.vw(315px, 375px)}, 315px);
+    height: min(#{mixins.vw(48px, 375px)}, 48px);
     padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
     border-radius: #{mixins.vw(1000px, 375px)};
-    font-size: #{mixins.vw(12px, 375px)};
+    font-size: min(#{mixins.vw(12px, 375px)}, 12px);
   }
 
   .faq-cta__button-icon {
-    width: #{mixins.vw(32px, 375px)};
-    height: #{mixins.vw(32px, 375px)};
+    width: min(#{mixins.vw(32px, 375px)}, 32px);
+    height: min(#{mixins.vw(32px, 375px)}, 32px);
   }
 
   .faq-cta__button-icon svg {
-    width: #{mixins.vw(13px, 375px)};
-    height: #{mixins.vw(13px, 375px)};
+    width: min(#{mixins.vw(13px, 375px)}, 13px);
+    height: min(#{mixins.vw(13px, 375px)}, 13px);
   }
 }
