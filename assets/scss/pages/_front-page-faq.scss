@@ -220,26 +220,26 @@
 @media (max-width: 1024px) {
   .faq-section {
     margin-top: 0;
-    padding: min(#{mixins.vw(46px, 375px)}, 46px) 0 min(#{mixins.vw(64px, 375px)}, 64px);
+    padding: #{mixins.vw(46px, 375px)} 0 #{mixins.vw(64px, 375px)};
   }
 
   .faq-section::before {
-    top: min(#{mixins.vw(-46px, 375px)}, -46px);
-    height: min(#{mixins.vw(46px, 375px)}, 46px);
+    top: #{mixins.vw(-46px, 375px)};
+    height: #{mixins.vw(46px, 375px)};
     background: #051120;
   }
 
   .faq-section__container {
-    width: min(#{mixins.vw(355px, 375px)}, 355px);
+    width: #{mixins.vw(355px, 375px)};
   }
 
   .faq-section__marker {
-    gap: min(#{mixins.vw(6px, 375px)}, 6px);
+    gap: #{mixins.vw(6px, 375px)};
   }
 
   .faq-section__marker-dot {
-    width: min(#{mixins.vw(4px, 375px)}, 4px);
-    height: min(#{mixins.vw(4px, 375px)}, 4px);
+    width: #{mixins.vw(4px, 375px)};
+    height: #{mixins.vw(4px, 375px)};
     background-image: linear-gradient(#ffdf9f 0%, #ffdf9f 100%), linear-gradient(180deg, #c7c7c7 0%, #f1f1f1 100%);
     background-size: 100% 100%, 100% 100%;
     background-position: 0% 0%, 0% 0%;
@@ -248,54 +248,54 @@
   }
 
   .faq-section__marker-text {
-    font-size: min(#{mixins.vw(12px, 375px)}, 12px);
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .faq-section__title {
-    margin-top: min(#{mixins.vw(28px, 375px)}, 28px);
+    margin-top: #{mixins.vw(28px, 375px)};
     width: 100%;
-    font-size: min(#{mixins.vw(24px, 375px)}, 24px);
+    font-size: #{mixins.vw(24px, 375px)};
     white-space: nowrap;
   }
 
   .faq-grid {
-    margin-top: min(#{mixins.vw(32px, 375px)}, 32px);
+    margin-top: #{mixins.vw(32px, 375px)};
     grid-template-columns: 1fr;
-    gap: min(#{mixins.vw(10px, 375px)}, 10px);
+    gap: #{mixins.vw(10px, 375px)};
   }
 
   .faq-item {
-    min-height: min(#{mixins.vw(68px, 375px)}, 68px);
+    min-height: #{mixins.vw(68px, 375px)};
   }
 
   .faq-item__trigger {
     height: auto;
-    min-height: min(#{mixins.vw(68px, 375px)}, 68px);
-    padding: min(#{mixins.vw(16px, 375px)}, 16px);
+    min-height: #{mixins.vw(68px, 375px)};
+    padding: #{mixins.vw(16px, 375px)};
     align-items: center;
-    gap: min(#{mixins.vw(12px, 375px)}, 12px);
+    gap: #{mixins.vw(12px, 375px)};
   }
 
   .faq-item__text {
-    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
+    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .faq-item__chevron {
-    width: min(#{mixins.vw(10px, 375px)}, 10px);
-    height: min(#{mixins.vw(10px, 375px)}, 10px);
+    width: #{mixins.vw(10px, 375px)};
+    height: #{mixins.vw(10px, 375px)};
     border-right: 1px solid rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid rgba(255, 255, 255, 0.8);
     transform: rotate(45deg);
     position: relative;
     margin-top: 0;
-    margin-right: min(#{mixins.vw(2px, 375px)}, 2px);
+    margin-right: #{mixins.vw(2px, 375px)};
     overflow: visible;
     flex-shrink: 0;
   }
 
   .faq-item__content-inner {
-    padding: 0 min(#{mixins.vw(16px, 375px)}, 16px) min(#{mixins.vw(16px, 375px)}, 16px);
-    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
+    padding: 0 #{mixins.vw(16px, 375px)} #{mixins.vw(16px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .faq-item.is-open .faq-item__chevron {
@@ -303,21 +303,21 @@
   }
 
   .faq-cta {
-    margin-top: min(#{mixins.vw(16px, 375px)}, 16px);
-    height: min(#{mixins.vw(212px, 375px)}, 212px);
-    padding: min(#{mixins.vw(4px, 375px)}, 4px);
+    margin-top: #{mixins.vw(16px, 375px)};
+    height: #{mixins.vw(212px, 375px)};
+    padding: #{mixins.vw(4px, 375px)};
     background: #fff;
   }
 
   .faq-cta__inner {
-    padding: min(#{mixins.vw(20px, 375px)}, 20px);
+    padding: #{mixins.vw(20px, 375px)};
   }
 
   .faq-cta__content {
     height: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: min(#{mixins.vw(20px, 375px)}, 20px);
+    gap: #{mixins.vw(20px, 375px)};
   }
 
   .faq-cta__copy,
@@ -326,33 +326,32 @@
   }
 
   .faq-cta__title {
-    font-size: min(#{mixins.vw(20px, 375px)}, 20px);
+    font-size: #{mixins.vw(20px, 375px)};
     line-height: 108%;
   }
 
   .faq-cta__text {
-    margin-top: min(#{mixins.vw(20px, 375px)}, 20px);
-    font-size: min(#{mixins.vw(14px, 375px)}, 14px);
+    margin-top: #{mixins.vw(20px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
   }
 
   .faq-cta__button {
     margin-top: auto;
-    width: min(#{mixins.vw(315px, 375px)}, 315px);
-    height: min(#{mixins.vw(48px, 375px)}, 48px);
-    padding: min(#{mixins.vw(8px, 375px)}, 8px) min(#{mixins.vw(8px, 375px)}, 8px) min(#{mixins.vw(8px, 375px)}, 8px)
-      min(#{mixins.vw(20px, 375px)}, 20px);
-    border-radius: min(#{mixins.vw(1000px, 375px)}, 1000px);
-    font-size: min(#{mixins.vw(12px, 375px)}, 12px);
+    width: #{mixins.vw(315px, 375px)};
+    height: #{mixins.vw(48px, 375px)};
+    padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
+    border-radius: #{mixins.vw(1000px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .faq-cta__button-icon {
-    width: min(#{mixins.vw(32px, 375px)}, 32px);
-    height: min(#{mixins.vw(32px, 375px)}, 32px);
+    width: #{mixins.vw(32px, 375px)};
+    height: #{mixins.vw(32px, 375px)};
   }
 
   .faq-cta__button-icon svg {
-    width: min(#{mixins.vw(13px, 375px)}, 13px);
-    height: min(#{mixins.vw(13px, 375px)}, 13px);
+    width: #{mixins.vw(13px, 375px)};
+    height: #{mixins.vw(13px, 375px)};
   }
 }
