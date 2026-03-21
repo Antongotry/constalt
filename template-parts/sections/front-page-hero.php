@@ -13,6 +13,12 @@ $asset_buster = (string) time();
     class="hero hero--front-page"
     style="--hero-bg-image: url('https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp?v=<?php echo esc_attr($asset_buster); ?>');"
 >
+    <div class="hero__media" aria-hidden="true">
+        <video class="hero__media-video" autoplay muted loop playsinline preload="metadata">
+            <source src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/kling_20260318_作品_Scene_1__A_891_0.mp4" type="video/mp4">
+        </video>
+    </div>
+
     <div class="hero__bottom">
         <div class="hero__bottom-line" aria-hidden="true"></div>
         <div class="hero__bottom-content">

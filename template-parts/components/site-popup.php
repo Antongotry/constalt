@@ -61,3 +61,26 @@
         </form>
     </div>
 </div>
+
+<div class="thanks-popup" data-thanks-popup hidden>
+    <div class="thanks-popup__backdrop" data-thanks-popup-close></div>
+
+    <div class="thanks-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="thanks-popup-title">
+        <button class="thanks-popup__close" type="button" aria-label="Закрити" data-thanks-popup-close>
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 11L37 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M37 11L11 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <span class="thanks-popup__badge" aria-hidden="true"></span>
+
+        <h3 class="thanks-popup__title" id="thanks-popup-title">
+            <span>Дякуємо!</span> <strong>Вашу заявку отримано</strong>
+        </h3>
+
+        <p class="thanks-popup__text">
+            Ми вже отримали ваші контактні дані. Наш менеджер зв'яжеться з вами найближчим часом, щоб відповісти на всі ваші запитання та узгодити деталі.
+        </p>
+    </div>
+</div>

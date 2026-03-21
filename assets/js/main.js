@@ -44,8 +44,11 @@
     var popupWideInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-input]') : null;
     var popupWideLabelScreen = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-label-screen]') : null;
     var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
+    var thanksPopup = document.querySelector('[data-thanks-popup]');
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
+    var thanksPopupCloseTimer = null;
+    var lastThanksTrigger = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -250,7 +253,7 @@
       }
     }
 
-    function closeServicesPopup() {
+    function closeServicesPopup(restoreFocus) {
       if (!servicesPopup || servicesPopup.hidden) {
         return;
       }
@@ -268,7 +271,7 @@
         popupCloseTimer = null;
       }, 360);
 
-      if (lastPopupTrigger && typeof lastPopupTrigger.focus === 'function') {
+      if (restoreFocus !== false && lastPopupTrigger && typeof lastPopupTrigger.focus === 'function') {
         lastPopupTrigger.focus();
       }
     }
@@ -291,6 +294,49 @@
         servicesPopup.classList.add('is-visible');
       });
       document.body.classList.add('services-popup-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeThanksPopup(restoreFocus) {
+      if (!thanksPopup || thanksPopup.hidden) {
+        return;
+      }
+
+      if (thanksPopupCloseTimer) {
+        window.clearTimeout(thanksPopupCloseTimer);
+      }
+
+      thanksPopup.classList.remove('is-visible');
+      document.body.classList.remove('site-popup-open');
+      document.body.style.overflow = '';
+
+      thanksPopupCloseTimer = window.setTimeout(function () {
+        thanksPopup.hidden = true;
+        thanksPopupCloseTimer = null;
+      }, 360);
+
+      if (restoreFocus !== false && lastThanksTrigger && typeof lastThanksTrigger.focus === 'function') {
+        lastThanksTrigger.focus();
+      }
+    }
+
+    function openThanksPopup(trigger) {
+      if (!thanksPopup) {
+        return;
+      }
+
+      if (thanksPopupCloseTimer) {
+        window.clearTimeout(thanksPopupCloseTimer);
+        thanksPopupCloseTimer = null;
+      }
+
+      lastThanksTrigger = trigger || null;
+      thanksPopup.hidden = false;
+      window.requestAnimationFrame(function () {
+        thanksPopup.classList.add('is-visible');
+      });
+
+      document.body.classList.add('site-popup-open');
       document.body.style.overflow = 'hidden';
     }
 
@@ -330,6 +376,39 @@
         if (event.key === 'Escape' && !servicesPopup.hidden) {
           closeServicesPopup();
         }
+      });
+
+      if (thanksPopup) {
+        thanksPopup.addEventListener('click', function (event) {
+          var thanksCloseTrigger = event.target.closest('[data-thanks-popup-close]');
+
+          if (thanksCloseTrigger) {
+            closeThanksPopup();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && thanksPopup && !thanksPopup.hidden) {
+          closeThanksPopup();
+        }
+      });
+
+      document.addEventListener('submit', function (event) {
+        var submittedForm = event.target.closest('.services-popup__form, .contact-form');
+
+        if (!submittedForm) {
+          return;
+        }
+
+        event.preventDefault();
+        submittedForm.reset();
+
+        if (servicesPopup && !servicesPopup.hidden) {
+          closeServicesPopup(false);
+        }
+
+        openThanksPopup(lastPopupTrigger);
       });
     }
 
@@ -621,8 +700,9 @@
 
     function syncBodyScroll() {
       var popupOpen = document.body.classList.contains('services-popup-open');
+      var thanksPopupOpen = document.body.classList.contains('site-popup-open');
       var menuOpen = header.classList.contains('site-header--menu-open');
-      document.body.style.overflow = popupOpen || menuOpen ? 'hidden' : '';
+      document.body.style.overflow = popupOpen || thanksPopupOpen || menuOpen ? 'hidden' : '';
     }
 
     function closeMenu() {
