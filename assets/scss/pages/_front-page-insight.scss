@@ -111,56 +111,56 @@
   font-weight: 700;
 }
 
-@include mixins.mobile {
+@media (max-width: 1024px) {
   .insight-section {
-    width: min(100% - #{mixins.mvw(32px)}, 100%);
-    margin-top: #{mixins.mvw(80px)};
-    padding-bottom: #{mixins.mvw(24px)};
+    width: #{mixins.vw(355px, 375px)};
+    margin-top: #{mixins.vw(80px, 375px)};
+    padding-bottom: #{mixins.vw(40px, 375px)};
   }
 
   .insight-section::before,
   .insight-section::after {
-    width: #{mixins.mvw(220px)};
+    width: #{mixins.vw(220px, 375px)};
     filter: blur(240px);
     opacity: 0.45;
   }
 
   .insight-section::before {
-    left: #{mixins.mvw(-130px)};
+    left: #{mixins.vw(-130px, 375px)};
   }
 
   .insight-section::after {
-    right: #{mixins.mvw(-130px)};
+    right: #{mixins.vw(-130px, 375px)};
   }
 
   .insight-section__marker {
-    margin-top: #{mixins.mvw(32px)};
-    gap: #{mixins.mvw(8px)};
+    margin-top: #{mixins.vw(28px, 375px)};
+    gap: #{mixins.vw(6px, 375px)};
   }
 
   .insight-section__marker-dot {
-    width: #{mixins.mvw(6px)};
-    height: #{mixins.mvw(6px)};
+    width: #{mixins.vw(4px, 375px)};
+    height: #{mixins.vw(4px, 375px)};
   }
 
   .insight-section__marker-text {
-    font-size: #{mixins.mvw(16px)};
+    font-size: #{mixins.vw(12px, 375px)};
   }
 
   .insight-section__title {
     width: 100%;
-    margin-top: #{mixins.mvw(28px)};
-    font-size: #{mixins.mvw(36px)};
+    margin-top: #{mixins.vw(26px, 375px)};
+    font-size: #{mixins.vw(24px, 375px)};
   }
 
   .insight-section__line-vertical {
-    height: #{mixins.mvw(60px)};
-    margin-top: #{mixins.mvw(32px)};
+    height: #{mixins.vw(60px, 375px)};
+    margin-top: #{mixins.vw(28px, 375px)};
   }
 
   .insight-section__summary {
-    width: 100%;
-    margin-top: #{mixins.mvw(24px)};
-    font-size: #{mixins.mvw(16px)};
+    width: #{mixins.vw(292px, 375px)};
+    margin-top: #{mixins.vw(28px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
   }
 }
