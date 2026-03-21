@@ -24,6 +24,39 @@
     window.requestAnimationFrame(raf);
   }
 
+  function initHeroVideo() {
+    var heroVideo = document.querySelector('.hero__media-video');
+
+    if (!heroVideo) {
+      return;
+    }
+
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.playsInline = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
+    heroVideo.setAttribute('autoplay', '');
+
+    function tryPlay() {
+      var playResult = heroVideo.play();
+
+      if (playResult && typeof playResult.catch === 'function') {
+        playResult.catch(function () {});
+      }
+    }
+
+    if (heroVideo.readyState >= 2) {
+      tryPlay();
+    } else {
+      heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
+    }
+
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    document.addEventListener('click', tryPlay, { once: true });
+  }
+
   function initServicesTabs() {
     var section = document.querySelector('.services-section');
 
@@ -751,6 +784,7 @@
   }
 
   initLenis();
+  initHeroVideo();
   initServicesTabs();
   initTrustTimeline();
   initFaqAccordion();
