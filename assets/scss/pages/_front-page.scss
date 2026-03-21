@@ -244,9 +244,9 @@
   }
 
   .hero__preview-dot {
-    width: #{mixins.vw(4px, 375px)};
-    height: #{mixins.vw(4px, 375px)};
-    margin-top: #{mixins.vw(6px, 375px)};
+    width: #{mixins.vw(5px, 375px)};
+    height: #{mixins.vw(5px, 375px)};
+    margin-top: calc((#{mixins.vw(14px, 375px)} * 1.4 - #{mixins.vw(5px, 375px)}) / 2);
     flex-shrink: 0;
   }
 
