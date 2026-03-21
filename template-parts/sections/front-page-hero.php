@@ -19,8 +19,10 @@ declare(strict_types=1);
             muted
             loop
             playsinline
-            preload="auto"
+            preload="none"
             poster="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp"
+            width="1440"
+            height="900"
         >
             <source src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/kling_20260318_%E4%BD%9C%E5%93%81_Scene_1__A_891_0.mp4" type="video/mp4">
         </video>

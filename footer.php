@@ -11,7 +11,7 @@
 
         <div class="site-footer__main">
             <a class="site-footer__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('На головну', 'constalt'); ?>">
-                <img class="site-footer__logo" src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Audit-consulting.svg" alt="Audit consulting">
+                <img class="site-footer__logo" src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Audit-consulting.svg" alt="Audit consulting" width="221" height="26" loading="lazy" decoding="async">
             </a>
 
             <nav class="site-footer__column site-footer__column--nav" aria-label="<?php esc_attr_e('Навігація', 'constalt'); ?>">
@@ -64,16 +64,16 @@
 
                 <div class="site-footer__socials" aria-label="<?php esc_attr_e('Соціальні мережі', 'constalt'); ?>">
                     <a class="site-footer__social" href="#" aria-label="Telegram">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/tg.svg" alt="">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/tg.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Instagram">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Facebook">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Viber">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="">
+                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>

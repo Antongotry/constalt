@@ -15,6 +15,7 @@
                         src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/1233.svg"
                         alt=""
                         aria-hidden="true"
+                        width="74" height="65"
                         loading="lazy"
                         decoding="async"
                     >
@@ -82,6 +83,7 @@
                             <img
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-1321317016.svg"
                                 alt=""
+                                width="24" height="24"
                                 loading="lazy"
                                 decoding="async"
                             >

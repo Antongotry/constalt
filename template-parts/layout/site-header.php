@@ -62,16 +62,16 @@ $asset_buster = (string) time();
 
             <div class="site-header__mobile-socials" aria-label="<?php esc_attr_e('Соціальні мережі', 'constalt'); ?>">
                 <a class="site-header__mobile-social" href="#" aria-label="Telegram">
-                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/tg.svg" alt="">
+                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/tg.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
                 </a>
                 <a class="site-header__mobile-social" href="#" aria-label="Instagram">
-                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="">
+                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
                 </a>
                 <a class="site-header__mobile-social" href="#" aria-label="Facebook">
-                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="">
+                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
                 </a>
                 <a class="site-header__mobile-social" href="#" aria-label="Viber">
-                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="">
+                    <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
                 </a>
             </div>
         </div>

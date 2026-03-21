@@ -215,7 +215,7 @@ function constalt_enqueue_assets(): void
 
     wp_enqueue_style(
         'constalt-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap',
+        'https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap',
         [],
         constalt_version_with_buster(CONSTALT_THEME_VERSION, $runtime_buster)
     );
@@ -274,7 +274,9 @@ function constalt_optimize_style_loading(string $tag, string $handle): string
         $tag = str_replace(' href=', ' data-no-optimize="1" href=', $tag);
     }
 
-    if ($handle === 'constalt-fonts') {
+    $async_handles = ['constalt-fonts', 'constalt-swiper'];
+
+    if (in_array($handle, $async_handles, true)) {
         $tag = str_replace(
             "media='all'",
             "media='print' onload=\"this.media='all'\"",
@@ -285,3 +287,35 @@ function constalt_optimize_style_loading(string $tag, string $handle): string
     return $tag;
 }
 add_filter('style_loader_tag', 'constalt_optimize_style_loading', 10, 2);
+
+/**
+ * Preload the mobile LCP background image so the hero paints quickly.
+ */
+function constalt_preload_lcp_image(): void
+{
+    $mobile_hero = 'https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325716_result.webp';
+    $desktop_hero = 'https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp';
+
+    echo '<link rel="preload" as="image" href="' . $mobile_hero . '" media="(max-width: 1024px)">' . "\n";
+    echo '<link rel="preload" as="image" href="' . $desktop_hero . '" media="(min-width: 1025px)">' . "\n";
+}
+add_action('wp_head', 'constalt_preload_lcp_image', 3);
+
+/**
+ * Set long-lived cache headers for theme static assets in production.
+ */
+function constalt_static_cache_headers(): void
+{
+    if (constalt_is_dev_mode() || is_admin()) {
+        return;
+    }
+
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+
+    if (preg_match('/\.(css|js|svg|webp|woff2?|png|jpe?g|gif|mp4)(\?|$)/i', $request_uri)) {
+        header('Cache-Control: public, max-age=31536000, immutable');
+        header_remove('Pragma');
+        header_remove('Expires');
+    }
+}
+add_action('send_headers', 'constalt_static_cache_headers', 1);

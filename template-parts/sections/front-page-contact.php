@@ -12,6 +12,7 @@
                 <img
                     src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Key_fill.svg"
                     alt=""
+                    width="28" height="28"
                     loading="lazy"
                     decoding="async"
                 >

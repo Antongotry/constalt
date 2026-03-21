@@ -33,6 +33,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-1.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-1.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-1.svg"
@@ -50,6 +52,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-2.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-2.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-2.svg"
@@ -67,6 +71,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-3.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-3.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-3.svg"
@@ -84,6 +90,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-4.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-4.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-4.svg"
@@ -101,6 +109,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-5.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-5.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-5.svg"
@@ -118,6 +128,8 @@
                                 class="trust-item__icon"
                                 src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-6.svg"
                                 alt=""
+                                width="24" height="24"
+                                loading="lazy" decoding="async"
                                 data-trust-icon
                                 data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-6.svg"
                                 data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-6.svg"
