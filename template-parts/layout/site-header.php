@@ -29,7 +29,7 @@ $asset_buster = (string) time();
                 <a class="site-header__nav-link" href="#about">Про нас</a>
                 <a class="site-header__nav-link" href="#contacts">Контакти</a>
             </nav>
-            <a class="site-header__cta" href="#contact" data-site-popup-open data-popup-key="consultation-general">
+            <a class="site-header__cta" href="#" data-site-popup-open data-popup-key="consultation-general">
                 Отримати консультацію
             </a>
         </div>
@@ -55,7 +55,7 @@ $asset_buster = (string) time();
                 <a class="site-header__mobile-mail" href="mailto:info@gmail.com">info@gmail.com</a>
             </div>
 
-            <a class="site-header__mobile-cta" href="#contact" data-site-popup-open data-popup-key="consultation-general" data-header-menu-link>
+            <a class="site-header__mobile-cta" href="#" data-site-popup-open data-popup-key="consultation-general" data-header-menu-link>
                 Отримати консультацію
             </a>
 

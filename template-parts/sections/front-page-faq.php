@@ -98,7 +98,7 @@
                         <p class="faq-cta__text">Якщо ваша ситуація потребує окремого розгляду — залиште запит для первинної оцінки.</p>
                     </div>
 
-                    <a class="faq-cta__button" href="#contact" data-site-popup-open data-popup-key="consultation-general">
+                    <a class="faq-cta__button" href="#" data-site-popup-open data-popup-key="consultation-general">
                         <span>Отримати консультацію</span>
                         <span class="faq-cta__button-icon" aria-hidden="true">
                             <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">

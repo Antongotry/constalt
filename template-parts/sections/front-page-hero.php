@@ -33,7 +33,7 @@ $asset_buster = (string) time();
                     <strong>готову до масштабування або залучення інвестицій</strong>
                 </p>
                 <div class="hero__actions">
-                    <a class="hero-pill hero-pill--light" href="#contact" data-site-popup-open data-popup-key="consultation-general">
+                    <a class="hero-pill hero-pill--light" href="#" data-site-popup-open data-popup-key="consultation-general">
                         <span class="hero-pill__label">Отримати консультацію</span>
                         <span class="hero-pill__icon" aria-hidden="true">
                             <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">

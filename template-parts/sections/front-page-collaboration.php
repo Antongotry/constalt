@@ -42,7 +42,7 @@
                         <p class="collaboration-card__result-text">Чітке розуміння ситуації та план дій для власника.</p>
                     </div>
 
-                    <a class="collaboration-card__link" href="#contact" data-site-popup-open data-popup-key="collaboration-expert">
+                    <a class="collaboration-card__link" href="#" data-site-popup-open data-popup-key="collaboration-expert">
                         <span>Залишити заявку</span>
                         <span class="collaboration-card__link-arrow" aria-hidden="true">
                             <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@
                         <p class="collaboration-card__result-text">Рішення, які змінюють структуру управління і роботу бізнесу.</p>
                     </div>
 
-                    <a class="collaboration-card__link" href="#contact" data-site-popup-open data-popup-key="collaboration-project">
+                    <a class="collaboration-card__link" href="#" data-site-popup-open data-popup-key="collaboration-project">
                         <span>Залишити заявку</span>
                         <span class="collaboration-card__link-arrow" aria-hidden="true">
                             <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@
                         <p class="collaboration-card__result-text">Експертна підтримка власника у розвитку компанії.</p>
                     </div>
 
-                    <a class="collaboration-card__link" href="#contact" data-site-popup-open data-popup-key="collaboration-strategic">
+                    <a class="collaboration-card__link" href="#" data-site-popup-open data-popup-key="collaboration-strategic">
                         <span>Залишити заявку</span>
                         <span class="collaboration-card__link-arrow" aria-hidden="true">
                             <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
