@@ -17,6 +17,10 @@
       window.requestAnimationFrame(raf);
     }
 
+    if (typeof lenis.on === 'function' && window.ScrollTrigger && typeof window.ScrollTrigger.update === 'function') {
+      lenis.on('scroll', window.ScrollTrigger.update);
+    }
+
     window.requestAnimationFrame(raf);
   }
 
@@ -31,9 +35,7 @@
     var panels = section.querySelectorAll('[data-service-panel]');
     var swiperRoot = section.querySelector('[data-services-swiper]');
     var swiperInstance = null;
-    var wheelLockedUntil = 0;
-    var sectionScrollLocked = false;
-    var lockedScrollY = 0;
+    var servicesScrollTrigger = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -62,7 +64,7 @@
 
       swiperInstance = new window.Swiper(swiperRoot, {
         slidesPerView: 1,
-        speed: 700,
+        speed: 500,
         allowTouchMove: true,
         resistanceRatio: 0.72,
         spaceBetween: 0,
@@ -77,93 +79,72 @@
         return window.innerWidth >= 768;
       }
 
-      function shouldLockWheel() {
+      function setTouchModeByViewport() {
+        var allowTouch = !isDesktopViewport();
+        swiperInstance.params.allowTouchMove = allowTouch;
+        swiperInstance.allowTouchMove = allowTouch;
+      }
+
+      function destroyServicesScrollTrigger() {
+        if (!servicesScrollTrigger) {
+          return;
+        }
+
+        servicesScrollTrigger.kill();
+        servicesScrollTrigger = null;
+        section.classList.remove('services-section--scroll-locked');
+      }
+
+      function createServicesScrollTrigger() {
+        destroyServicesScrollTrigger();
+        setTouchModeByViewport();
+
         if (!isDesktopViewport()) {
-          return false;
+          return;
         }
 
-        var rect = section.getBoundingClientRect();
-        var viewportHeight = window.innerHeight;
-        var sectionInFocus = rect.top <= viewportHeight * 0.2 && rect.bottom >= viewportHeight * 0.8;
+        if (!window.gsap || !window.ScrollTrigger) {
+          return;
+        }
 
-        return sectionInFocus;
+        window.gsap.registerPlugin(window.ScrollTrigger);
+
+        var maxIndex = panels.length - 1;
+        var lastSyncedIndex = swiperInstance.activeIndex;
+
+        servicesScrollTrigger = window.ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: function () {
+            return '+=' + (window.innerHeight * maxIndex);
+          },
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.2,
+          invalidateOnRefresh: true,
+          onToggle: function (self) {
+            section.classList.toggle('services-section--scroll-locked', self.isActive);
+          },
+          onUpdate: function (self) {
+            var index = Math.round(self.progress * maxIndex);
+
+            if (index === lastSyncedIndex) {
+              return;
+            }
+
+            swiperInstance.slideTo(index);
+            lastSyncedIndex = index;
+          }
+        });
       }
 
-      function setSectionScrollLocked(locked) {
-        if (sectionScrollLocked === locked) {
-          return;
-        }
+      createServicesScrollTrigger();
 
-        sectionScrollLocked = locked;
-        if (locked) {
-          lockedScrollY = window.scrollY;
-        }
-        section.classList.toggle('services-section--scroll-locked', locked);
-      }
-
-      function releaseSectionLock() {
-        setSectionScrollLocked(false);
-      }
-
-      function onWheel(event) {
-        if (!swiperInstance || !isDesktopViewport()) {
-          releaseSectionLock();
-          return;
-        }
-
-        if (!shouldLockWheel()) {
-          releaseSectionLock();
-          return;
-        }
-
-        var now = Date.now();
-        if (now < wheelLockedUntil) {
-          event.preventDefault();
-          return;
-        }
-
-        var deltaY = event.deltaY;
-        var isForward = deltaY > 0;
-        var isBackward = deltaY < 0;
-        var atEnd = swiperInstance.activeIndex >= (panels.length - 1);
-        var atStart = swiperInstance.activeIndex <= 0;
-
-        if ((isForward && atEnd) || (isBackward && atStart)) {
-          releaseSectionLock();
-          return;
-        }
-
-        if (Math.abs(deltaY) < 6) {
-          return;
-        }
-
-        setSectionScrollLocked(true);
-        event.preventDefault();
-
-        if (isForward) {
-          swiperInstance.slideNext();
-        } else if (isBackward) {
-          swiperInstance.slidePrev();
-        }
-
-        wheelLockedUntil = now + 560;
-      }
-
-      function keepLockedScrollPosition() {
-        if (!sectionScrollLocked) {
-          return;
-        }
-
-        if (Math.abs(window.scrollY - lockedScrollY) > 1) {
-          window.scrollTo(0, lockedScrollY);
-        }
-      }
-
-      window.addEventListener('wheel', onWheel, { passive: false });
-      window.addEventListener('scroll', keepLockedScrollPosition, { passive: true });
       window.addEventListener('resize', function () {
-        if (!isDesktopViewport()) {
-          releaseSectionLock();
+        createServicesScrollTrigger();
+
+        if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') {
+          window.ScrollTrigger.refresh();
         }
       });
     }

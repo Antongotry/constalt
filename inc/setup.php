@@ -109,6 +109,7 @@ function constalt_enqueue_assets(): void
     $runtime_buster = constalt_runtime_buster();
     $lenis_version = 'latest-' . $runtime_buster;
     $swiper_version = '11.2.6-' . $runtime_buster;
+    $gsap_version = '3.13.0-' . $runtime_buster;
 
     wp_enqueue_style(
         'constalt-fonts',
@@ -155,9 +156,25 @@ function constalt_enqueue_assets(): void
     );
 
     wp_enqueue_script(
+        'constalt-gsap',
+        'https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js',
+        [],
+        $gsap_version,
+        true
+    );
+
+    wp_enqueue_script(
+        'constalt-gsap-scrolltrigger',
+        'https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js',
+        ['constalt-gsap'],
+        $gsap_version,
+        true
+    );
+
+    wp_enqueue_script(
         'constalt-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        ['constalt-lenis', 'constalt-swiper'],
+        ['constalt-lenis', 'constalt-swiper', 'constalt-gsap-scrolltrigger'],
         constalt_asset_version('/assets/js/main.js') . '-' . $runtime_buster,
         true
     );
