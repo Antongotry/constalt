@@ -298,9 +298,13 @@
   }
 
   .expert-section__layout {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: #{mixins.vw(20px, 375px)};
+    display: flex;
+    flex-direction: column;
+    gap: #{mixins.vw(20px, 375px)};
+  }
+
+  .expert-section__left {
+    display: contents;
   }
 
   .expert-section__quote {
@@ -381,6 +385,7 @@
   }
 
   .expert-section__link {
+    order: 3;
     margin-top: #{mixins.vw(24px, 375px)};
     padding-bottom: #{mixins.vw(6px, 375px)};
     font-size: #{mixins.vw(14px, 375px)};
@@ -392,9 +397,10 @@
   }
 
   .expert-section__right {
+    order: 2;
     width: #{mixins.vw(355px, 375px)};
     height: #{mixins.vw(293px, 375px)};
-    margin-top: #{mixins.vw(20px, 375px)};
+    margin-top: 0;
   }
 
   .expert-section__photo-frame {
