@@ -173,11 +173,17 @@
         subtitle: 'Якщо у вас є питання щодо фінансів, структури управління чи розвитку компанії — обговоримо ситуацію та можливі рішення.',
         titleWidth: 502,
         subtitleWidth: 502,
+        titleSize: 42,
+        subtitleSize: 16,
         titleWeight: 300,
         titleColor: '#192432',
         subtitleColor: '#192432',
+        formWidth: 635,
+        rowColumns: 'double',
+        showWideField: true,
         wideLabel: 'Ваше запитання',
-        submitLabel: 'Залишити заявку'
+        submitLabel: 'Залишити заявку',
+        serviceValue: 'Загальна консультація'
       }
     };
 
