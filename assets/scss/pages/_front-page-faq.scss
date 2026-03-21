@@ -4,7 +4,7 @@
   position: relative;
   background: #051120;
   margin-top: 0;
-  padding: #{mixins.vw(112px)} 0 #{mixins.vw(96px)};
+  padding: 0 0 #{mixins.vw(96px)};
   overflow: visible;
 }
 
@@ -220,7 +220,7 @@
 @include mixins.mobile {
   .faq-section {
     margin-top: 0;
-    padding: #{mixins.mvw(68px)} 0 #{mixins.mvw(64px)};
+    padding: 0 0 #{mixins.mvw(64px)};
   }
 
   .faq-section::before {
