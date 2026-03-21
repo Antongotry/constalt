@@ -200,31 +200,15 @@
     min-height: #{mixins.vw(700px, 375px)};
     height: auto;
     padding-bottom: #{mixins.vw(24px, 375px)};
-    background-position: center #{mixins.vw(176px, 375px)};
-    background-size: #{mixins.vw(504px, 375px)} #{mixins.vw(760px, 375px)};
+    background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325716_result.webp");
+    background-position: center top;
+    background-size: cover;
     overflow: hidden;
   }
 
   .hero--front-page::before,
   .hero--front-page::after {
-    width: #{mixins.vw(375px, 375px)};
-    background: linear-gradient(180deg, rgba(5, 17, 32, 0) 0%, #051120 100%);
-    filter: none;
-    opacity: 1;
-    top: auto;
-    bottom: 0;
-  }
-
-  .hero--front-page::before {
-    left: 0;
-    height: #{mixins.vw(252px, 375px)};
-  }
-
-  .hero--front-page::after {
-    right: 0;
-    height: #{mixins.vw(121px, 375px)};
-    transform: rotate(180deg);
-    bottom: #{mixins.vw(130px, 375px)};
+    display: none;
   }
 
   .hero__bottom {
@@ -253,6 +237,7 @@
 
   .hero__preview-target {
     width: #{mixins.vw(327px, 375px)};
+    padding-left: #{mixins.vw(10px, 375px)};
     gap: #{mixins.vw(6px, 375px)};
     margin-bottom: #{mixins.vw(16px, 375px)};
     align-items: flex-start;
@@ -261,35 +246,39 @@
   .hero__preview-dot {
     width: #{mixins.vw(4px, 375px)};
     height: #{mixins.vw(4px, 375px)};
-    margin-top: #{mixins.vw(8px, 375px)};
+    margin-top: #{mixins.vw(6px, 375px)};
     flex-shrink: 0;
   }
 
   .hero__preview-text {
+    width: #{mixins.vw(317px, 375px)};
     text-align: left;
     font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
   }
 
   .hero__title {
+    margin-left: #{mixins.vw(10px, 375px)};
     width: #{mixins.vw(337px, 375px)};
-    font-size: #{mixins.vw(62px, 375px)};
+    min-height: #{mixins.vw(93px, 375px)};
+    font-size: #{mixins.vw(32px, 375px)};
     line-height: 98%;
   }
 
   .hero__title-line--light {
-    font-size: #{mixins.vw(62px, 375px)};
+    font-size: #{mixins.vw(32px, 375px)};
     font-weight: 300;
   }
 
   .hero__title-line--strong,
   .hero__title-line--medium {
-    font-size: #{mixins.vw(62px, 375px)};
+    font-size: #{mixins.vw(32px, 375px)};
     font-weight: 700;
   }
 
   .hero__description {
     width: #{mixins.vw(351px, 375px)};
+    min-height: #{mixins.vw(60px, 375px)};
     font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
   }
@@ -307,6 +296,19 @@
     padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
     border-radius: #{mixins.vw(1000px, 375px)};
     font-size: #{mixins.vw(12px, 375px)};
+  }
+
+  .hero-pill__label {
+    font-size: #{mixins.vw(12px, 375px)};
+    line-height: 140%;
+  }
+
+  .hero__actions .hero-pill:first-child .hero-pill__label {
+    width: #{mixins.vw(130px, 375px)};
+  }
+
+  .hero__actions .hero-pill:last-child .hero-pill__label {
+    width: #{mixins.vw(116px, 375px)};
   }
 
   .hero-pill--light,
