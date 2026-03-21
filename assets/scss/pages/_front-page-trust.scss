@@ -15,7 +15,10 @@
   width: #{mixins.vw(820px)};
   height: #{mixins.vw(760px)};
   background:
-    linear-gradient(90deg, rgba(5, 17, 32, 0) 66%, rgba(5, 17, 32, 0.78) 86%, #051120 100%),
+    linear-gradient(90deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
+    linear-gradient(270deg, #051120 0%, rgba(5, 17, 32, 0) 34%),
+    linear-gradient(180deg, #051120 0%, rgba(5, 17, 32, 0) 26%),
+    linear-gradient(0deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
     url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp") left bottom /
       cover no-repeat;
   pointer-events: none;
@@ -183,7 +186,10 @@
     width: 100%;
     height: #{mixins.mvw(360px)};
     background:
-      linear-gradient(90deg, rgba(5, 17, 32, 0) 62%, rgba(5, 17, 32, 0.72) 84%, #051120 100%),
+      linear-gradient(90deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
+      linear-gradient(270deg, #051120 0%, rgba(5, 17, 32, 0) 32%),
+      linear-gradient(180deg, #051120 0%, rgba(5, 17, 32, 0) 24%),
+      linear-gradient(0deg, #051120 0%, rgba(5, 17, 32, 0) 20%),
       url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/fad_result-scaled.webp") left bottom /
         cover no-repeat;
   }
