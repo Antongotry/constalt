@@ -586,7 +586,7 @@ body.services-popup-open {
 
 @media (max-width: 1024px) {
   .services-section {
-    padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(24px, 375px)};
+    padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(120px, 375px)};
   }
 
   .services-section::before {
