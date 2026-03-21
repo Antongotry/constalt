@@ -25,9 +25,10 @@
   }
 
   function initHeroVideo() {
+    var hero = document.querySelector('.hero--front-page');
     var heroVideo = document.querySelector('.hero__media-video');
 
-    if (!heroVideo) {
+    if (!hero || !heroVideo) {
       return;
     }
 
@@ -47,11 +48,22 @@
       }
     }
 
+    function markVideoReady() {
+      hero.classList.add('hero--video-ready');
+    }
+
     if (heroVideo.readyState >= 2) {
+      markVideoReady();
       tryPlay();
     } else {
-      heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
+      heroVideo.addEventListener('loadeddata', function () {
+        markVideoReady();
+        tryPlay();
+      }, { once: true });
     }
+
+    heroVideo.addEventListener('canplay', markVideoReady);
+    heroVideo.addEventListener('playing', markVideoReady);
 
     document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
     document.addEventListener('click', tryPlay, { once: true });

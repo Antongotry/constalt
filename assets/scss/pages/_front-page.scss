@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   background: var(--color-background);
-  background-image: none;
+  background-image: var(--hero-bg-image, url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp"));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -35,6 +35,12 @@
   object-fit: cover;
   object-position: center top;
   display: block;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+
+.hero--front-page.hero--video-ready .hero__media-video {
+  opacity: 1;
 }
 
 .hero--front-page::before,
@@ -216,7 +222,7 @@
     min-height: #{mixins.vw(700px, 375px)};
     height: auto;
     padding-bottom: #{mixins.vw(24px, 375px)};
-    background-image: none;
+    background-image: url("https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325716_result.webp");
     background-position: center top;
     background-size: cover;
     overflow: hidden;
