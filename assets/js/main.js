@@ -25,10 +25,9 @@
   }
 
   function initHeroVideo() {
-    var hero = document.querySelector('.hero--front-page');
     var heroVideo = document.querySelector('.hero__media-video');
 
-    if (!hero || !heroVideo) {
+    if (!heroVideo) {
       return;
     }
 
@@ -48,22 +47,11 @@
       }
     }
 
-    function markVideoReady() {
-      hero.classList.add('hero--video-ready');
-    }
-
     if (heroVideo.readyState >= 2) {
-      markVideoReady();
       tryPlay();
     } else {
-      heroVideo.addEventListener('loadeddata', function () {
-        markVideoReady();
-        tryPlay();
-      }, { once: true });
+      heroVideo.addEventListener('loadeddata', tryPlay, { once: true });
     }
-
-    heroVideo.addEventListener('canplay', markVideoReady);
-    heroVideo.addEventListener('playing', markVideoReady);
 
     document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
     document.addEventListener('click', tryPlay, { once: true });
@@ -89,11 +77,8 @@
     var popupWideInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-input]') : null;
     var popupWideLabelScreen = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-label-screen]') : null;
     var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
-    var thanksPopup = document.querySelector('[data-thanks-popup]');
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
-    var thanksPopupCloseTimer = null;
-    var lastThanksTrigger = null;
 
     if (!tabs.length || !panels.length) {
       return;
@@ -342,49 +327,6 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function closeThanksPopup(restoreFocus) {
-      if (!thanksPopup || thanksPopup.hidden) {
-        return;
-      }
-
-      if (thanksPopupCloseTimer) {
-        window.clearTimeout(thanksPopupCloseTimer);
-      }
-
-      thanksPopup.classList.remove('is-visible');
-      document.body.classList.remove('site-popup-open');
-      document.body.style.overflow = '';
-
-      thanksPopupCloseTimer = window.setTimeout(function () {
-        thanksPopup.hidden = true;
-        thanksPopupCloseTimer = null;
-      }, 360);
-
-      if (restoreFocus !== false && lastThanksTrigger && typeof lastThanksTrigger.focus === 'function') {
-        lastThanksTrigger.focus();
-      }
-    }
-
-    function openThanksPopup(trigger) {
-      if (!thanksPopup) {
-        return;
-      }
-
-      if (thanksPopupCloseTimer) {
-        window.clearTimeout(thanksPopupCloseTimer);
-        thanksPopupCloseTimer = null;
-      }
-
-      lastThanksTrigger = trigger || null;
-      thanksPopup.hidden = false;
-      window.requestAnimationFrame(function () {
-        thanksPopup.classList.add('is-visible');
-      });
-
-      document.body.classList.add('site-popup-open');
-      document.body.style.overflow = 'hidden';
-    }
-
     function initServicesPopup() {
       if (!servicesPopup) {
         return;
@@ -421,39 +363,6 @@
         if (event.key === 'Escape' && !servicesPopup.hidden) {
           closeServicesPopup();
         }
-      });
-
-      if (thanksPopup) {
-        thanksPopup.addEventListener('click', function (event) {
-          var thanksCloseTrigger = event.target.closest('[data-thanks-popup-close]');
-
-          if (thanksCloseTrigger) {
-            closeThanksPopup();
-          }
-        });
-      }
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && thanksPopup && !thanksPopup.hidden) {
-          closeThanksPopup();
-        }
-      });
-
-      document.addEventListener('submit', function (event) {
-        var submittedForm = event.target.closest('.services-popup__form, .contact-form');
-
-        if (!submittedForm) {
-          return;
-        }
-
-        event.preventDefault();
-        submittedForm.reset();
-
-        if (servicesPopup && !servicesPopup.hidden) {
-          closeServicesPopup(false);
-        }
-
-        openThanksPopup(lastPopupTrigger);
       });
     }
 
@@ -795,10 +704,78 @@
     });
   }
 
+  function initGlobalThanksPopup() {
+    var thanksPopup = document.querySelector('[data-thanks-popup]');
+
+    if (!thanksPopup) {
+      return;
+    }
+
+    function closeThanksPopup() {
+      if (thanksPopup.hidden) {
+        return;
+      }
+
+      thanksPopup.classList.remove('is-visible');
+      document.body.classList.remove('site-popup-open');
+      document.body.style.overflow = '';
+
+      window.setTimeout(function () {
+        thanksPopup.hidden = true;
+      }, 360);
+    }
+
+    function openThanksPopup() {
+      thanksPopup.hidden = false;
+      window.requestAnimationFrame(function () {
+        thanksPopup.classList.add('is-visible');
+      });
+      document.body.classList.remove('services-popup-open');
+      document.body.classList.add('site-popup-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    thanksPopup.addEventListener('click', function (event) {
+      if (event.target.closest('[data-thanks-popup-close]')) {
+        closeThanksPopup();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !thanksPopup.hidden) {
+        closeThanksPopup();
+      }
+    });
+
+    document.addEventListener('submit', function (event) {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      var submittedForm = event.target.closest('.services-popup__form, .contact-form');
+
+      if (!submittedForm) {
+        return;
+      }
+
+      event.preventDefault();
+      submittedForm.reset();
+
+      var servicesPopup = document.querySelector('[data-services-popup]');
+      if (servicesPopup && !servicesPopup.hidden) {
+        servicesPopup.classList.remove('is-visible');
+        servicesPopup.hidden = true;
+      }
+
+      openThanksPopup();
+    });
+  }
+
   initLenis();
   initHeroVideo();
   initServicesTabs();
   initTrustTimeline();
   initFaqAccordion();
   initHeaderMenu();
+  initGlobalThanksPopup();
 })();

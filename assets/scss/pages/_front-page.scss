@@ -35,12 +35,6 @@
   object-fit: cover;
   object-position: center top;
   display: block;
-  opacity: 0;
-  transition: opacity 0.32s ease;
-}
-
-.hero--front-page.hero--video-ready .hero__media-video {
-  opacity: 1;
 }
 
 .hero--front-page::before,
