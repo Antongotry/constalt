@@ -12,7 +12,7 @@
 
 .expert-section__layout {
   display: grid;
-  grid-template-columns: #{mixins.vw(744px)} #{mixins.vw(498px)};
+  grid-template-columns: #{mixins.vw(860px)} #{mixins.vw(382px)};
   justify-content: space-between;
   align-items: start;
   column-gap: #{mixins.vw(40px)};
@@ -25,24 +25,24 @@
 .expert-section__quote {
   display: flex;
   align-items: flex-start;
-  gap: #{mixins.vw(26px)};
+  gap: #{mixins.vw(30px)};
 }
 
 .expert-section__quote-icon {
   flex-shrink: 0;
-  width: #{mixins.vw(74px)};
-  height: #{mixins.vw(65px)};
-  margin-top: #{mixins.vw(2px)};
+  width: #{mixins.vw(94px)};
+  height: #{mixins.vw(82px)};
+  margin-top: 0;
 }
 
 .expert-section__quote-text {
   margin: 0;
-  width: #{mixins.vw(535px)};
+  width: #{mixins.vw(680px)};
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(24px)};
+  font-size: #{mixins.vw(44px)};
   font-weight: 300;
-  line-height: 124%;
+  line-height: 108%;
 }
 
 .expert-section__quote-text strong {
