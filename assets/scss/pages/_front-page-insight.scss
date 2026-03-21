@@ -1,9 +1,39 @@
 @use "../abstracts/mixins";
 
 .insight-section {
+  position: relative;
   width: #{mixins.vw(1360px)};
   margin: #{mixins.vw(150px)} auto 0;
   padding-bottom: #{mixins.vw(40px)};
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.insight-section::before,
+.insight-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: #{mixins.vw(260px)};
+  background: #3c4f72;
+  filter: blur(400px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.insight-section::before {
+  left: #{mixins.vw(-180px)};
+}
+
+.insight-section::after {
+  right: #{mixins.vw(-180px)};
+}
+
+.insight-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .insight-section__line-top {
@@ -86,6 +116,21 @@
     width: min(100% - #{mixins.mvw(32px)}, 100%);
     margin-top: #{mixins.mvw(80px)};
     padding-bottom: #{mixins.mvw(24px)};
+  }
+
+  .insight-section::before,
+  .insight-section::after {
+    width: #{mixins.mvw(220px)};
+    filter: blur(240px);
+    opacity: 0.45;
+  }
+
+  .insight-section::before {
+    left: #{mixins.mvw(-130px)};
+  }
+
+  .insight-section::after {
+    right: #{mixins.mvw(-130px)};
   }
 
   .insight-section__marker {

@@ -7,6 +7,7 @@
 }
 
 .hero--front-page {
+  position: relative;
   min-height: 100svh;
   height: 100svh;
   display: flex;
@@ -16,9 +17,35 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero--front-page::before,
+.hero--front-page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: #{mixins.vw(300px)};
+  background: #3c4f72;
+  filter: blur(400px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero--front-page::before {
+  left: #{mixins.vw(-180px)};
+}
+
+.hero--front-page::after {
+  right: #{mixins.vw(-180px)};
 }
 
 .hero__bottom {
+  position: relative;
+  z-index: 1;
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
   margin-top: auto;
@@ -169,6 +196,21 @@
 }
 
 @include mixins.mobile {
+  .hero--front-page::before,
+  .hero--front-page::after {
+    width: #{mixins.mvw(220px)};
+    filter: blur(240px);
+    opacity: 0.5;
+  }
+
+  .hero--front-page::before {
+    left: #{mixins.mvw(-130px)};
+  }
+
+  .hero--front-page::after {
+    right: #{mixins.mvw(-130px)};
+  }
+
   .hero__bottom {
     width: min(100% - #{mixins.mvw(32px)}, 100%);
     padding-bottom: #{mixins.mvw(24px)};
