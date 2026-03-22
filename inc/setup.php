@@ -158,8 +158,8 @@ function constalt_critical_css(): void
     @media(max-width:767px){body{font-size:4.1025641026vw}}
     .site{min-height:100vh}
     .site-header{width:100%;position:fixed;left:0;top:0.6944444444vw;z-index:200}
-    .site-header__inner{width:94.4444444444vw;margin-inline:auto;height:3.75vw;display:flex;align-items:center;justify-content:space-between}
-    .site-header__line{width:94.4444444444vw;margin-inline:auto}
+    .site-header__inner{width:94.4444444444vw;margin-inline:auto;height:5vw;display:flex;align-items:center;justify-content:space-between}
+    .site-header__line{display:none}
     .site-header__logo-link{display:inline-flex;height:100%;align-items:center}
     .site-header__logo{display:block;width:15.3472222222vw;height:auto}
     .site-header__actions{display:inline-flex;align-items:center;gap:12.8472222222vw}

@@ -102,11 +102,20 @@
 .about-card__glass {
   height: #{mixins.vw(366px)};
   padding: #{mixins.vw(24px)};
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(#{mixins.vw(35px)});
+  isolation: isolate;
+  transform: translateZ(0);
+  background: rgba(25, 36, 50, 0.45);
+  -webkit-backdrop-filter: blur(#{mixins.vw(40px)});
+  backdrop-filter: blur(#{mixins.vw(40px)});
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .about-card__glass {
+    background: rgba(25, 36, 50, 0.92);
+  }
 }
 
 .about-card__lead {

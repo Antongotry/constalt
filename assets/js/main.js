@@ -1,5 +1,10 @@
 /* Theme scripts entry point. */
 (function () {
+  function isPhoneInputValid(value) {
+    var digits = String(value || '').replace(/\D/g, '');
+    return digits.length >= 9 && digits.length <= 15;
+  }
+
   function initLenis() {
     if (typeof window.Lenis !== 'function') {
       return;
@@ -833,6 +838,19 @@
         return;
       }
 
+      var phoneInput = submittedForm.querySelector('input[type="tel"]');
+
+      if (phoneInput && !isPhoneInputValid(phoneInput.value)) {
+        event.preventDefault();
+        phoneInput.setCustomValidity('Введіть коректний номер телефону (мінімум 9 цифр).');
+        phoneInput.reportValidity();
+        return;
+      }
+
+      if (phoneInput) {
+        phoneInput.setCustomValidity('');
+      }
+
       event.preventDefault();
       submittedForm.reset();
 
@@ -845,6 +863,14 @@
       openThanksPopup();
     });
   }
+
+  document.addEventListener('input', function (event) {
+    var el = event.target;
+
+    if (el && el.matches && el.matches('input[type="tel"]')) {
+      el.setCustomValidity('');
+    }
+  });
 
   initLenis();
   initHeroVideo();

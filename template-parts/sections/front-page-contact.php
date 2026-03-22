@@ -37,7 +37,7 @@
 
                         <label class="contact-form__field">
                             <span class="screen-reader-text">Номер телефону</span>
-                            <input type="tel" name="phone" placeholder="Номер телефону">
+                            <input type="tel" name="phone" placeholder="Номер телефону" inputmode="tel" autocomplete="tel">
                         </label>
                     </div>
 
