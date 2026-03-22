@@ -81,7 +81,7 @@
 }
 
 .expert-section__role {
-  margin: #{mixins.vw(8px)} 0 0;
+  margin: #{mixins.vw(4px)} 0 0;
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
@@ -139,11 +139,12 @@
   background: #192432;
 }
 
+/* Тимчасово приховано за запитом клієнта — повернути display:flex щоб показати */
 .expert-section__link {
+  display: none !important;
   margin-top: #{mixins.vw(48px)};
   width: #{mixins.vw(513px)};
   padding-bottom: #{mixins.vw(8px)};
-  display: flex;
   align-items: center;
   justify-content: space-between;
   color: #051120;
@@ -334,12 +335,8 @@
     font-size: #{mixins.vw(14px, 375px)};
   }
 
-  .expert-section__divider,
-  .expert-section__link {
-    width: #{mixins.vw(355px, 375px)};
-  }
-
   .expert-section__divider {
+    width: #{mixins.vw(355px, 375px)};
     margin-top: #{mixins.vw(24px, 375px)};
   }
 
@@ -351,7 +348,7 @@
 
   .expert-section__role {
     width: #{mixins.vw(176px, 375px)};
-    margin-top: #{mixins.vw(8px, 375px)};
+    margin-top: #{mixins.vw(2px, 375px)};
     font-size: #{mixins.vw(12px, 375px)};
   }
 
@@ -382,13 +379,6 @@
     top: #{mixins.vw(6px, 375px)};
     width: #{mixins.vw(6px, 375px)};
     height: #{mixins.vw(6px, 375px)};
-  }
-
-  .expert-section__link {
-    order: 3;
-    margin-top: #{mixins.vw(24px, 375px)};
-    padding-bottom: #{mixins.vw(6px, 375px)};
-    font-size: #{mixins.vw(14px, 375px)};
   }
 
   .expert-section__link-arrow {

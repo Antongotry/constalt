@@ -5,7 +5,7 @@
  * @package constalt
  */
 ?>
-<section class="services-section">
+<section class="services-section" id="services">
     <div class="services-section__container">
         <div class="services-section__marker">
             <span class="services-section__marker-dot" aria-hidden="true"></span>

@@ -185,8 +185,9 @@
 
 .hero-pill--glass {
   gap: #{mixins.vw(103px)};
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(#{mixins.vw(35px)});
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(#{mixins.vw(56px)});
+  -webkit-backdrop-filter: blur(#{mixins.vw(56px)});
   color: #fff;
 }
 
@@ -335,6 +336,11 @@
   .hero-pill--light,
   .hero-pill--glass {
     gap: #{mixins.vw(20px, 375px)};
+  }
+
+  .hero-pill--glass {
+    backdrop-filter: blur(#{mixins.vw(48px, 375px)});
+    -webkit-backdrop-filter: blur(#{mixins.vw(48px, 375px)});
   }
 
   .hero-pill__icon {

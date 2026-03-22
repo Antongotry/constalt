@@ -5,6 +5,11 @@
   padding: #{mixins.vw(96px)} 0 #{mixins.vw(112px)};
 }
 
+/* Тимчасово приховано — прибрати display:none щоб знову показати блок */
+.blog-section#news {
+  display: none !important;
+}
+
 .blog-section__container {
   width: #{mixins.vw(1360px)};
   margin-inline: auto;

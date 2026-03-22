@@ -198,6 +198,7 @@
 .site-footer__meta-link--offer {
   grid-column: 2;
   justify-self: start;
+  display: none !important;
 }
 
 .site-footer__meta-link--credit {

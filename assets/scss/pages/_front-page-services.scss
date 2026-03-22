@@ -7,6 +7,10 @@
   isolation: isolate;
 }
 
+.services-section#services {
+  scroll-margin-top: #{mixins.vw(96px)};
+}
+
 .services-section::before {
   content: "";
   position: absolute;
@@ -976,9 +980,9 @@ body.site-popup-open {
   .services-popup__dialog {
     width: #{mixins.vw(355px, 375px)};
     max-width: calc(100vw - #{mixins.vw(20px, 375px)});
-    min-height: #{mixins.vw(460px, 375px)};
+    min-height: auto;
     max-height: calc(100vh - #{mixins.vw(20px, 375px)});
-    padding: #{mixins.vw(20px, 375px)};
+    padding: #{mixins.vw(20px, 375px)} #{mixins.vw(20px, 375px)} #{mixins.vw(12px, 375px)};
     gap: 0;
     background: #fff;
   }
@@ -1102,10 +1106,10 @@ body.site-popup-open {
   .thanks-popup__dialog {
     width: #{mixins.vw(355px, 375px)};
     max-width: calc(100vw - #{mixins.vw(20px, 375px)});
-    min-height: #{mixins.vw(460px, 375px)};
+    min-height: auto;
     max-height: calc(100vh - #{mixins.vw(20px, 375px)});
-    padding: #{mixins.vw(16px, 375px)} #{mixins.vw(9px, 375px)} #{mixins.vw(152px, 375px)} #{mixins.vw(20px, 375px)};
-    gap: #{mixins.vw(124px, 375px)};
+    padding: #{mixins.vw(20px, 375px)} #{mixins.vw(20px, 375px)} #{mixins.vw(16px, 375px)};
+    gap: #{mixins.vw(32px, 375px)};
     background: #f5f5f5;
   }
 
@@ -1130,5 +1134,38 @@ body.site-popup-open {
     width: #{mixins.vw(315px, 375px)};
     font-size: #{mixins.vw(14px, 375px)};
     color: #192432;
+  }
+}
+
+.services-section--stack-mobile .services-tabs {
+  display: none !important;
+}
+
+.services-section--stack-mobile .services-swiper {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.services-section--stack-mobile .services-swiper .swiper-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: #{mixins.vw(28px, 375px)};
+  transform: none !important;
+  translate: none !important;
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide .service-detail {
+  display: flex !important;
+}
+
+@media (max-width: 1024px) {
+  .services-section#services {
+    scroll-margin-top: #{mixins.vw(72px, 375px)};
   }
 }

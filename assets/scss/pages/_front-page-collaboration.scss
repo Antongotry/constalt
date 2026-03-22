@@ -392,23 +392,24 @@
   .collaboration-cards {
     margin-top: #{mixins.vw(32px, 375px)};
     grid-template-columns: 1fr;
-    gap: #{mixins.vw(12px, 375px)};
+    gap: #{mixins.vw(20px, 375px)};
   }
 
   .collaboration-card {
     width: #{mixins.vw(355px, 375px)};
     min-height: auto;
-    padding: #{mixins.vw(4px, 375px)};
+    padding: #{mixins.vw(8px, 375px)};
   }
 
   .collaboration-card::before {
-    inset: #{mixins.vw(4px, 375px)};
+    inset: #{mixins.vw(8px, 375px)};
   }
 
   .collaboration-card__content {
     width: #{mixins.vw(315px, 375px)};
     min-height: auto;
-    padding: #{mixins.vw(20px, 375px)} 0 #{mixins.vw(12px, 375px)};
+    padding: #{mixins.vw(24px, 375px)} 0 #{mixins.vw(16px, 375px)};
+    gap: #{mixins.vw(10px, 375px)};
   }
 
   .collaboration-card__title {
