@@ -16,7 +16,7 @@
   right: 0;
   top: #{mixins.vw(-120px)};
   height: #{mixins.vw(122px)};
-  background: #051120;
+  background: #f5f5f5;
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
@@ -242,7 +242,7 @@
   .faq-section::before {
     top: #{mixins.vw(-32px, 375px)};
     height: #{mixins.vw(34px, 375px)};
-    background: #051120;
+    background: #f5f5f5;
   }
 
   .faq-section__container {

@@ -14,16 +14,16 @@ declare(strict_types=1);
     <div class="hero__media" aria-hidden="true">
         <video
             class="hero__media-video"
-            src="<?php echo esc_url(constalt_uploads_url('2026/03/kling_20260318_作品_Scene_1__A_891_0.mp4')); ?>"
             autoplay
             muted
             loop
             playsinline
-            preload="none"
+            preload="metadata"
             poster="<?php echo esc_url(constalt_uploads_url('2026/03/hero-desc_result-scaled.webp')); ?>"
             width="1440"
             height="900"
         >
+            <source src="<?php echo esc_url('https://audit-consulting.org/wp-content/uploads/2026/03/kling_20260322_作品_shot_1_4s__206_0.mp4'); ?>" media="(max-width: 1024px)" type="video/mp4">
             <source src="<?php echo esc_url(constalt_uploads_url('2026/03/kling_20260318_%E4%BD%9C%E5%93%81_Scene_1__A_891_0.mp4')); ?>" type="video/mp4">
         </video>
     </div>
