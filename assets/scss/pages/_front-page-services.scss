@@ -16,8 +16,14 @@
   position: absolute;
   inset: 0;
   background: #f5f5f5;
-  clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
   z-index: 0;
+}
+
+/* Гострий «шпиль» лише на великих екранах; на телефоні — рівний прямокутник */
+@media (min-width: 1025px) {
+  .services-section::before {
+    clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
+  }
 }
 
 .services-section__container {
@@ -707,12 +713,6 @@ body.site-popup-open {
     padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(60px, 375px)};
   }
 
-  /* Без clip-path: прямий верхній край #f5f5f5, без гострого білого «шпиля» */
-  .services-section::before {
-    clip-path: none;
-    border-radius: 0;
-  }
-
   .services-section__container {
     width: #{mixins.vw(355px, 375px)};
   }
@@ -1153,7 +1153,7 @@ body.site-popup-open {
 .services-section--stack-mobile .services-swiper .swiper-wrapper {
   display: flex;
   flex-direction: column;
-  gap: #{mixins.vw(28px, 375px)};
+  gap: #{mixins.vw(12px, 375px)};
   transform: none !important;
   translate: none !important;
 }
@@ -1162,14 +1162,37 @@ body.site-popup-open {
   width: 100% !important;
   height: auto !important;
   margin: 0 !important;
+  position: sticky;
+  top: #{mixins.vw(72px, 375px)};
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(1) {
+  z-index: 4;
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(2) {
+  z-index: 3;
+  top: #{mixins.vw(84px, 375px)};
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(3) {
+  z-index: 2;
+  top: #{mixins.vw(96px, 375px)};
+}
+
+.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(4) {
+  z-index: 1;
+  top: #{mixins.vw(108px, 375px)};
 }
 
 .services-section--stack-mobile .services-swiper .swiper-slide .service-detail {
   display: flex !important;
+  box-shadow: 0 #{mixins.vw(14px, 375px)} #{mixins.vw(28px, 375px)} rgba(5, 17, 32, 0.14);
 }
 
 @media (max-width: 1024px) {
   .services-section#services {
     scroll-margin-top: #{mixins.vw(72px, 375px)};
+    padding-bottom: #{mixins.vw(120px, 375px)};
   }
 }
