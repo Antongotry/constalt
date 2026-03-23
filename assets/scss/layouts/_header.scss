@@ -40,6 +40,18 @@
   height: auto;
 }
 
+.site-header__logo-text {
+  display: inline-block;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 500;
+  line-height: 98%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .site-header__actions {
   display: inline-flex;
   align-items: center;
@@ -112,6 +124,10 @@
 
   .site-header__logo {
     width: #{mixins.vw(148px, 375px)};
+  }
+
+  .site-header__logo-text {
+    font-size: #{mixins.vw(16px, 375px)};
   }
 
   .site-header__actions {
@@ -273,5 +289,12 @@
   .site-header__mobile-social img {
     width: #{mixins.vw(20px, 375px)};
     height: #{mixins.vw(20px, 375px)};
+  }
+
+  .site-header__mobile-social-icon {
+    width: #{mixins.vw(20px, 375px)};
+    height: #{mixins.vw(20px, 375px)};
+    color: #fff;
+    display: block;
   }
 }

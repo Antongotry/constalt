@@ -11,7 +11,7 @@
 
         <div class="site-footer__main">
             <a class="site-footer__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('На головну', 'constalt'); ?>">
-                <img class="site-footer__logo" src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Audit-consulting.svg" alt="Audit consulting" width="221" height="26" loading="lazy" decoding="async">
+                <span class="site-footer__logo-text">AUDIT CONSULTING</span>
             </a>
 
             <nav class="site-footer__column site-footer__column--nav" aria-label="<?php esc_attr_e('Навігація', 'constalt'); ?>">
@@ -64,16 +64,24 @@
 
                 <div class="site-footer__socials" aria-label="<?php esc_attr_e('Соціальні мережі', 'constalt'); ?>">
                     <a class="site-footer__social" href="#" aria-label="Telegram">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/tg.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <svg class="site-footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M20.76 4.2 3.95 10.68c-1.15.47-1.14 1.11-.2 1.39l4.31 1.34 9.96-6.28c.47-.29.9-.13.55.18l-8.07 7.29-.3 4.53c.44 0 .64-.2.89-.44l2.15-2.09 4.47 3.3c.83.46 1.42.22 1.63-.77l2.86-13.48c.31-1.21-.47-1.76-1.34-1.37z"/>
+                        </svg>
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Instagram">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/insta.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <svg class="site-footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 1.9A3.9 3.9 0 0 0 3.9 7.8v8.4a3.9 3.9 0 0 0 3.9 3.9h8.4a3.9 3.9 0 0 0 3.9-3.9V7.8a3.9 3.9 0 0 0-3.9-3.9H7.8zm8.86 1.43a1.34 1.34 0 1 1 0 2.68 1.34 1.34 0 0 1 0-2.68zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.9A3.1 3.1 0 1 0 12 15.1 3.1 3.1 0 0 0 12 8.9z"/>
+                        </svg>
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Facebook">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/facebook.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <svg class="site-footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M13.5 22v-8h2.6l.4-3h-3V9.1c0-.86.24-1.45 1.48-1.45H16.6V5a22.2 22.2 0 0 0-2.46-.13c-2.44 0-4.1 1.49-4.1 4.22V11H7.4v3h2.64v8h3.46z"/>
+                        </svg>
                     </a>
                     <a class="site-footer__social" href="#" aria-label="Viber">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/viber.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <svg class="site-footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M11.7 3C7 3 3.4 6.2 3.4 10.4c0 2.4 1.2 4.6 3.2 6l-.7 3 3.1-1.7c.9.2 1.8.3 2.7.3 4.7 0 8.3-3.2 8.3-7.4S16.4 3 11.7 3zm4.3 9.7c-.2.5-1 .9-1.4 1-.4.1-.9.1-1.4-.1-.3-.1-.7-.2-1.2-.4-2.1-.9-3.5-3.2-3.6-3.3-.1-.1-.9-1.2-.9-2.2 0-1 .5-1.5.7-1.7.2-.2.4-.2.5-.2h.4c.1 0 .3 0 .4.3.2.5.6 1.6.6 1.7.1.1.1.3 0 .4-.1.1-.1.3-.3.4l-.2.3c-.1.1-.1.2 0 .4.1.1.5.9 1.1 1.4.8.7 1.4 1 1.6 1.1.2.1.3.1.5-.1.1-.1.5-.6.6-.8.2-.2.3-.2.5-.1.2.1 1.2.6 1.4.7.2.1.4.2.4.3.1.2.1.8-.1 1.3z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
