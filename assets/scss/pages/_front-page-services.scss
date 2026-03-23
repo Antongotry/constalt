@@ -707,19 +707,10 @@ body.site-popup-open {
     padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(60px, 375px)};
   }
 
+  /* Без clip-path: прямий верхній край #f5f5f5, без гострого білого «шпиля» */
   .services-section::before {
-    /* М’яка «гірка» замість гострого шпиля на мобільному */
-    clip-path: polygon(
-      0 5.8%,
-      9% 2.9%,
-      22% 0.7%,
-      50% 0,
-      78% 0.7%,
-      91% 2.9%,
-      100% 5.8%,
-      100% 100%,
-      0 100%
-    );
+    clip-path: none;
+    border-radius: 0;
   }
 
   .services-section__container {
