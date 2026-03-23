@@ -10,7 +10,7 @@
         <div class="contact-panel">
             <div class="contact-panel__key-badge" aria-hidden="true">
                 <img
-                    src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Key_fill.svg"
+                    src="<?php echo esc_url(constalt_uploads_url('2026/03/Key_fill.svg')); ?>"
                     alt=""
                     width="28" height="28"
                     loading="lazy"

@@ -20,7 +20,7 @@
             <article class="collaboration-card collaboration-card--dark collaboration-card--expert">
                 <div class="collaboration-card__badge collaboration-card__badge--light" aria-hidden="true">
                     <span class="collaboration-card__badge-icon collaboration-card__badge-icon--question">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-1.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(constalt_uploads_url('2026/03/icon-4-1.svg')); ?>" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </span>
                 </div>
 
@@ -58,7 +58,7 @@
             <article class="collaboration-card collaboration-card--light collaboration-card--project">
                 <div class="collaboration-card__badge collaboration-card__badge--dark" aria-hidden="true">
                     <span class="collaboration-card__badge-icon collaboration-card__badge-icon--layers">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-2.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(constalt_uploads_url('2026/03/icon-4-2.svg')); ?>" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </span>
                 </div>
 
@@ -96,7 +96,7 @@
             <article class="collaboration-card collaboration-card--gradient collaboration-card--strategic">
                 <div class="collaboration-card__badge collaboration-card__badge--dark" aria-hidden="true">
                     <span class="collaboration-card__badge-icon collaboration-card__badge-icon--key">
-                        <img src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/icon-4-3.svg" alt="" width="24" height="24" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(constalt_uploads_url('2026/03/icon-4-3.svg')); ?>" alt="" width="24" height="24" loading="lazy" decoding="async">
                     </span>
                 </div>
 

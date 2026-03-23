@@ -9,22 +9,22 @@ declare(strict_types=1);
 ?>
 <section
     class="hero hero--front-page"
-    style="--hero-bg-image: url('https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp');"
+    style="--hero-bg-image: url('<?php echo esc_url(constalt_uploads_url('2026/03/hero-desc_result-scaled.webp')); ?>');"
 >
     <div class="hero__media" aria-hidden="true">
         <video
             class="hero__media-video"
-            src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/kling_20260318_作品_Scene_1__A_891_0.mp4"
+            src="<?php echo esc_url(constalt_uploads_url('2026/03/kling_20260318_作品_Scene_1__A_891_0.mp4')); ?>"
             autoplay
             muted
             loop
             playsinline
             preload="none"
-            poster="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp"
+            poster="<?php echo esc_url(constalt_uploads_url('2026/03/hero-desc_result-scaled.webp')); ?>"
             width="1440"
             height="900"
         >
-            <source src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/kling_20260318_%E4%BD%9C%E5%93%81_Scene_1__A_891_0.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(constalt_uploads_url('2026/03/kling_20260318_%E4%BD%9C%E5%93%81_Scene_1__A_891_0.mp4')); ?>" type="video/mp4">
         </video>
     </div>
 

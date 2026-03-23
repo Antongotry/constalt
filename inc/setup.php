@@ -19,6 +19,16 @@ function constalt_is_dev_mode(): bool
     return defined('WP_DEBUG') && WP_DEBUG;
 }
 
+/**
+ * Absolute URL to a file under wp-content/uploads (works on any domain or subdirectory).
+ */
+function constalt_uploads_url(string $relative_path): string
+{
+    $relative_path = ltrim(str_replace('\\', '/', $relative_path), '/');
+
+    return content_url('uploads/' . $relative_path);
+}
+
 // Request cache bypass only while debugging.
 if (constalt_is_dev_mode()) {
     if (! defined('DONOTCACHEPAGE')) {
@@ -293,11 +303,11 @@ add_filter('style_loader_tag', 'constalt_optimize_style_loading', 10, 2);
  */
 function constalt_preload_lcp_image(): void
 {
-    $mobile_hero = 'https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-2087325716_result.webp';
-    $desktop_hero = 'https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/hero-desc_result-scaled.webp';
+    $mobile_hero = constalt_uploads_url('2026/03/Frame-2087325716_result.webp');
+    $desktop_hero = constalt_uploads_url('2026/03/hero-desc_result-scaled.webp');
 
-    echo '<link rel="preload" as="image" href="' . $mobile_hero . '" media="(max-width: 1024px)">' . "\n";
-    echo '<link rel="preload" as="image" href="' . $desktop_hero . '" media="(min-width: 1025px)">' . "\n";
+    echo '<link rel="preload" as="image" href="' . esc_url($mobile_hero) . '" media="(max-width: 1024px)">' . "\n";
+    echo '<link rel="preload" as="image" href="' . esc_url($desktop_hero) . '" media="(min-width: 1025px)">' . "\n";
 }
 add_action('wp_head', 'constalt_preload_lcp_image', 3);
 

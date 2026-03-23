@@ -12,7 +12,7 @@
                 <div class="expert-section__quote">
                     <img
                         class="expert-section__quote-icon"
-                        src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/1233.svg"
+                        src="<?php echo esc_url(constalt_uploads_url('2026/03/1233.svg')); ?>"
                         alt=""
                         aria-hidden="true"
                         width="74" height="65"
@@ -81,7 +81,7 @@
                     <div class="expert-stat-card__badge" aria-hidden="true">
                         <div class="expert-stat-card__badge-inner">
                             <img
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/Frame-1321317016.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/Frame-1321317016.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy"

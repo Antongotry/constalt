@@ -31,13 +31,13 @@
                         <div class="trust-item__icon-box is-active" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-1.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/a-1.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-1.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-1.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-1.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-1.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
@@ -50,13 +50,13 @@
                         <div class="trust-item__icon-box" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-2.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/na-2.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-2.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-2.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-2.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-2.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
@@ -69,13 +69,13 @@
                         <div class="trust-item__icon-box" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-3.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/na-3.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-3.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-3.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-3.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-3.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
@@ -88,13 +88,13 @@
                         <div class="trust-item__icon-box" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-4.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/na-4.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-4.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-4.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-4.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-4.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
@@ -107,13 +107,13 @@
                         <div class="trust-item__icon-box" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-5.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/na-5.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-5.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-5.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-5.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-5.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
@@ -126,13 +126,13 @@
                         <div class="trust-item__icon-box" data-trust-icon-box>
                             <img
                                 class="trust-item__icon"
-                                src="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-6.svg"
+                                src="<?php echo esc_url(constalt_uploads_url('2026/03/na-6.svg')); ?>"
                                 alt=""
                                 width="24" height="24"
                                 loading="lazy" decoding="async"
                                 data-trust-icon
-                                data-icon-active="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/a-6.svg"
-                                data-icon-inactive="https://palevioletred-goat-904535.hostingersite.com/wp-content/uploads/2026/03/na-6.svg"
+                                data-icon-active="<?php echo esc_url(constalt_uploads_url('2026/03/a-6.svg')); ?>"
+                                data-icon-inactive="<?php echo esc_url(constalt_uploads_url('2026/03/na-6.svg')); ?>"
                             >
                         </div>
                         <div class="trust-item__content">
