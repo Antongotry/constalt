@@ -20,6 +20,19 @@
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
+/* Маскує anti-alias шов між трикутником і секцією */
+.faq-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: #051120;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .faq-section__container {
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
