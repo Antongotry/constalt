@@ -345,13 +345,33 @@
 @media (max-width: 1024px) {
   .collaboration-section {
     position: relative;
+    margin-top: -1px;
     padding: #{mixins.vw(36px, 375px)} 0 #{mixins.vw(28px, 375px)};
     overflow: visible;
   }
 
-  /* Прибрано трикутний ::before — був гострий пік; перехід між секціями прямий */
   .collaboration-section::before {
-    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: #{mixins.vw(-28px, 375px)};
+    height: #{mixins.vw(28px, 375px)};
+    background: #051120;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    z-index: 0;
+  }
+
+  .collaboration-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 2px;
+    background: #051120;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .collaboration-section__container {
