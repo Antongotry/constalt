@@ -352,25 +352,41 @@
   }
 
   .expert-section__role {
-    width: #{mixins.vw(176px, 375px)};
+    max-width: 100%;
+    width: 100%;
     margin-top: #{mixins.vw(2px, 375px)};
     font-size: #{mixins.vw(12px, 375px)};
   }
 
+  /* Desktop max-width (vw/1440) інакше дає ~112px на телефоні й ламає колонку */
   .expert-section__details {
-    width: #{mixins.vw(355px, 375px)};
+    max-width: none;
+    width: 100%;
+    min-width: 0;
+    align-self: stretch;
+    box-sizing: border-box;
     margin-top: #{mixins.vw(24px, 375px)};
-    padding-left: #{mixins.vw(18px, 375px)};
-    border-left: 1px solid rgba(5, 17, 32, 0.16);
+    padding-left: #{mixins.vw(20px, 375px)};
+    border-left: 1px solid rgba(5, 17, 32, 0.2);
   }
 
   .expert-section__list {
-    gap: #{mixins.vw(24px, 375px)};
+    gap: #{mixins.vw(20px, 375px)};
   }
 
   .expert-section__item {
-    padding-left: #{mixins.vw(40px, 375px)};
+    width: 100%;
+    max-width: 100%;
+    padding-left: #{mixins.vw(36px, 375px)};
     font-size: #{mixins.vw(14px, 375px)};
+    line-height: 150%;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .expert-section__item strong {
+    display: inline;
+    font-weight: 600;
   }
 
   .expert-section__item::before {
