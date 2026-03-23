@@ -361,9 +361,10 @@
   /* Desktop max-width (vw/1440) інакше дає ~112px на телефоні й ламає колонку */
   .expert-section__details {
     max-width: none;
-    width: 100%;
+    width: #{mixins.vw(355px, 375px)};
     min-width: 0;
     align-self: stretch;
+    display: block;
     box-sizing: border-box;
     margin-top: #{mixins.vw(24px, 375px)};
     padding-left: #{mixins.vw(20px, 375px)};
@@ -371,6 +372,10 @@
   }
 
   .expert-section__list {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: #{mixins.vw(20px, 375px)};
   }
 
@@ -382,6 +387,7 @@
     line-height: 150%;
     overflow-wrap: break-word;
     word-break: normal;
+    white-space: normal;
   }
 
   .expert-section__item strong {
