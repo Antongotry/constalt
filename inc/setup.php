@@ -20,13 +20,65 @@ function constalt_is_dev_mode(): bool
 }
 
 /**
- * Absolute URL to a file under wp-content/uploads (works on any domain or subdirectory).
+ * Absolute URL to a file under the uploads directory.
+ *
+ * Uses wp_upload_dir()['baseurl'] so paths stay correct on subdirectory installs,
+ * multisite, and when WP_CONTENT_URL differs from the site root (unlike raw
+ * "/wp-content/uploads/..." in CSS, which breaks on e.g. example.com/blog/).
  */
 function constalt_uploads_url(string $relative_path): string
 {
     $relative_path = ltrim(str_replace('\\', '/', $relative_path), '/');
 
-    return content_url('uploads/' . $relative_path);
+    if (! function_exists('wp_upload_dir')) {
+        return content_url('uploads/' . $relative_path);
+    }
+
+    $upload_dir = wp_upload_dir();
+
+    if (! empty($upload_dir['error'])) {
+        return content_url('uploads/' . $relative_path);
+    }
+
+    return trailingslashit($upload_dir['baseurl']) . $relative_path;
+}
+
+/**
+ * Registers :root CSS variables with full url(...) values for theme backgrounds.
+ * Compiled SCSS references var(--constalt-media-*) so assets resolve on any domain.
+ */
+function constalt_enqueue_uploads_css_variables(): void
+{
+    $defs = [
+        '--constalt-media-hero-desc-fallback' => '2026/03/hero-desc_result-scaled.webp',
+        '--constalt-media-hero-mobile' => '2026/03/Frame-2087325716_result.webp',
+        '--constalt-media-about-main' => '2026/03/phonje_result-scaled.webp',
+        '--constalt-media-about-mobile' => '2026/03/Frame-2087325717_result.webp',
+        '--constalt-media-contact-panel' => '2026/03/Frame-2087325608_result.webp',
+        '--constalt-media-expert-photo' => '2026/03/phot2_result.webp',
+        '--constalt-media-insight-maze' => '2026/03/minos-2_result.webp',
+        '--constalt-media-svc-finance' => '2026/03/b3-ima_result.webp',
+        '--constalt-media-svc-corporate' => '2026/03/b3-image-2_result.webp',
+        '--constalt-media-svc-due' => '2026/03/b3-image-3_result.webp',
+        '--constalt-media-svc-legal' => '2026/03/b3-image-4_result.webp',
+        '--constalt-media-trust-fad' => '2026/03/fad_result-scaled.webp',
+        '--constalt-media-trust-photo' => '2026/03/ChatGPT-Image-17-%D0%B1%D0%B5%D1%80.-2026-%D1%80.-20_58_12-1_result.webp',
+    ];
+
+    $chunks = [];
+
+    foreach ($defs as $var => $rel) {
+        $chunks[] = sprintf(
+            '%s:url(%s)',
+            $var,
+            esc_url(constalt_uploads_url($rel))
+        );
+    }
+
+    wp_add_inline_style(
+        'constalt-main',
+        ':root{' . implode(';', $chunks) . ';}'
+    );
 }
 
 // Request cache bypass only while debugging.
@@ -215,6 +267,8 @@ function constalt_enqueue_assets(): void
         ['constalt-style'],
         constalt_version_with_buster(constalt_asset_version('/assets/css/main.css'), $runtime_buster)
     );
+
+    constalt_enqueue_uploads_css_variables();
 
     wp_enqueue_style(
         'constalt-swiper',

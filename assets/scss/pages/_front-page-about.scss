@@ -85,7 +85,7 @@
   height: #{mixins.vw(780px)};
   position: relative;
   overflow: hidden;
-  background: url("/wp-content/uploads/2026/03/phonje_result-scaled.webp")
+  background: var(--constalt-media-about-main)
     center / cover no-repeat;
 }
 
@@ -283,7 +283,7 @@
     width: #{mixins.vw(355px, 375px)};
     height: calc(#{mixins.vw(537px, 375px)} + #{mixins.vw(12px, 375px)} + #{mixins.vw(222px, 375px)});
     overflow: visible;
-    background: url("/wp-content/uploads/2026/03/Frame-2087325717_result.webp")
+    background: var(--constalt-media-about-mobile)
       right top / 100% #{mixins.vw(537px, 375px)} no-repeat;
   }
 

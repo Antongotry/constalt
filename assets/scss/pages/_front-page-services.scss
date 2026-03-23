@@ -310,7 +310,7 @@ button.service-detail__action {
 }
 
 .service-detail--finance .service-detail__media-inner {
-  background-image: url("/wp-content/uploads/2026/03/b3-ima_result.webp");
+  background-image: var(--constalt-media-svc-finance);
 }
 
 .service-detail--corporate .service-detail__media {
@@ -319,7 +319,7 @@ button.service-detail__action {
 }
 
 .service-detail--corporate .service-detail__media-inner {
-  background-image: url("/wp-content/uploads/2026/03/b3-image-2_result.webp");
+  background-image: var(--constalt-media-svc-corporate);
   background-size: cover;
 }
 
@@ -333,7 +333,7 @@ button.service-detail__action {
 }
 
 .service-detail--due-diligence .service-detail__media-inner {
-  background-image: url("/wp-content/uploads/2026/03/b3-image-3_result.webp");
+  background-image: var(--constalt-media-svc-due);
   background-position: center;
   background-size: cover;
 }
@@ -344,7 +344,7 @@ button.service-detail__action {
 }
 
 .service-detail--legal .service-detail__media-inner {
-  background-image: url("/wp-content/uploads/2026/03/b3-image-4_result.webp");
+  background-image: var(--constalt-media-svc-legal);
   background-size: cover;
 }
 
