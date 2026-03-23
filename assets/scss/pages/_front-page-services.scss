@@ -1141,56 +1141,38 @@ body.site-popup-open {
   }
 }
 
-.services-section--stack-mobile .services-tabs {
-  display: none !important;
-}
-
-.services-section--stack-mobile .services-swiper {
-  overflow: visible !important;
-  height: auto !important;
-}
-
-.services-section--stack-mobile .services-swiper .swiper-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: #{mixins.vw(12px, 375px)};
-  transform: none !important;
-  translate: none !important;
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide {
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  position: sticky;
-  top: #{mixins.vw(72px, 375px)};
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(1) {
-  z-index: 4;
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(2) {
-  z-index: 3;
-  top: #{mixins.vw(84px, 375px)};
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(3) {
-  z-index: 2;
-  top: #{mixins.vw(96px, 375px)};
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(4) {
-  z-index: 1;
-  top: #{mixins.vw(108px, 375px)};
-}
-
-.services-section--stack-mobile .services-swiper .swiper-slide .service-detail {
-  display: flex !important;
-  box-shadow: 0 #{mixins.vw(14px, 375px)} #{mixins.vw(28px, 375px)} rgba(5, 17, 32, 0.14);
-}
-
 @media (max-width: 1024px) {
+  .services-section .services-tabs {
+    display: none !important;
+  }
+
+  .services-section .services-swiper {
+    overflow: visible !important;
+    height: auto !important;
+    margin-top: 0;
+  }
+
+  .services-section .services-swiper .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: #{mixins.vw(12px, 375px)};
+    transform: none !important;
+    translate: none !important;
+  }
+
+  .services-section .services-swiper .swiper-slide {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    position: sticky;
+    top: #{mixins.vw(72px, 375px)};
+  }
+
+  .services-section .services-swiper .swiper-slide .service-detail {
+    display: flex !important;
+    box-shadow: 0 #{mixins.vw(14px, 375px)} #{mixins.vw(28px, 375px)} rgba(5, 17, 32, 0.14);
+  }
+
   .services-section#services {
     scroll-margin-top: #{mixins.vw(72px, 375px)};
     padding-bottom: #{mixins.vw(120px, 375px)};
