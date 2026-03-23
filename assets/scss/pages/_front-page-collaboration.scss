@@ -354,10 +354,21 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: #{mixins.vw(-44px, 375px)};
-    height: #{mixins.vw(44px, 375px)};
+    top: #{mixins.vw(-52px, 375px)};
+    height: #{mixins.vw(52px, 375px)};
     background: #051120;
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    /* Плавніший перехід замість гострого трикутника polygon(0 100%, 50% 0, 100% 100%) */
+    clip-path: polygon(
+      0 100%,
+      0 78%,
+      10% 42%,
+      26% 14%,
+      50% 0,
+      74% 14%,
+      90% 42%,
+      100% 78%,
+      100% 100%
+    );
     z-index: 0;
   }
 

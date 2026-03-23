@@ -708,7 +708,18 @@ body.site-popup-open {
   }
 
   .services-section::before {
-    clip-path: polygon(0 4.2%, 50% 0, 100% 4.2%, 100% 100%, 0 100%);
+    /* М’яка «гірка» замість гострого шпиля на мобільному */
+    clip-path: polygon(
+      0 5.8%,
+      9% 2.9%,
+      22% 0.7%,
+      50% 0,
+      78% 0.7%,
+      91% 2.9%,
+      100% 5.8%,
+      100% 100%,
+      0 100%
+    );
   }
 
   .services-section__container {
