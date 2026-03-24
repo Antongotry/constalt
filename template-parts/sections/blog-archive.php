@@ -9,10 +9,13 @@ declare(strict_types=1);
 
 global $wp_query;
 
+$custom_blog_query = get_query_var('constalt_blog_query');
+$blog_query = $custom_blog_query instanceof WP_Query ? $custom_blog_query : $wp_query;
+
 $posts = array();
 
-if ($wp_query instanceof WP_Query && !empty($wp_query->posts)) {
-    $posts = $wp_query->posts;
+if ($blog_query instanceof WP_Query && !empty($blog_query->posts)) {
+    $posts = $blog_query->posts;
 }
 
 $featured_post = $posts[0] ?? null;
@@ -49,8 +52,9 @@ $get_post_categories = static function (int $post_id): array {
     return array_slice($post_categories, 0, 2);
 };
 
-$current_page = max(1, (int) get_query_var('paged'));
-$total_pages = max(1, (int) ($wp_query instanceof WP_Query ? $wp_query->max_num_pages : 1));
+$current_page = max(1, (int) get_query_var('paged'), (int) get_query_var('page'));
+$total_pages = max(1, (int) ($blog_query instanceof WP_Query ? $blog_query->max_num_pages : 1));
+$pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(999999999)));
 ?>
 <section class="blog-section blog-section--archive" id="news">
     <div class="blog-section__container">
@@ -171,6 +175,7 @@ $total_pages = max(1, (int) ($wp_query instanceof WP_Query ? $wp_query->max_num_
                         paginate_links(
                             array(
                                 'type'      => 'list',
+                                'base'      => $pagination_base,
                                 'current'   => $current_page,
                                 'total'     => $total_pages,
                                 'mid_size'  => 1,
