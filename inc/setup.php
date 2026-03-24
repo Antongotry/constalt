@@ -323,6 +323,15 @@ function constalt_enqueue_assets(): void
         constalt_version_with_buster(constalt_asset_version('/assets/js/main.js'), $runtime_buster),
         true
     );
+
+    wp_localize_script(
+        'constalt-main',
+        'constaltFormConfig',
+        [
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('constalt_form_submit'),
+        ]
+    );
 }
 add_action('wp_enqueue_scripts', 'constalt_enqueue_assets');
 
@@ -433,3 +442,79 @@ function constalt_static_cache_headers(): void
     }
 }
 add_action('send_headers', 'constalt_static_cache_headers', 1);
+
+/**
+ * Submit all site forms to admin email from admin email.
+ */
+function constalt_handle_form_submit(): void
+{
+    check_ajax_referer('constalt_form_submit', 'nonce');
+
+    $admin_email = sanitize_email((string) get_option('admin_email'));
+
+    if ($admin_email === '') {
+        wp_send_json_error(
+            ['message' => esc_html__('Admin email is not configured.', 'constalt')],
+            500
+        );
+    }
+
+    $name = isset($_POST['name']) ? sanitize_text_field((string) wp_unslash($_POST['name'])) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field((string) wp_unslash($_POST['phone'])) : '';
+    $question = isset($_POST['question']) ? sanitize_textarea_field((string) wp_unslash($_POST['question'])) : '';
+    $service = isset($_POST['service']) ? sanitize_text_field((string) wp_unslash($_POST['service'])) : '';
+    $consent = isset($_POST['consent']) ? (string) wp_unslash($_POST['consent']) : '';
+
+    $phone_digits = preg_replace('/\D+/', '', $phone);
+    $is_phone_valid = is_string($phone_digits) && strlen($phone_digits) >= 10 && strlen($phone_digits) <= 15;
+
+    if (! $is_phone_valid) {
+        wp_send_json_error(
+            ['message' => esc_html__('Невірний номер телефону.', 'constalt')],
+            422
+        );
+    }
+
+    if ($consent === '') {
+        wp_send_json_error(
+            ['message' => esc_html__('Потрібно підтвердити згоду.', 'constalt')],
+            422
+        );
+    }
+
+    $subject_parts = [esc_html__('Нова заявка з сайту', 'constalt')];
+
+    if ($service !== '') {
+        $subject_parts[] = $service;
+    }
+
+    $subject = implode(' — ', $subject_parts);
+
+    $message_lines = [
+        'Імʼя: ' . ($name !== '' ? $name : '—'),
+        'Телефон: ' . $phone,
+        'Запитання: ' . ($question !== '' ? $question : '—'),
+        'Послуга: ' . ($service !== '' ? $service : '—'),
+        'Сторінка: ' . esc_url_raw((string) wp_get_referer()),
+        'Дата: ' . wp_date('Y-m-d H:i:s'),
+    ];
+
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        sprintf('From: %s <%s>', wp_specialchars_decode(get_bloginfo('name'), ENT_QUOTES), $admin_email),
+        sprintf('Reply-To: %s', $admin_email),
+    ];
+
+    $sent = wp_mail($admin_email, $subject, implode("\n", $message_lines), $headers);
+
+    if (! $sent) {
+        wp_send_json_error(
+            ['message' => esc_html__('Не вдалося надіслати форму.', 'constalt')],
+            500
+        );
+    }
+
+    wp_send_json_success(['message' => esc_html__('Форму надіслано.', 'constalt')]);
+}
+add_action('wp_ajax_constalt_submit_form', 'constalt_handle_form_submit');
+add_action('wp_ajax_nopriv_constalt_submit_form', 'constalt_handle_form_submit');

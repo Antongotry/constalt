@@ -1100,6 +1100,43 @@
       document.body.style.overflow = 'hidden';
     }
 
+    function submitFormToServer(form) {
+      var config = window.constaltFormConfig || {};
+
+      if (!config.ajaxUrl || !config.nonce) {
+        return Promise.reject(new Error('missing-config'));
+      }
+
+      var payload = new URLSearchParams();
+      var formData = new FormData(form);
+
+      payload.append('action', 'constalt_submit_form');
+      payload.append('nonce', config.nonce);
+
+      formData.forEach(function (value, key) {
+        payload.append(key, String(value));
+      });
+
+      return window.fetch(config.ajaxUrl, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: payload.toString()
+      }).then(function (response) {
+        return response.json().catch(function () {
+          return {};
+        }).then(function (data) {
+          if (!response.ok || !data || data.success !== true) {
+            throw new Error((data && data.data && data.data.message) || 'submit-failed');
+          }
+
+          return data;
+        });
+      });
+    }
+
     thanksPopup.addEventListener('click', function (event) {
       if (event.target.closest('[data-thanks-popup-close]')) {
         closeThanksPopup();
@@ -1127,15 +1164,32 @@
       }
 
       event.preventDefault();
-      submittedForm.reset();
+      var submitButton = submittedForm.querySelector('button[type="submit"]');
 
-      var servicesPopup = document.querySelector('[data-services-popup]');
-      if (servicesPopup && !servicesPopup.hidden) {
-        servicesPopup.classList.remove('is-visible');
-        servicesPopup.hidden = true;
+      if (submitButton) {
+        submitButton.disabled = true;
       }
 
-      openThanksPopup();
+      submitFormToServer(submittedForm).then(function () {
+        submittedForm.reset();
+
+        var servicesPopup = document.querySelector('[data-services-popup]');
+        if (servicesPopup && !servicesPopup.hidden) {
+          servicesPopup.classList.remove('is-visible');
+          servicesPopup.hidden = true;
+        }
+
+        openThanksPopup();
+      }).catch(function (error) {
+        var message = (error && error.message && error.message !== 'submit-failed' && error.message !== 'missing-config')
+          ? error.message
+          : 'Не вдалося надіслати форму. Спробуйте ще раз.';
+        window.alert(message);
+      }).finally(function () {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      });
     });
   }
 
