@@ -162,7 +162,7 @@
 }
 
 .about-card__plain-text {
-  margin: 0;
+  margin: auto 0 0;
   width: #{mixins.vw(316px)};
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
