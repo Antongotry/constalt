@@ -313,6 +313,10 @@ button.service-detail__action {
   color: #192432;
 }
 
+.service-detail__action.hero-pill--outline-dark {
+  border: 1px solid #05112029;
+}
+
 .service-detail__action.hero-pill--light .hero-pill__icon {
   padding: #{mixins.vw(11.674px)} #{mixins.vw(11.348px)} #{mixins.vw(11.675px)} #{mixins.vw(12px)};
 }
