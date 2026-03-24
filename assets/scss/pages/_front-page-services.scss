@@ -536,6 +536,10 @@ body.site-popup-open {
   line-height: 124%;
 }
 
+.services-popup__details-heading--narrow {
+  width: #{mixins.vw(596px)};
+}
+
 .services-popup__details-text {
   margin: 0;
   color: #051120;
@@ -601,7 +605,7 @@ body.site-popup-open {
 
 .services-popup__postscript {
   margin: 0;
-  width: var(--popup-subtitle-width);
+  width: var(--popup-postscript-width, var(--popup-subtitle-width));
   color: #051120;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(16px)};
@@ -669,7 +673,7 @@ body.site-popup-open {
 }
 
 .services-popup--details-mode .services-popup__postscript {
-  width: #{mixins.vw(485px)};
+  width: var(--popup-postscript-width, #{mixins.vw(485px)});
   margin-top: #{mixins.vw(24px)};
 }
 
@@ -1348,6 +1352,10 @@ body.site-popup-open {
   .services-popup--details-mode .services-popup__details-heading {
     font-size: #{mixins.vw(14px, 375px)};
     line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details-heading--narrow {
+    width: 100%;
   }
 
   .services-popup--details-mode .services-popup__details-text {

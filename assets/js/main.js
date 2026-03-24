@@ -170,6 +170,7 @@
       submitLabel: 'Обговорити задачу',
       detailsHtml: '',
       postscriptText: '',
+      postscriptWidth: 0,
       serviceValue: ''
     };
 
@@ -266,6 +267,7 @@
         hideConsent: true,
         submitLabel: 'Обговорити структуру управління',
         postscriptText: 'Подивимось, де саме бізнес залежить від вас і які є варіанти змін.',
+        postscriptWidth: 485,
         serviceValue: 'Корпоративне управління',
         detailsHtml: [
           '<div class="services-popup__details-box">',
@@ -319,6 +321,76 @@
         titleWeight: 300,
         wideLabel: 'Ваше запитання',
         submitLabel: 'Обговорити задачу'
+      },
+      'service-due-diligence-details': {
+        titleHtml: 'Due Diligence та інвестиційний супровід',
+        subtitle: 'Більшість ризиків в угодах виникають не через складність — а через неповну інформацію на момент прийняття рішення.',
+        titleWidth: 446,
+        subtitleWidth: 820,
+        titleSize: 24,
+        titleWeight: 600,
+        subtitleSize: 16,
+        formWidth: 820,
+        rowColumns: 'details',
+        mode: 'details',
+        showContactFields: false,
+        showWideField: false,
+        hideConsent: true,
+        submitLabel: 'Обговорити запит',
+        postscriptText: 'Оцінимо ризики і скажемо, на що варто звернути увагу до прийняття рішення.',
+        postscriptWidth: 577,
+        serviceValue: 'Due Diligence та інвестиційний супровід',
+        detailsHtml: [
+          '<div class="services-popup__details-box">',
+          '<p class="services-popup__details-box-label">З якими запитами приходять:</p>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>«Я хочу зрозуміти реальний стан бізнесу перед угодою»</li>',
+          '<li>«Не хочу ризиків, які проявляться після підписання»</li>',
+          '<li>«Потрібно підготуватись до переговорів і посилити позицію»</li>',
+          '<li>«Хочу зрозуміти, що може вплинути на вартість бізнесу»</li>',
+          '</ul>',
+          '</div>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading services-popup__details-heading--narrow">Ми не просто перевіряємо бізнес — ми показуємо, де саме знаходяться ризики і як вони впливають на рішення:</h4>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>фінансові викривлення і реальна прибутковість</li>',
+          '<li>юридичні ризики і зобов’язання</li>',
+          '<li>слабкі місця структури бізнесу</li>',
+          '<li>фактори, які можуть вплинути на угоду</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<div class="services-popup__details-box services-popup__details-box--dark">',
+          '<p class="services-popup__details-box-label services-popup__details-box-label--light">Що отримує клієнт:</p>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>структурований фінансовий і юридичний аналіз</li>',
+          '<li>карту ризиків із пріоритетами</li>',
+          '<li>рекомендації щодо структури угоди</li>',
+          '<li>аргументи для переговорів</li>',
+          '<li>впевненість у прийнятті рішення</li>',
+          '</ul>',
+          '</div>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Що важливо:</h4>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>due diligence не гарантує результат угоди</li>',
+          '<li>але він дає розуміння, за що саме ви платите або що продаєте</li>',
+          '<li>іноді ключовий результат — рішення НЕ входити в угоду</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Коли це не має сенсу:</h4>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>якщо рішення вже прийняте і аналіз формальний</li>',
+          '<li>якщо немає часу на якісну перевірку</li>',
+          '<li>якщо клієнт не готовий чути ризики</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>'
+        ].join('')
       },
       'service-legal': {
         titleHtml: 'Юридична архітектура та захист активів',
@@ -445,6 +517,10 @@
       servicesPopup.style.setProperty('--popup-subtitle-color', config.subtitleColor);
       servicesPopup.style.setProperty('--popup-form-width', toViewportWidth(config.formWidth));
       servicesPopup.style.setProperty('--popup-submit-width', toViewportWidth(config.formWidth));
+      servicesPopup.style.setProperty(
+        '--popup-postscript-width',
+        toViewportWidth(config.postscriptWidth || config.subtitleWidth || config.formWidth)
+      );
       servicesPopup.style.setProperty(
         '--popup-row-columns',
         config.rowColumns === 'single'
