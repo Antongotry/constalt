@@ -37,15 +37,14 @@ declare(strict_types=1);
                     <span class="hero__preview-text">Повна картина фінансів, управління та ризиків — без сліпих зон у бізнесі</span>
                 </div>
                 <h1 class="hero__title">
-                    <span class="hero__title-line hero__title-line--light">Консалтинг для</span>
-                    <span class="hero__title-line hero__title-line--strong">управлінських рішень</span>
-                    <span class="hero__title-line hero__title-line--medium">у бізнесі</span>
+                    <span class="hero__title-line hero__title-line--strong">Консалтинг</span>
+                    <span class="hero__title-line hero__title-line--light">для стратегічних управлінських рішень</span>
+                    <span class="hero__title-line hero__title-line--light">у бізнесі</span>
                 </h1>
             </div>
             <div class="hero__right">
                 <p class="hero__description">
-                    Допомагаємо власникам систематизувати фінанси, знизити ризики та вибудувати структуру бізнесу,
-                    <strong>готову до масштабування або залучення інвестицій</strong>
+                    Системний консалтинг у сферах фінансів, корпоративного врядування та юридичного захисту для стабільного масштабування.
                 </p>
                 <div class="hero__actions">
                     <a class="hero-pill hero-pill--light" href="#" data-site-popup-open data-popup-key="consultation-general">
