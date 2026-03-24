@@ -147,18 +147,18 @@ $related_secondary_posts = array_slice($related_posts, 1, 2);
             <aside class="single-article__share" aria-label="Поділитись статтею">
                 <p class="single-article__share-label">Поділитись</p>
                 <div class="single-article__share-list">
-                    <a class="single-article__share-link" href="<?php echo esc_url($telegram_share_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Поділитися у Telegram">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <a class="single-article__share-link site-footer__social" href="<?php echo esc_url($telegram_share_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Поділитися у Telegram">
+                        <svg class="single-article__share-icon site-footer__social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path fill="currentColor" d="M20.76 4.2 3.95 10.68c-1.15.47-1.14 1.11-.2 1.39l4.31 1.34 9.96-6.28c.47-.29.9-.13.55.18l-8.07 7.29-.3 4.53c.44 0 .64-.2.89-.44l2.15-2.09 4.47 3.3c.83.46 1.42.22 1.63-.77l2.86-13.48c.31-1.21-.47-1.76-1.34-1.37z"/>
                         </svg>
                     </a>
-                    <a class="single-article__share-link" href="<?php echo esc_url($instagram_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <a class="single-article__share-link site-footer__social" href="<?php echo esc_url($instagram_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg class="single-article__share-icon site-footer__social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 1.9A3.9 3.9 0 0 0 3.9 7.8v8.4a3.9 3.9 0 0 0 3.9 3.9h8.4a3.9 3.9 0 0 0 3.9-3.9V7.8a3.9 3.9 0 0 0-3.9-3.9H7.8zm8.86 1.43a1.34 1.34 0 1 1 0 2.68 1.34 1.34 0 0 1 0-2.68zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.9A3.1 3.1 0 1 0 12 15.1 3.1 3.1 0 0 0 12 8.9z"/>
                         </svg>
                     </a>
-                    <a class="single-article__share-link" href="<?php echo esc_url($facebook_share_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Поділитися у Facebook">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <a class="single-article__share-link site-footer__social" href="<?php echo esc_url($facebook_share_link); ?>" target="_blank" rel="noopener noreferrer" aria-label="Поділитися у Facebook">
+                        <svg class="single-article__share-icon site-footer__social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path fill="currentColor" d="M13.5 22v-8h2.6l.4-3h-3V9.1c0-.86.24-1.45 1.48-1.45H16.6V5a22.2 22.2 0 0 0-2.46-.13c-2.44 0-4.1 1.49-4.1 4.22V11H7.4v3h2.64v8h3.46z"/>
                         </svg>
                     </a>
