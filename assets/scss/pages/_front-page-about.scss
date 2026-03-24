@@ -133,7 +133,7 @@
 }
 
 .about-card__sub {
-  margin: 0;
+  margin: auto 0 0;
   width: #{mixins.vw(350px)};
   color: #fff;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
