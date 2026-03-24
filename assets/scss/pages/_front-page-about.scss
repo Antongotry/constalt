@@ -296,7 +296,7 @@
 
   .about-card__glass {
     height: #{mixins.vw(286px, 375px)};
-    padding: #{mixins.vw(10px, 375px)} #{mixins.vw(10px, 375px)} #{mixins.vw(57px, 375px)};
+    padding: #{mixins.vw(10px, 375px)};
     backdrop-filter: blur(#{mixins.vw(70px, 375px)});
     display: flex;
     flex-direction: column;
