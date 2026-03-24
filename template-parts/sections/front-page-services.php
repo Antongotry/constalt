@@ -67,7 +67,7 @@
                             </span>
                         </button>
 
-                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-finance-details">
                             <span class="hero-pill__label">Детальніше</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +75,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                             </span>
                         </button>
 
-                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-corporate">
                             <span class="hero-pill__label">Детальніше</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
                             </span>
                         </button>
 
-                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-due-diligence">
                             <span class="hero-pill__label">Детальніше</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,7 +181,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
                             </span>
                         </button>
 
-                        <a class="hero-pill hero-pill--outline-dark service-detail__action" href="#details">
+                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-legal">
                             <span class="hero-pill__label">Детальніше</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +234,7 @@
                                     <path d="M4.857 4.163H12.489V11.795" stroke="#FFF" stroke-width="1.176" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

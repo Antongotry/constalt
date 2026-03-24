@@ -22,6 +22,7 @@
         <p class="services-popup__subtitle" data-services-popup-subtitle>
             Підготовка до залучення капіталу, продажу частки або входу в нове партнерство.
         </p>
+        <div class="services-popup__details" data-services-popup-details hidden></div>
 
         <form class="services-popup__form" action="" method="post">
             <input type="hidden" name="service" value="" data-services-popup-service>
@@ -43,7 +44,7 @@
                 <input type="text" name="question" placeholder="Ваша проблема" data-services-popup-wide-input>
             </label>
 
-            <label class="services-popup__consent">
+            <label class="services-popup__consent" data-services-popup-consent>
                 <input class="services-popup__consent-input" type="checkbox" name="consent" checked>
                 <span class="services-popup__consent-box" aria-hidden="true"></span>
                 <span class="services-popup__consent-label">Я погоджуюсь з політикою конфіденційності</span>

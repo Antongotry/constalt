@@ -100,6 +100,8 @@
     var popupWideField = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-field]') : null;
     var popupWideInput = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-input]') : null;
     var popupWideLabelScreen = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-label-screen]') : null;
+    var popupDetails = servicesPopup ? servicesPopup.querySelector('[data-services-popup-details]') : null;
+    var popupConsent = servicesPopup ? servicesPopup.querySelector('[data-services-popup-consent]') : null;
     var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
@@ -159,9 +161,12 @@
       subtitleColor: '#051120',
       formWidth: 635,
       rowColumns: 'double',
+      mode: 'default',
       showWideField: true,
+      hideConsent: false,
       wideLabel: 'Ваша проблема',
       submitLabel: 'Обговорити задачу',
+      detailsHtml: '',
       serviceValue: ''
     };
 
@@ -173,6 +178,66 @@
         subtitleWidth: 574,
         wideLabel: 'Ваша проблема',
         submitLabel: 'Обговорити задачу'
+      },
+      'service-finance-details': {
+        titleHtml: 'Фінансовий консалтинг',
+        subtitle: 'У більшості бізнесів фінанси виглядають контрольованими — поки не виникає питання: «а скільки ми реально заробляємо?». Бухгалтерія показує минуле. Але рішення в бізнесі потрібно приймати про майбутнє.',
+        titleWidth: 264,
+        subtitleWidth: 820,
+        titleSize: 24,
+        titleWeight: 600,
+        subtitleSize: 16,
+        formWidth: 820,
+        rowColumns: 'details',
+        mode: 'details',
+        showWideField: false,
+        hideConsent: true,
+        submitLabel: 'Обговорити фінансову ситуацію',
+        serviceValue: 'Фінансовий консалтинг',
+        detailsHtml: [
+          '<div class="services-popup__details-box">',
+          '<p class="services-popup__details-box-label">З якими запитами приходять:</p>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>«Я не розумію реальну прибутковість бізнесу або окремих напрямків»</li>',
+          '<li>«Гроші є, але їх постійно не вистачає»</li>',
+          '<li>«Я не можу спрогнозувати фінансовий стан на кілька місяців вперед»</li>',
+          '<li>«Витрати ростуть швидше за дохід, але незрозуміло чому»</li>',
+          '<li>«Потрібно підготувати бізнес до інвестора, партнера або масштабування»</li>',
+          '</ul>',
+          '</div>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Що насправді змінюється в роботі бізнесу</h4>',
+          '<p class="services-popup__details-text">Ми переводимо фінанси з рівня “облік” у рівень “управління”:</p>',
+          '<ul class="services-popup__details-list">',
+          '<li>ви бачите, які рішення реально впливають на прибуток</li>',
+          '<li>з’являється прозора логіка руху грошей</li>',
+          '<li>стає зрозуміло, де бізнес втрачає маржу</li>',
+          '<li>зникає залежність від «відчуттів»</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<div class="services-popup__details-box services-popup__details-box--dark">',
+          '<p class="services-popup__details-box-label services-popup__details-box-label--light">Що отримує клієнт:</p>',
+          '<ul class="services-popup__details-list">',
+          '<li>структуровану фінансову модель бізнесу</li>',
+          '<li>управлінську звітність (P&amp;L, Cash Flow, Balance), яка використовується для рішень</li>',
+          '<li>розуміння реальної прибутковості і слабких місць</li>',
+          '<li>фінансовий план дій і сценарії розвитку</li>',
+          '<li>контроль і передбачуваність</li>',
+          '</ul>',
+          '</div>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Що важливо врахувати:</h4>',
+          '<ul class="services-popup__details-list">',
+          '<li>це не разова послуга, а процес зміни підходу</li>',
+          '<li>без участі власника ефект буде обмежений</li>',
+          '<li>перший результат — не “покращення”, а чесна картина</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>'
+        ].join('')
       },
       'service-corporate': {
         titleHtml: 'Корпоративне управління',
@@ -288,7 +353,18 @@
         popupWideLabelScreen.textContent = config.wideLabel;
       }
 
+      if (popupDetails) {
+        popupDetails.innerHTML = config.detailsHtml || '';
+        popupDetails.hidden = !config.detailsHtml;
+      }
+
       servicesPopup.classList.toggle('services-popup--without-wide-field', !config.showWideField);
+      servicesPopup.classList.toggle('services-popup--without-consent', !!config.hideConsent);
+      servicesPopup.classList.toggle('services-popup--details-mode', config.mode === 'details');
+
+      if (popupConsent) {
+        popupConsent.hidden = !!config.hideConsent;
+      }
 
       servicesPopup.style.setProperty('--popup-title-width', toViewportWidth(config.titleWidth));
       servicesPopup.style.setProperty('--popup-subtitle-width', toViewportWidth(config.subtitleWidth));
@@ -303,7 +379,9 @@
         '--popup-row-columns',
         config.rowColumns === 'single'
           ? '1fr'
-          : toViewportWidth(305) + ' ' + toViewportWidth(305)
+          : config.rowColumns === 'details'
+            ? toViewportWidth(396) + ' ' + toViewportWidth(396)
+            : toViewportWidth(305) + ' ' + toViewportWidth(305)
       );
 
       if (popupServiceInput) {
