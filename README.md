@@ -13,10 +13,14 @@ Base structure for a custom WordPress theme.
 ## Sizing convention
 
 - Core rule: convert design `px` to `vw` with desktop formula `px / 1440 * 100vw`.
-- Mobile rule: use `px / 390 * 100vw` only for explicit mobile values.
+- Mobile rule: use `px / 375 * 100vw` only for explicit mobile values.
 - Keep technical pixel values in `px` (for example `border: 1px solid ...`).
 - Global font: `Inter Tight` (loaded in all weights via Google Fonts).
 - Front-page hero placeholder uses `height: 100svh`.
+
+## Team workflow
+
+- Project rules and handoff notes are documented in `docs/WORKFLOW_RULES.md`.
 
 ## Cache behavior
 
