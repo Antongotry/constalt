@@ -1492,7 +1492,7 @@ body.site-popup-open {
   .services-section .services-swiper {
     overflow: visible !important;
     height: auto !important;
-    margin-top: 0;
+    margin-top: #{mixins.vw(24px, 375px)};
   }
 
   .services-section .services-swiper .swiper-wrapper {
