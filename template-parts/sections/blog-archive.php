@@ -18,15 +18,7 @@ if ($wp_query instanceof WP_Query && !empty($wp_query->posts)) {
 $featured_post = $posts[0] ?? null;
 $secondary_posts = array_slice($posts, 1);
 
-$blog_archive_link = get_permalink((int) get_option('page_for_posts'));
-
-if (!$blog_archive_link) {
-    $blog_archive_link = get_post_type_archive_link('post');
-}
-
-if (!$blog_archive_link) {
-    $blog_archive_link = home_url('/');
-}
+$blog_archive_link = home_url('/blog/');
 
 $active_category_slug = '';
 
