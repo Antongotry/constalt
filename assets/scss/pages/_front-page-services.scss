@@ -1266,6 +1266,139 @@ body.site-popup-open {
     height: #{mixins.vw(13px, 375px)};
   }
 
+  .services-popup--details-mode .services-popup__dialog {
+    width: #{mixins.vw(355px, 375px)};
+    max-width: calc(100vw - #{mixins.vw(20px, 375px)});
+    max-height: calc(100vh - #{mixins.vw(20px, 375px)});
+    padding: #{mixins.vw(20px, 375px)};
+    gap: 0;
+  }
+
+  .services-popup--details-mode .services-popup__dialog::after {
+    display: none;
+  }
+
+  .services-popup--details-mode .services-popup__close {
+    top: #{mixins.vw(16px, 375px)};
+    right: #{mixins.vw(16px, 375px)};
+    width: #{mixins.vw(12px, 375px)};
+    height: #{mixins.vw(12px, 375px)};
+    z-index: 3;
+  }
+
+  .services-popup--details-mode .services-popup__title {
+    width: #{mixins.vw(315px, 375px)};
+    font-size: #{mixins.vw(20px, 375px)};
+    font-weight: 600;
+    line-height: 108%;
+  }
+
+  .services-popup--details-mode .services-popup__subtitle {
+    margin-top: #{mixins.vw(20px, 375px)};
+    width: #{mixins.vw(315px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details {
+    margin-top: #{mixins.vw(20px, 375px)};
+    width: #{mixins.vw(315px, 375px)};
+    gap: #{mixins.vw(20px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__details-divider {
+    width: #{mixins.vw(315px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__details-section {
+    gap: #{mixins.vw(20px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__details-heading {
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details-text {
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details-list {
+    gap: #{mixins.vw(10px, 375px)};
+    padding-left: #{mixins.vw(20px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details-list--plain {
+    padding-left: 0;
+  }
+
+  .services-popup--details-mode .services-popup__details-box {
+    position: relative;
+    width: #{mixins.vw(315px, 375px)};
+    padding: #{mixins.vw(12px, 375px)};
+    border: 0;
+    gap: #{mixins.vw(12px, 375px)};
+    background: #f5f5f5;
+  }
+
+  .services-popup--details-mode .services-popup__details-box::before {
+    content: "";
+    position: absolute;
+    inset: #{mixins.vw(4px, 375px)};
+    border: 1px solid rgba(5, 17, 32, 0.16);
+    pointer-events: none;
+  }
+
+  .services-popup--details-mode .services-popup__details-box > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .services-popup--details-mode .services-popup__details-box-label {
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__details-box--dark {
+    background: #192432;
+  }
+
+  .services-popup--details-mode .services-popup__details-box--dark::before {
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .services-popup--details-mode .services-popup__form {
+    margin-top: #{mixins.vw(20px, 375px)};
+    width: #{mixins.vw(315px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__row {
+    display: none;
+  }
+
+  .services-popup--details-mode .services-popup__submit {
+    margin-top: 0;
+    width: #{mixins.vw(315px, 375px)};
+    height: #{mixins.vw(48px, 375px)};
+    padding: #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(8px, 375px)} #{mixins.vw(20px, 375px)};
+    border-radius: #{mixins.vw(1000px, 375px)};
+    font-size: #{mixins.vw(12px, 375px)};
+    line-height: 140%;
+  }
+
+  .services-popup--details-mode .services-popup__submit-icon {
+    width: #{mixins.vw(32px, 375px)};
+    height: #{mixins.vw(32px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__submit-icon svg {
+    width: #{mixins.vw(13px, 375px)};
+    height: #{mixins.vw(13px, 375px)};
+  }
+
   .thanks-popup {
     padding: #{mixins.vw(10px, 375px)};
     align-items: center;
