@@ -40,7 +40,7 @@
 .single-article__layout {
   margin-top: #{mixins.vw(34px)};
   display: grid;
-  grid-template-columns: #{mixins.vw(216px)} #{mixins.vw(1124px)};
+  grid-template-columns: #{mixins.vw(184px)} #{mixins.vw(1156px)};
   gap: #{mixins.vw(20px)};
   align-items: start;
 }
@@ -51,6 +51,8 @@
 
 .single-article__share-label {
   margin: 0;
+  width: #{mixins.vw(73px)};
+  min-height: #{mixins.vw(20px)};
   color: rgba(255, 255, 255, 0.64);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(14px)};
@@ -60,6 +62,8 @@
 
 .single-article__share-list {
   margin-top: #{mixins.vw(24px)};
+  width: #{mixins.vw(184px)};
+  min-height: #{mixins.vw(56px)};
   display: flex;
   align-items: center;
   gap: #{mixins.vw(8px)};
@@ -70,7 +74,26 @@
 }
 
 .single-article__share-list .site-footer__social {
+  width: #{mixins.vw(56px)};
+  height: #{mixins.vw(56px)};
+  border-radius: #{mixins.vw(100px)};
+  background: #192432;
   margin-top: 0;
+}
+
+.single-article__share-link:nth-child(1) .single-article__share-icon {
+  width: #{mixins.vw(22px)};
+  height: #{mixins.vw(21px)};
+}
+
+.single-article__share-link:nth-child(2) .single-article__share-icon {
+  width: #{mixins.vw(25px)};
+  height: #{mixins.vw(25px)};
+}
+
+.single-article__share-link:nth-child(3) .single-article__share-icon {
+  width: #{mixins.vw(12px)};
+  height: #{mixins.vw(26px)};
 }
 
 .single-article__body {
@@ -79,21 +102,24 @@
 
 .single-article__head {
   display: grid;
-  grid-template-columns: #{mixins.vw(670px)} #{mixins.vw(325px)};
+  grid-template-columns: #{mixins.vw(670px)} 1fr;
   gap: #{mixins.vw(20px)};
 }
 
 .single-article__title {
   margin: 0;
   width: #{mixins.vw(670px)};
+  min-height: #{mixins.vw(123px)};
   color: #e9e9e9;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(58px)};
+  font-size: #{mixins.vw(42px)};
   font-weight: 300;
   line-height: 98%;
 }
 
 .single-article__meta {
+  width: #{mixins.vw(325px)};
+  justify-self: end;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -102,9 +128,11 @@
 
 .single-article__date {
   margin: 0;
+  width: #{mixins.vw(71px)};
+  min-height: #{mixins.vw(20px)};
   color: rgba(255, 255, 255, 0.64);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(28px)};
+  font-size: #{mixins.vw(14px)};
   font-weight: 300;
   line-height: 140%;
 }
@@ -118,6 +146,7 @@
 }
 
 .single-article__category {
+  min-width: #{mixins.vw(100px)};
   height: #{mixins.vw(36px)};
   padding: #{mixins.vw(8px)} #{mixins.vw(23px)};
   border-radius: #{mixins.vw(100px)};
@@ -130,6 +159,7 @@
   line-height: 140%;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 }
 
 .single-article__featured {
@@ -272,11 +302,31 @@
 
   .single-article__share-list {
     margin-top: #{mixins.vw(12px, 375px)};
+    width: #{mixins.vw(184px, 375px)};
+    min-height: #{mixins.vw(56px, 375px)};
     gap: #{mixins.vw(8px, 375px)};
   }
 
   .single-article__share-list .site-footer__social {
+    width: #{mixins.vw(56px, 375px)};
+    height: #{mixins.vw(56px, 375px)};
+    border-radius: #{mixins.vw(100px, 375px)};
     margin-top: 0;
+  }
+
+  .single-article__share-link:nth-child(1) .single-article__share-icon {
+    width: #{mixins.vw(22px, 375px)};
+    height: #{mixins.vw(21px, 375px)};
+  }
+
+  .single-article__share-link:nth-child(2) .single-article__share-icon {
+    width: #{mixins.vw(25px, 375px)};
+    height: #{mixins.vw(25px, 375px)};
+  }
+
+  .single-article__share-link:nth-child(3) .single-article__share-icon {
+    width: #{mixins.vw(12px, 375px)};
+    height: #{mixins.vw(26px, 375px)};
   }
 
   .single-article__head {
@@ -286,15 +336,20 @@
 
   .single-article__title {
     width: 100%;
+    min-height: auto;
     font-size: #{mixins.vw(42px, 375px)};
   }
 
   .single-article__meta {
+    width: 100%;
     align-items: flex-start;
+    justify-self: start;
     gap: #{mixins.vw(14px, 375px)};
   }
 
   .single-article__date {
+    width: auto;
+    min-height: auto;
     font-size: #{mixins.vw(14px, 375px)};
   }
 
@@ -304,6 +359,7 @@
   }
 
   .single-article__category {
+    min-width: #{mixins.vw(100px, 375px)};
     height: #{mixins.vw(36px, 375px)};
     padding: #{mixins.vw(8px, 375px)} #{mixins.vw(16px, 375px)};
     border-radius: #{mixins.vw(100px, 375px)};
