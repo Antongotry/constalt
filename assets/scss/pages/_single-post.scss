@@ -48,7 +48,7 @@
 .single-article__share {
   width: #{mixins.vw(325px)};
   flex: 0 0 #{mixins.vw(325px)};
-  padding-top: #{mixins.vw(72px)};
+  padding-top: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -235,12 +235,13 @@
 
 .single-related__title {
   margin: 0;
-  width: #{mixins.vw(565px)};
+  width: auto;
   color: #e9e9e9;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: #{mixins.vw(58px)};
   font-weight: 300;
   line-height: 98%;
+  white-space: nowrap;
 }
 
 .single-related__title strong {
@@ -381,8 +382,9 @@
   }
 
   .single-related__title {
-    width: 100%;
+    width: auto;
     font-size: #{mixins.vw(32px, 375px)};
+    white-space: nowrap;
   }
 
   .single-related .blog-section__all-link {
