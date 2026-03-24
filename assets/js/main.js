@@ -1,8 +1,56 @@
 /* Theme scripts entry point. */
 (function () {
-  function isPhoneInputValid(value) {
-    var digits = String(value || '').replace(/\D/g, '');
-    return digits.length >= 9 && digits.length <= 15;
+  function getPhoneDigits(value) {
+    return String(value || '').replace(/\D/g, '');
+  }
+
+  function getPhoneValidationMessage(value) {
+    var rawValue = String(value || '').trim();
+    var digits = getPhoneDigits(rawValue);
+
+    if (!rawValue) {
+      return 'Вкажіть номер телефону.';
+    }
+
+    if (!/^\+?[\d\s().-]+$/.test(rawValue)) {
+      return 'Номер телефону містить недопустимі символи.';
+    }
+
+    if ((rawValue.match(/\+/g) || []).length > 1 || (rawValue.indexOf('+') > 0)) {
+      return 'Символ "+" можна використовувати лише на початку номера.';
+    }
+
+    if (digits.length < 10 || digits.length > 15) {
+      return 'Введіть коректний номер телефону (10-15 цифр).';
+    }
+
+    return '';
+  }
+
+  function validatePhoneInputField(input, shouldReport) {
+    if (!input) {
+      return true;
+    }
+
+    var message = getPhoneValidationMessage(input.value);
+    input.setCustomValidity(message);
+
+    if (message && shouldReport) {
+      input.reportValidity();
+    }
+
+    return message === '';
+  }
+
+  function initPhoneFieldValidation() {
+    document.querySelectorAll('input[type="tel"]').forEach(function (input) {
+      input.setAttribute('inputmode', 'tel');
+      input.setAttribute('autocomplete', 'tel');
+      input.setAttribute('required', 'required');
+      input.setAttribute('minlength', '10');
+      input.setAttribute('maxlength', '20');
+      input.setAttribute('pattern', '^\\+?[0-9\\s().-]{10,20}$');
+    });
   }
 
   function initLenis() {
@@ -1073,15 +1121,9 @@
 
       var phoneInput = submittedForm.querySelector('input[type="tel"]');
 
-      if (phoneInput && !isPhoneInputValid(phoneInput.value)) {
+      if (phoneInput && !validatePhoneInputField(phoneInput, true)) {
         event.preventDefault();
-        phoneInput.setCustomValidity('Введіть коректний номер телефону (мінімум 9 цифр).');
-        phoneInput.reportValidity();
         return;
-      }
-
-      if (phoneInput) {
-        phoneInput.setCustomValidity('');
       }
 
       event.preventDefault();
@@ -1105,6 +1147,15 @@
     }
   });
 
+  document.addEventListener('blur', function (event) {
+    var el = event.target;
+
+    if (el && el.matches && el.matches('input[type="tel"]')) {
+      validatePhoneInputField(el, false);
+    }
+  }, true);
+
+  initPhoneFieldValidation();
   initLenis();
   initHeroVideo();
   initGlobalThanksPopup();
