@@ -406,6 +406,11 @@
           return;
         }
 
+        var spacer = section.parentElement;
+        if (spacer && spacer.classList.contains('pin-spacer')) {
+          spacer.style.zIndex = '';
+        }
+
         servicesScrollTrigger.kill();
         servicesScrollTrigger = null;
         section.classList.remove('services-section--scroll-locked');
@@ -449,6 +454,10 @@
           invalidateOnRefresh: true,
           onToggle: function (self) {
             section.classList.toggle('services-section--scroll-locked', self.isActive);
+            var spacer = section.parentElement;
+            if (spacer && spacer.classList.contains('pin-spacer')) {
+              spacer.style.zIndex = self.isActive ? '250' : '';
+            }
           },
           onUpdate: function (self) {
             var index = Math.round(self.progress * maxIndex);

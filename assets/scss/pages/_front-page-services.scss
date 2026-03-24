@@ -11,6 +11,16 @@
   scroll-margin-top: #{mixins.vw(96px)};
 }
 
+/* Під час pin (десктоп) секція fixed — підняти над .site-header (200), нижче за попапи (500+) */
+.services-section#services.services-section--scroll-locked {
+  z-index: 250 !important;
+}
+
+.pin-spacer:has(#services) {
+  z-index: 250;
+  position: relative;
+}
+
 .services-section::before {
   content: "";
   position: absolute;
