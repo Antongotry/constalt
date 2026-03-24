@@ -62,16 +62,15 @@
 
   function initPhoneFieldValidation() {
     document.querySelectorAll('input[type="tel"]').forEach(function (input) {
-      var initialValue = normalizeToUaPhone(input.value);
+      var initialRawValue = String(input.value || '').trim();
 
-      input.value = initialValue;
+      input.value = initialRawValue ? normalizeToUaPhone(initialRawValue) : '';
       input.setAttribute('inputmode', 'tel');
       input.setAttribute('autocomplete', 'tel');
       input.setAttribute('required', 'required');
       input.setAttribute('minlength', '13');
       input.setAttribute('maxlength', '13');
       input.setAttribute('pattern', '^\\+380[0-9]{9}$');
-      input.setAttribute('placeholder', '+380XXXXXXXXX');
 
       input.addEventListener('focus', function () {
         if (!input.value) {
@@ -91,6 +90,12 @@
       input.addEventListener('input', function () {
         input.value = normalizeToUaPhone(input.value);
         input.setCustomValidity('');
+      });
+
+      input.addEventListener('blur', function () {
+        if (input.value === '+' + UA_PHONE_PREFIX) {
+          input.value = '';
+        }
       });
     });
   }
