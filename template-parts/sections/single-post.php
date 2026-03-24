@@ -166,25 +166,7 @@ $related_secondary_posts = array_slice($related_posts, 1, 2);
             </aside>
 
             <article class="single-article__body">
-                <header class="single-article__head">
-                    <h1 class="single-article__title"><?php echo esc_html($post_title); ?></h1>
-
-                    <div class="single-article__meta">
-                        <time class="single-article__date" datetime="<?php echo esc_attr(get_the_date('c', $post_id)); ?>">
-                            <?php echo esc_html(get_the_date('d.m.Y', $post_id)); ?>
-                        </time>
-
-                        <?php if ($post_categories) : ?>
-                            <div class="single-article__categories">
-                                <?php foreach ($post_categories as $category) : ?>
-                                    <a class="single-article__category" href="<?php echo esc_url(get_category_link($category)); ?>">
-                                        <?php echo esc_html($category->name); ?>
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </header>
+                <h1 class="single-article__title"><?php echo esc_html($post_title); ?></h1>
 
                 <div class="single-article__featured">
                     <?php if (has_post_thumbnail()) : ?>
@@ -232,6 +214,24 @@ $related_secondary_posts = array_slice($related_posts, 1, 2);
                     </div>
                 <?php endif; ?>
             </article>
+
+            <aside class="single-article__meta-column" aria-label="Дані статті">
+                <div class="single-article__meta">
+                    <time class="single-article__date" datetime="<?php echo esc_attr(get_the_date('c', $post_id)); ?>">
+                        <?php echo esc_html(get_the_date('d.m.Y', $post_id)); ?>
+                    </time>
+
+                    <?php if ($post_categories) : ?>
+                        <div class="single-article__categories">
+                            <?php foreach ($post_categories as $category) : ?>
+                                <a class="single-article__category" href="<?php echo esc_url(get_category_link($category)); ?>">
+                                    <?php echo esc_html($category->name); ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </aside>
         </div>
     </div>
 </section>
