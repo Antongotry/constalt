@@ -46,9 +46,12 @@
 }
 
 .single-article__share {
-  width: #{mixins.vw(184px)};
-  flex: 0 0 #{mixins.vw(184px)};
+  width: #{mixins.vw(325px)};
+  flex: 0 0 #{mixins.vw(325px)};
   padding-top: #{mixins.vw(72px)};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .single-article__share-label {
