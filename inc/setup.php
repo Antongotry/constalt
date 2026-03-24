@@ -353,6 +353,56 @@ function constalt_optimize_style_loading(string $tag, string $handle): string
 add_filter('style_loader_tag', 'constalt_optimize_style_loading', 10, 2);
 
 /**
+ * Normalize request path relative to site home path.
+ */
+function constalt_current_request_path(): string
+{
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    $request_path = trim((string) wp_parse_url((string) $request_uri, PHP_URL_PATH), '/');
+    $home_path = trim((string) wp_parse_url(home_url('/'), PHP_URL_PATH), '/');
+
+    if ($home_path !== '' && str_starts_with($request_path, $home_path . '/')) {
+        $request_path = substr($request_path, strlen($home_path) + 1);
+    } elseif ($request_path === $home_path) {
+        $request_path = '';
+    }
+
+    return trim((string) $request_path, '/');
+}
+
+/**
+ * Force /blog/ route to render posts archive template, independent from WP settings.
+ */
+function constalt_force_blog_route_template(): void
+{
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    $path = constalt_current_request_path();
+
+    if ($path !== 'blog' && ! preg_match('#^blog/page/([0-9]+)/?$#', $path, $matches)) {
+        return;
+    }
+
+    $paged = isset($matches[1]) ? max(1, (int) $matches[1]) : 1;
+
+    set_query_var('paged', $paged);
+    set_query_var('page', $paged);
+
+    status_header(200);
+    nocache_headers();
+
+    $template = locate_template('page-blog.php');
+
+    if ($template) {
+        include $template;
+        exit;
+    }
+}
+add_action('template_redirect', 'constalt_force_blog_route_template', 0);
+
+/**
  * Preload the mobile LCP background image so the hero paints quickly.
  */
 function constalt_preload_lcp_image(): void
