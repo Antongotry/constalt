@@ -1,27 +1,45 @@
 /* Theme scripts entry point. */
 (function () {
+  var UA_PHONE_PREFIX = '380';
+  var UA_PHONE_LOCAL_DIGITS = 9;
+
   function getPhoneDigits(value) {
     return String(value || '').replace(/\D/g, '');
+  }
+
+  function normalizeToUaPhone(value) {
+    var digits = getPhoneDigits(value);
+    var localDigits = '';
+
+    if (digits.indexOf(UA_PHONE_PREFIX) === 0) {
+      localDigits = digits.slice(UA_PHONE_PREFIX.length, UA_PHONE_PREFIX.length + UA_PHONE_LOCAL_DIGITS);
+    } else if (digits.indexOf('0') === 0) {
+      localDigits = digits.slice(1, 1 + UA_PHONE_LOCAL_DIGITS);
+    } else {
+      localDigits = digits.slice(0, UA_PHONE_LOCAL_DIGITS);
+    }
+
+    return '+' + UA_PHONE_PREFIX + localDigits;
   }
 
   function getPhoneValidationMessage(value) {
     var rawValue = String(value || '').trim();
     var digits = getPhoneDigits(rawValue);
 
-    if (!rawValue) {
+    if (!rawValue || rawValue === '+' + UA_PHONE_PREFIX) {
       return 'Вкажіть номер телефону.';
     }
 
-    if (!/^\+?[\d\s().-]+$/.test(rawValue)) {
-      return 'Номер телефону містить недопустимі символи.';
+    if (!/^\+?\d+$/.test(rawValue)) {
+      return 'Вводьте лише цифри у форматі +380XXXXXXXXX.';
     }
 
     if ((rawValue.match(/\+/g) || []).length > 1 || (rawValue.indexOf('+') > 0)) {
       return 'Символ "+" можна використовувати лише на початку номера.';
     }
 
-    if (digits.length < 10 || digits.length > 15) {
-      return 'Введіть коректний номер телефону (10-15 цифр).';
+    if (digits.indexOf(UA_PHONE_PREFIX) !== 0 || digits.length !== UA_PHONE_PREFIX.length + UA_PHONE_LOCAL_DIGITS) {
+      return 'Введіть номер у форматі +380XXXXXXXXX.';
     }
 
     return '';
@@ -44,12 +62,36 @@
 
   function initPhoneFieldValidation() {
     document.querySelectorAll('input[type="tel"]').forEach(function (input) {
+      var initialValue = normalizeToUaPhone(input.value);
+
+      input.value = initialValue;
       input.setAttribute('inputmode', 'tel');
       input.setAttribute('autocomplete', 'tel');
       input.setAttribute('required', 'required');
-      input.setAttribute('minlength', '10');
-      input.setAttribute('maxlength', '20');
-      input.setAttribute('pattern', '^\\+?[0-9\\s().-]{10,20}$');
+      input.setAttribute('minlength', '13');
+      input.setAttribute('maxlength', '13');
+      input.setAttribute('pattern', '^\\+380[0-9]{9}$');
+      input.setAttribute('placeholder', '+380XXXXXXXXX');
+
+      input.addEventListener('focus', function () {
+        if (!input.value) {
+          input.value = '+' + UA_PHONE_PREFIX;
+        }
+      });
+
+      input.addEventListener('keydown', function (event) {
+        var start = input.selectionStart || 0;
+        var end = input.selectionEnd || 0;
+
+        if ((event.key === 'Backspace' && start <= 4 && end <= 4) || (event.key === 'Delete' && start < 4 && end <= 4)) {
+          event.preventDefault();
+        }
+      });
+
+      input.addEventListener('input', function () {
+        input.value = normalizeToUaPhone(input.value);
+        input.setCustomValidity('');
+      });
     });
   }
 

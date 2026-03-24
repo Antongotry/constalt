@@ -466,14 +466,16 @@ function constalt_handle_form_submit(): void
     $consent = isset($_POST['consent']) ? (string) wp_unslash($_POST['consent']) : '';
 
     $phone_digits = preg_replace('/\D+/', '', $phone);
-    $is_phone_valid = is_string($phone_digits) && strlen($phone_digits) >= 10 && strlen($phone_digits) <= 15;
+    $is_phone_valid = is_string($phone_digits) && preg_match('/^380\d{9}$/', $phone_digits) === 1;
 
     if (! $is_phone_valid) {
         wp_send_json_error(
-            ['message' => esc_html__('Невірний номер телефону.', 'constalt')],
+            ['message' => esc_html__('Введіть номер у форматі +380XXXXXXXXX.', 'constalt')],
             422
         );
     }
+
+    $phone = '+' . $phone_digits;
 
     if ($consent === '') {
         wp_send_json_error(
