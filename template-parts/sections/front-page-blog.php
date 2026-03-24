@@ -23,7 +23,15 @@ if (!$blog_archive_link) {
 }
 
 if (!$blog_archive_link) {
-    $blog_archive_link = home_url('/');
+    $blog_page = get_page_by_path('blog');
+
+    if ($blog_page instanceof WP_Post) {
+        $blog_archive_link = get_permalink($blog_page);
+    }
+}
+
+if (!$blog_archive_link) {
+    $blog_archive_link = home_url('/blog/');
 }
 
 $get_post_categories = static function (int $post_id): array {
