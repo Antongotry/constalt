@@ -34,7 +34,7 @@ declare(strict_types=1);
             <div class="hero__left">
                 <div class="hero__preview-target">
                     <span class="hero__preview-dot" aria-hidden="true"></span>
-                    <span class="hero__preview-text">Повна картина фінансів, управління та ризиків — без сліпих зон у бізнесі</span>
+                    <span class="hero__preview-text">Архітектура безпеки та ефективного управління вашим капіталом</span>
                 </div>
                 <h1 class="hero__title">
                     <span class="hero__title-line hero__title-line--strong">Консалтинг</span>
