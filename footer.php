@@ -57,11 +57,6 @@
                     <a class="site-footer__contact-value site-footer__contact-value--phone" href="tel:+380751955002">+38 075 195 50 02</a>
                 </div>
 
-                <div class="site-footer__contact-block">
-                    <p class="site-footer__label">Пошта</p>
-                    <a class="site-footer__contact-value site-footer__contact-value--mail" href="mailto:info@gmail.com">info@gmail.com</a>
-                </div>
-
                 <div class="site-footer__socials" aria-label="<?php esc_attr_e('Соціальні мережі', 'constalt'); ?>">
                     <a class="site-footer__social" href="#" aria-label="Telegram">
                         <svg class="site-footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
