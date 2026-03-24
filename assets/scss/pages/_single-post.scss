@@ -40,12 +40,15 @@
 .single-article__layout {
   margin-top: #{mixins.vw(34px)};
   display: grid;
-  grid-template-columns: #{mixins.vw(184px)} #{mixins.vw(1156px)};
-  gap: #{mixins.vw(20px)};
+  grid-template-columns: #{mixins.vw(184px)} #{mixins.vw(670px)} #{mixins.vw(325px)};
+  justify-content: space-between;
+  gap: 0;
   align-items: start;
 }
 
 .single-article__share {
+  grid-column: 1;
+  grid-row: 1;
   padding-top: #{mixins.vw(72px)};
 }
 
@@ -74,36 +77,20 @@
 }
 
 .single-article__share-list .site-footer__social {
-  width: #{mixins.vw(56px)};
-  height: #{mixins.vw(56px)};
-  border-radius: #{mixins.vw(100px)};
-  background: #192432;
   margin-top: 0;
 }
 
-.single-article__share-link:nth-child(1) .single-article__share-icon {
-  width: #{mixins.vw(22px)};
-  height: #{mixins.vw(21px)};
-}
-
-.single-article__share-link:nth-child(2) .single-article__share-icon {
-  width: #{mixins.vw(25px)};
-  height: #{mixins.vw(25px)};
-}
-
-.single-article__share-link:nth-child(3) .single-article__share-icon {
-  width: #{mixins.vw(12px)};
-  height: #{mixins.vw(26px)};
-}
-
 .single-article__body {
+  grid-column: 2 / 4;
+  grid-row: 1;
   min-width: 0;
 }
 
 .single-article__head {
   display: grid;
-  grid-template-columns: #{mixins.vw(670px)} 1fr;
-  gap: #{mixins.vw(20px)};
+  grid-template-columns: #{mixins.vw(670px)} #{mixins.vw(325px)};
+  justify-content: space-between;
+  gap: 0;
 }
 
 .single-article__title {
@@ -293,6 +280,7 @@
   .single-article__layout {
     margin-top: #{mixins.vw(24px, 375px)};
     grid-template-columns: 1fr;
+    justify-content: initial;
     gap: #{mixins.vw(28px, 375px)};
   }
 
@@ -308,25 +296,12 @@
   }
 
   .single-article__share-list .site-footer__social {
-    width: #{mixins.vw(56px, 375px)};
-    height: #{mixins.vw(56px, 375px)};
-    border-radius: #{mixins.vw(100px, 375px)};
     margin-top: 0;
   }
 
-  .single-article__share-link:nth-child(1) .single-article__share-icon {
-    width: #{mixins.vw(22px, 375px)};
-    height: #{mixins.vw(21px, 375px)};
-  }
-
-  .single-article__share-link:nth-child(2) .single-article__share-icon {
-    width: #{mixins.vw(25px, 375px)};
-    height: #{mixins.vw(25px, 375px)};
-  }
-
-  .single-article__share-link:nth-child(3) .single-article__share-icon {
-    width: #{mixins.vw(12px, 375px)};
-    height: #{mixins.vw(26px, 375px)};
+  .single-article__body {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .single-article__head {
