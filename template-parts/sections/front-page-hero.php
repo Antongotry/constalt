@@ -37,8 +37,8 @@ declare(strict_types=1);
                     <span class="hero__preview-text">Архітектура безпеки та ефективного управління вашим капіталом</span>
                 </div>
                 <h1 class="hero__title">
-                    <span class="hero__title-line hero__title-line--strong">Консалтинг</span>
-                    <span class="hero__title-line hero__title-line--light">для стратегічних управлінських рішень</span>
+                    <span class="hero__title-line hero__title-line--light"><span class="hero__title-line--strong">Консалтинг</span> для стратегічних</span>
+                    <span class="hero__title-line hero__title-line--light">управлінських рішень</span>
                     <span class="hero__title-line hero__title-line--light">у бізнесі</span>
                 </h1>
             </div>
