@@ -120,7 +120,7 @@
                             </span>
                         </button>
 
-                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-corporate">
+                        <button class="hero-pill hero-pill--outline-dark service-detail__action" type="button" data-site-popup-open data-popup-key="service-corporate-details">
                             <span class="hero-pill__label">Детальніше</span>
                             <span class="hero-pill__icon" aria-hidden="true">
                                 <svg viewBox="0 0 16.652 16.652" fill="none" xmlns="http://www.w3.org/2000/svg">

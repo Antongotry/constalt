@@ -451,6 +451,10 @@ body.site-popup-open {
   display: none;
 }
 
+.services-popup--without-contact-fields .services-popup__row {
+  display: none;
+}
+
 .services-popup__close {
   position: absolute;
   top: #{mixins.vw(20px)};
@@ -591,6 +595,20 @@ body.site-popup-open {
   color: rgba(255, 255, 255, 0.56);
 }
 
+.services-popup__postscript[hidden] {
+  display: none;
+}
+
+.services-popup__postscript {
+  margin: 0;
+  width: var(--popup-subtitle-width);
+  color: #051120;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
 .services-popup--details-mode .services-popup__backdrop {
   background: rgba(5, 17, 32, 0.26);
 }
@@ -648,6 +666,15 @@ body.site-popup-open {
 .services-popup--details-mode .services-popup__submit {
   margin-top: #{mixins.vw(34px)};
   width: #{mixins.vw(820px)};
+}
+
+.services-popup--details-mode .services-popup__postscript {
+  width: #{mixins.vw(485px)};
+  margin-top: #{mixins.vw(24px)};
+}
+
+.services-popup--details-mode.services-popup--without-contact-fields .services-popup__submit {
+  margin-top: 0;
 }
 
 .services-popup__form {
@@ -1401,6 +1428,13 @@ body.site-popup-open {
   .services-popup--details-mode .services-popup__submit-icon svg {
     width: #{mixins.vw(13px, 375px)};
     height: #{mixins.vw(13px, 375px)};
+  }
+
+  .services-popup--details-mode .services-popup__postscript {
+    margin-top: #{mixins.vw(24px, 375px)};
+    width: #{mixins.vw(315px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+    line-height: 140%;
   }
 
   .thanks-popup {

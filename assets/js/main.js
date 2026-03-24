@@ -102,6 +102,7 @@
     var popupWideLabelScreen = servicesPopup ? servicesPopup.querySelector('[data-services-popup-wide-label-screen]') : null;
     var popupDetails = servicesPopup ? servicesPopup.querySelector('[data-services-popup-details]') : null;
     var popupConsent = servicesPopup ? servicesPopup.querySelector('[data-services-popup-consent]') : null;
+    var popupPostscript = servicesPopup ? servicesPopup.querySelector('[data-services-popup-postscript]') : null;
     var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
@@ -162,11 +163,13 @@
       formWidth: 635,
       rowColumns: 'double',
       mode: 'default',
+      showContactFields: true,
       showWideField: true,
       hideConsent: false,
       wideLabel: 'Ваша проблема',
       submitLabel: 'Обговорити задачу',
       detailsHtml: '',
+      postscriptText: '',
       serviceValue: ''
     };
 
@@ -246,6 +249,67 @@
         subtitleWidth: 616,
         wideLabel: 'Ваша проблема',
         submitLabel: 'Обговорити задачу'
+      },
+      'service-corporate-details': {
+        titleHtml: 'Корпоративне управління',
+        subtitle: 'На певному етапі бізнес перестає масштабуватись не через ринок — а через те, що вся система управління тримається на власнику. Це не проблема людей. Це проблема відсутності структури.',
+        titleWidth: 291,
+        subtitleWidth: 820,
+        titleSize: 24,
+        titleWeight: 600,
+        subtitleSize: 16,
+        formWidth: 820,
+        rowColumns: 'details',
+        mode: 'details',
+        showContactFields: false,
+        showWideField: false,
+        hideConsent: true,
+        submitLabel: 'Обговорити структуру управління',
+        postscriptText: 'Подивимось, де саме бізнес залежить від вас і які є варіанти змін.',
+        serviceValue: 'Корпоративне управління',
+        detailsHtml: [
+          '<div class="services-popup__details-box">',
+          '<p class="services-popup__details-box-label">З якими запитами приходять:</p>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>«Я залучений у всі ключові рішення і не можу вийти з операційки»</li>',
+          '<li>«Команда є, але відповідальність розмита»</li>',
+          '<li>«Партнери починають впливати на бізнес хаотично»</li>',
+          '<li>«Я не розумію, як контролювати бізнес без постійної участі»</li>',
+          '<li>«Інвестори задають питання, на які у мене немає системної відповіді»</li>',
+          '</ul>',
+          '</div>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Що насправді відбувається<br>Без системи управління:</h4>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>бізнес залежить від однієї людини</li>',
+          '<li>рішення приймаються ситуативно</li>',
+          '<li>зростають конфлікти і ризики</li>',
+          '<li>масштабування стає неконтрольованим</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-divider" aria-hidden="true"></div>',
+          '<section class="services-popup__details-section">',
+          '<h4 class="services-popup__details-heading">Що змінюється після роботи:</h4>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>структуру корпоративного управління</li>',
+          '<li>розподіл ролей (власник / менеджмент / партнери)</li>',
+          '<li>правила прийняття рішень і систему контролю</li>',
+          '<li>зниження управлінських і партнерських ризиків</li>',
+          '<li>основу для масштабування або інвестицій</li>',
+          '</ul>',
+          '</section>',
+          '<div class="services-popup__details-box services-popup__details-box--dark">',
+          '<p class="services-popup__details-box-label services-popup__details-box-label--light">Що отримує клієнт:</p>',
+          '<ul class="services-popup__details-list services-popup__details-list--plain">',
+          '<li>структуру корпоративного управління</li>',
+          '<li>розподіл ролей (власник / менеджмент / партнери)</li>',
+          '<li>правила прийняття рішень і систему контролю</li>',
+          '<li>зниження управлінських і партнерських ризиків</li>',
+          '<li>основу для масштабування або інвестицій</li>',
+          '</ul>',
+          '</div>'
+        ].join('')
       },
       'service-due-diligence': {
         titleHtml: 'Due Diligence та<br><strong>інвестиційний супровід</strong>',
@@ -358,7 +422,13 @@
         popupDetails.hidden = !config.detailsHtml;
       }
 
+      if (popupPostscript) {
+        popupPostscript.textContent = config.postscriptText || '';
+        popupPostscript.hidden = !config.postscriptText;
+      }
+
       servicesPopup.classList.toggle('services-popup--without-wide-field', !config.showWideField);
+      servicesPopup.classList.toggle('services-popup--without-contact-fields', !config.showContactFields);
       servicesPopup.classList.toggle('services-popup--without-consent', !!config.hideConsent);
       servicesPopup.classList.toggle('services-popup--details-mode', config.mode === 'details');
 
