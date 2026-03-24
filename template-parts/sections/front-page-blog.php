@@ -28,7 +28,7 @@ $get_post_categories = static function (int $post_id): array {
     return array_slice($categories, 0, 2);
 };
 ?>
-<section class="blog-section" id="news">
+<section class="blog-section blog-section--front-page" id="news">
     <div class="blog-section__container">
         <div class="blog-section__head">
             <div class="blog-section__marker">
