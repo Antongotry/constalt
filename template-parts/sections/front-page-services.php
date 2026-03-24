@@ -202,17 +202,17 @@
 
                     <div class="service-detail__box service-detail__box--problem service-detail__box--problem-tall">
                         <p class="service-detail__box-label">Проблема</p>
-                        <p class="service-detail__box-text">Вразливість перед перевірками, рейдерськими атаками чи недобросовісними партнерами, а також ризики через помилки у документах минулих років.</p>
+                        <p class="service-detail__box-text">Вразливість до перевірок, рейдерства й недобросовісних партнерів; ризики через помилки в документах минулих років.</p>
                     </div>
                 </div>
 
                 <div class="service-detail__bottom">
                     <p class="service-detail__label">Що ми робимо:</p>
-                    <p class="service-detail__doing"><strong>Проводимо глибокий фінансовий та юридичний аналіз (Due Diligence),</strong> виявляємо «підводні камені» та готуємо компанію до перевірки інвестором.</p>
+                    <p class="service-detail__doing"><strong>Аудит ризиків:</strong> аналіз документів, структури власності та податкової історії.<br><strong>Захисна структура:</strong> розробка статутів, SHA та безпечної моделі володіння.<br><strong>Захист у спорах:</strong> підготовка заперечень і повне представництво в судах.</p>
 
                     <div class="service-detail__box service-detail__box--result">
                         <p class="service-detail__box-label">Результат</p>
-                        <p class="service-detail__box-text">Юридично захищена модель бізнесу, готова як до масштабування, так і до активного захисту прав у суді.</p>
+                        <p class="service-detail__box-text">Юридично захищена модель бізнесу, де ви готові до будь-якого сценарію — від мирного масштабування до агресивного захисту прав у суді.</p>
                     </div>
 
                     <div class="service-detail__actions">

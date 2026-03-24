@@ -216,7 +216,7 @@
 }
 
 .service-detail__box--problem-tall {
-  min-height: #{mixins.vw(152px)};
+  min-height: auto;
 }
 
 .service-detail__box--problem {
