@@ -437,6 +437,33 @@ function constalt_force_contacts_route_template(): void
 add_action('template_redirect', 'constalt_force_contacts_route_template', 1);
 
 /**
+ * Force /privacy-policy/ route to render static privacy policy template.
+ */
+function constalt_force_privacy_policy_route_template(): void
+{
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    $path = constalt_current_request_path();
+
+    if ($path !== 'privacy-policy') {
+        return;
+    }
+
+    status_header(200);
+    nocache_headers();
+
+    $template = locate_template('page-privacy-policy.php');
+
+    if ($template) {
+        include $template;
+        exit;
+    }
+}
+add_action('template_redirect', 'constalt_force_privacy_policy_route_template', 2);
+
+/**
  * Preload the mobile LCP background image so the hero paints quickly.
  */
 function constalt_preload_lcp_image(): void

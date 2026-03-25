@@ -1,0 +1,164 @@
+@use "../abstracts/mixins";
+
+.site-main--privacy-policy {
+  background: #051120;
+}
+
+.privacy-policy {
+  background: #051120;
+  padding: #{mixins.vw(90px)} 0 #{mixins.vw(150px)};
+}
+
+.privacy-policy__container {
+  width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+  padding-top: #{mixins.vw(24px)};
+}
+
+.privacy-policy__marker {
+  display: inline-flex;
+  align-items: center;
+  gap: #{mixins.vw(8px)};
+}
+
+.privacy-policy__marker-dot {
+  width: #{mixins.vw(6px)};
+  height: #{mixins.vw(6px)};
+  transform: rotate(-90deg);
+  background: linear-gradient(339deg, #c7c7c7 11.9%, #f1f1f1 84.59%);
+}
+
+.privacy-policy__marker-text {
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.privacy-policy__title {
+  margin: #{mixins.vw(24px)} 0 0;
+  width: #{mixins.vw(860px)};
+  color: #e9e9e9;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(58px)};
+  font-weight: 300;
+  line-height: 98%;
+}
+
+.privacy-policy__intro {
+  margin: #{mixins.vw(32px)} 0 0;
+  width: #{mixins.vw(980px)};
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(20px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.privacy-policy__content {
+  margin-top: #{mixins.vw(56px)};
+  width: #{mixins.vw(980px)};
+  display: flex;
+  flex-direction: column;
+  gap: #{mixins.vw(20px)};
+}
+
+.privacy-policy__section {
+  padding: #{mixins.vw(24px)};
+  background: linear-gradient(180deg, rgba(25, 36, 50, 0.62) 0%, rgba(5, 17, 32, 0.52) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: #{mixins.vw(12px)};
+}
+
+.privacy-policy__heading {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(24px)};
+  font-weight: 400;
+  line-height: 124%;
+}
+
+.privacy-policy__text,
+.privacy-policy__list {
+  margin: #{mixins.vw(12px)} 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 300;
+  line-height: 140%;
+}
+
+.privacy-policy__list {
+  padding-left: #{mixins.vw(24px)};
+  display: flex;
+  flex-direction: column;
+  gap: #{mixins.vw(8px)};
+}
+
+.privacy-policy__text a {
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .privacy-policy {
+    padding: #{mixins.vw(106px, 375px)} 0 #{mixins.vw(96px, 375px)};
+  }
+
+  .privacy-policy__container {
+    width: #{mixins.vw(355px, 375px)};
+    padding-top: #{mixins.vw(24px, 375px)};
+  }
+
+  .privacy-policy__marker {
+    gap: #{mixins.vw(8px, 375px)};
+  }
+
+  .privacy-policy__marker-dot {
+    width: #{mixins.vw(6px, 375px)};
+    height: #{mixins.vw(6px, 375px)};
+  }
+
+  .privacy-policy__marker-text {
+    font-size: #{mixins.vw(12px, 375px)};
+  }
+
+  .privacy-policy__title {
+    margin-top: #{mixins.vw(24px, 375px)};
+    width: 100%;
+    font-size: #{mixins.vw(28px, 375px)};
+  }
+
+  .privacy-policy__intro {
+    margin-top: #{mixins.vw(20px, 375px)};
+    width: 100%;
+    font-size: #{mixins.vw(14px, 375px)};
+  }
+
+  .privacy-policy__content {
+    margin-top: #{mixins.vw(32px, 375px)};
+    width: 100%;
+    gap: #{mixins.vw(12px, 375px)};
+  }
+
+  .privacy-policy__section {
+    padding: #{mixins.vw(16px, 375px)};
+    border-radius: #{mixins.vw(10px, 375px)};
+  }
+
+  .privacy-policy__heading {
+    font-size: #{mixins.vw(20px, 375px)};
+  }
+
+  .privacy-policy__text,
+  .privacy-policy__list {
+    margin-top: #{mixins.vw(10px, 375px)};
+    font-size: #{mixins.vw(14px, 375px)};
+  }
+
+  .privacy-policy__list {
+    padding-left: #{mixins.vw(20px, 375px)};
+    gap: #{mixins.vw(6px, 375px)};
+  }
+}

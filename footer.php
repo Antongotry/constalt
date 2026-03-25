@@ -97,7 +97,7 @@
         <div class="site-footer__line" aria-hidden="true"></div>
 
         <div class="site-footer__bottom">
-            <a class="site-footer__meta-link site-footer__meta-link--privacy" href="#privacy">Політика конфіденційності</a>
+            <a class="site-footer__meta-link site-footer__meta-link--privacy" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Політика конфіденційності</a>
             <a class="site-footer__meta-link site-footer__meta-link--offer" href="#offer">Договір оферти</a>
             <a class="site-footer__meta-link site-footer__meta-link--credit" href="https://www.instagram.com/gleb_kpk?igsh=bDRoZWpyajJxMjBw" target="_blank" rel="noopener noreferrer">Розроблено в Artko</a>
         </div>
