@@ -15,7 +15,7 @@ declare(strict_types=1);
             <span class="privacy-policy__marker-text">Політика конфіденційності</span>
         </div>
 
-        <h1 class="privacy-policy__title">Політика конфіденційності Audit Consulting</h1>
+        <h1 class="privacy-policy__title">Політика конфіденційності</h1>
         <p class="privacy-policy__intro">
             Ми поважаємо вашу приватність і забезпечуємо належний захист персональних даних відповідно до вимог законодавства України.
         </p>
