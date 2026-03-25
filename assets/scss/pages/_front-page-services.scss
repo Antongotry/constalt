@@ -25,11 +25,25 @@
   content: "";
   position: absolute;
   inset: 0;
+  --services-chevron-depth: #{mixins.vw(84px)};
   background: #f5f5f5;
   z-index: 0;
-  /* Chevron shape on both desktop and mobile */
-  clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
-  -webkit-clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
+  clip-path: polygon(
+    0 var(--services-chevron-depth),
+    50% 0,
+    100% var(--services-chevron-depth),
+    100% 100%,
+    50% calc(100% - var(--services-chevron-depth)),
+    0 100%
+  );
+  -webkit-clip-path: polygon(
+    0 var(--services-chevron-depth),
+    50% 0,
+    100% var(--services-chevron-depth),
+    100% 100%,
+    50% calc(100% - var(--services-chevron-depth)),
+    0 100%
+  );
 }
 
 .services-section__container {
@@ -904,6 +918,10 @@ body.site-popup-open {
 }
 
 @media (max-width: 1024px) {
+  .services-section::before {
+    --services-chevron-depth: #{mixins.vw(28px, 375px)};
+  }
+
   .services-section {
     padding: #{mixins.vw(72px, 375px)} 0 #{mixins.vw(60px, 375px)};
   }
