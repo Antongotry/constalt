@@ -185,7 +185,7 @@
 
     var tabs = section.querySelectorAll('[data-service-tab]');
     var panels = section.querySelectorAll('[data-service-panel]');
-    var swiperRoot = section.querySelector('.services-swiper--stack');
+    var swiperRoot = section.querySelector('.services-swiper');
     var swiperInstance = null;
     var servicesScrollTrigger = null;
     var servicesPopup = document.querySelector('[data-services-popup]');
@@ -755,15 +755,20 @@
       }
 
       function resetSwiperDomState() {
-        swiperRoot.classList.remove('swiper-initialized', 'swiper-horizontal', 'swiper-backface-hidden');
+        swiperRoot.classList.add('services-swiper--stack');
+        swiperRoot.classList.remove('swiper', 'swiper-initialized', 'swiper-horizontal', 'swiper-backface-hidden');
         swiperRoot.removeAttribute('style');
 
-        var wrapper = swiperRoot.querySelector('.services-swiper__wrapper, .swiper-wrapper');
-        if (wrapper) {
+        var wrappers = swiperRoot.querySelectorAll('.services-swiper__wrapper, .swiper-wrapper');
+        wrappers.forEach(function (wrapper) {
+          wrapper.classList.add('services-swiper__wrapper');
+          wrapper.classList.remove('swiper-wrapper');
           wrapper.removeAttribute('style');
-        }
+        });
 
         swiperRoot.querySelectorAll('.services-swiper__slide, .swiper-slide').forEach(function (slide) {
+          slide.classList.add('services-swiper__slide');
+          slide.classList.remove('swiper-slide');
           slide.removeAttribute('style');
         });
       }
