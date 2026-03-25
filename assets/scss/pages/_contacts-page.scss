@@ -7,13 +7,13 @@
 
 .contacts-page {
   background: #051120;
-  padding: #{mixins.vw(120px)} 0 #{mixins.vw(150px)};
+  padding: #{mixins.vw(90px)} 0 #{mixins.vw(120px)};
 }
 
 .contacts-page__container {
   width: #{mixins.vw(1360px)};
   margin-inline: auto;
-  padding-top: #{mixins.vw(56px)};
+  padding-top: #{mixins.vw(24px)};
 }
 
 .contacts-page__layout {
