@@ -227,8 +227,12 @@
 }
 
 @media (max-width: 1024px) {
+  .site-main--contacts {
+    padding-top: #{mixins.vw(82px, 375px)};
+  }
+
   .contacts-page {
-    padding: #{mixins.vw(24px, 375px)} 0 #{mixins.vw(100px, 375px)};
+    padding: 0 0 #{mixins.vw(100px, 375px)};
   }
 
   .contacts-page__container {
