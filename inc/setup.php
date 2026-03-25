@@ -412,6 +412,31 @@ function constalt_force_blog_route_template(): void
 add_action('template_redirect', 'constalt_force_blog_route_template', 0);
 
 /**
+ * Force /contacts/ route to render static contacts template.
+ */
+function constalt_force_contacts_route_template(): void
+{
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    if (constalt_current_request_path() !== 'contacts') {
+        return;
+    }
+
+    status_header(200);
+    nocache_headers();
+
+    $template = locate_template('page-contacts.php');
+
+    if ($template) {
+        include $template;
+        exit;
+    }
+}
+add_action('template_redirect', 'constalt_force_contacts_route_template', 1);
+
+/**
  * Preload the mobile LCP background image so the hero paints quickly.
  */
 function constalt_preload_lcp_image(): void

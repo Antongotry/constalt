@@ -15,10 +15,10 @@ declare(strict_types=1);
         </a>
         <div class="site-header__actions">
             <nav class="site-header__nav" aria-label="<?php esc_attr_e('Primary', 'constalt'); ?>">
-                <a class="site-header__nav-link" href="#home">Головна</a>
-                <a class="site-header__nav-link" href="#services">Послуги</a>
-                <a class="site-header__nav-link" href="#about">Про нас</a>
-                <a class="site-header__nav-link" href="#contacts">Контакти</a>
+                <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/')); ?>">Головна</a>
+                <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/#services')); ?>">Послуги</a>
+                <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/#about')); ?>">Про нас</a>
+                <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/contacts/')); ?>">Контакти</a>
             </nav>
             <a class="site-header__cta" href="#" data-site-popup-open data-popup-key="consultation-general">
                 Отримати консультацію
@@ -34,11 +34,11 @@ declare(strict_types=1);
         <button class="site-header__mobile-backdrop" type="button" aria-label="<?php esc_attr_e('Закрити меню', 'constalt'); ?>" data-header-menu-close></button>
         <div class="site-header__mobile-panel">
             <nav class="site-header__mobile-nav" aria-label="<?php esc_attr_e('Мобільна навігація', 'constalt'); ?>">
-                <a class="site-header__mobile-link" href="#home" data-header-menu-link>Головна</a>
-                <a class="site-header__mobile-link" href="#services" data-header-menu-link>Послуги</a>
-                <a class="site-header__mobile-link" href="#about" data-header-menu-link>Про нас</a>
-                <a class="site-header__mobile-link" href="#contacts" data-header-menu-link>Контакти</a>
-                <a class="site-header__mobile-link" href="#news" data-header-menu-link>Новини</a>
+                <a class="site-header__mobile-link" href="<?php echo esc_url(home_url('/')); ?>" data-header-menu-link>Головна</a>
+                <a class="site-header__mobile-link" href="<?php echo esc_url(home_url('/#services')); ?>" data-header-menu-link>Послуги</a>
+                <a class="site-header__mobile-link" href="<?php echo esc_url(home_url('/#about')); ?>" data-header-menu-link>Про нас</a>
+                <a class="site-header__mobile-link" href="<?php echo esc_url(home_url('/contacts/')); ?>" data-header-menu-link>Контакти</a>
+                <a class="site-header__mobile-link" href="<?php echo esc_url(home_url('/blog/')); ?>" data-header-menu-link>Новини</a>
             </nav>
 
             <div class="site-header__mobile-contacts">
