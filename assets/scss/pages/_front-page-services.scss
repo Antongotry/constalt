@@ -5,6 +5,7 @@
   background: transparent;
   padding: #{mixins.vw(100px)} 0 #{mixins.vw(100px)};
   isolation: isolate;
+  overflow-x: hidden;
 }
 
 .services-section#services {
@@ -99,11 +100,13 @@
   overflow: hidden;
 }
 
-.services-swiper .swiper-wrapper {
+.services-swiper .swiper-wrapper,
+.services-swiper .services-swiper__wrapper {
   align-items: stretch;
 }
 
-.services-swiper .swiper-slide {
+.services-swiper .swiper-slide,
+.services-swiper .services-swiper__slide {
   width: 100%;
 }
 
@@ -1485,6 +1488,119 @@ body.site-popup-open {
 }
 
 /* Stack behavior only when JS explicitly switches section to stack mode (mobile). */
+.services-section.services-section--stack-desktop .services-tabs {
+  display: none !important;
+}
+
+.services-section.services-section--stack-desktop .services-swiper {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  height: auto !important;
+  margin-top: #{mixins.vw(24px)};
+  max-width: 100%;
+}
+
+.services-section.services-section--stack-desktop .services-swiper .swiper-wrapper,
+.services-section.services-section--stack-desktop .services-swiper .services-swiper__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: #{mixins.vw(16px)};
+  transform: none !important;
+  translate: none !important;
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.services-section.services-section--stack-desktop .services-swiper .swiper-slide,
+.services-section.services-section--stack-desktop .services-swiper .services-swiper__slide {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  position: sticky;
+  top: #{mixins.vw(96px)};
+  max-width: 100%;
+  flex: 0 0 auto !important;
+}
+
+.services-section.services-section--stack-desktop .services-swiper .swiper-slide .service-detail,
+.services-section.services-section--stack-desktop .services-swiper .services-swiper__slide .service-detail {
+  display: flex !important;
+}
+
+.services-section.services-section--stack-desktop#services {
+  scroll-margin-top: #{mixins.vw(96px)};
+  padding-bottom: #{mixins.vw(220px)};
+}
+
+@media (min-width: 1025px) {
+  .services-section .services-tabs {
+    display: none !important;
+  }
+
+  .services-section .services-swiper {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    margin-top: #{mixins.vw(24px)};
+    max-width: 100%;
+  }
+
+  .services-section .services-swiper .swiper-wrapper,
+  .services-section .services-swiper .services-swiper__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: #{mixins.vw(16px)};
+    transform: none !important;
+    translate: none !important;
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .services-section .services-swiper .swiper-slide,
+  .services-section .services-swiper .services-swiper__slide {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    position: sticky;
+    top: #{mixins.vw(96px)};
+    max-width: 100%;
+  }
+
+  .services-section .services-swiper .swiper-slide .service-detail,
+  .services-section .services-swiper .services-swiper__slide .service-detail {
+    display: flex !important;
+  }
+
+  .services-section#services {
+    scroll-margin-top: #{mixins.vw(96px)};
+    padding-bottom: #{mixins.vw(220px)};
+  }
+
+  .services-section.services-section--stack-desktop::before {
+    --services-chevron-depth: #{mixins.vw(80px)};
+    clip-path: polygon(
+      0 var(--services-chevron-depth),
+      50% 0,
+      100% var(--services-chevron-depth),
+      100% 100%,
+      50% calc(100% - var(--services-chevron-depth)),
+      0 100%
+    );
+  }
+
+  .services-section::before {
+    --services-chevron-depth: #{mixins.vw(80px)};
+    clip-path: polygon(
+      0 var(--services-chevron-depth),
+      50% 0,
+      100% var(--services-chevron-depth),
+      100% 100%,
+      50% calc(100% - var(--services-chevron-depth)),
+      0 100%
+    );
+  }
+}
+
 .services-section.services-section--stack-mobile .services-tabs {
   display: none !important;
 }
@@ -1495,7 +1611,8 @@ body.site-popup-open {
   margin-top: #{mixins.vw(24px)};
 }
 
-.services-section.services-section--stack-mobile .services-swiper .swiper-wrapper {
+.services-section.services-section--stack-mobile .services-swiper .swiper-wrapper,
+.services-section.services-section--stack-mobile .services-swiper .services-swiper__wrapper {
   display: flex;
   flex-direction: column;
   gap: #{mixins.vw(16px)};
@@ -1503,7 +1620,8 @@ body.site-popup-open {
   translate: none !important;
 }
 
-.services-section.services-section--stack-mobile .services-swiper .swiper-slide {
+.services-section.services-section--stack-mobile .services-swiper .swiper-slide,
+.services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
   width: 100% !important;
   height: auto !important;
   margin: 0 !important;
@@ -1511,7 +1629,8 @@ body.site-popup-open {
   top: #{mixins.vw(96px)};
 }
 
-.services-section.services-section--stack-mobile .services-swiper .swiper-slide .service-detail {
+.services-section.services-section--stack-mobile .services-swiper .swiper-slide .service-detail,
+.services-section.services-section--stack-mobile .services-swiper .services-swiper__slide .service-detail {
   display: flex !important;
 }
 
@@ -1531,7 +1650,8 @@ body.site-popup-open {
     margin-top: #{mixins.vw(24px, 375px)};
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-wrapper {
+  .services-section.services-section--stack-mobile .services-swiper .swiper-wrapper,
+  .services-section.services-section--stack-mobile .services-swiper .services-swiper__wrapper {
     display: flex;
     flex-direction: column;
     gap: #{mixins.vw(12px, 375px)};
@@ -1539,7 +1659,8 @@ body.site-popup-open {
     translate: none !important;
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide {
+  .services-section.services-section--stack-mobile .services-swiper .swiper-slide,
+  .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
     width: 100% !important;
     height: auto !important;
     margin: 0 !important;
@@ -1547,7 +1668,8 @@ body.site-popup-open {
     top: #{mixins.vw(72px, 375px)};
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide .service-detail {
+  .services-section.services-section--stack-mobile .services-swiper .swiper-slide .service-detail,
+  .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide .service-detail {
     display: flex !important;
   }
 

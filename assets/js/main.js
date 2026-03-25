@@ -185,7 +185,7 @@
 
     var tabs = section.querySelectorAll('[data-service-tab]');
     var panels = section.querySelectorAll('[data-service-panel]');
-    var swiperRoot = section.querySelector('[data-services-swiper]');
+    var swiperRoot = section.querySelector('.services-swiper--stack');
     var swiperInstance = null;
     var servicesScrollTrigger = null;
     var servicesPopup = document.querySelector('[data-services-popup]');
@@ -208,7 +208,7 @@
     }
 
     function activateTab(id) {
-      if (section.classList.contains('services-section--stack-mobile')) {
+      if (section.classList.contains('services-section--stack-mobile') || section.classList.contains('services-section--stack-desktop')) {
         return;
       }
 
@@ -734,7 +734,7 @@
 
     initServicesPopup();
 
-    if (swiperRoot && typeof window.Swiper === 'function') {
+    if (swiperRoot) {
       function isDesktopViewport() {
         return window.innerWidth > 1024;
       }
@@ -754,63 +754,21 @@
         section.classList.remove('services-section--scroll-locked');
       }
 
-      function setTouchModeByViewport() {
-        if (!swiperInstance || !swiperInstance.params) {
-          return;
+      function resetSwiperDomState() {
+        swiperRoot.classList.remove('swiper-initialized', 'swiper-horizontal', 'swiper-backface-hidden');
+        swiperRoot.removeAttribute('style');
+
+        var wrapper = swiperRoot.querySelector('.services-swiper__wrapper, .swiper-wrapper');
+        if (wrapper) {
+          wrapper.removeAttribute('style');
         }
 
-        swiperInstance.params.allowTouchMove = false;
-        swiperInstance.allowTouchMove = false;
-      }
-
-      function createServicesScrollTrigger() {
-        destroyServicesScrollTrigger();
-        setTouchModeByViewport();
-
-        if (!isDesktopViewport() || !swiperInstance) {
-          return;
-        }
-
-        if (!window.gsap || !window.ScrollTrigger) {
-          return;
-        }
-
-        window.gsap.registerPlugin(window.ScrollTrigger);
-
-        var maxIndex = panels.length - 1;
-        var lastSyncedIndex = swiperInstance.activeIndex;
-
-        servicesScrollTrigger = window.ScrollTrigger.create({
-          trigger: swiperRoot,
-          start: 'bottom bottom',
-          end: function () {
-            return '+=' + (window.innerHeight * maxIndex);
-          },
-          pin: section,
-          pinSpacing: true,
-          scrub: 0.2,
-          invalidateOnRefresh: true,
-          onToggle: function (self) {
-            section.classList.toggle('services-section--scroll-locked', self.isActive);
-            var spacer = section.parentElement;
-            if (spacer && spacer.classList.contains('pin-spacer')) {
-              spacer.style.zIndex = self.isActive ? '250' : '';
-            }
-          },
-          onUpdate: function (self) {
-            var index = Math.round(self.progress * maxIndex);
-
-            if (index === lastSyncedIndex) {
-              return;
-            }
-
-            swiperInstance.slideTo(index);
-            lastSyncedIndex = index;
-          }
+        swiperRoot.querySelectorAll('.services-swiper__slide, .swiper-slide').forEach(function (slide) {
+          slide.removeAttribute('style');
         });
       }
 
-      function applyMobileStackLayout() {
+      function applyStackLayout(isDesktop) {
         destroyServicesScrollTrigger();
 
         if (swiperInstance) {
@@ -818,9 +776,12 @@
           swiperInstance = null;
         }
 
+        resetSwiperDomState();
+
         section.classList.remove('services-section--swiper-ready');
         section.classList.remove('services-section--scroll-locked');
-        section.classList.add('services-section--stack-mobile');
+        section.classList.toggle('services-section--stack-desktop', isDesktop);
+        section.classList.toggle('services-section--stack-mobile', !isDesktop);
 
         panels.forEach(function (panel) {
           panel.hidden = false;
@@ -833,66 +794,20 @@
         });
       }
 
-      function applyDesktopSwiperLayout() {
-        section.classList.remove('services-section--stack-mobile');
-
-        tabs.forEach(function (tab) {
-          tab.removeAttribute('aria-hidden');
-          tab.removeAttribute('tabindex');
-        });
-
-        if (swiperInstance) {
-          setTouchModeByViewport();
-          createServicesScrollTrigger();
-          return;
-        }
-
-        panels.forEach(function (panel) {
-          panel.hidden = false;
-        });
-
-        section.classList.add('services-section--swiper-ready');
-
-        swiperInstance = new window.Swiper(swiperRoot, {
-          slidesPerView: 1,
-          speed: 500,
-          allowTouchMove: false,
-          resistanceRatio: 0.72,
-          spaceBetween: 0,
-          autoHeight: false
-        });
-
-        swiperInstance.on('slideChange', function () {
-          activateTab(String(swiperInstance.activeIndex + 1));
-        });
-
-        activateTab('1');
-        createServicesScrollTrigger();
-      }
-
       function syncServicesLayout() {
-        if (isDesktopViewport()) {
-          applyDesktopSwiperLayout();
-          return;
-        }
-
-        applyMobileStackLayout();
+        applyStackLayout(isDesktopViewport());
       }
 
       syncServicesLayout();
 
       window.addEventListener('resize', function () {
         syncServicesLayout();
-
-        if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') {
-          window.ScrollTrigger.refresh();
-        }
       });
     }
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        if (window.innerWidth <= 1024) {
+        if (window.innerWidth <= 1024 || section.classList.contains('services-section--stack-desktop') || section.classList.contains('services-section--stack-mobile')) {
           return;
         }
 
