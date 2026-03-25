@@ -1484,6 +1484,42 @@ body.site-popup-open {
   }
 }
 
+/* Unified stack behavior for services on all breakpoints (no horizontal swiper). */
+.services-section .services-tabs {
+  display: none !important;
+}
+
+.services-section .services-swiper {
+  overflow: visible !important;
+  height: auto !important;
+  margin-top: #{mixins.vw(24px)};
+}
+
+.services-section .services-swiper .swiper-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: #{mixins.vw(16px)};
+  transform: none !important;
+  translate: none !important;
+}
+
+.services-section .services-swiper .swiper-slide {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  position: sticky;
+  top: #{mixins.vw(96px)};
+}
+
+.services-section .services-swiper .swiper-slide .service-detail {
+  display: flex !important;
+}
+
+.services-section#services {
+  scroll-margin-top: #{mixins.vw(96px)};
+  padding-bottom: #{mixins.vw(120px)};
+}
+
 @media (max-width: 1024px) {
   .services-section .services-tabs {
     display: none !important;

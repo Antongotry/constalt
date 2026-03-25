@@ -871,21 +871,13 @@
       }
 
       function syncServicesLayout() {
-        if (isDesktopViewport()) {
-          applyDesktopSwiperLayout();
-        } else {
-          applyMobileStackLayout();
-        }
+        applyMobileStackLayout();
       }
 
       syncServicesLayout();
 
       window.addEventListener('resize', function () {
         syncServicesLayout();
-
-        if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') {
-          window.ScrollTrigger.refresh();
-        }
       });
     }
 
