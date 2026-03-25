@@ -3,7 +3,7 @@
 .services-section {
   position: relative;
   background: transparent;
-  padding: #{mixins.vw(100px)} 0 #{mixins.vw(100px)};
+  padding: #{mixins.vw(120px)} 0 #{mixins.vw(100px)};
   isolation: isolate;
 }
 
@@ -99,12 +99,10 @@
   overflow: hidden;
 }
 
-.services-swiper .swiper-wrapper,
 .services-swiper .services-swiper__wrapper {
   align-items: stretch;
 }
 
-.services-swiper .swiper-slide,
 .services-swiper .services-swiper__slide {
   width: 100%;
 }
@@ -1505,9 +1503,7 @@ body.site-popup-open {
   max-width: 100%;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-wrapper,
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__wrapper,
-.services-section.services-section--stack-mobile .services-swiper .swiper-wrapper,
 .services-section.services-section--stack-mobile .services-swiper .services-swiper__wrapper {
   display: flex;
   flex-direction: column;
@@ -1518,9 +1514,7 @@ body.site-popup-open {
   max-width: 100%;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-slide,
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide,
-.services-section.services-section--stack-mobile .services-swiper .swiper-slide,
 .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
   --services-stack-top: #{mixins.vw(96px)};
   width: 100% !important;
@@ -1533,27 +1527,22 @@ body.site-popup-open {
   z-index: 1;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-slide:nth-child(2),
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(2) {
   --services-stack-top: #{mixins.vw(108px)};
   z-index: 2;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-slide:nth-child(3),
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(3) {
   --services-stack-top: #{mixins.vw(120px)};
   z-index: 3;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-slide:nth-child(4),
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(4) {
   --services-stack-top: #{mixins.vw(132px)};
   z-index: 4;
 }
 
-.services-section.services-section--stack-desktop .services-swiper .swiper-slide .service-detail,
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide .service-detail,
-.services-section.services-section--stack-mobile .services-swiper .swiper-slide .service-detail,
 .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide .service-detail {
   display: flex !important;
   margin-top: 0 !important;
@@ -1575,26 +1564,24 @@ body.site-popup-open {
     margin-top: #{mixins.vw(24px, 375px)};
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide,
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
-    --services-stack-top: #{mixins.vw(72px, 375px)};
+    position: relative;
+    top: auto;
+    --services-stack-top: auto;
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(2),
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(2) {
-    --services-stack-top: #{mixins.vw(78px, 375px)};
+    margin-top: #{mixins.vw(-34px, 375px)} !important;
     z-index: 2;
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(3),
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(3) {
-    --services-stack-top: #{mixins.vw(84px, 375px)};
+    margin-top: #{mixins.vw(-34px, 375px)} !important;
     z-index: 3;
   }
 
-  .services-section.services-section--stack-mobile .services-swiper .swiper-slide:nth-child(4),
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(4) {
-    --services-stack-top: #{mixins.vw(90px, 375px)};
+    margin-top: #{mixins.vw(-34px, 375px)} !important;
     z-index: 4;
   }
 }
