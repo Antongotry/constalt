@@ -22,12 +22,7 @@ declare(strict_types=1);
                 <div class="contacts-page__info-grid contacts-page__info-grid--top">
                     <div class="contacts-page__info-item">
                         <p class="contacts-page__info-label">Телефон</p>
-                        <a class="contacts-page__info-value" href="tel:+380999999999">+38 (099) 999 99 99</a>
-                    </div>
-
-                    <div class="contacts-page__info-item">
-                        <p class="contacts-page__info-label">Пошта</p>
-                        <a class="contacts-page__info-value" href="mailto:info@gmail.com">info@gmail.com</a>
+                        <a class="contacts-page__info-value" href="tel:+380751955002">+38 075 195 50 02</a>
                     </div>
                 </div>
 
@@ -57,7 +52,7 @@ declare(strict_types=1);
                 <div class="contacts-page__info-grid contacts-page__info-grid--bottom">
                     <div class="contacts-page__info-item">
                         <p class="contacts-page__info-label">Адреса</p>
-                        <p class="contacts-page__info-value contacts-page__info-value--small">назва Вулиці, 123, Київ</p>
+                        <p class="contacts-page__info-value contacts-page__info-value--small">м. Київ, вул. Шота Руставелі, буд. 24, оф. 18</p>
                     </div>
 
                     <div class="contacts-page__info-item">

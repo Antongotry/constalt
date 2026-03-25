@@ -70,6 +70,9 @@
 
 .contacts-page__info-grid--top {
   order: 1;
+  width: #{mixins.vw(221px)};
+  grid-template-columns: 1fr;
+  row-gap: 0;
 }
 
 .contacts-page__info-grid--bottom {
