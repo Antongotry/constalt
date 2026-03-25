@@ -871,6 +871,11 @@
       }
 
       function syncServicesLayout() {
+        if (isDesktopViewport()) {
+          applyDesktopSwiperLayout();
+          return;
+        }
+
         applyMobileStackLayout();
       }
 
@@ -878,6 +883,10 @@
 
       window.addEventListener('resize', function () {
         syncServicesLayout();
+
+        if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') {
+          window.ScrollTrigger.refresh();
+        }
       });
     }
 
