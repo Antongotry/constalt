@@ -27,8 +27,9 @@
   inset: 0;
   background: #f5f5f5;
   z-index: 0;
-  /* Slightly softer chevron on both desktop and mobile */
-  clip-path: polygon(0 5.2%, 50% 0, 100% 5.2%, 100% 100%, 50% 94.8%, 0 100%);
+  /* Chevron shape on both desktop and mobile */
+  clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
+  -webkit-clip-path: polygon(0 5.8%, 50% 0, 100% 5.8%, 100% 100%, 50% 94.2%, 0 100%);
 }
 
 .services-section__container {
@@ -1561,17 +1562,14 @@ body.site-popup-open {
   }
 
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(2) {
-    --services-stack-top: #{mixins.vw(80px, 375px)};
     z-index: 2;
   }
 
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(3) {
-    --services-stack-top: #{mixins.vw(88px, 375px)};
     z-index: 3;
   }
 
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(4) {
-    --services-stack-top: #{mixins.vw(96px, 375px)};
     z-index: 4;
   }
 }
