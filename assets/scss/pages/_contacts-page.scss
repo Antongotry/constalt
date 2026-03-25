@@ -71,15 +71,15 @@
 .contacts-page__info-item {
   display: flex;
   flex-direction: column;
-  gap: #{mixins.vw(10px)};
+  gap: #{mixins.vw(8px)};
 }
 
 .contacts-page__info-label {
   margin: 0;
   color: rgba(255, 255, 255, 0.64);
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(32px)};
-  font-weight: 300;
+  font-size: #{mixins.vw(16px)};
+  font-weight: 400;
   line-height: 140%;
 }
 
@@ -88,7 +88,7 @@
   color: #fff;
   text-decoration: none;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(44px)};
+  font-size: #{mixins.vw(24px)};
   font-weight: 300;
   line-height: 124%;
 }
@@ -257,11 +257,12 @@
   }
 
   .contacts-page__info-label {
-    font-size: #{mixins.vw(14px, 375px)};
+    font-size: #{mixins.vw(16px, 375px)};
+    font-weight: 400;
   }
 
   .contacts-page__info-value {
-    font-size: #{mixins.vw(32px, 375px)};
+    font-size: #{mixins.vw(24px, 375px)};
   }
 
   .contacts-page__socials {
