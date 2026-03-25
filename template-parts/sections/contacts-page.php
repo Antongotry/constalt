@@ -19,7 +19,7 @@ declare(strict_types=1);
 
                 <h1 class="contacts-page__title">Способи зв'язку</h1>
 
-                <div class="contacts-page__info-grid">
+                <div class="contacts-page__info-grid contacts-page__info-grid--top">
                     <div class="contacts-page__info-item">
                         <p class="contacts-page__info-label">Телефон</p>
                         <a class="contacts-page__info-value" href="tel:+380999999999">+38 (099) 999 99 99</a>
@@ -28,16 +28,6 @@ declare(strict_types=1);
                     <div class="contacts-page__info-item">
                         <p class="contacts-page__info-label">Пошта</p>
                         <a class="contacts-page__info-value" href="mailto:info@gmail.com">info@gmail.com</a>
-                    </div>
-
-                    <div class="contacts-page__info-item">
-                        <p class="contacts-page__info-label">Адреса</p>
-                        <p class="contacts-page__info-value">назва Вулиці, 123, Київ</p>
-                    </div>
-
-                    <div class="contacts-page__info-item">
-                        <p class="contacts-page__info-label">Графік роботи</p>
-                        <p class="contacts-page__info-value">Пн-Пт з 9.00 до 18.00</p>
                     </div>
                 </div>
 
@@ -62,6 +52,18 @@ declare(strict_types=1);
                             <path fill="currentColor" d="M13.5 22v-8h2.6l.4-3h-3V9.1c0-.86.24-1.45 1.48-1.45H16.6V5a22.2 22.2 0 0 0-2.46-.13c-2.44 0-4.1 1.49-4.1 4.22V11H7.4v3h2.64v8h3.46z"/>
                         </svg>
                     </a>
+                </div>
+
+                <div class="contacts-page__info-grid contacts-page__info-grid--bottom">
+                    <div class="contacts-page__info-item">
+                        <p class="contacts-page__info-label">Адреса</p>
+                        <p class="contacts-page__info-value contacts-page__info-value--small">назва Вулиці, 123, Київ</p>
+                    </div>
+
+                    <div class="contacts-page__info-item">
+                        <p class="contacts-page__info-label">Графік роботи</p>
+                        <p class="contacts-page__info-value contacts-page__info-value--small">Пн-Пт з 9.00 до 18.00</p>
+                    </div>
                 </div>
             </div>
 
