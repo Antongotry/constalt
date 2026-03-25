@@ -1526,7 +1526,7 @@ body.site-popup-open {
 
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide,
 .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
-  --services-stack-top: #{mixins.vw(96px)};
+  --services-stack-top: 0;
   width: 100% !important;
   height: auto !important;
   margin: 0 !important;
@@ -1538,17 +1538,14 @@ body.site-popup-open {
 }
 
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(2) {
-  --services-stack-top: #{mixins.vw(108px)};
   z-index: 2;
 }
 
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(3) {
-  --services-stack-top: #{mixins.vw(120px)};
   z-index: 3;
 }
 
 .services-section.services-section--stack-desktop .services-swiper .services-swiper__slide:nth-child(4) {
-  --services-stack-top: #{mixins.vw(132px)};
   z-index: 4;
 }
 
