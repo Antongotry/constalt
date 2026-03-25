@@ -1,13 +1,12 @@
 @use "../abstracts/mixins";
 
 .site-main--contacts {
-  min-height: 100vh;
   background: #051120;
 }
 
 .contacts-page {
   background: #051120;
-  padding: #{mixins.vw(90px)} 0 #{mixins.vw(120px)};
+  padding: #{mixins.vw(90px)} 0 #{mixins.vw(150px)};
 }
 
 .contacts-page__container {
