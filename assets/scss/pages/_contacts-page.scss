@@ -228,12 +228,12 @@
 
 @media (max-width: 1024px) {
   .contacts-page {
-    padding: #{mixins.vw(106px, 375px)} 0 #{mixins.vw(96px, 375px)};
+    padding: #{mixins.vw(24px, 375px)} 0 #{mixins.vw(100px, 375px)};
   }
 
   .contacts-page__container {
     width: #{mixins.vw(355px, 375px)};
-    padding-top: #{mixins.vw(24px, 375px)};
+    padding-top: 0;
   }
 
   .contacts-page__layout {
