@@ -199,6 +199,7 @@
     var popupConsent = servicesPopup ? servicesPopup.querySelector('[data-services-popup-consent]') : null;
     var popupPostscript = servicesPopup ? servicesPopup.querySelector('[data-services-popup-postscript]') : null;
     var popupSubmitLabel = servicesPopup ? servicesPopup.querySelector('[data-services-popup-submit-label]') : null;
+    var popupSubmitButton = servicesPopup ? servicesPopup.querySelector('.services-popup__submit') : null;
     var lastPopupTrigger = null;
     var popupCloseTimer = null;
 
@@ -266,7 +267,8 @@
       detailsHtml: '',
       postscriptText: '',
       postscriptWidth: 0,
-      serviceValue: ''
+      serviceValue: '',
+      submitPopupKey: ''
     };
 
     var popupConfigs = {
@@ -292,6 +294,7 @@
         showWideField: false,
         hideConsent: true,
         submitLabel: 'Обговорити фінансову ситуацію',
+        submitPopupKey: 'service-finance',
         serviceValue: 'Фінансовий консалтинг',
         detailsHtml: [
           '<div class="services-popup__details-box">',
@@ -361,6 +364,7 @@
         showWideField: false,
         hideConsent: true,
         submitLabel: 'Обговорити структуру управління',
+        submitPopupKey: 'service-corporate',
         postscriptText: 'Подивимось, де саме бізнес залежить від вас і які є варіанти змін.',
         postscriptWidth: 485,
         serviceValue: 'Корпоративне управління',
@@ -432,6 +436,7 @@
         showWideField: false,
         hideConsent: true,
         submitLabel: 'Обговорити запит',
+        submitPopupKey: 'service-due-diligence',
         postscriptText: 'Оцінимо ризики і скажемо, на що варто звернути увагу до прийняття рішення.',
         postscriptWidth: 577,
         serviceValue: 'Due Diligence та інвестиційний супровід',
@@ -574,6 +579,20 @@
 
       if (popupSubmitLabel) {
         popupSubmitLabel.textContent = config.submitLabel;
+      }
+
+      if (popupSubmitButton) {
+        var hasSubmitPopupKey = !!config.submitPopupKey;
+
+        popupSubmitButton.type = hasSubmitPopupKey ? 'button' : 'submit';
+
+        if (hasSubmitPopupKey) {
+          popupSubmitButton.setAttribute('data-site-popup-open', '');
+          popupSubmitButton.setAttribute('data-popup-key', config.submitPopupKey);
+        } else {
+          popupSubmitButton.removeAttribute('data-site-popup-open');
+          popupSubmitButton.removeAttribute('data-popup-key');
+        }
       }
 
       if (popupWideInput) {
