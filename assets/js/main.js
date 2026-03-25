@@ -105,6 +105,10 @@
       return;
     }
 
+    if (window.innerWidth <= 1024) {
+      return;
+    }
+
     var lenis = new window.Lenis({
       duration: 1.1,
       smoothWheel: true,
