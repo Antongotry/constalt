@@ -109,6 +109,7 @@
 @media (max-width: 1024px) {
   .site-header {
     top: #{mixins.vw(10px, 375px)};
+    z-index: 260;
   }
 
   .site-header__inner,
