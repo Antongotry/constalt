@@ -5,7 +5,11 @@
   position: fixed;
   left: 0;
   top: #{mixins.vw(10px)};
-  z-index: 200;
+  z-index: 120;
+}
+
+.site-header--menu-open {
+  z-index: 320;
 }
 
 .site-header__inner,
