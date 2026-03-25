@@ -1565,9 +1565,11 @@ body.site-popup-open {
   }
 
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide {
-    position: relative;
-    top: auto;
-    --services-stack-top: auto;
+    --services-stack-top: #{mixins.vw(72px, 375px)};
+    position: sticky;
+    top: var(--services-stack-top);
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .services-section.services-section--stack-mobile .services-swiper .services-swiper__slide:nth-child(2) {
