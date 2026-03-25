@@ -5,6 +5,7 @@
   background: transparent;
   padding: #{mixins.vw(120px)} 0 #{mixins.vw(100px)};
   isolation: isolate;
+  z-index: 180;
 }
 
 .services-section#services {
@@ -1560,12 +1561,12 @@ body.site-popup-open {
 
 .services-section.services-section--stack-desktop#services {
   scroll-margin-top: #{mixins.vw(96px)};
-  padding-bottom: #{mixins.vw(280px)};
+  padding-bottom: #{mixins.vw(220px)};
 }
 
 .services-section.services-section--stack-mobile#services {
   scroll-margin-top: #{mixins.vw(72px, 375px)};
-  padding-bottom: #{mixins.vw(160px, 375px)};
+  padding-bottom: #{mixins.vw(120px, 375px)};
 }
 
 @media (max-width: 1024px) {
