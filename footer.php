@@ -19,7 +19,7 @@
                 <a class="site-footer__link" href="#page">Головна</a>
                 <a class="site-footer__link" href="#services">Послуги</a>
                 <a class="site-footer__link" href="#about">Про нас</a>
-                <a class="site-footer__link" href="#contact">Контакти</a>
+                <a class="site-footer__link" href="<?php echo esc_url(home_url('/contacts/')); ?>">Контакти</a>
                 <a class="site-footer__link" href="#news">Новини</a>
 
                 <div class="site-footer__contact-block site-footer__contact-block--secondary site-footer__contact-block--address site-footer__contact-block--desktop-only">
