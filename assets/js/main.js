@@ -1285,13 +1285,23 @@
     }
   }, true);
 
-  initPhoneFieldValidation();
-  initLenis();
-  initHeroVideo();
-  initGlobalThanksPopup();
-  initServicesTabs();
-  initTrustTimeline();
-  initFaqAccordion();
-  initBlogArchiveFilters();
-  initHeaderMenu();
+  function runInit(initFn, name) {
+    try {
+      initFn();
+    } catch (error) {
+      if (window.console && typeof window.console.error === 'function') {
+        window.console.error('Init failed: ' + name, error);
+      }
+    }
+  }
+
+  runInit(initPhoneFieldValidation, 'phone-validation');
+  runInit(initBlogArchiveFilters, 'blog-archive-filters');
+  runInit(initLenis, 'lenis');
+  runInit(initHeroVideo, 'hero-video');
+  runInit(initGlobalThanksPopup, 'global-thanks-popup');
+  runInit(initServicesTabs, 'services-tabs');
+  runInit(initTrustTimeline, 'trust-timeline');
+  runInit(initFaqAccordion, 'faq-accordion');
+  runInit(initHeaderMenu, 'header-menu');
 })();
