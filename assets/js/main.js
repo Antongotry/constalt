@@ -1062,8 +1062,8 @@
       return;
     }
 
-    var filterLinks = filtersRoot.querySelectorAll('.blog-page__filter, [data-blog-filter]');
-    var posts = document.querySelectorAll('[data-blog-post], .blog-post--featured, .blog-post--compact');
+    var filterLinks = filtersRoot.querySelectorAll('a, .blog-page__filter, [data-blog-filter]');
+    var posts = document.querySelectorAll('.blog-layout--archive .blog-post, [data-blog-post], .blog-post--featured, .blog-post--compact');
 
     if (!filterLinks.length || !posts.length) {
       return;
@@ -1105,10 +1105,15 @@
       }
     }
 
+    function normalizeLabel(value) {
+      return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
     function getFilterSlug(filterNode) {
       var byData = String(filterNode.getAttribute('data-blog-filter') || '').trim().toLowerCase();
+      var label = normalizeLabel(filterNode.textContent || '');
 
-      if (byData || filterNode.classList.contains('is-all')) {
+      if (byData || filterNode.classList.contains('is-all') || label === 'усі рубрики') {
         return byData;
       }
 
@@ -1133,7 +1138,7 @@
         return categories;
       }
 
-      postNode.querySelectorAll('.blog-post__category').forEach(function (categoryLink) {
+      postNode.querySelectorAll('.blog-post__category, a[href*="/category/"]').forEach(function (categoryLink) {
         var slug = '';
 
         if (categoryLink.tagName === 'A') {
@@ -1193,10 +1198,10 @@
       }
     });
 
-    filtersRoot.addEventListener('click', function (event) {
+    function onFilterClick(event) {
       var eventNode = event.target;
       var eventElement = eventNode && eventNode.nodeType === 1 ? eventNode : eventNode.parentElement;
-      var target = eventElement ? eventElement.closest('.blog-page__filter, [data-blog-filter]') : null;
+      var target = eventElement ? eventElement.closest('a, .blog-page__filter, [data-blog-filter]') : null;
 
       if (!target || !filtersRoot.contains(target)) {
         return;
@@ -1207,7 +1212,10 @@
       event.preventDefault();
       setActiveFilter(selectedSlug);
       applyFilter(selectedSlug);
-    });
+    }
+
+    // Capture-phase listener avoids conflicts with scripts that stop bubbling.
+    document.addEventListener('click', onFilterClick, true);
 
     var initialActive = filtersRoot.querySelector('.blog-page__filter.is-active, [data-blog-filter].is-active');
     var initialSlug = initialActive ? getFilterSlug(initialActive) : '';
