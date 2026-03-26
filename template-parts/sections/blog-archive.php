@@ -81,7 +81,7 @@ $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(9999
                 <p class="blog-section__marker-text">Блог</p>
             </div>
 
-            <h1 class="blog-section__title">Новини <strong>Audit-Consulting</strong></h1>
+            <h1 class="blog-section__title">Експертиза і новини</h1>
         </div>
 
         <div class="blog-page__filters" aria-label="Рубрики блогу">
