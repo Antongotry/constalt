@@ -36,7 +36,7 @@ $get_post_categories = static function (int $post_id): array {
                 <p class="blog-section__marker-text">Блог</p>
             </div>
 
-            <h2 class="blog-section__title">Новини <strong>Audit-Consulting</strong></h2>
+            <h2 class="blog-section__title">Експертиза і новини</h2>
         </div>
 
         <?php if ($primary_post) : ?>

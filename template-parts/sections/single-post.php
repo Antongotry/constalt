@@ -238,7 +238,7 @@ $related_secondary_posts = array_slice($related_posts, 1, 2);
 
 <section class="blog-section single-related" id="more-news">
     <div class="blog-section__container">
-        <h2 class="single-related__title">Новини <strong>Audit-Consulting</strong></h2>
+        <h2 class="single-related__title">Експертиза і новини</h2>
 
         <?php if ($related_primary_post) : ?>
             <?php
