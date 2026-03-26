@@ -18,6 +18,7 @@ declare(strict_types=1);
                 <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/')); ?>">Головна</a>
                 <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/#services')); ?>">Послуги</a>
                 <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/#about')); ?>">Про нас</a>
+                <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/blog/')); ?>">Новини</a>
                 <a class="site-header__nav-link" href="<?php echo esc_url(home_url('/contacts/')); ?>">Контакти</a>
             </nav>
             <a class="site-header__cta" href="#" data-site-popup-open data-popup-key="consultation-general">

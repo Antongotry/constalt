@@ -1177,6 +1177,8 @@
         var postCategories = getPostCategories(postNode);
         var isVisible = !slug || postCategories.indexOf(slug) !== -1;
 
+        // Do not rely only on [hidden], because card CSS sets display:grid.
+        postNode.style.display = isVisible ? '' : 'none';
         postNode.hidden = !isVisible;
         postNode.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
 
@@ -1186,7 +1188,9 @@
       });
 
       if (emptyMessage) {
-        emptyMessage.hidden = visibleCount !== 0;
+        var hasVisiblePosts = visibleCount !== 0;
+        emptyMessage.style.display = hasVisiblePosts ? 'none' : '';
+        emptyMessage.hidden = hasVisiblePosts;
       }
     }
 
