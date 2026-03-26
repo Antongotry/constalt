@@ -1194,7 +1194,9 @@
     });
 
     filtersRoot.addEventListener('click', function (event) {
-      var target = event.target.closest('.blog-page__filter, [data-blog-filter]');
+      var eventNode = event.target;
+      var eventElement = eventNode && eventNode.nodeType === 1 ? eventNode : eventNode.parentElement;
+      var target = eventElement ? eventElement.closest('.blog-page__filter, [data-blog-filter]') : null;
 
       if (!target || !filtersRoot.contains(target)) {
         return;
