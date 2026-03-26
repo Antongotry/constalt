@@ -52,6 +52,23 @@ $get_post_categories = static function (int $post_id): array {
     return array_slice($post_categories, 0, 2);
 };
 
+$get_post_category_slugs = static function (int $post_id): array {
+    $post_categories = get_the_terms($post_id, 'category');
+
+    if (empty($post_categories) || is_wp_error($post_categories)) {
+        return array();
+    }
+
+    return array_values(
+        array_filter(
+            array_map(
+                static fn ($category): string => $category instanceof WP_Term ? (string) $category->slug : '',
+                $post_categories
+            )
+        )
+    );
+};
+
 $current_page = max(1, (int) get_query_var('paged'), (int) get_query_var('page'));
 $total_pages = max(1, (int) ($blog_query instanceof WP_Query ? $blog_query->max_num_pages : 1));
 $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(999999999)));
@@ -71,6 +88,7 @@ $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(9999
             <a
                 class="blog-page__filter<?php echo $active_category_slug === '' ? ' is-active' : ''; ?>"
                 href="<?php echo esc_url($blog_archive_link); ?>"
+                data-blog-filter=""
             >
                 Усі рубрики
             </a>
@@ -83,6 +101,7 @@ $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(9999
                 <a
                     class="blog-page__filter<?php echo $is_active_category ? ' is-active' : ''; ?>"
                     href="<?php echo esc_url($category_link); ?>"
+                    data-blog-filter="<?php echo esc_attr((string) $category->slug); ?>"
                 >
                     <?php echo esc_html($category->name); ?>
                 </a>
@@ -93,9 +112,14 @@ $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(9999
             <?php
             $featured_permalink = get_permalink($featured_post);
             $featured_categories = $get_post_categories((int) $featured_post->ID);
+            $featured_category_slugs = $get_post_category_slugs((int) $featured_post->ID);
             ?>
             <div class="blog-layout blog-layout--archive">
-                <article class="blog-post blog-post--featured">
+                <article
+                    class="blog-post blog-post--featured"
+                    data-blog-post
+                    data-blog-categories="<?php echo esc_attr(implode(' ', $featured_category_slugs)); ?>"
+                >
                     <div class="blog-post__content">
                         <time class="blog-post__date" datetime="<?php echo esc_attr(get_the_date('c', $featured_post)); ?>">
                             <?php echo esc_html(get_the_date('d.m.Y', $featured_post)); ?>
@@ -132,8 +156,13 @@ $pagination_base = str_replace('999999999', '%#%', esc_url(get_pagenum_link(9999
                         <?php
                         $secondary_permalink = get_permalink($secondary_post);
                         $secondary_categories = $get_post_categories((int) $secondary_post->ID);
+                        $secondary_category_slugs = $get_post_category_slugs((int) $secondary_post->ID);
                         ?>
-                        <article class="blog-post blog-post--compact">
+                        <article
+                            class="blog-post blog-post--compact"
+                            data-blog-post
+                            data-blog-categories="<?php echo esc_attr(implode(' ', $secondary_category_slugs)); ?>"
+                        >
                             <div class="blog-post__content">
                                 <time class="blog-post__date" datetime="<?php echo esc_attr(get_the_date('c', $secondary_post)); ?>">
                                     <?php echo esc_html(get_the_date('d.m.Y', $secondary_post)); ?>

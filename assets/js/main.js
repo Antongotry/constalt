@@ -1055,6 +1055,96 @@
     });
   }
 
+  function initBlogArchiveFilters() {
+    var filtersRoot = document.querySelector('.blog-page__filters');
+
+    if (!filtersRoot) {
+      return;
+    }
+
+    var filterLinks = filtersRoot.querySelectorAll('[data-blog-filter]');
+    var posts = document.querySelectorAll('[data-blog-post]');
+
+    if (!filterLinks.length || !posts.length) {
+      return;
+    }
+
+    var emptyMessage = document.querySelector('[data-blog-filter-empty]');
+
+    if (!emptyMessage) {
+      emptyMessage = document.createElement('p');
+      emptyMessage.className = 'blog-section__empty';
+      emptyMessage.setAttribute('data-blog-filter-empty', '');
+      emptyMessage.textContent = 'За обраною рубрикою записів не знайдено.';
+      emptyMessage.hidden = true;
+
+      var archiveLayout = document.querySelector('.blog-layout--archive');
+
+      if (archiveLayout && archiveLayout.parentNode) {
+        archiveLayout.parentNode.insertBefore(emptyMessage, archiveLayout.nextSibling);
+      }
+    }
+
+    function getPostCategories(postNode) {
+      var rawValue = String(postNode.getAttribute('data-blog-categories') || '').trim();
+
+      if (!rawValue) {
+        return [];
+      }
+
+      return rawValue.split(/\s+/);
+    }
+
+    function setActiveFilter(slug) {
+      filterLinks.forEach(function (link) {
+        var isActive = String(link.getAttribute('data-blog-filter') || '') === slug;
+        link.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    function applyFilter(slug) {
+      var visibleCount = 0;
+
+      posts.forEach(function (postNode) {
+        var postCategories = getPostCategories(postNode);
+        var isVisible = !slug || postCategories.indexOf(slug) !== -1;
+
+        postNode.hidden = !isVisible;
+        postNode.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+
+        if (isVisible) {
+          visibleCount += 1;
+        }
+      });
+
+      if (emptyMessage) {
+        emptyMessage.hidden = visibleCount !== 0;
+      }
+    }
+
+    filterLinks.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        var selectedSlug = String(link.getAttribute('data-blog-filter') || '');
+        setActiveFilter(selectedSlug);
+        applyFilter(selectedSlug);
+      });
+    });
+
+    var initialActive = filtersRoot.querySelector('.blog-page__filter.is-active[data-blog-filter]');
+    var initialSlug = initialActive ? String(initialActive.getAttribute('data-blog-filter') || '') : '';
+
+    setActiveFilter(initialSlug);
+    applyFilter(initialSlug);
+  }
+
   function initGlobalThanksPopup() {
     var thanksPopup = document.querySelector('[data-thanks-popup]');
 
@@ -1202,5 +1292,6 @@
   initServicesTabs();
   initTrustTimeline();
   initFaqAccordion();
+  initBlogArchiveFilters();
   initHeaderMenu();
 })();
