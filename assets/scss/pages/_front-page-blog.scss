@@ -190,19 +190,19 @@
 }
 
  .blog-section__all-link {
-  margin: #{mixins.vw(64px)} auto 0;
+  margin: #{mixins.vw(48px)} auto 0;
   width: max-content;
   color: #fff;
   text-decoration: none;
   font-family: "Inter Tight", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: #{mixins.vw(32px)};
+  font-size: #{mixins.vw(24px)};
   font-weight: 300;
   line-height: 124%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.64);
-  padding-bottom: #{mixins.vw(10px)};
+  padding-bottom: #{mixins.vw(6px)};
   position: relative;
   left: 50%;
   transform: translateX(-50%);
