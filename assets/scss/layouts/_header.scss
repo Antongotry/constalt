@@ -40,7 +40,7 @@
 
 .site-header__logo {
   display: block;
-  width: #{mixins.vw(182px)};
+  width: #{mixins.vw(155px)};
   height: auto;
 }
 
@@ -128,7 +128,7 @@
   }
 
   .site-header__logo {
-    width: #{mixins.vw(122px, 375px)};
+    width: #{mixins.vw(104px, 375px)};
   }
 
   .site-header__logo-text {
