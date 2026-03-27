@@ -11,7 +11,13 @@ declare(strict_types=1);
 <header class="site-header">
     <div class="site-header__inner">
         <a class="site-header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Home', 'constalt'); ?>">
-            <span class="site-header__logo-text">AUDIT CONSULTING</span>
+            <img
+                class="site-header__logo"
+                src="<?php echo esc_url('https://audit-consulting.org/wp-content/uploads/2026/03/%D0%9A%D0%BE%D0%BC%D0%B1%D1%96%D0%BD%D0%B0%D1%86%D1%96%D1%8F_result.webp'); ?>"
+                alt="Audit Consulting"
+                loading="eager"
+                decoding="async"
+            >
         </a>
         <div class="site-header__actions">
             <nav class="site-header__nav" aria-label="<?php esc_attr_e('Primary', 'constalt'); ?>">
