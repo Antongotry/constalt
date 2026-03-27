@@ -13,7 +13,7 @@ declare(strict_types=1);
         <a class="site-header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Home', 'constalt'); ?>">
             <img
                 class="site-header__logo"
-                src="<?php echo esc_url('https://audit-consulting.org/wp-content/uploads/2026/03/%D0%9A%D0%BE%D0%BC%D0%B1%D1%96%D0%BD%D0%B0%D1%86%D1%96%D1%8F_result.webp'); ?>"
+                src="<?php echo esc_url('https://audit-consulting.org/wp-content/uploads/2026/03/%D0%A1%D1%96%D1%80%D0%B8%D0%B9-1.svg'); ?>"
                 alt="Audit Consulting"
                 loading="eager"
                 decoding="async"

@@ -11,7 +11,13 @@
 
         <div class="site-footer__main">
             <a class="site-footer__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('На головну', 'constalt'); ?>">
-                <span class="site-footer__logo-text">AUDIT CONSULTING</span>
+                <img
+                    class="site-footer__logo"
+                    src="<?php echo esc_url('https://audit-consulting.org/wp-content/uploads/2026/03/%D0%A1%D1%96%D1%80%D0%B8%D0%B9-1.svg'); ?>"
+                    alt="Audit Consulting"
+                    loading="lazy"
+                    decoding="async"
+                >
             </a>
 
             <nav class="site-footer__column site-footer__column--nav" aria-label="<?php esc_attr_e('Навігація', 'constalt'); ?>">
