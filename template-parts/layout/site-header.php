@@ -50,6 +50,7 @@ declare(strict_types=1);
 
             <div class="site-header__mobile-contacts">
                 <a class="site-header__mobile-phone" href="tel:+380751955002">+38 075 195 50 02</a>
+                <a class="site-header__mobile-mail" href="<?php echo esc_url('mailto:office@audit-consulting.org'); ?>">office@audit-consulting.org</a>
                 <p class="site-header__mobile-address">м. Київ, вул. Шота Руставелі, буд. 24, оф. 18</p>
             </div>
 
