@@ -8,7 +8,7 @@
 <div class="services-popup services-popup--service" data-services-popup hidden>
     <div class="services-popup__backdrop" data-services-popup-close></div>
 
-    <div class="services-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="services-popup-title">
+    <div class="services-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="services-popup-title" data-lenis-prevent>
         <button class="services-popup__close" type="button" aria-label="Закрити" data-services-popup-close>
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 11L37 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
@@ -68,7 +68,7 @@
 <div class="thanks-popup" data-thanks-popup hidden>
     <div class="thanks-popup__backdrop" data-thanks-popup-close></div>
 
-    <div class="thanks-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="thanks-popup-title">
+    <div class="thanks-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="thanks-popup-title" data-lenis-prevent>
         <button class="thanks-popup__close" type="button" aria-label="Закрити" data-thanks-popup-close>
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 11L37 37" stroke="#051120" stroke-width="1.5" stroke-linecap="round"/>
