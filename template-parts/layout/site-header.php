@@ -13,10 +13,14 @@ declare(strict_types=1);
         <a class="site-header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Home', 'constalt'); ?>">
             <img
                 class="site-header__logo"
-                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting.svg'); ?>"
-                alt="Audit Consulting"
+                src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting-on-dark.svg'); ?>"
+                alt="<?php echo esc_attr__('Audit Consulting', 'constalt'); ?>"
+                width="163"
+                height="80"
                 loading="eager"
                 decoding="async"
+                data-header-logo-dark="<?php echo esc_attr(get_template_directory_uri() . '/assets/images/logo-audit-consulting-on-dark.svg'); ?>"
+                data-header-logo-light="<?php echo esc_attr(get_template_directory_uri() . '/assets/images/logo-audit-consulting.svg'); ?>"
             >
         </a>
         <div class="site-header__actions">

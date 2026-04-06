@@ -116,6 +116,8 @@
       wheelMultiplier: 1
     });
 
+    window.__constaltLenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       window.requestAnimationFrame(raf);
@@ -988,6 +990,45 @@
     });
   }
 
+  function initHeaderScrollState() {
+    var header = document.querySelector('.site-header');
+
+    if (!header) {
+      return;
+    }
+
+    var logo = header.querySelector('.site-header__logo[data-header-logo-dark]');
+    var darkSrc = logo ? logo.getAttribute('data-header-logo-dark') : '';
+    var lightSrc = logo ? logo.getAttribute('data-header-logo-light') : '';
+    var threshold = 32;
+
+    function tick() {
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      var scrolled = y > threshold;
+
+      header.classList.toggle('site-header--scrolled', scrolled);
+
+      if (logo && darkSrc && lightSrc) {
+        var next = scrolled ? lightSrc : darkSrc;
+
+        if (logo.getAttribute('src') !== next) {
+          logo.setAttribute('src', next);
+        }
+      }
+    }
+
+    tick();
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    window.addEventListener('load', tick);
+
+    var lenisRef = window.__constaltLenis;
+
+    if (lenisRef && typeof lenisRef.on === 'function') {
+      lenisRef.on('scroll', tick);
+    }
+  }
+
   function initHeaderMenu() {
     var header = document.querySelector('.site-header');
 
@@ -1381,6 +1422,7 @@
   runInit(initPhoneFieldValidation, 'phone-validation');
   runInit(initBlogArchiveFilters, 'blog-archive-filters');
   runInit(initLenis, 'lenis');
+  runInit(initHeaderScrollState, 'header-scroll');
   runInit(initHeroVideo, 'hero-video');
   runInit(initGlobalThanksPopup, 'global-thanks-popup');
   runInit(initServicesTabs, 'services-tabs');
