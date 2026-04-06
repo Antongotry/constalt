@@ -10,16 +10,33 @@
 
 .services-section#services {
   scroll-margin-top: #{mixins.vw(96px)};
+  /* Над .site-header (200), нижче за попапи (500+) */
+  z-index: 210;
 }
 
-/* Під час pin (десктоп) секція fixed — підняти над .site-header (200), нижче за попапи (500+) */
+/* Під час pin — ще вище, щоб лишатись над хедером */
 .services-section#services.services-section--scroll-locked {
   z-index: 250 !important;
 }
 
 .pin-spacer:has(#services) {
-  z-index: 250;
+  z-index: 210;
   position: relative;
+}
+
+@media (max-width: 1024px) {
+  /* .site-header на мобілці z-index: 260 */
+  .services-section#services {
+    z-index: 270;
+  }
+
+  .pin-spacer:has(#services) {
+    z-index: 270;
+  }
+
+  .services-section#services.services-section--scroll-locked {
+    z-index: 300 !important;
+  }
 }
 
 .services-section::before {
