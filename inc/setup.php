@@ -211,25 +211,25 @@ function constalt_critical_css(): void
     body{font-size:1.1111111111vw;line-height:1.5}
     @media(max-width:767px){body{font-size:4.1025641026vw}}
     .site{min-height:100vh}
-    .site-header{width:100%;position:fixed;left:0;top:0.6944444444vw;z-index:200}
-    .site-header__inner{width:94.4444444444vw;margin-inline:auto;height:5vw;display:flex;align-items:center;justify-content:space-between}
+    .site-header{width:100%;position:fixed;left:0;top:0;z-index:200;background:#fff;border:0;box-shadow:none}
+    .site-header__inner{width:100%;max-width:94.4444444444vw;margin-inline:auto;height:5vw;padding-inline:1.3888888889vw;display:flex;align-items:center;justify-content:space-between;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
     .site-header__line{display:none}
     .site-header__logo-link{display:inline-flex;height:100%;align-items:center}
-    .site-header__logo{display:block;width:15.3472222222vw;height:auto}
+    .site-header__logo{display:block;width:auto;height:3.3333333333vw;max-width:13.8888888889vw}
     .site-header__actions{display:inline-flex;align-items:center;gap:12.8472222222vw}
     .site-header__nav{display:inline-flex;align-items:center;gap:1.6666666667vw}
-    .site-header__nav-link{color:#fff;font-family:"Inter Tight","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;font-size:0.9722222222vw;font-weight:400;line-height:140%;text-decoration:none;white-space:nowrap}
+    .site-header__nav-link{color:#051120;font-family:"Inter Tight","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;font-size:0.9722222222vw;font-weight:400;line-height:140%;text-decoration:none;white-space:nowrap}
     .site-header__cta{display:inline-flex;align-items:center;justify-content:center;gap:0.6944444444vw;padding:0.8333333333vw 1.6666666667vw;border-radius:6.9444444444vw;background:linear-gradient(339deg,#c7c7c7 11.9%,#f1f1f1 84.59%);color:#051120;font-size:0.9722222222vw;font-weight:400;line-height:140%;text-decoration:none;white-space:nowrap}
     .site-header__burger,.site-header__mobile-menu{display:none}
     a{color:inherit;text-decoration:none}
     @media(max-width:1024px){
-      .site-header{top:2.6666666667vw}
-      .site-header__inner,.site-header__line{width:94.6666666667vw}
-      .site-header__inner{height:12.8vw}
-      .site-header__logo{width:39.4666666667vw}
+      .site-header{top:0}
+      .site-header__inner,.site-header__line{width:100%;max-width:none}
+      .site-header__inner{height:12.8vw;padding-inline:4.2666666667vw}
+      .site-header__logo{width:auto;height:8.5333333333vw;max-width:37.3333333333vw}
       .site-header__actions{display:none}
       .site-header__burger{display:inline-flex;width:6.9333333333vw;height:4.2666666667vw;border:0;background:transparent;padding:0;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;z-index:230}
-      .site-header__burger-line{width:100%;height:1px;background:#fff;border-radius:2px}
+      .site-header__burger-line{width:100%;height:1px;background:#051120;border-radius:0}
     }
     </style>
     <?php
