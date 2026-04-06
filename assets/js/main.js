@@ -142,7 +142,7 @@
         }
 
         event.preventDefault();
-        lenis.scrollTo(target, { offset: -88 });
+        lenis.scrollTo(target, { offset: -106 });
       });
     });
 
