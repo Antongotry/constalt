@@ -211,7 +211,7 @@ function constalt_critical_css(): void
     body{font-size:1.1111111111vw;line-height:1.5}
     @media(max-width:767px){body{font-size:4.1025641026vw}}
     .site{min-height:100vh}
-    .site-header{width:100%;position:fixed;left:0;top:0.6944444444vw;z-index:200;background:transparent;border:0;box-shadow:none}
+    .site-header{width:100%;position:fixed;left:0;top:0;z-index:200;background:transparent;border:0;box-shadow:none}
     .site-header__inner{width:100%;max-width:none;margin:0;height:7.3611111111vw;padding:0;display:flex;align-items:center;justify-content:center;border:0;border-radius:0;background:linear-gradient(180deg,rgba(25,36,50,.62) 0%,rgba(5,17,32,.52) 100%);box-shadow:0 .4166666667vw 1.5277777778vw rgba(3,12,24,.28);box-sizing:border-box}
     .site-header__container{width:100%;max-width:94.4444444444vw;margin-inline:auto;padding-inline:1.3888888889vw;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;min-width:0;gap:1.1111111111vw}
     .site-header__line{display:none}
@@ -224,7 +224,7 @@ function constalt_critical_css(): void
     .site-header__burger,.site-header__mobile-menu{display:none}
     a{color:inherit;text-decoration:none}
     @media(max-width:1024px){
-      .site-header{top:2.6666666667vw}
+      .site-header{top:0}
       .site-header__inner,.site-header__line{width:100%;max-width:none}
       .site-header__inner{height:18.6666666667vw;padding:0;background:linear-gradient(180deg,rgba(25,36,50,.68) 0%,rgba(5,17,32,.58) 100%);box-shadow:0 1.0666666667vw 4.2666666667vw rgba(3,12,24,.3)}
       .site-header__container{max-width:none;padding-inline:4.2666666667vw}

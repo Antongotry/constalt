@@ -4,7 +4,7 @@
   width: 100%;
   position: fixed;
   left: 0;
-  top: #{mixins.vw(10px)};
+  top: 0;
   z-index: 200;
   background: transparent;
   border: none;
@@ -144,7 +144,7 @@
 
 @media (max-width: 1024px) {
   .site-header {
-    top: #{mixins.vw(10px, 375px)};
+    top: 0;
     z-index: 260;
   }
 
@@ -252,7 +252,7 @@
 
   .site-header__mobile-panel {
     position: absolute;
-    top: calc(#{mixins.vw(10px, 375px)} + #{mixins.vw(70px, 375px)} + #{mixins.vw(8px, 375px)});
+    top: calc(#{mixins.vw(70px, 375px)} + #{mixins.vw(8px, 375px)});
     left: 50%;
     width: #{mixins.vw(355px, 375px)};
     transform: translate(-50%, #{mixins.vw(-18px, 375px)});
