@@ -550,3 +550,86 @@ function constalt_handle_form_submit(): void
 }
 add_action('wp_ajax_constalt_submit_form', 'constalt_handle_form_submit');
 add_action('wp_ajax_nopriv_constalt_submit_form', 'constalt_handle_form_submit');
+
+/**
+ * Absolute URL for link previews (Open Graph, Telegram, Viber, Instagram, etc.).
+ * Priority: optional theme PNG → Site Icon (Customizer) → bundled logo SVG.
+ */
+function constalt_get_default_share_image_url(): string
+{
+    $png_path = get_template_directory() . '/assets/images/og-default.png';
+
+    if (file_exists($png_path)) {
+        return esc_url(get_template_directory_uri() . '/assets/images/og-default.png');
+    }
+
+    if (function_exists('get_site_icon_url')) {
+        $icon = get_site_icon_url(512);
+
+        if ($icon !== '') {
+            return $icon;
+        }
+    }
+
+    return esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting.svg');
+}
+
+/**
+ * Force default share image when Yoast SEO is active.
+ *
+ * @param string|false $image Previous image URL.
+ */
+function constalt_filter_wpseo_opengraph_image($image): string
+{
+    return constalt_get_default_share_image_url();
+}
+add_filter('wpseo_opengraph_image', 'constalt_filter_wpseo_opengraph_image', 20);
+add_filter('wpseo_twitter_image', 'constalt_filter_wpseo_opengraph_image', 20);
+
+/**
+ * Rank Math: default Facebook / Open Graph image.
+ *
+ * @param string $image Previous image URL.
+ */
+function constalt_filter_rank_math_og_image(string $image): string
+{
+    return constalt_get_default_share_image_url();
+}
+add_filter('rank_math/opengraph/facebook/image', 'constalt_filter_rank_math_og_image', 20);
+add_filter('rank_math/opengraph/twitter/image', 'constalt_filter_rank_math_og_image', 20);
+
+/**
+ * Open Graph + Twitter Card when no SEO plugin outputs them.
+ */
+function constalt_output_share_meta_tags(): void
+{
+    if (is_admin()) {
+        return;
+    }
+
+    if (defined('WPSEO_VERSION') || defined('RANK_MATH_VERSION')) {
+        return;
+    }
+
+    $image = constalt_get_default_share_image_url();
+    $title = wp_get_document_title();
+    $desc = (string) get_bloginfo('description', 'display');
+
+    if ($desc === '') {
+        $desc = $title;
+    }
+
+    $url = is_singular() ? get_permalink() : home_url(add_query_arg([]));
+    $og_type = (is_singular() && ! is_front_page()) ? 'article' : 'website';
+
+    echo '<meta property="og:type" content="' . esc_attr($og_type) . '">' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr(wp_strip_all_tags($desc)) . '">' . "\n";
+    echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+    echo '<meta property="og:site_name" content="' . esc_attr(get_bloginfo('name')) . '">' . "\n";
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
+}
+add_action('wp_head', 'constalt_output_share_meta_tags', 4);
