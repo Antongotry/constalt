@@ -17,22 +17,36 @@
 
 .site-header__inner,
 .site-header__line {
-  width: #{mixins.vw(1360px)};
-  max-width: calc(100% - #{mixins.vw(40px)});
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  box-sizing: border-box;
 }
 
 .site-header__inner {
   height: #{mixins.vw(88px)};
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-inline: #{mixins.vw(20px)};
+  justify-content: center;
+  padding-inline: 0;
   border: none;
   border-radius: 0;
   background: linear-gradient(180deg, rgba(25, 36, 50, 0.62) 0%, rgba(5, 17, 32, 0.52) 100%);
   box-shadow: 0 #{mixins.vw(6px)} #{mixins.vw(22px)} rgba(3, 12, 24, 0.28);
   transition: background-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.site-header__container {
+  width: 100%;
+  max-width: #{mixins.vw(1360px)};
+  margin-inline: auto;
+  padding-inline: #{mixins.vw(20px)};
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: #{mixins.vw(16px)};
+  min-width: 0;
 }
 
 .site-header--scrolled .site-header__inner {
@@ -136,17 +150,23 @@
 
   .site-header__inner,
   .site-header__line {
-    width: #{mixins.vw(355px, 375px)};
-    max-width: calc(100% - #{mixins.vw(20px, 375px)});
+    width: 100%;
+    max-width: none;
   }
 
   .site-header__inner {
     height: #{mixins.vw(58px, 375px)};
-    padding-inline: #{mixins.vw(12px, 375px)};
+    padding-inline: 0;
     border: none;
     border-radius: 0;
     background: linear-gradient(180deg, rgba(25, 36, 50, 0.68) 0%, rgba(5, 17, 32, 0.58) 100%);
     box-shadow: 0 #{mixins.vw(4px, 375px)} #{mixins.vw(16px, 375px)} rgba(3, 12, 24, 0.3);
+  }
+
+  .site-header__container {
+    max-width: none;
+    padding-inline: #{mixins.vw(16px, 375px)};
+    gap: #{mixins.vw(12px, 375px)};
   }
 
   .site-header--scrolled .site-header__inner {
@@ -227,7 +247,6 @@
     inset: 0;
     border: 0;
     background: rgba(5, 17, 32, 0.72);
-    backdrop-filter: blur(#{mixins.vw(10px, 375px)});
     cursor: pointer;
   }
 
@@ -239,8 +258,6 @@
     transform: translate(-50%, #{mixins.vw(-18px, 375px)});
     border: 1px solid rgba(255, 255, 255, 0.16);
     background: linear-gradient(180deg, rgba(25, 36, 50, 0.92) 0%, rgba(5, 17, 32, 0.96) 100%);
-    -webkit-backdrop-filter: blur(#{mixins.vw(18px, 375px)});
-    backdrop-filter: blur(#{mixins.vw(18px, 375px)});
     padding: #{mixins.vw(22px, 375px)} #{mixins.vw(18px, 375px)} #{mixins.vw(20px, 375px)};
     display: grid;
     gap: #{mixins.vw(18px, 375px)};

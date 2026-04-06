@@ -212,7 +212,8 @@ function constalt_critical_css(): void
     @media(max-width:767px){body{font-size:4.1025641026vw}}
     .site{min-height:100vh}
     .site-header{width:100%;position:fixed;left:0;top:0.6944444444vw;z-index:200;background:transparent;border:0;box-shadow:none}
-    .site-header__inner{width:94.4444444444vw;max-width:calc(100% - 2.7777777778vw);margin-inline:auto;height:6.1111111111vw;padding-inline:1.3888888889vw;display:flex;align-items:center;justify-content:space-between;border:0;border-radius:0;background:linear-gradient(180deg,rgba(25,36,50,.62) 0%,rgba(5,17,32,.52) 100%);box-shadow:0 .4166666667vw 1.5277777778vw rgba(3,12,24,.28)}
+    .site-header__inner{width:100%;max-width:none;margin:0;height:6.1111111111vw;padding:0;display:flex;align-items:center;justify-content:center;border:0;border-radius:0;background:linear-gradient(180deg,rgba(25,36,50,.62) 0%,rgba(5,17,32,.52) 100%);box-shadow:0 .4166666667vw 1.5277777778vw rgba(3,12,24,.28);box-sizing:border-box}
+    .site-header__container{width:100%;max-width:94.4444444444vw;margin-inline:auto;padding-inline:1.3888888889vw;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;min-width:0;gap:1.1111111111vw}
     .site-header__line{display:none}
     .site-header__logo-link{display:inline-flex;height:100%;align-items:center}
     .site-header__logo{display:block;width:auto;height:4.1666666667vw;max-width:18.0555555556vw}
@@ -224,8 +225,9 @@ function constalt_critical_css(): void
     a{color:inherit;text-decoration:none}
     @media(max-width:1024px){
       .site-header{top:2.6666666667vw}
-      .site-header__inner,.site-header__line{width:94.6666666667vw;max-width:calc(100% - 5.3333333333vw)}
-      .site-header__inner{height:15.4666666667vw;padding-inline:3.2vw;background:linear-gradient(180deg,rgba(25,36,50,.68) 0%,rgba(5,17,32,.58) 100%);box-shadow:0 1.0666666667vw 4.2666666667vw rgba(3,12,24,.3)}
+      .site-header__inner,.site-header__line{width:100%;max-width:none}
+      .site-header__inner{height:15.4666666667vw;padding:0;background:linear-gradient(180deg,rgba(25,36,50,.68) 0%,rgba(5,17,32,.58) 100%);box-shadow:0 1.0666666667vw 4.2666666667vw rgba(3,12,24,.3)}
+      .site-header__container{max-width:none;padding-inline:4.2666666667vw}
       .site-header__logo{width:auto;height:11.2vw;max-width:48vw}
       .site-header__actions{display:none}
       .site-header__burger{display:inline-flex;width:6.9333333333vw;height:4.2666666667vw;border:0;background:transparent;padding:0;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative;z-index:230}

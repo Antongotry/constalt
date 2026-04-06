@@ -10,6 +10,7 @@ declare(strict_types=1);
 ?>
 <header class="site-header">
     <div class="site-header__inner">
+        <div class="site-header__container">
         <a class="site-header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Home', 'constalt'); ?>">
             <img
                 class="site-header__logo"
@@ -40,6 +41,7 @@ declare(strict_types=1);
             <span class="site-header__burger-line" aria-hidden="true"></span>
             <span class="site-header__burger-line" aria-hidden="true"></span>
         </button>
+        </div>
     </div>
     <div class="site-header__mobile-menu" id="site-header-mobile-menu" hidden data-header-mobile-menu>
         <button class="site-header__mobile-backdrop" type="button" aria-label="<?php esc_attr_e('Закрити меню', 'constalt'); ?>" data-header-menu-close></button>
