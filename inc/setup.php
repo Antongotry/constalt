@@ -553,25 +553,24 @@ add_action('wp_ajax_nopriv_constalt_submit_form', 'constalt_handle_form_submit')
 
 /**
  * Absolute URL for link previews (Open Graph, Telegram, Viber, Instagram, etc.).
- * Priority: optional theme PNG → Site Icon (Customizer) → bundled logo SVG.
+ * Default: OG image in Media Library; override via filter `constalt_default_share_image_url`.
  */
 function constalt_get_default_share_image_url(): string
 {
-    $png_path = get_template_directory() . '/assets/images/og-default.png';
+    /**
+     * Return a non-empty string to replace the default share image URL.
+     *
+     * @param string|null $url Optional override URL.
+     */
+    $filtered = apply_filters('constalt_default_share_image_url', null);
 
-    if (file_exists($png_path)) {
-        return esc_url(get_template_directory_uri() . '/assets/images/og-default.png');
+    if (is_string($filtered) && $filtered !== '') {
+        return esc_url($filtered);
     }
 
-    if (function_exists('get_site_icon_url')) {
-        $icon = get_site_icon_url(512);
+    $uploads_rel = '2026/04/OG-image_result.webp';
 
-        if ($icon !== '') {
-            return $icon;
-        }
-    }
-
-    return esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting.svg');
+    return esc_url(constalt_uploads_url($uploads_rel));
 }
 
 /**
