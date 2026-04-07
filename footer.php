@@ -13,7 +13,7 @@
             <a class="site-footer__logo-link" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('На головну', 'constalt'); ?>">
                 <img
                     class="site-footer__logo"
-                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting.svg'); ?>"
+                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-audit-consulting-on-dark.svg'); ?>"
                     alt="Audit Consulting"
                     loading="lazy"
                     decoding="async"

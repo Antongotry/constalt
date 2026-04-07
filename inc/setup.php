@@ -554,6 +554,7 @@ add_action('wp_ajax_nopriv_constalt_submit_form', 'constalt_handle_form_submit')
 /**
  * Absolute URL for link previews (Open Graph, Telegram, Viber, Instagram, etc.).
  * Default: OG image in Media Library; override via filter `constalt_default_share_image_url`.
+ * Appends ?v=filemtime when the file exists so Facebook/Instagram refresh the cache after replace.
  */
 function constalt_get_default_share_image_url(): string
 {
@@ -569,21 +570,52 @@ function constalt_get_default_share_image_url(): string
     }
 
     $uploads_rel = '2026/04/OG-image_result.webp';
+    $url = constalt_uploads_url($uploads_rel);
 
-    return esc_url(constalt_uploads_url($uploads_rel));
+    if (function_exists('wp_upload_dir')) {
+        $upload_dir = wp_upload_dir();
+
+        if (empty($upload_dir['error'])) {
+            $abs = trailingslashit($upload_dir['basedir']) . ltrim(str_replace('\\', '/', $uploads_rel), '/');
+
+            if (is_readable($abs)) {
+                $url = add_query_arg('v', (string) filemtime($abs), $url);
+            }
+        }
+    }
+
+    return esc_url($url);
 }
+
+/**
+ * Print share image tags as early as possible (Facebook often uses the first og:image in the document).
+ */
+function constalt_output_share_image_meta_early(): void
+{
+    if (is_admin()) {
+        return;
+    }
+
+    $image = constalt_get_default_share_image_url();
+
+    echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+    echo '<meta property="og:image:secure_url" content="' . esc_url($image) . '">' . "\n";
+    echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
+}
+add_action('wp_head', 'constalt_output_share_image_meta_early', 0);
 
 /**
  * Force default share image when Yoast SEO is active.
  *
- * @param string|false $image Previous image URL.
+ * @param mixed $image Previous image URL.
+ * @return string
  */
-function constalt_filter_wpseo_opengraph_image($image): string
+function constalt_filter_wpseo_opengraph_image($image)
 {
     return constalt_get_default_share_image_url();
 }
-add_filter('wpseo_opengraph_image', 'constalt_filter_wpseo_opengraph_image', 20);
-add_filter('wpseo_twitter_image', 'constalt_filter_wpseo_opengraph_image', 20);
+add_filter('wpseo_opengraph_image', 'constalt_filter_wpseo_opengraph_image', 999999);
+add_filter('wpseo_twitter_image', 'constalt_filter_wpseo_opengraph_image', 999999);
 
 /**
  * Rank Math: default Facebook / Open Graph image.
@@ -594,8 +626,19 @@ function constalt_filter_rank_math_og_image(string $image): string
 {
     return constalt_get_default_share_image_url();
 }
-add_filter('rank_math/opengraph/facebook/image', 'constalt_filter_rank_math_og_image', 20);
-add_filter('rank_math/opengraph/twitter/image', 'constalt_filter_rank_math_og_image', 20);
+add_filter('rank_math/opengraph/facebook/image', 'constalt_filter_rank_math_og_image', 999999);
+add_filter('rank_math/opengraph/twitter/image', 'constalt_filter_rank_math_og_image', 999999);
+
+/**
+ * Jetpack: default OG image when Jetpack adds Open Graph tags.
+ *
+ * @param string|false $image Previous image URL.
+ */
+function constalt_filter_jetpack_open_graph_image($image)
+{
+    return constalt_get_default_share_image_url();
+}
+add_filter('jetpack_open_graph_image_default', 'constalt_filter_jetpack_open_graph_image', 999999);
 
 /**
  * Open Graph + Twitter Card when no SEO plugin outputs them.
@@ -610,7 +653,6 @@ function constalt_output_share_meta_tags(): void
         return;
     }
 
-    $image = constalt_get_default_share_image_url();
     $title = wp_get_document_title();
     $desc = (string) get_bloginfo('description', 'display');
 
@@ -625,10 +667,8 @@ function constalt_output_share_meta_tags(): void
     echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
     echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
     echo '<meta property="og:description" content="' . esc_attr(wp_strip_all_tags($desc)) . '">' . "\n";
-    echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
     echo '<meta property="og:site_name" content="' . esc_attr(get_bloginfo('name')) . '">' . "\n";
     echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
     echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
-    echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
 }
 add_action('wp_head', 'constalt_output_share_meta_tags', 4);
