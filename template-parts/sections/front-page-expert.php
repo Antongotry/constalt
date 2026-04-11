@@ -4,55 +4,57 @@
  *
  * @package constalt
  */
+
+declare(strict_types=1);
+
+$content = constalt_get_home_expert_content();
+$quote_icon = constalt_resolve_media_url($content['quote_icon']);
+$photo = constalt_resolve_media_url($content['photo']);
+$badge_icon = constalt_resolve_media_url($content['badge_icon']);
+$details = is_array($content['details']) ? $content['details'] : [];
 ?>
 <section class="expert-section">
     <div class="expert-section__container">
         <div class="expert-section__layout">
             <div class="expert-section__left">
                 <div class="expert-section__quote">
-                    <img
-                        class="expert-section__quote-icon"
-                        src="<?php echo esc_url(constalt_uploads_url('2026/03/1233.svg')); ?>"
-                        alt=""
-                        aria-hidden="true"
-                        width="74" height="65"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                    <?php if ($quote_icon !== '') : ?>
+                        <img
+                            class="expert-section__quote-icon"
+                            src="<?php echo esc_url($quote_icon); ?>"
+                            alt=""
+                            aria-hidden="true"
+                            width="74" height="65"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    <?php endif; ?>
                     <h2 class="expert-section__quote-text">
-                        Ефективне управління починається там, де цифри трансформуються у стратегію.
-                        <strong>Мій фокус — антикризова стійкість, сценарії розвитку та захист капіталу в кожному ключовому рішенні.</strong>
+                        <?php echo constalt_render_inline_markup((string) $content['quote_text']); ?>
                     </h2>
                 </div>
 
                 <p class="expert-section__intro">
-                    Audit-Consulting — бутікова стратегічна експертиза для бізнесу в точках трансформації та зростання.
+                    <?php echo constalt_render_inline_markup((string) $content['intro_text']); ?>
                 </p>
 
                 <div class="expert-section__divider" aria-hidden="true"></div>
 
-                <h3 class="expert-section__name">Анна Левандовська</h3>
-                <p class="expert-section__role">власниця і CEO Audit-Consulting</p>
+                <h3 class="expert-section__name"><?php echo esc_html((string) $content['name']); ?></h3>
+                <p class="expert-section__role"><?php echo esc_html((string) $content['role']); ?></p>
 
                 <div class="expert-section__details">
                     <ul class="expert-section__list">
-                        <li class="expert-section__item">
-                            <strong>Expertise &amp; Advisory:</strong> Стратегічний радник з питань захисту активів, антикризового управління та масштабування бізнесу.
-                        </li>
-                        <li class="expert-section__item">
-                            <strong>Certified Corporate Director (ПАКУ):</strong> Впровадження стандартів корпоративного врядування та роботи рад директорів.
-                        </li>
-                        <li class="expert-section__item">
-                            <strong>Executive Management &amp; Transformation:</strong> 20+ років досвіду на рівні CEO та Group CFO у виробничих, агро- та девелоперських холдингах.
-                        </li>
-                        <li class="expert-section__item">
-                            <strong>Architecture of Change:</strong> Побудова ефективних систем управління бізнесом та цифрова трансформація.
-                        </li>
+                        <?php foreach ($details as $detail) : ?>
+                            <li class="expert-section__item">
+                                <?php echo constalt_render_inline_markup((string) ($detail['text'] ?? '')); ?>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
 
-                <a class="expert-section__link" href="#contact">
-                    <span>Детальніше про Audit-Consulting</span>
+                <a class="expert-section__link" href="<?php echo esc_url((string) $content['link_url']); ?>">
+                    <span><?php echo esc_html((string) $content['link_label']); ?></span>
                     <span class="expert-section__link-arrow" aria-hidden="true">
                         <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.5 13.5L13.5 4.5" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
@@ -64,29 +66,37 @@
 
             <div class="expert-section__right">
                 <div class="expert-section__photo-frame">
-                    <div class="expert-section__photo" aria-hidden="true"></div>
+                    <div
+                        class="expert-section__photo"
+                        aria-hidden="true"
+                        <?php if ($photo !== '') : ?>
+                            style="--constalt-media-expert-photo: url('<?php echo esc_url($photo); ?>');"
+                        <?php endif; ?>
+                    ></div>
                 </div>
 
-                <article class="expert-stat-card" aria-label="20+ років управлінського та фінансового досвіду">
+                <article class="expert-stat-card" aria-label="<?php echo esc_attr((string) $content['stat_value'] . (string) $content['stat_suffix'] . ' ' . str_replace("\n", ' ', (string) $content['stat_label'])); ?>">
                     <div class="expert-stat-card__inner">
-                        <p class="expert-stat-card__label">управлінського<br>та фінансового досвіду</p>
+                        <p class="expert-stat-card__label"><?php echo nl2br(esc_html((string) $content['stat_label'])); ?></p>
 
                         <div class="expert-stat-card__value-wrap">
-                            <span class="expert-stat-card__value">20</span>
-                            <span class="expert-stat-card__plus">+</span>
-                            <span class="expert-stat-card__years">років</span>
+                            <span class="expert-stat-card__value"><?php echo esc_html((string) $content['stat_value']); ?></span>
+                            <span class="expert-stat-card__plus"><?php echo esc_html((string) $content['stat_suffix']); ?></span>
+                            <span class="expert-stat-card__years"><?php echo esc_html((string) $content['stat_years_label']); ?></span>
                         </div>
                     </div>
 
                     <div class="expert-stat-card__badge" aria-hidden="true">
                         <div class="expert-stat-card__badge-inner">
-                            <img
-                                src="<?php echo esc_url(constalt_uploads_url('2026/03/Frame-1321317016.svg')); ?>"
-                                alt=""
-                                width="24" height="24"
-                                loading="lazy"
-                                decoding="async"
-                            >
+                            <?php if ($badge_icon !== '') : ?>
+                                <img
+                                    src="<?php echo esc_url($badge_icon); ?>"
+                                    alt=""
+                                    width="24" height="24"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            <?php endif; ?>
                         </div>
                     </div>
                 </article>

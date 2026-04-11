@@ -4,58 +4,38 @@
  *
  * @package constalt
  */
+
+declare(strict_types=1);
+
+$content = constalt_get_home_partners_content();
+$items = is_array($content['items']) ? $content['items'] : [];
 ?>
 <section class="partners-section">
     <div class="partners-section__container">
         <div class="partners-section__marker">
             <span class="partners-section__marker-dot" aria-hidden="true"></span>
-            <p class="partners-section__marker-text">Партнери</p>
+            <p class="partners-section__marker-text"><?php echo constalt_render_inline_markup((string) $content['marker_text']); ?></p>
         </div>
 
         <div class="partners-grid">
-            <article class="partners-card">
-                <img
-                    class="partners-card__logo partners-card__logo--paku"
-                    src="<?php echo esc_url(constalt_uploads_url('2026/03/br1_result.webp')); ?>"
-                    alt="Професійна асоціація корпоративного управління"
-                    width="285" height="117"
-                    loading="lazy"
-                    decoding="async"
-                >
-            </article>
-
-            <article class="partners-card">
-                <img
-                    class="partners-card__logo partners-card__logo--tg"
-                    src="<?php echo esc_url(constalt_uploads_url('2026/03/br2_result.webp')); ?>"
-                    alt="TG Consulting"
-                    width="240" height="60"
-                    loading="lazy"
-                    decoding="async"
-                >
-            </article>
-
-            <article class="partners-card">
-                <img
-                    class="partners-card__logo partners-card__logo--hbpi"
-                    src="<?php echo esc_url(constalt_uploads_url('2026/03/br-3_result.webp')); ?>"
-                    alt="hbpi consulting"
-                    width="170" height="94"
-                    loading="lazy"
-                    decoding="async"
-                >
-            </article>
-
-            <article class="partners-card">
-                <img
-                    class="partners-card__logo partners-card__logo--auditservice"
-                    src="<?php echo esc_url(constalt_uploads_url('2026/03/br-4_result.webp')); ?>"
-                    alt="Аудитсервіс"
-                    width="283" height="58"
-                    loading="lazy"
-                    decoding="async"
-                >
-            </article>
+            <?php foreach ($items as $item) : ?>
+                <?php
+                $logo = constalt_resolve_media_url($item['logo'] ?? '');
+                $modifier = sanitize_html_class((string) ($item['modifier'] ?? 'default'));
+                $modifier_class = $modifier !== 'default' && $modifier !== '' ? ' partners-card__logo--' . $modifier : '';
+                ?>
+                <article class="partners-card">
+                    <?php if ($logo !== '') : ?>
+                        <img
+                            class="partners-card__logo<?php echo esc_attr($modifier_class); ?>"
+                            src="<?php echo esc_url($logo); ?>"
+                            alt="<?php echo esc_attr((string) ($item['alt'] ?? '')); ?>"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    <?php endif; ?>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

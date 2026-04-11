@@ -4,25 +4,27 @@
  *
  * @package constalt
  */
+
+declare(strict_types=1);
+
+$content = constalt_get_home_insight_content();
 ?>
 <section class="insight-section">
     <div class="insight-section__line-top" aria-hidden="true"></div>
 
     <div class="insight-section__marker">
         <span class="insight-section__marker-dot" aria-hidden="true"></span>
-        <p class="insight-section__marker-text">Бізнес потребує системної навігації.</p>
+        <p class="insight-section__marker-text"><?php echo constalt_render_inline_markup((string) $content['marker_text']); ?></p>
     </div>
 
     <h2 class="insight-section__title">
-        Коли власник бачить лише окремі показники — фінанси, управління або ризики —
-        <strong>рішення часто приймаються всліпу.</strong>
+        <?php echo constalt_render_inline_markup((string) $content['title']); ?>
     </h2>
 
     <div class="insight-section__line-vertical" aria-hidden="true"></div>
 
     <p class="insight-section__summary">
-        Повна картина з’являється тоді, коли ці елементи зведені разом.
-        <strong>Саме на їх перетині виникають ситуації, що потребують участі власника:</strong>
+        <?php echo constalt_render_inline_markup((string) $content['summary']); ?>
     </p>
 
     <?php get_template_part('template-parts/sections/front-page-insight', 'maze'); ?>

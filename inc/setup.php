@@ -446,8 +446,14 @@ add_action('template_redirect', 'constalt_force_privacy_policy_route_template', 
  */
 function constalt_preload_lcp_image(): void
 {
-    $mobile_hero = constalt_uploads_url('2026/03/Frame-2087325716_result.webp');
-    $desktop_hero = constalt_uploads_url('2026/03/hero-desc_result-scaled.webp');
+    $hero_content = function_exists('constalt_get_home_hero_content')
+        ? constalt_get_home_hero_content()
+        : [
+            'mobile_poster' => '2026/03/Frame-2087325716_result.webp',
+            'desktop_poster' => '2026/03/hero-desc_result-scaled.webp',
+        ];
+    $mobile_hero = constalt_resolve_media_url($hero_content['mobile_poster'] ?? '', constalt_uploads_url('2026/03/Frame-2087325716_result.webp'));
+    $desktop_hero = constalt_resolve_media_url($hero_content['desktop_poster'] ?? '', constalt_uploads_url('2026/03/hero-desc_result-scaled.webp'));
 
     echo '<link rel="preload" as="image" href="' . esc_url($mobile_hero) . '" media="(max-width: 1024px)">' . "\n";
     echo '<link rel="preload" as="image" href="' . esc_url($desktop_hero) . '" media="(min-width: 1025px)">' . "\n";

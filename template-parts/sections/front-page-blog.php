@@ -5,6 +5,9 @@
  * @package constalt
  */
 
+declare(strict_types=1);
+
+$content = constalt_get_home_blog_content();
 $blog_posts = get_posts(
     array(
         'post_type'           => 'post',
@@ -33,10 +36,10 @@ $get_post_categories = static function (int $post_id): array {
         <div class="blog-section__head">
             <div class="blog-section__marker">
                 <span class="blog-section__marker-dot" aria-hidden="true"></span>
-                <p class="blog-section__marker-text">Блог</p>
+                <p class="blog-section__marker-text"><?php echo constalt_render_inline_markup((string) $content['marker_text']); ?></p>
             </div>
 
-            <h2 class="blog-section__title">Експертиза і новини</h2>
+            <h2 class="blog-section__title"><?php echo esc_html((string) $content['title']); ?></h2>
         </div>
 
         <?php if ($primary_post) : ?>
@@ -119,10 +122,10 @@ $get_post_categories = static function (int $post_id): array {
             </div>
 
             <a class="blog-section__all-link" href="<?php echo esc_url($blog_archive_link); ?>">
-                <span>Усі новини</span>
+                <span><?php echo esc_html((string) $content['all_link_label']); ?></span>
             </a>
         <?php else : ?>
-            <p class="blog-section__empty">Додайте записи блогу, щоб показати цей блок.</p>
+            <p class="blog-section__empty"><?php echo esc_html((string) $content['empty_text']); ?></p>
         <?php endif; ?>
     </div>
 </section>
