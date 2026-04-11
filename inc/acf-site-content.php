@@ -950,7 +950,7 @@ function constalt_acf_repeater(string $key_base, string $label, string $name, ar
             'name' => $name,
             'type' => 'repeater',
             'layout' => 'block',
-            'button_label' => 'Добавить элемент',
+            'button_label' => 'Додати елемент',
             'sub_fields' => $sub_fields,
         ],
         $settings
@@ -972,13 +972,13 @@ function constalt_acf_button_group(string $key_base, string $label, string $name
             constalt_acf_field($key_base . '_label', 'Текст кнопки', 'label', 'text', [
                 'default_value' => $defaults['label'] ?? '',
             ]),
-            constalt_acf_field($key_base . '_url', 'Ссылка / якорь', 'url', 'text', [
+            constalt_acf_field($key_base . '_url', 'Посилання / якір', 'url', 'text', [
                 'default_value' => $defaults['url'] ?? '',
-                'instructions' => 'Можно указать URL, относительную ссылку или якорь вроде #services.',
+                'instructions' => 'Можна вказати URL, відносне посилання або якір на кшталт #services.',
             ]),
-            constalt_acf_field($key_base . '_popup_key', 'Popup key', 'popup_key', 'text', [
+            constalt_acf_field($key_base . '_popup_key', 'Ключ popup', 'popup_key', 'text', [
                 'default_value' => $defaults['popup_key'] ?? '',
-                'instructions' => 'Если заполнено, кнопка откроет popup по этому ключу.',
+                'instructions' => 'Якщо поле заповнене, кнопка відкриє popup за цим ключем.',
             ]),
         ]
     );
@@ -995,8 +995,8 @@ function constalt_register_site_content_options_pages(): void
 
     acf_add_options_page(
         [
-            'page_title' => 'Контент сайта',
-            'menu_title' => 'Контент сайта',
+            'page_title' => 'Контент сайту',
+            'menu_title' => 'Контент сайту',
             'menu_slug' => 'constalt-site-content',
             'capability' => 'edit_posts',
             'redirect' => true,
@@ -1007,8 +1007,8 @@ function constalt_register_site_content_options_pages(): void
 
     acf_add_options_sub_page(
         [
-            'page_title' => 'Главная',
-            'menu_title' => 'Главная',
+            'page_title' => 'Головна',
+            'menu_title' => 'Головна',
             'parent_slug' => 'constalt-site-content',
             'menu_slug' => 'constalt-home-content',
             'capability' => 'edit_posts',
@@ -1017,8 +1017,8 @@ function constalt_register_site_content_options_pages(): void
 
     acf_add_options_sub_page(
         [
-            'page_title' => 'Контакты',
-            'menu_title' => 'Контакты',
+            'page_title' => 'Контакти',
+            'menu_title' => 'Контакти',
             'parent_slug' => 'constalt-site-content',
             'menu_slug' => 'constalt-contacts-content',
             'capability' => 'edit_posts',
@@ -1052,12 +1052,12 @@ function constalt_register_site_content_field_groups(): void
     acf_add_local_field_group(
         [
             'key' => 'group_constalt_home_content',
-            'title' => 'Контент главной страницы',
+            'title' => 'Контент головної сторінки',
             'fields' => [
-                constalt_acf_tab('home_tab_hero', 'Hero'),
+                constalt_acf_tab('home_tab_hero', 'Головний екран'),
                 constalt_acf_group(
                     'home_hero_group',
-                    'Hero блок',
+                    'Головний екран',
                     'constalt_home_hero',
                     [
                         constalt_acf_field('home_hero_preview_text', 'Текст над заголовком', 'preview_text', 'text', [
@@ -1066,37 +1066,37 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_hero_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $hero_defaults['title'],
                             'rows' => 4,
-                            'instructions' => 'Каждая новая строка станет отдельной строкой заголовка. Допустимы <strong> и <br>.',
+                            'instructions' => 'Кожен новий рядок стане окремим рядком заголовка. Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_hero_description', 'Описание', 'description', 'textarea', [
+                        constalt_acf_field('home_hero_description', 'Опис', 'description', 'textarea', [
                             'default_value' => $hero_defaults['description'],
                             'rows' => 3,
                         ]),
-                        constalt_acf_field('home_hero_desktop_poster', 'Постер desktop', 'desktop_poster', 'image', [
+                        constalt_acf_field('home_hero_desktop_poster', 'Постер для десктопу', 'desktop_poster', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_hero_mobile_poster', 'Постер mobile', 'mobile_poster', 'image', [
+                        constalt_acf_field('home_hero_mobile_poster', 'Постер для мобільної версії', 'mobile_poster', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_hero_desktop_video', 'Видео desktop', 'desktop_video', 'file', [
+                        constalt_acf_field('home_hero_desktop_video', 'Відео для десктопу', 'desktop_video', 'file', [
                             'return_format' => 'array',
                             'mime_types' => 'mp4,mov,webm',
                         ]),
-                        constalt_acf_field('home_hero_mobile_video', 'Видео mobile', 'mobile_video', 'file', [
+                        constalt_acf_field('home_hero_mobile_video', 'Відео для мобільної версії', 'mobile_video', 'file', [
                             'return_format' => 'array',
                             'mime_types' => 'mp4,mov,webm',
                         ]),
-                        constalt_acf_button_group('home_hero_primary_button', 'Основная кнопка', 'primary_button', $hero_defaults['primary_button']),
-                        constalt_acf_button_group('home_hero_secondary_button', 'Вторичная кнопка', 'secondary_button', $hero_defaults['secondary_button']),
+                        constalt_acf_button_group('home_hero_primary_button', 'Основна кнопка', 'primary_button', $hero_defaults['primary_button']),
+                        constalt_acf_button_group('home_hero_secondary_button', 'Додаткова кнопка', 'secondary_button', $hero_defaults['secondary_button']),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_insight', 'Insight'),
+                constalt_acf_tab('home_tab_insight', 'Інсайт'),
                 constalt_acf_group(
                     'home_insight_group',
-                    'Insight блок',
+                    'Інсайт-блок',
                     'constalt_home_insight',
                     [
                         constalt_acf_field('home_insight_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1105,28 +1105,28 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_insight_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $insight_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_insight_summary', 'Подзаголовок', 'summary', 'textarea', [
+                        constalt_acf_field('home_insight_summary', 'Підзаголовок', 'summary', 'textarea', [
                             'default_value' => $insight_defaults['summary'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_insight_maze_image', 'Фоновое изображение лабиринта', 'maze_image', 'image', [
+                        constalt_acf_field('home_insight_maze_image', 'Фонове зображення лабіринту', 'maze_image', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
                         constalt_acf_repeater(
                             'home_insight_cards',
-                            'Карточки поверх лабиринта',
+                            'Картки поверх лабіринту',
                             'cards',
                             [
-                                constalt_acf_field('home_insight_card_position', 'Позиция', 'position', 'select', [
+                                constalt_acf_field('home_insight_card_position', 'Позиція', 'position', 'select', [
                                     'choices' => [
-                                        'top-left' => 'Слева сверху',
-                                        'top-right' => 'Справа сверху',
-                                        'bottom-left' => 'Слева снизу',
-                                        'bottom-right' => 'Справа снизу',
+                                        'top-left' => 'Ліворуч зверху',
+                                        'top-right' => 'Праворуч зверху',
+                                        'bottom-left' => 'Ліворуч знизу',
+                                        'bottom-right' => 'Праворуч знизу',
                                     ],
                                     'default_value' => 'top-left',
                                     'ui' => 1,
@@ -1140,16 +1140,16 @@ function constalt_register_site_content_field_groups(): void
                                 ]),
                             ],
                             [
-                                'button_label' => 'Добавить карточку',
+                                'button_label' => 'Додати картку',
                             ]
                         ),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_services', 'Services'),
+                constalt_acf_tab('home_tab_services', 'Послуги'),
                 constalt_acf_group(
                     'home_services_group',
-                    'Блок услуг',
+                    'Блок послуг',
                     'constalt_home_services',
                     [
                         constalt_acf_field('home_services_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1158,74 +1158,74 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_services_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $services_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
                         constalt_acf_repeater(
                             'home_services_items',
-                            'Карточки услуг',
+                            'Картки послуг',
                             'items',
                             [
-                                constalt_acf_field('home_services_item_theme', 'Тема карточки', 'theme', 'select', [
+                                constalt_acf_field('home_services_item_theme', 'Тема картки', 'theme', 'select', [
                                     'choices' => [
-                                        'finance' => 'Финансы',
-                                        'corporate' => 'Корпоративное управление',
+                                        'finance' => 'Фінанси',
+                                        'corporate' => 'Корпоративне управління',
                                         'due-diligence' => 'Due Diligence',
-                                        'legal' => 'Юридический блок',
+                                        'legal' => 'Юридичний блок',
                                     ],
                                     'default_value' => 'finance',
                                     'ui' => 1,
                                 ]),
-                                constalt_acf_field('home_services_item_tab_label', 'Текст таба', 'tab_label', 'textarea', [
+                                constalt_acf_field('home_services_item_tab_label', 'Текст табу', 'tab_label', 'textarea', [
                                     'rows' => 2,
-                                    'instructions' => 'Перенос строки допустим.',
+                                    'instructions' => 'Перенесення рядка дозволене.',
                                 ]),
-                                constalt_acf_field('home_services_item_title', 'Заголовок карточки', 'title', 'textarea', [
+                                constalt_acf_field('home_services_item_title', 'Заголовок картки', 'title', 'textarea', [
                                     'rows' => 3,
-                                    'instructions' => 'Допустимы <strong> и <br>.',
+                                    'instructions' => 'Дозволені <strong> і <br>.',
                                 ]),
-                                constalt_acf_field('home_services_item_subtitle', 'Подзаголовок', 'subtitle', 'textarea', [
+                                constalt_acf_field('home_services_item_subtitle', 'Підзаголовок', 'subtitle', 'textarea', [
                                     'rows' => 2,
                                 ]),
-                                constalt_acf_field('home_services_item_problem_label', 'Подпись блока проблемы', 'problem_label', 'text', [
+                                constalt_acf_field('home_services_item_problem_label', 'Підпис блоку проблеми', 'problem_label', 'text', [
                                     'default_value' => 'Проблема',
                                 ]),
-                                constalt_acf_field('home_services_item_problem_text', 'Текст проблемы', 'problem_text', 'textarea', [
+                                constalt_acf_field('home_services_item_problem_text', 'Текст проблеми', 'problem_text', 'textarea', [
                                     'rows' => 3,
                                 ]),
-                                constalt_acf_field('home_services_item_problem_tall', 'Высокий блок проблемы', 'problem_tall', 'true_false', [
+                                constalt_acf_field('home_services_item_problem_tall', 'Високий блок проблеми', 'problem_tall', 'true_false', [
                                     'ui' => 1,
                                 ]),
-                                constalt_acf_field('home_services_item_doing_label', 'Подпись блока "Что делаем"', 'doing_label', 'text', [
+                                constalt_acf_field('home_services_item_doing_label', 'Підпис блоку "Що робимо"', 'doing_label', 'text', [
                                     'default_value' => 'Що ми робимо:',
                                 ]),
-                                constalt_acf_field('home_services_item_doing_text', 'Текст "Что делаем"', 'doing_text', 'textarea', [
+                                constalt_acf_field('home_services_item_doing_text', 'Текст "Що робимо"', 'doing_text', 'textarea', [
                                     'rows' => 4,
-                                    'instructions' => 'Допустимы <strong> и <br>.',
+                                    'instructions' => 'Дозволені <strong> і <br>.',
                                 ]),
-                                constalt_acf_field('home_services_item_result_label', 'Подпись результата', 'result_label', 'text', [
+                                constalt_acf_field('home_services_item_result_label', 'Підпис результату', 'result_label', 'text', [
                                     'default_value' => 'Результат',
                                 ]),
-                                constalt_acf_field('home_services_item_result_text', 'Текст результата', 'result_text', 'textarea', [
+                                constalt_acf_field('home_services_item_result_text', 'Текст результату', 'result_text', 'textarea', [
                                     'rows' => 3,
                                 ]),
-                                constalt_acf_field('home_services_item_image', 'Изображение', 'image', 'image', [
+                                constalt_acf_field('home_services_item_image', 'Зображення', 'image', 'image', [
                                     'return_format' => 'array',
                                     'preview_size' => 'medium',
                                 ]),
-                                constalt_acf_button_group('home_services_item_primary_button', 'Основная кнопка', 'primary_button', constalt_default_button('Обговорити задачу')),
-                                constalt_acf_button_group('home_services_item_secondary_button', 'Вторичная кнопка', 'secondary_button', constalt_default_button('Детальніше')),
+                                constalt_acf_button_group('home_services_item_primary_button', 'Основна кнопка', 'primary_button', constalt_default_button('Обговорити задачу')),
+                                constalt_acf_button_group('home_services_item_secondary_button', 'Додаткова кнопка', 'secondary_button', constalt_default_button('Детальніше')),
                             ],
                             [
-                                'button_label' => 'Добавить услугу',
+                                'button_label' => 'Додати послугу',
                             ]
                         ),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_collaboration', 'Collaboration'),
+                constalt_acf_tab('home_tab_collaboration', 'Співпраця'),
                 constalt_acf_group(
                     'home_collaboration_group',
-                    'Блок форматов сотрудничества',
+                    'Блок форматів співпраці',
                     'constalt_home_collaboration',
                     [
                         constalt_acf_field('home_collaboration_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1234,18 +1234,18 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_collaboration_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $collaboration_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
                         constalt_acf_repeater(
                             'home_collaboration_cards',
-                            'Карточки',
+                            'Картки',
                             'cards',
                             [
-                                constalt_acf_field('home_collaboration_card_style', 'Стиль карточки', 'style', 'select', [
+                                constalt_acf_field('home_collaboration_card_style', 'Стиль картки', 'style', 'select', [
                                     'choices' => [
-                                        'expert' => 'Тёмная / Экспертная консультация',
-                                        'project' => 'Светлая / Проектная работа',
-                                        'strategic' => 'Градиент / Стратегический супровід',
+                                        'expert' => 'Темна / Експертна консультація',
+                                        'project' => 'Світла / Проєктна робота',
+                                        'strategic' => 'Градієнт / Стратегічний супровід',
                                     ],
                                     'default_value' => 'expert',
                                     'ui' => 1,
@@ -1255,36 +1255,36 @@ function constalt_register_site_content_field_groups(): void
                                     'preview_size' => 'thumbnail',
                                 ]),
                                 constalt_acf_field('home_collaboration_card_title', 'Заголовок', 'title', 'text'),
-                                constalt_acf_field('home_collaboration_card_subtitle', 'Подзаголовок', 'subtitle', 'textarea', [
+                                constalt_acf_field('home_collaboration_card_subtitle', 'Підзаголовок', 'subtitle', 'textarea', [
                                     'rows' => 3,
-                                    'instructions' => 'Допустимы <strong> и <br>.',
+                                    'instructions' => 'Дозволені <strong> і <br>.',
                                 ]),
-                                constalt_acf_field('home_collaboration_card_format_label', 'Подпись списка', 'format_label', 'text', [
+                                constalt_acf_field('home_collaboration_card_format_label', 'Підпис списку', 'format_label', 'text', [
                                     'default_value' => 'Формат',
                                 ]),
-                                constalt_acf_field('home_collaboration_card_format_items', 'Список формата', 'format_items', 'textarea', [
+                                constalt_acf_field('home_collaboration_card_format_items', 'Список формату', 'format_items', 'textarea', [
                                     'rows' => 4,
-                                    'instructions' => 'Каждая новая строка станет отдельным пунктом.',
+                                    'instructions' => 'Кожен новий рядок стане окремим пунктом.',
                                 ]),
-                                constalt_acf_field('home_collaboration_card_result_label', 'Подпись результата', 'result_label', 'text', [
+                                constalt_acf_field('home_collaboration_card_result_label', 'Підпис результату', 'result_label', 'text', [
                                     'default_value' => 'Результат',
                                 ]),
-                                constalt_acf_field('home_collaboration_card_result_text', 'Текст результата', 'result_text', 'textarea', [
+                                constalt_acf_field('home_collaboration_card_result_text', 'Текст результату', 'result_text', 'textarea', [
                                     'rows' => 2,
                                 ]),
                                 constalt_acf_button_group('home_collaboration_card_button', 'Кнопка', 'button', constalt_default_button('Залишити заявку')),
                             ],
                             [
-                                'button_label' => 'Добавить карточку',
+                                'button_label' => 'Додати картку',
                             ]
                         ),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_trust', 'Trust'),
+                constalt_acf_tab('home_tab_trust', 'Довіра'),
                 constalt_acf_group(
                     'home_trust_group',
-                    'Блок доверия',
+                    'Блок довіри',
                     'constalt_home_trust',
                     [
                         constalt_acf_field('home_trust_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1293,45 +1293,45 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_trust_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $trust_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_trust_background_left', 'Левый фон', 'background_left', 'image', [
+                        constalt_acf_field('home_trust_background_left', 'Лівий фон', 'background_left', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_trust_background_right', 'Правый фон', 'background_right', 'image', [
+                        constalt_acf_field('home_trust_background_right', 'Правий фон', 'background_right', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
                         constalt_acf_repeater(
                             'home_trust_items',
-                            'Пункты таймлайна',
+                            'Пункти таймлайну',
                             'items',
                             [
                                 constalt_acf_field('home_trust_item_title', 'Заголовок', 'title', 'text'),
                                 constalt_acf_field('home_trust_item_text', 'Текст', 'text', 'textarea', [
                                     'rows' => 3,
                                 ]),
-                                constalt_acf_field('home_trust_item_active_icon', 'Иконка активного состояния', 'active_icon', 'image', [
+                                constalt_acf_field('home_trust_item_active_icon', 'Іконка активного стану', 'active_icon', 'image', [
                                     'return_format' => 'array',
                                     'preview_size' => 'thumbnail',
                                 ]),
-                                constalt_acf_field('home_trust_item_inactive_icon', 'Иконка обычного состояния', 'inactive_icon', 'image', [
+                                constalt_acf_field('home_trust_item_inactive_icon', 'Іконка звичайного стану', 'inactive_icon', 'image', [
                                     'return_format' => 'array',
                                     'preview_size' => 'thumbnail',
                                 ]),
                             ],
                             [
-                                'button_label' => 'Добавить пункт',
+                                'button_label' => 'Додати пункт',
                             ]
                         ),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_about', 'About'),
+                constalt_acf_tab('home_tab_about', 'Про нас'),
                 constalt_acf_group(
                     'home_about_group',
-                    'Блок о компании',
+                    'Блок про компанію',
                     'constalt_home_about',
                     [
                         constalt_acf_field('home_about_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1340,69 +1340,69 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_about_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $about_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_about_card_desktop_image', 'Фон карточки desktop', 'card_desktop_image', 'image', [
+                        constalt_acf_field('home_about_card_desktop_image', 'Фон картки для десктопу', 'card_desktop_image', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_about_card_mobile_image', 'Фон карточки mobile', 'card_mobile_image', 'image', [
+                        constalt_acf_field('home_about_card_mobile_image', 'Фон картки для мобільної версії', 'card_mobile_image', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_about_lead_text', 'Текст в стеклянной карточке', 'lead_text', 'textarea', [
+                        constalt_acf_field('home_about_lead_text', 'Текст у скляній картці', 'lead_text', 'textarea', [
                             'default_value' => $about_defaults['lead_text'],
                             'rows' => 2,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_about_lead_subtext', 'Вторая строка стеклянной карточки', 'lead_subtext', 'textarea', [
+                        constalt_acf_field('home_about_lead_subtext', 'Другий рядок скляної картки', 'lead_subtext', 'textarea', [
                             'default_value' => $about_defaults['lead_subtext'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('home_about_plain_title', 'Заголовок нижнего текста', 'plain_title', 'textarea', [
+                        constalt_acf_field('home_about_plain_title', 'Заголовок нижнього тексту', 'plain_title', 'textarea', [
                             'default_value' => $about_defaults['plain_title'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('home_about_plain_text', 'Нижний текст', 'plain_text', 'textarea', [
+                        constalt_acf_field('home_about_plain_text', 'Нижній текст', 'plain_text', 'textarea', [
                             'default_value' => $about_defaults['plain_text'],
                             'rows' => 3,
                         ]),
-                        constalt_acf_field('home_about_year_prefix', 'Префикс года', 'year_prefix', 'text', [
+                        constalt_acf_field('home_about_year_prefix', 'Префікс року', 'year_prefix', 'text', [
                             'default_value' => $about_defaults['year_prefix'],
                         ]),
-                        constalt_acf_field('home_about_year_number', 'Год', 'year_number', 'text', [
+                        constalt_acf_field('home_about_year_number', 'Рік', 'year_number', 'text', [
                             'default_value' => $about_defaults['year_number'],
                         ]),
-                        constalt_acf_field('home_about_year_suffix', 'Суффикс года', 'year_suffix', 'text', [
+                        constalt_acf_field('home_about_year_suffix', 'Суфікс року', 'year_suffix', 'text', [
                             'default_value' => $about_defaults['year_suffix'],
                         ]),
-                        constalt_acf_field('home_about_year_text', 'Текст возле года', 'year_text', 'textarea', [
+                        constalt_acf_field('home_about_year_text', 'Текст біля року', 'year_text', 'textarea', [
                             'default_value' => $about_defaults['year_text'],
                             'rows' => 3,
                         ]),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_expert', 'Expert'),
+                constalt_acf_tab('home_tab_expert', 'Експерт'),
                 constalt_acf_group(
                     'home_expert_group',
-                    'Блок эксперта',
+                    'Блок експерта',
                     'constalt_home_expert',
                     [
-                        constalt_acf_field('home_expert_quote_icon', 'Иконка цитаты', 'quote_icon', 'image', [
+                        constalt_acf_field('home_expert_quote_icon', 'Іконка цитати', 'quote_icon', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'thumbnail',
                         ]),
                         constalt_acf_field('home_expert_quote_text', 'Цитата', 'quote_text', 'textarea', [
                             'default_value' => $expert_defaults['quote_text'],
                             'rows' => 4,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_expert_intro_text', 'Вступление', 'intro_text', 'textarea', [
+                        constalt_acf_field('home_expert_intro_text', 'Вступ', 'intro_text', 'textarea', [
                             'default_value' => $expert_defaults['intro_text'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('home_expert_name', 'Имя', 'name', 'text', [
+                        constalt_acf_field('home_expert_name', 'Ім’я', 'name', 'text', [
                             'default_value' => $expert_defaults['name'],
                         ]),
                         constalt_acf_field('home_expert_role', 'Роль', 'role', 'text', [
@@ -1410,53 +1410,53 @@ function constalt_register_site_content_field_groups(): void
                         ]),
                         constalt_acf_repeater(
                             'home_expert_details',
-                            'Список компетенций',
+                            'Список компетенцій',
                             'details',
                             [
-                                constalt_acf_field('home_expert_detail_text', 'Текст пункта', 'text', 'textarea', [
+                                constalt_acf_field('home_expert_detail_text', 'Текст пункту', 'text', 'textarea', [
                                     'rows' => 3,
-                                    'instructions' => 'Допустимы <strong> и <br>.',
+                                    'instructions' => 'Дозволені <strong> і <br>.',
                                 ]),
                             ],
                             [
-                                'button_label' => 'Добавить пункт',
+                                'button_label' => 'Додати пункт',
                             ]
                         ),
-                        constalt_acf_field('home_expert_link_label', 'Текст ссылки', 'link_label', 'text', [
+                        constalt_acf_field('home_expert_link_label', 'Текст посилання', 'link_label', 'text', [
                             'default_value' => $expert_defaults['link_label'],
                         ]),
-                        constalt_acf_field('home_expert_link_url', 'Ссылка', 'link_url', 'text', [
+                        constalt_acf_field('home_expert_link_url', 'Посилання', 'link_url', 'text', [
                             'default_value' => $expert_defaults['link_url'],
-                            'instructions' => 'Можно указать URL, относительную ссылку или якорь вроде #contact.',
+                            'instructions' => 'Можна вказати URL, відносне посилання або якір на кшталт #contact.',
                         ]),
-                        constalt_acf_field('home_expert_photo', 'Фото эксперта', 'photo', 'image', [
+                        constalt_acf_field('home_expert_photo', 'Фото експерта', 'photo', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
-                        constalt_acf_field('home_expert_stat_label', 'Подпись статистики', 'stat_label', 'textarea', [
+                        constalt_acf_field('home_expert_stat_label', 'Підпис статистики', 'stat_label', 'textarea', [
                             'default_value' => $expert_defaults['stat_label'],
                             'rows' => 2,
                         ]),
                         constalt_acf_field('home_expert_stat_value', 'Число', 'stat_value', 'text', [
                             'default_value' => $expert_defaults['stat_value'],
                         ]),
-                        constalt_acf_field('home_expert_stat_suffix', 'Суффикс числа', 'stat_suffix', 'text', [
+                        constalt_acf_field('home_expert_stat_suffix', 'Суфікс числа', 'stat_suffix', 'text', [
                             'default_value' => $expert_defaults['stat_suffix'],
                         ]),
-                        constalt_acf_field('home_expert_stat_years_label', 'Подпись возле числа', 'stat_years_label', 'text', [
+                        constalt_acf_field('home_expert_stat_years_label', 'Підпис біля числа', 'stat_years_label', 'text', [
                             'default_value' => $expert_defaults['stat_years_label'],
                         ]),
-                        constalt_acf_field('home_expert_badge_icon', 'Иконка badge', 'badge_icon', 'image', [
+                        constalt_acf_field('home_expert_badge_icon', 'Іконка badge', 'badge_icon', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'thumbnail',
                         ]),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_partners', 'Partners'),
+                constalt_acf_tab('home_tab_partners', 'Партнери'),
                 constalt_acf_group(
                     'home_partners_group',
-                    'Блок партнеров',
+                    'Блок партнерів',
                     'constalt_home_partners',
                     [
                         constalt_acf_field('home_partners_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1464,16 +1464,16 @@ function constalt_register_site_content_field_groups(): void
                         ]),
                         constalt_acf_repeater(
                             'home_partners_items',
-                            'Логотипы',
+                            'Логотипи',
                             'items',
                             [
-                                constalt_acf_field('home_partners_item_modifier', 'Размер / стиль', 'modifier', 'select', [
+                                constalt_acf_field('home_partners_item_modifier', 'Розмір / стиль', 'modifier', 'select', [
                                     'choices' => [
                                         'paku' => 'Paku',
                                         'tg' => 'TG',
                                         'hbpi' => 'HBPI',
                                         'auditservice' => 'Auditservice',
-                                        'default' => 'Обычный',
+                                        'default' => 'Звичайний',
                                     ],
                                     'default_value' => 'default',
                                     'ui' => 1,
@@ -1482,57 +1482,57 @@ function constalt_register_site_content_field_groups(): void
                                     'return_format' => 'array',
                                     'preview_size' => 'medium',
                                 ]),
-                                constalt_acf_field('home_partners_item_alt', 'Alt текст', 'alt', 'text'),
+                                constalt_acf_field('home_partners_item_alt', 'Alt-текст', 'alt', 'text'),
                             ],
                             [
-                                'button_label' => 'Добавить логотип',
+                                'button_label' => 'Додати логотип',
                             ]
                         ),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_contact', 'Contact CTA'),
+                constalt_acf_tab('home_tab_contact', 'Контактна форма'),
                 constalt_acf_group(
                     'home_contact_group',
-                    'Форма на главной',
+                    'Форма на головній',
                     'constalt_home_contact',
                     [
                         constalt_acf_field('home_contact_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $contact_defaults['title'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_contact_description', 'Описание', 'description', 'textarea', [
+                        constalt_acf_field('home_contact_description', 'Опис', 'description', 'textarea', [
                             'default_value' => $contact_defaults['description'],
                             'rows' => 3,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
-                        constalt_acf_field('home_contact_name_placeholder', 'Плейсхолдер имени', 'name_placeholder', 'text', [
+                        constalt_acf_field('home_contact_name_placeholder', 'Підказка для імені', 'name_placeholder', 'text', [
                             'default_value' => $contact_defaults['name_placeholder'],
                         ]),
-                        constalt_acf_field('home_contact_phone_placeholder', 'Плейсхолдер телефона', 'phone_placeholder', 'text', [
+                        constalt_acf_field('home_contact_phone_placeholder', 'Підказка для телефону', 'phone_placeholder', 'text', [
                             'default_value' => $contact_defaults['phone_placeholder'],
                         ]),
-                        constalt_acf_field('home_contact_question_placeholder', 'Плейсхолдер вопроса', 'question_placeholder', 'text', [
+                        constalt_acf_field('home_contact_question_placeholder', 'Підказка для запитання', 'question_placeholder', 'text', [
                             'default_value' => $contact_defaults['question_placeholder'],
                         ]),
-                        constalt_acf_field('home_contact_consent_label', 'Текст согласия', 'consent_label', 'text', [
+                        constalt_acf_field('home_contact_consent_label', 'Текст згоди', 'consent_label', 'text', [
                             'default_value' => $contact_defaults['consent_label'],
                         ]),
                         constalt_acf_field('home_contact_submit_label', 'Текст кнопки', 'submit_label', 'text', [
                             'default_value' => $contact_defaults['submit_label'],
                         ]),
-                        constalt_acf_field('home_contact_background_image', 'Фото в правой части', 'background_image', 'image', [
+                        constalt_acf_field('home_contact_background_image', 'Фото у правій частині', 'background_image', 'image', [
                             'return_format' => 'array',
                             'preview_size' => 'medium',
                         ]),
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_faq', 'FAQ'),
+                constalt_acf_tab('home_tab_faq', 'Поширені питання'),
                 constalt_acf_group(
                     'home_faq_group',
-                    'FAQ блок',
+                    'FAQ-блок',
                     'constalt_home_faq',
                     [
                         constalt_acf_field('home_faq_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1541,21 +1541,21 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_faq_title', 'Заголовок', 'title', 'textarea', [
                             'default_value' => $faq_defaults['title'],
                             'rows' => 2,
-                            'instructions' => 'Допустимы <strong> и <br>.',
+                            'instructions' => 'Дозволені <strong> і <br>.',
                         ]),
                         constalt_acf_repeater(
                             'home_faq_items',
-                            'Вопросы и ответы',
+                            'Питання та відповіді',
                             'items',
                             [
-                                constalt_acf_field('home_faq_item_question', 'Вопрос', 'question', 'text'),
-                                constalt_acf_field('home_faq_item_answer', 'Ответ', 'answer', 'textarea', [
+                                constalt_acf_field('home_faq_item_question', 'Питання', 'question', 'text'),
+                                constalt_acf_field('home_faq_item_answer', 'Відповідь', 'answer', 'textarea', [
                                     'rows' => 3,
-                                    'instructions' => 'Допустимы <strong> и <br>.',
+                                    'instructions' => 'Дозволені <strong> і <br>.',
                                 ]),
                             ],
                             [
-                                'button_label' => 'Добавить вопрос',
+                                'button_label' => 'Додати питання',
                             ]
                         ),
                         constalt_acf_field('home_faq_cta_title', 'Заголовок CTA', 'cta_title', 'text', [
@@ -1569,10 +1569,10 @@ function constalt_register_site_content_field_groups(): void
                     ]
                 ),
 
-                constalt_acf_tab('home_tab_blog', 'Blog'),
+                constalt_acf_tab('home_tab_blog', 'Блог'),
                 constalt_acf_group(
                     'home_blog_group',
-                    'Блог блок',
+                    'Блог-блок',
                     'constalt_home_blog',
                     [
                         constalt_acf_field('home_blog_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1581,10 +1581,10 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('home_blog_title', 'Заголовок', 'title', 'text', [
                             'default_value' => $blog_defaults['title'],
                         ]),
-                        constalt_acf_field('home_blog_all_link_label', 'Текст ссылки "Все новости"', 'all_link_label', 'text', [
+                        constalt_acf_field('home_blog_all_link_label', 'Текст посилання "Усі новини"', 'all_link_label', 'text', [
                             'default_value' => $blog_defaults['all_link_label'],
                         ]),
-                        constalt_acf_field('home_blog_empty_text', 'Текст при пустом блоге', 'empty_text', 'text', [
+                        constalt_acf_field('home_blog_empty_text', 'Текст для порожнього блогу', 'empty_text', 'text', [
                             'default_value' => $blog_defaults['empty_text'],
                         ]),
                     ]
@@ -1609,12 +1609,12 @@ function constalt_register_site_content_field_groups(): void
     acf_add_local_field_group(
         [
             'key' => 'group_constalt_contacts_content',
-            'title' => 'Контент страницы контактов',
+            'title' => 'Контент сторінки контактів',
             'fields' => [
-                constalt_acf_tab('contacts_tab_main', 'Контакты'),
+                constalt_acf_tab('contacts_tab_main', 'Контакти'),
                 constalt_acf_group(
                     'contacts_page_group',
-                    'Страница контактов',
+                    'Сторінка контактів',
                     'constalt_contacts_page',
                     [
                         constalt_acf_field('contacts_page_marker_text', 'Маркер', 'marker_text', 'text', [
@@ -1623,7 +1623,7 @@ function constalt_register_site_content_field_groups(): void
                         constalt_acf_field('contacts_page_title', 'Заголовок', 'title', 'text', [
                             'default_value' => $contacts_defaults['title'],
                         ]),
-                        constalt_acf_field('contacts_page_phone_label', 'Подпись телефона', 'phone_label', 'text', [
+                        constalt_acf_field('contacts_page_phone_label', 'Підпис телефону', 'phone_label', 'text', [
                             'default_value' => $contacts_defaults['phone_label'],
                         ]),
                         constalt_acf_field('contacts_page_phone_value', 'Телефон', 'phone_value', 'text', [
@@ -1631,68 +1631,68 @@ function constalt_register_site_content_field_groups(): void
                         ]),
                         constalt_acf_repeater(
                             'contacts_page_socials',
-                            'Соцсети',
+                            'Соцмережі',
                             'socials',
                             [
-                                constalt_acf_field('contacts_page_social_network', 'Сеть', 'network', 'select', [
+                                constalt_acf_field('contacts_page_social_network', 'Мережа', 'network', 'select', [
                                     'choices' => [
                                         'telegram' => 'Telegram',
                                         'instagram' => 'Instagram',
                                         'viber' => 'Viber',
                                         'facebook' => 'Facebook',
                                         'linkedin' => 'LinkedIn',
-                                        'custom' => 'Своя иконка',
+                                        'custom' => 'Власна іконка',
                                     ],
                                     'default_value' => 'telegram',
                                     'ui' => 1,
                                 ]),
-                                constalt_acf_field('contacts_page_social_url', 'Ссылка', 'url', 'text', [
-                                    'instructions' => 'Можно вставить https://, tg://, viber:// или временно #.',
+                                constalt_acf_field('contacts_page_social_url', 'Посилання', 'url', 'text', [
+                                    'instructions' => 'Можна вставити https://, tg://, viber:// або тимчасово #.',
                                 ]),
-                                constalt_acf_field('contacts_page_social_aria_label', 'Aria label', 'aria_label', 'text'),
-                                constalt_acf_field('contacts_page_social_custom_icon', 'Своя иконка', 'custom_icon', 'image', [
+                                constalt_acf_field('contacts_page_social_aria_label', 'Aria-мітка', 'aria_label', 'text'),
+                                constalt_acf_field('contacts_page_social_custom_icon', 'Власна іконка', 'custom_icon', 'image', [
                                     'return_format' => 'array',
                                     'preview_size' => 'thumbnail',
                                 ]),
                             ],
                             [
-                                'button_label' => 'Добавить соцсеть',
+                                'button_label' => 'Додати соцмережу',
                             ]
                         ),
-                        constalt_acf_field('contacts_page_address_label', 'Подпись адреса', 'address_label', 'text', [
+                        constalt_acf_field('contacts_page_address_label', 'Підпис адреси', 'address_label', 'text', [
                             'default_value' => $contacts_defaults['address_label'],
                         ]),
-                        constalt_acf_field('contacts_page_address_text', 'Адрес', 'address_text', 'textarea', [
+                        constalt_acf_field('contacts_page_address_text', 'Адреса', 'address_text', 'textarea', [
                             'default_value' => $contacts_defaults['address_text'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('contacts_page_hours_label', 'Подпись графика', 'hours_label', 'text', [
+                        constalt_acf_field('contacts_page_hours_label', 'Підпис графіка', 'hours_label', 'text', [
                             'default_value' => $contacts_defaults['hours_label'],
                         ]),
-                        constalt_acf_field('contacts_page_hours_text', 'График', 'hours_text', 'textarea', [
+                        constalt_acf_field('contacts_page_hours_text', 'Графік', 'hours_text', 'textarea', [
                             'default_value' => $contacts_defaults['hours_text'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('contacts_page_panel_title', 'Заголовок формы', 'panel_title', 'text', [
+                        constalt_acf_field('contacts_page_panel_title', 'Заголовок форми', 'panel_title', 'text', [
                             'default_value' => $contacts_defaults['panel_title'],
                         ]),
-                        constalt_acf_field('contacts_page_panel_description', 'Описание формы', 'panel_description', 'textarea', [
+                        constalt_acf_field('contacts_page_panel_description', 'Опис форми', 'panel_description', 'textarea', [
                             'default_value' => $contacts_defaults['panel_description'],
                             'rows' => 2,
                         ]),
-                        constalt_acf_field('contacts_page_form_service', 'Скрытое значение service', 'form_service', 'text', [
+                        constalt_acf_field('contacts_page_form_service', 'Приховане значення service', 'form_service', 'text', [
                             'default_value' => $contacts_defaults['form_service'],
                         ]),
-                        constalt_acf_field('contacts_page_name_placeholder', 'Плейсхолдер имени', 'name_placeholder', 'text', [
+                        constalt_acf_field('contacts_page_name_placeholder', 'Підказка для імені', 'name_placeholder', 'text', [
                             'default_value' => $contacts_defaults['name_placeholder'],
                         ]),
-                        constalt_acf_field('contacts_page_phone_placeholder', 'Плейсхолдер телефона', 'phone_placeholder', 'text', [
+                        constalt_acf_field('contacts_page_phone_placeholder', 'Підказка для телефону', 'phone_placeholder', 'text', [
                             'default_value' => $contacts_defaults['phone_placeholder'],
                         ]),
-                        constalt_acf_field('contacts_page_question_placeholder', 'Плейсхолдер вопроса', 'question_placeholder', 'text', [
+                        constalt_acf_field('contacts_page_question_placeholder', 'Підказка для запитання', 'question_placeholder', 'text', [
                             'default_value' => $contacts_defaults['question_placeholder'],
                         ]),
-                        constalt_acf_field('contacts_page_consent_label', 'Текст согласия', 'consent_label', 'text', [
+                        constalt_acf_field('contacts_page_consent_label', 'Текст згоди', 'consent_label', 'text', [
                             'default_value' => $contacts_defaults['consent_label'],
                         ]),
                         constalt_acf_field('contacts_page_submit_label', 'Текст кнопки', 'submit_label', 'text', [
